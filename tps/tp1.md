@@ -1,11 +1,6 @@
 # TP 1: Modelo de Screening
 
-
 Consigna del primer tp
-
-
-
-
 
 
 ### Links a material de descarga:

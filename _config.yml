@@ -8,13 +8,13 @@ search_enabled: true
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: "" #an empty string here means all files in the project
     values:
       layout: "page"
       has_children: true
       has_toc: true
       nav_order: 2
-  - 
+  -
     scope:
       path: "teo"
     values:
