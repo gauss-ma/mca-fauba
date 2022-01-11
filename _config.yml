@@ -1,7 +1,7 @@
 title: "MCA - FAUBA"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: nil
-#exclude : []
+exclude : [readme, eval]
 
 search_enabled: true
 
@@ -14,25 +14,25 @@ defaults:
       has_children: true
       has_toc: true
       nav_order: 2
-  -
+  - 
     scope:
       path: "teo"
     values:
       parent: Teoricas
       has_children: false
-  -
+  - 
     scope:
       path: "tps"
     values:
       parent: Trabajos Practicos
       has_children: false
-  -
+  - 
     scope:
       path: "ejs"
     values:
       parent: Ejercicios
       has_children: false
-  -
+  - 
     scope:
       path: "tut" 
     values:
