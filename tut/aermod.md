@@ -3,7 +3,6 @@ nav_order: 2
 ---
 # Aermod
 
-
 > Tutorial para uso de **aermod**
 
 
@@ -18,6 +17,5 @@ Link de descarga del [SCREEN3](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/scree
 
 
 ## Salidas
-
 
 

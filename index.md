@@ -1,10 +1,9 @@
 ---
 has_children: false
-nav_order: 1
 nav_exclude: true
 ---
 
-# Home:
+# Home
 
 > Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, UBA.
 
@@ -13,7 +12,7 @@ nav_exclude: true
 + Espada, Ramiro A.
 + Medrano, Luciano M.
 
-### Creditos: DOS (2) créditos (TREINTA Y DOS (32) horas)
+### Creditos: DOS (2) créditos = TREINTA Y DOS (32) horas.
 
 ### Correlativas requeridas: 
 + Física aplicada (LiCiA)
@@ -23,33 +22,27 @@ nav_exclude: true
 
 ### Cronograma:
 
-| Semana | Tema                                   | Práctica |
-|:-------|:---------------------------------------|:---------|
-|1 | Introducción a MCA   [Clase 1](./teo/u1.md)  |      -   |
-|2 | Normativa e Historia.[Clase 2](./teo/u2.md)  |      -   |
-|3 | Repaso Meteorología. [Clase 3](./teo/u3.md)  |      -   |
-|4 | SCREEN3              [Clase 4](./teo/u4.md)  |[TP 1](./tps/tp1.md) |
-|5 | AERMOD I  (aermet)   [Clase 5](./teo/u5.md)  |      -   |
-|6 | AERMOD II (aermod)   [Clase 6](./teo/u6.md)  |[TP 2](./tps/tp2.md) |
-|7 | Postprocesamiento    [Clase 7](./teo/u7.md)  |      -   |
-|8 | [Evaluación integradora](./eval/eval.md)     |      -   |
+| Semana | Tema                             |    Práctica    |
+|:-------|:---------------------------------|:--------------:|
+|1 | [Introducción a MCA    ](./teo/u1.md)  |      -         |
+|2 | [Normativa e Historia  ](./teo/u2.md)  |      -         |
+|3 | [Repaso Meteorología   ](./teo/u3.md)  |      -         |
+|4 | [SCREEN3               ](./teo/u4.md)  |[TP 1](./tps/tp1.md) |
+|5 | [AERMOD I  (aermet)    ](./teo/u5.md)  |      -         |
+|6 | [AERMOD II (aermod)    ](./teo/u6.md)  |[TP 2](./tps/tp2.md) |
+|7 | [Postprocesamiento     ](./teo/u7.md)  |      -         |
+|8 | [Evaluación integradora](./eval/eval.md)|     -         |
 
 
 ### Contenidos:
 
 - **Unidad 1:** Introducción físico-matemática: Repaso de análisis matemático (Derivadas parciales y ecuaciones diferenciales). Función Gaussiana y Función Error. Ecuaciones de difusión y de transporte. Unidades de concentración de contaminantes en aire y cuadales de emisión
-
 - **Unidad 2:** Introducción normativa: Requerimientos legales en Argentina sobre exigencias de modelados de la dispersión de contaminantes atmosféricos. Uso en la normativa Internacional y Normas IRAM/ISO
-
 - **Unidad 3:** Desarrollo Histórico de modelos de calidad de aire: Primeras aplicaciones de modelado de dispersión, evolución de modelos predecesores. Estudios científicos de base. Desarrollos locales. Casos de ejemplo de aplicación. Introducción al modelado de la dispersión de contaminantes en la atmósfera. Ecuación de transporte: advección, difusión, fuentes y sumideros. Formulación Euleriana y Lagrangiana. Soluciones analíticas de la ecuación de transporte para estado transitorio y estacionario. Modelos gaussianos, modelos lagrangianos y modelos mixtos.
-
 - **Unidad 4:** Influencia de las condiciones meteorológicas en la dispersión de contaminantes en la atmósfera: Radiación y Balance de calor en la atmósfera. Turbulencia y Capa Límite Planetaria (PBL). Altura de mezcla Turbulenta y Convectiva. Estructura vertical de la PBL. Tratamiento de la información meteorológica. Calidad de los resultados. Factores de incertidumbre. 
-
 - **Unidad 5:** Nociones de cálculo de emisiones. Interpretación de protocolos de monitoreo de emisiones. Estimaciones mediante AP-42 metodología general. Ejemplos de aplicaciones a voladura de polvos en caminos y pilas, rellenos sanitarios, tanques de almacenamiento, entre otros. 
-
 - **Unidad 6:** Modelos de Sondeo: Fundamentos e implementación de modelo simple según normativa local. Fundamentos y uso de modelo SCREEN3. Modelos de detalle: Fundamentos e implementación del AERMOD y sus preprocesadores: AERMAP, AERSURFACE, BPIPPRM y AERMET. Parámetros micro-meteorológicos de Capa Límite Convectiva y Estable (calor sensible, velocidad de fricción, longitud de Monin-Obukhov). Temperatura potencial y estabilidad. Clases de estabilidad. Efectos de la superficie, topografía, edificios (downwash), fumigación costera y flotación en el desarrollo vertical de la pluma. Herramientas para el pre-procesamiento y post-procesamiento:
 Interpretación y visualización de resultados, isopletas de concentración, tablas de frecuencia de excedencias de concentración límite. Tiempos de promediado. 
-
 
 
 ### Bibliografía:
