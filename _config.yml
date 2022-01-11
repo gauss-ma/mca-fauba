@@ -1,0 +1,40 @@
+title: "MCA - FAUBA"
+remote_theme: pmarsceill/just-the-docs
+color_scheme: nil
+#exclude : []
+
+search_enabled: true
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "page"
+      has_children: true
+      has_toc: true
+      nav_order: 2
+  -
+    scope:
+      path: "teo"
+    values:
+      parent: Teoricas
+      has_children: false
+  -
+    scope:
+      path: "tps"
+    values:
+      parent: Trabajos Practicos
+      has_children: false
+  -
+    scope:
+      path: "ejs"
+    values:
+      parent: Ejercicios
+      has_children: false
+  -
+    scope:
+      path: "tut" 
+    values:
+      parent: Tutoriales
+      has_children: false
