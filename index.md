@@ -23,23 +23,16 @@ nav_exclude: true
 
 ### Cronograma:
 
-Clases:
-+ *xx/06* [Clase 1](./teo/u1.md)
-+ *xx/06* [Clase 2](./teo/u2.md)
-+ *xx/06* [Clase 3](./teo/u3.md)
-+ *xx/06* [Clase 4](./teo/u4.md)
-+ *xx/07* [Clase 5](./teo/u5.md)
-+ *xx/07* [Clase 6](./teo/u6.md)
-+ *xx/07* [Clase 7](./teo/u7.md)
-+ *xx/07* [Clase 8](./teo/u8.md)
-
-Entregas:
-
-+ *xx/06* [Trabajo Práctico 1](./tps/tp1.md)
-+ *xx/07* [Trabajo Práctico 2](./tps/tp2.md)
-
-Exámen:
-+ *xx/06* [Evaluación integradora](./eval/eval.md)
+| Semana | Tema                                   | Práctica |
+|:-------|:---------------------------------------|:---------|
+|1 | Introducción a MCA   [Clase 1](./teo/u1.md)  |      -   |
+|2 | Normativa e Historia.[Clase 2](./teo/u2.md)  |      -   |
+|3 | Repaso Meteorología. [Clase 3](./teo/u3.md)  |      -   |
+|4 | SCREEN3              [Clase 4](./teo/u4.md)  |[TP 1](./tps/tp1.md) |
+|5 | AERMOD I  (aermet)   [Clase 5](./teo/u5.md)  |      -   |
+|6 | AERMOD II (aermod)   [Clase 6](./teo/u6.md)  |[TP 2](./tps/tp2.md) |
+|7 | Postprocesamiento    [Clase 7](./teo/u7.md)  |      -   |
+|8 | [Evaluación integradora](./eval/eval.md)     |      -   |
 
 
 ### Contenidos:
