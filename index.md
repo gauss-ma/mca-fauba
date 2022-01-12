@@ -1,18 +1,15 @@
 ---
-has_children: false
 nav_exclude: true
+has_children: false
 ---
-
 # Modelado de la Calidad del AIre
 
 > Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, UBA.
-
 
 ### Docentes a cargo:
 + Bormioli, Marcelo G.
 + Espada, Ramiro A.
 + Medrano, Luciano M.
-
 
 ### Cronograma:
 
@@ -28,7 +25,6 @@ nav_exclude: true
 |8 | [Evaluación integradora](./eval/eval.md)|     -         |
 
 ### Contenidos:
-
 - **Unidad 1:** Introducción físico-matemática: Repaso de análisis matemático (Derivadas parciales y ecuaciones diferenciales). Función Gaussiana y Función Error. Ecuaciones de difusión y de transporte. Unidades de concentración de contaminantes en aire y cuadales de emisión
 - **Unidad 2:** Introducción normativa: Requerimientos legales en Argentina sobre exigencias de modelados de la dispersión de contaminantes atmosféricos. Uso en la normativa Internacional y Normas IRAM/ISO
 - **Unidad 3:** Desarrollo Histórico de modelos de calidad de aire: Primeras aplicaciones de modelado de dispersión, evolución de modelos predecesores. Estudios científicos de base. Desarrollos locales. Casos de ejemplo de aplicación. Introducción al modelado de la dispersión de contaminantes en la atmósfera. Ecuación de transporte: advección, difusión, fuentes y sumideros. Formulación Euleriana y Lagrangiana. Soluciones analíticas de la ecuación de transporte para estado transitorio y estacionario. Modelos gaussianos, modelos lagrangianos y modelos mixtos.
@@ -46,12 +42,6 @@ Interpretación y visualización de resultados, isopletas de concentración, tab
 ### Creditos: 
 DOS (2) créditos = TREINTA Y DOS (32) horas.
 
-
-
-
-
-
-
 ### Bibliografía:
 
 - "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
@@ -59,12 +49,11 @@ DOS (2) créditos = TREINTA Y DOS (32) horas.
 - "AERMOD Model Formulation and Evaluation", U.S.EPA. EPA-454/ R-18-003. April, 2018.
 - "Guía metodológica para la evaluación del impacto ambiental atmosférico". Laura Dawidowski, Darío Gómez y Silvia Reich. Honorable Cámara de Diputados de La Nación.
 - "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
-- Resolución 559-19_OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
+- Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
 
 
 ### Bibliografía complementaria
 - “Modeling of Atmospheric Chemistry”. Brasseur G.P & Jacob D.J Cambridge University Press. May 2017.
 - “Fundamentals of Atmospheric Modeling” (2nd edition). Jacobson M.Z. Cambridge University Press. June 2012.
 - “Introduction to Atmospheric Chemistry”. Jacob D.J. Princeton University Press, 1999.
-
 

@@ -33,7 +33,7 @@ defaults:
     scope:
       path: "" #an empty string here means all files in the project
     values:
-      layout: "page"
+      #layout: "page"
       has_children: true
       has_toc: true
       nav_order: 2
@@ -62,4 +62,3 @@ defaults:
       parent: Ejercicios
       has_children: false
 
-theme: jekyll-theme-minimal
