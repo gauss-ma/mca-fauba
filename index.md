@@ -15,13 +15,13 @@ has_children: false
 
 | Semana | Tema                             |    Práctica    |
 |:-------|:---------------------------------|:---------------|
-|1 | [Introducción a MCA    ](./teo/u1.md)  |      -         |
-|2 | [Normativa e Historia  ](./teo/u2.md)  |      -         |
-|3 | [Repaso Meteorología   ](./teo/u3.md)  |      -         |
-|4 | [SCREEN3               ](./teo/u4.md)  |[TP 1](./tps/tp1.md) |
-|5 | [AERMOD I  (aermet)    ](./teo/u5.md)  |      -         |
-|6 | [AERMOD II (aermod)    ](./teo/u6.md)  |[TP 2](./tps/tp2.md) |
-|7 | [Postprocesamiento     ](./teo/u7.md)  |      -         |
+|1 | [Introducción a MCA    ](./teo/c1.md)  |      -         |
+|2 | [Normativa e Historia  ](./teo/c2.md)  |      -         |
+|3 | [Repaso Meteorología   ](./teo/c3.md)  |      -         |
+|4 | [SCREEN3               ](./teo/c4.md)  |[TP 1](./tps/tp1.md) |
+|5 | [AERMOD I  (aermet)    ](./teo/c5.md)  |      -         |
+|6 | [AERMOD II (aermod)    ](./teo/c6.md)  |[TP 2](./tps/tp2.md) |
+|7 | [Postprocesamiento     ](./teo/c7.md)  |      -         |
 |8 | [Evaluación integradora](./eval/eval.md)|     -         |
 
 ### Contenidos:
