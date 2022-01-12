@@ -39,15 +39,15 @@ defaults:
       nav_order: 2
   - 
     scope:
-      path: "teo"
+      path: "cla"
     values:
-      parent: Teoricas
+      parent: Clases
       has_children: false
   -
     scope:
       path: "tps"
     values:
-      parent: Trabajos Practicos
+      parent: Trabajos Prácticos
       has_children: false
   -
     scope:

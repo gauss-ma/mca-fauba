@@ -1,10 +1,10 @@
 ---
-title: Teoricas
-description: Apuntes teóricos
+title: Clases
+description: Material y resumenes de clases teóricas.
 nav_order: 2
 ---
 
-# Teóricas:
+# Clases:
 
 > Material de lectura con contenido teórico de la asignatura.
 

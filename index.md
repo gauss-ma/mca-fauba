@@ -2,7 +2,7 @@
 nav_exclude: true
 has_children: false
 ---
-# Modelado de la Calidad del AIre
+# Modelado de la Calidad del Aire
 
 > Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, UBA.
 
@@ -51,9 +51,10 @@ DOS (2) créditos = TREINTA Y DOS (32) horas.
 - "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
 - Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
 
-
 ### Bibliografía complementaria
+- "Introduction to Atmospheric Chemistry". Jacob D.J. Princeton University Press, 1999.
+- "Practical Meteorology: An Algebra-based Survey of Atmospheric Science". Stull Rolland. AVP International, University of British Columbia, 2016.
+
+### Bibliografía avanzada
 - “Modeling of Atmospheric Chemistry”. Brasseur G.P & Jacob D.J Cambridge University Press. May 2017.
 - “Fundamentals of Atmospheric Modeling” (2nd edition). Jacobson M.Z. Cambridge University Press. June 2012.
-- “Introduction to Atmospheric Chemistry”. Jacob D.J. Princeton University Press, 1999.
-

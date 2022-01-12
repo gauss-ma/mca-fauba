@@ -1,6 +1,12 @@
 # TP 1: Modelo de Screening
 
-Consigna del primer tp
+> Objetivo del trabajo práctico.
+
+
+Consigna del primer tp.
+
+
+
 
 ### Links a material de descarga:
 
