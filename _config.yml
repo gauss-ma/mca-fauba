@@ -61,3 +61,5 @@ defaults:
     values:
       parent: Ejercicios
       has_children: false
+
+theme: jekyll-theme-minimal
