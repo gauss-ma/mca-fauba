@@ -1,5 +1,5 @@
 ---
-title: Teóricas
+title: Teoricas
 description: Apuntes teóricos
 nav_order: 2
 ---

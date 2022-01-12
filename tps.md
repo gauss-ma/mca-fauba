@@ -1,5 +1,5 @@
 ---
-title: Trabajos Prácticos
+title: Trabajos Practicos
 description: Trabajos prácticos.
 nav_order: 3
 ---
