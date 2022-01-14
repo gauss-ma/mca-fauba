@@ -22,7 +22,7 @@ has_children: false
 |5 | [AERMOD I  (aermet)    ](./cla/c5.md)  |      -         |
 |6 | [AERMOD II (aermod)    ](./cla/c6.md)  |[TP 2](./tps/tp2.md) |
 |7 | [Postprocesamiento     ](./cla/c7.md)  |      -         |
-|8 | [Evaluación integradora](./eval/eval.md)|     -         |
+|8 | Evaluación integradora                 |      -         |
 
 ### Contenidos:
 - **Unidad 1:** Introducción físico-matemática: Repaso de análisis matemático (Derivadas parciales y ecuaciones diferenciales). Función Gaussiana y Función Error. Ecuaciones de difusión y de transporte. Unidades de concentración de contaminantes en aire y cuadales de emisión

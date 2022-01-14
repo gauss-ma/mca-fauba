@@ -7,7 +7,3 @@ nav_order: 3
 
 > Trabajos prácticos de la materia.
 
-
-
-
-

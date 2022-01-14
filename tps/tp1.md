@@ -1,11 +1,9 @@
 # TP 1: Modelo de Screening
 
-> Objetivo del trabajo práctico.
+> Implementar modelo de screening.
 
 
-Consigna del primer tp.
-
-
+Implementar modelo de screening mediante el software *SCREEN3* para la situación problemática asignada por los docentes.
 
 
 ### Links a material de descarga:

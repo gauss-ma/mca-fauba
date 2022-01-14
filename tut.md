@@ -8,4 +8,3 @@ nav_order: 4
 > Guías paso a paso para manejo del software.
 
 
-
