@@ -15,8 +15,29 @@ Link de descarga del [AERMET](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/ae
 
 ### Datos de radiosondeos
 
+### Datos sitio-especificas
+
 
 ## Ejecución
+
+
+
+### Stage 1
+
+
+
+
+### Stage 2
+
+
+
+
+
+### Stage 3
+
+
+
+
 
 
 ## Salidas
