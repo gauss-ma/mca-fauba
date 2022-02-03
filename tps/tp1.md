@@ -2,7 +2,6 @@
 
 > Implementar modelo de screening.
 
-
 Implementar modelo de screening mediante el software *SCREEN3* para la situación problemática asignada por los docentes.
 
 
