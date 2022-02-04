@@ -1,3 +1,6 @@
+---
+nav_order: 3
+---
 # TP 2: Modelo de Detalle
 
 > Objetivo del TP

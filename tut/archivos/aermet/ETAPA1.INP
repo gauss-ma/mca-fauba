@@ -1,7 +1,7 @@
 ** Stage 1: Lectura y procesamiento de datos de entrada.
 JOB
-MESSAGES STAGE1.MSG
-REPORT   STAGE1.RPT
+MESSAGES ETAPA1.MSG
+REPORT   ETAPA1.RPT
 **    Datos horarios de superficie:
 SURFACE
 DATA       PRUEBA.ISH ISHD

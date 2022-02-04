@@ -1,7 +1,7 @@
 ** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
 JOB
-MESSAGES STAGE3.MSG
-REPORT   STAGE3.RPT
+MESSAGES ETAPA3.MSG
+REPORT   ETAPA3.RPT
 METPREP
 DATA        PRUEBA.MRG
 LOCATION    A212 34.450S 058.583W  3
