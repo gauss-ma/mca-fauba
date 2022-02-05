@@ -6,22 +6,24 @@ nav_order: 2
 > Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
 
 Los pasos generales a seguir son:
-1. Descargar el ejecutable ``aermet.exe``.
-2. Descargar datos meteorológicos: superficiales y radiosondeos.
-3. Colocar todo lo anterior en un directorio.
-4. Construir archivos de control para cada etapa: 
-	+ ``ETAPA1.INP``, extracción y control de calidad de datos.
-	+ ``ETAPA2.INP``, fusión de datos de superficie y radiosondeos.
-	+ ``ETAPA3.INP``, cálculo de parámetros de capa límite.
-5. Ejecutar ``aermet.exe`` para cada una de las estapas:  ``aermet.exe < ETAPAx.INP``
+1. Descargar el ejecutable [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip).
+2. Descargar datos meteorológicos: [superficiales](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs).
+3. Construir archivos de control para cada etapa: 
+	+ [``ETAPA1.INP``](archivos/aermet/ETAPA1.INP), extracción y control de calidad de datos.
+	+ [``ETAPA2.INP``](archivos/aermet/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
+	+ [``ETAPA3.INP``](archivos/aermet/ETAPA3.INP), cálculo de parámetros de capa límite.
+4. Colocar todo lo anterior en un directorio.
+5. Ejecutar ``aermet.exe`` para cada una de las estapas: 
+	+ ``aermet.exe < ETAPA1.INP``
+	+ ``aermet.exe < ETAPA2.INP``
+	+ ``aermet.exe < ETAPA3.INP``
 
 
 ## Descarga de ejecutable
 
-Link de descarga del [AERMET](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
+Link de descarga del ejecutable [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), también es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
 
 Se descargará un archivo con extensión ``.zip``, al descomprimirlo habrá un archivo con extensión ``.exe`` que es el ejecutable.
-
 
 ## Descarga de datos meteorológicos:
 

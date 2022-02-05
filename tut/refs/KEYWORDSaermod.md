@@ -1,6 +1,9 @@
+---
+nav_exclude: true
+nav_order: 10
+---
 
-
-# KEYWORDS AERMOD
+# Referencias: KEYWORDS Aermod
 
 > Keywords de AERMOD organizadas por seccion.
 
@@ -25,6 +28,9 @@ Cada especificación sigue la siguiente estructura general:
 ```
 KEYWORD <arg1> <arg2> ... <argN>
 ```
+donde *arg1*, *arg2*, etc. son los argumentos/valores del comando.
+
+A continuación se listan los keywords de aermod organizados por sección, en algunos casos se mencionan los posibles argumentos que pueden tomar.
 
 ## CO
 

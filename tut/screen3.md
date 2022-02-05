@@ -5,6 +5,12 @@ nav_order: 1
 
 > Tutorial para uso de **screen3**
 
+Los pasos para la ejecución del **SCREEN3** son:
+1. Descargar ejecutable ``SCREEN3.exe`` y código fuente: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
+2. Ejecutar ``SCREEN3.exe`` haciendo doble click sobre este, ó en caso de estar en la terminal en el directorio descargado usando el comando: ``SCREEN3.exe``
+3. Ingresar los datos que pide el programa, y los resultados se guardarán en el archivo ``SCREEN.OUT``.
+
+
 ## Descarga
 
 El **SCREEN3** se puede descargar del siguiente link: [``SCREEN3``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).

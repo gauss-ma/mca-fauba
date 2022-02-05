@@ -1,21 +1,20 @@
 ---
-nav_order: 4
+nav_order: 5
 ---
 # Aermod (parte 3)
 
 > Tutorial para uso de **AERMOD**
 
 Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
-1. Descargar ejecutable ``aermod.exe``.
-2. Ejecutar **AERMET** para obtener archivos meteorológicos: ``PRUEBA.SFC`` y ``PRUEBA.FSL``.
-3. Ejecutar **AERMAP** para obtener el archivo de receptores: ``PRUEBA.ROU``.
-4. Colocar todos los archivos mencionados en un directorio de trabajo común.
-5. Construir archivo de control: ``aermod.inp``
+1. Descargar ejecutable [``aermod.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip).
+2. Ejecutar **AERMET** para obtener archivos meteorológicos: [``PRUEBA.SFC``](archivos/aermod/PRUEBA.SFC) y [``PRUEBA.FSL``](archivos/aermod/PRUEBA.PFL).
+3. Ejecutar **AERMAP** para obtener el archivo de receptores: [``PRUEBA.ROU``](archivos/aermod/PRUEBA.ROU).
+4. Construir archivo de control: [``aermod.inp``](archivos/aermod/aermod.inp)
+5. Colocar todos los archivos mencionados en un directorio de trabajo común.
 6. Ejecutar **AERMOD**: ``aermod.exe < aermod.inp ``
 
 ## Descarga
-
-Link de descarga: [AERMOD](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip)
+Link de descarga de ejecutable: [``aermod.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), también es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip).
 
 ## Preparación de datos de entrada
 

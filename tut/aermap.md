@@ -10,10 +10,11 @@ El **AERMAP** es un preprocesador del **AERMOD** que permite generar una grilla 
 
 
 Para ejecutar el **AERMAP** necesitamos:
-1. Descargar el ejecutable ``aermap.exe``.
-2. Descargar un modelo digital de elevación que contenga el domino que queremos modelar.
-3. Construir un archivo de control para el aermap ``aermap.inp``
-4. Ejecutar el aermap: `` aermap.exe < aermap.inp``.
+1. Descargar el ejecutable [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip).
+2. Descargar un [modelo digital de elevación](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa) que contenga el domino que queremos modelar.
+3. Construir un archivo de control para el aermap: [``aermap.inp``](archivos/aermap/aermap.inp)
+4. Colocar todos los archivos mencionados en un directorio común.
+5. Ejecutar el aermap haciendo doble click sobre el ejecutable ó si están en la terminal: `` aermap.exe < aermap.inp``.
 
 ## Descarga de ejecutable:
 
