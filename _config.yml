@@ -1,7 +1,7 @@
 title: "Curso MCA"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: nil
-exclude : [readme]
+exclude : [readme, tut/archivos, tps/archivos]
 search_enabled: true
 search:
   # Split pages into sections that can be searched individually
