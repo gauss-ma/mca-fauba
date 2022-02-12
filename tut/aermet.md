@@ -25,19 +25,19 @@ Los pasos generales a seguir son:
 Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables.
 
 Esto se puede realizar abriendo una terminal ó consola (**cmd**), y por ejemplo si querémos que crear una carpeta de trabajo con nombre "aermod" dentro de la carpeta ubicada en: C:/Users/MCA_tutorial, debemos ejecutar:
-```shell
+```console
 mkdir C:/Users/MCA_tutorial/aermod
 ```
 
 el comando ``mkdir`` (*make directory*) crea una carpeta en la ubicación que especificamos en la ruta ó *path*.
 
 Luego, vamos al directorio de trabajo con el comando ``chdir`` (*change directory*):
-```shell
+```console
 chdir C:/Users/MCA_tutorial/aermod
 ```
 
 En principio esta carpeta va a estar vacía, para ver su contenido podemos usar el comando ``dir``:
-```shell
+```console
 dir
 ```
 se listarán todos los archivos presentes en la carpeta actual. Es una buena forma de verificar que tenemos todos los archivos necesarios antes de correr el programa.
@@ -45,7 +45,7 @@ se listarán todos los archivos presentes en la carpeta actual. Es una buena for
 ## Descarga de ejecutable
 
 Descargamos el ejecutable de la página de la EPA: [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
-```shell
+```console
 move C:/Users/TuUsuario/Downloads/aermet.exe C:/Users/MCA_tutorial/aermod/aermod.exe
 ```
 
@@ -63,7 +63,7 @@ Para descargar datos meteorológicos tienen que buscar la estación más cercana
 Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/)
 
 También se pueden descargar desde terminal con ``WGET``:
-```shell
+```console
 $> wget ftp://ftp.ncdc.noaa.gov/pub/data/noaa/${year}/${id_sfc}0-99999-${year}.gz
 ```
 donde ``${year}`` es el año de interés, y ``${id_sfc} `` es el id de la estación de superficie.
@@ -252,7 +252,7 @@ AERSURF2 AERSURFACE2.OUT
 ```
 
 Para ejecutar esta etapa se procede igual que en las anteriores:
-```shell
+```console
 $> AERMET.EXE < ETAPA3.INP
 ```
 

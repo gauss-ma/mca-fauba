@@ -29,7 +29,7 @@ Este DEM va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos
 
 Una forma de hacerlo es utilizando ``gdal``:
 
-```shell
+```console
 $>  gdalwarp -tr ${dx} ${dx} -r cubicspline -t_srs epsg:${epsg_local} -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${inp_dem} ${dem_file}
 ```
 
@@ -112,7 +112,7 @@ en este caso el archivo de receptores lo nombramos ``PRUEBA.ROU`` (la extensión
 
 Para ejecutar el aermap, ponemos el ejecutable ``aermap.exe``, el DEM ``PRUEBA.tif`` y el archivo de control en un mismo directorio, y hacemos ejecutamos el programa haciendo doble click, ó si estamos en una terminal:
 
-```shell
+```console
 $> aermap.exe < aermap.inp
 ```
 
