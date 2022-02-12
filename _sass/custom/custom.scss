@@ -17,10 +17,17 @@ th,tr{
    min-width: 40px !important;
 }
 
+//.language-console > code,
+//.language-console > *{
+//	background-color: #505050 !important;
+//	color: #ffffff !important;
+//	font-family: Consolas !important;
+//	font-size:0.85em !important;
+//}
 
-.language-console > code, .language-console{
-	background-color:#505050!important;
-	font-color:#fff!important;
-	font-family: Consolas, Helvetica!important;
-	font-size:0.85em!important;
+code[class*="language-console"], pre[class*="language-console"] {
+	background-color: #505050 !important;
+	color: #ffffff !important;
+	font-family: Consolas !important;
+	font-size:0.85em !important;     
 }
