@@ -6,24 +6,51 @@ nav_order: 2
 > Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
 
 Los pasos generales a seguir son:
-1. Descargar el ejecutable [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip).
-2. Descargar datos meteorológicos: [superficiales](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs).
-3. Construir archivos de control para cada etapa: 
-	+ [``ETAPA1.INP``](archivos/aermet/ETAPA1.INP), extracción y control de calidad de datos.
-	+ [``ETAPA2.INP``](archivos/aermet/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
-	+ [``ETAPA3.INP``](archivos/aermet/ETAPA3.INP), cálculo de parámetros de capa límite.
-4. Colocar todo lo anterior en un directorio.
-5. Ejecutar ``aermet.exe`` para cada una de las estapas: 
+0. Crear *directorio de trabajo* en donde colocaremos todos los archivos de corrida y ejecutables. En este tutorial vamos a asumir que ese directorio es creado en: ``C:/Users/MCA_tutorial/aermod``.
+1. Descargar el ejecutable [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), descomprimirlo y colocar el ejecutable ``aermet.exe`` en el directorio de trabajo.
+2. Descargar datos meteorológicos: de [superficie](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). Colocarlos en el directorio de trabajo con los nombres ``PRUEBA.ISH`` y ``PRUEBA.FSL`` respectivamente.
+3. Construir archivos de control para cada etapa, y colocarlos en el directorio de trabajo: 
+	+ [``ETAPA1.INP``](archivos/aermod/ETAPA1.INP), extracción y control de calidad de datos.
+	+ [``ETAPA2.INP``](archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
+	+ [``ETAPA3.INP``](archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
+4. Abrir una terminal (**cmd**) ir al directorio de trabajo (``chdir C:/Users/MCA_tutorial/aermod``), verificar que estén todos los archivos mencionados en los puntos anteriores y el ejecutable.
+5. Ejecutar ``aermet.exe`` para cada una de las estapas escribiendo los siguientes comandos: 
 	+ ``aermet.exe < ETAPA1.INP``
 	+ ``aermet.exe < ETAPA2.INP``
 	+ ``aermet.exe < ETAPA3.INP``
 
 
+## Directorio de trabajo
+
+Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables.
+
+Esto se puede realizar abriendo una terminal ó consola (**cmd**), y por ejemplo si querémos que crear una carpeta de trabajo con nombre "aermod" dentro de la carpeta ubicada en: C:/Users/MCA_tutorial, debemos ejecutar:
+```shell
+mkdir C:/Users/MCA_tutorial/aermod
+```
+
+el comando ``mkdir`` (*make directory*) crea una carpeta en la ubicación que especificamos en la ruta ó *path*.
+
+Luego, vamos al directorio de trabajo con el comando ``chdir`` (*change directory*):
+```shell
+chdir C:/Users/MCA_tutorial/aermod
+```
+
+En principio esta carpeta va a estar vacía, para ver su contenido podemos usar el comando ``dir``:
+```shell
+dir
+```
+se listarán todos los archivos presentes en la carpeta actual. Es una buena forma de verificar que tenemos todos los archivos necesarios antes de correr el programa.
+
 ## Descarga de ejecutable
 
-Link de descarga del ejecutable [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), también es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
+Descargamos el ejecutable de la página de la EPA: [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
+```shell
+move C:/Users/TuUsuario/Downloads/aermet.exe C:/Users/MCA_tutorial/aermod/aermod.exe
+```
 
-Se descargará un archivo con extensión ``.zip``, al descomprimirlo habrá un archivo con extensión ``.exe`` que es el ejecutable.
+> :information_source: *También es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip) *
+
 
 ## Descarga de datos meteorológicos:
 

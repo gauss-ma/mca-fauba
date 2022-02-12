@@ -30,7 +30,7 @@ Se va a abrir una terminal ó consola:
 
 ```
 
-El programa funcina de forma interactiva, realizando una serie de preguntas que el usuario debe responder ingresando las respuestas desde el teclado y apretando enter.
+El programa funciona de forma interactiva, realizando una serie de preguntas que el usuario debe responder ingresando las respuestas desde el teclado y luego apretando enter.
 
 Algunos datos que va a pedir son:
 + Titulo del proyecto.
@@ -46,13 +46,13 @@ Algunos datos que va a pedir son:
 + Opción para contemplar *downwash* producido por edificios.
 + Opción para contemplar terreno complejo.
 + Opción de meteorología:
-	1. FULL METEOROLOGY (ALL STABILITIES & WIND SPEEDS)
+	1. FULL METEOROLOGY (todas las estabilidades y velocidades de viento)
 	2. INPUT SINGLE STABILITY CLASS
 	3. INPUT SINGLE STABILITY CLASS AND WIND SPEED
 + Opciones para grilla de receptores (automática ó manual)
 + Altura de topográfia sobre la base del emisor.
 + Opción de calculo sobre un receptor discreto.
-+ Opción para escribir archivo de salida. 
++ Opción para guardar archivo de salida. 
 
 Una vez que hayamos respondido a todas las preguntas se va a generar dos archivos: ``SCREEN.OUT`` y ``SCREEN.DAT``. El primero contiene los resultados obtenidos de la ejecución, y el segundo sirve para volver a ejecutar el programa sin tener que responder nuevamente todas las preguntas.
 
@@ -126,12 +126,12 @@ N
 ```
 este archivo contiene las respuestas a las preguntas del **SCREEN3** de forma secuencial. 
 
-Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``SCREEN.DAT``, por ejemplo, si la carpeta se encuentra en ``C:/Users/CursoMCA/screen3`` hay que tipear:
+Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``SCREEN.DAT``, por ejemplo, si la carpeta se encuentra en ``C:/Users/MCA_tutorial/screen3`` hay que tipear:
 
 ```shell 
-$> chdir C:/Users/CursoMCA/screen3
+$> chdir C:/Users/MCA_tutorial/screen3
 ```
-el comando ``chdir`` (de *change directory*) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener acceso a los archivos que se encuentran en la carpeta de interés.
+el comando ``chdir`` (de *change directory*) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener fácil acceso a los archivos que se encuentran en la carpeta de interés.
 
 Luego para ejecutarlo:
 
