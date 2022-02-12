@@ -3,67 +3,58 @@ nav_order: 1
 ---
 # Screen3
 
-> Tutorial para uso de **screen3**
+> Tutorial para uso de **SCREEN3**
 
 Los pasos para la ejecución del **SCREEN3** son:
 1. Descargar ejecutable ``SCREEN3.exe`` y código fuente: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
-2. Ejecutar ``SCREEN3.exe`` haciendo doble click sobre este, ó en caso de estar en la terminal en el directorio descargado usando el comando: ``SCREEN3.exe``
-3. Ingresar los datos que pide el programa, y los resultados se guardarán en el archivo ``SCREEN.OUT``.
+2. Ejecutar ``SCREEN3.exe`` haciendo doble click sobre este.
+3. Ingresar los datos que pide el programa. los resultados se guardarán en el archivo ``SCREEN.OUT``.
 
 
 ## Descarga
 
-El **SCREEN3** se puede descargar del siguiente link: [``SCREEN3``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
+El **SCREEN3** está disponible en la página web de [USEPA](https://www.epa.gov/). Se puede descargar del siguiente link: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
 
-Debería descargarse un archivo ``screen3.zip``, que al extraerlo contiene diversos archivos. Los archivos con extensión ``*.FOR`` son el código fuente, los ``*.DAT`` son ejemplos de archivos de entrada y los ``*.OUT`` son ejemplos de archivos de salida y el archivo ``SCREEN3.exe`` es el ejecutable compilado para windows que utilizaremos.
- 
+Debería descargarse un archivo comprimido ``screen3.zip``, al descomprimirlo habrá una carpeta con diversos archivos. Los archivos con extensión ``*.FOR`` son el código fuente (programado en FORTRAN), los ``*.DAT`` son ejemplos de archivos de entrada al modelo y los ``*.OUT`` son ejemplos de archivos de salida. El archivo ``SCREEN3.exe`` es el ejecutable compilado para windows que utilizaremos.
 
 ## Ejecución
 
-Para ejecutar el **SCREEN3** simplemente vamos al directorio donde se encuentre el ejecutable ``SCREEN3.exe`` y lo ejecutamos haciendo doble click, o si estamos en la terminal:
+Para ejecutar el **SCREEN3** simplemente vamos al directorio donde se encuentre el ejecutable ``SCREEN3.exe`` y lo ejecutamos haciendo doble click:
 
-```shell
-screen3
+Se va a abrir una terminal ó consola:
 ```
-De esta forma se ejecutará de forma interactiva, realizando una serie de preguntas que el usuario debe responder ingresando los valores con el teclado y apretando enter.
-
-
-**SCREEN3** puede ejecutarse también utilizando un *archivo de control* para evitar tener que responder todas las preguntas cada vez que lo ejecutamos.
-
-Un ejemplo de archivo de control es: ``EXAMPLE.DAT``, si lo abrimos veremos:
+  ******  SCREEN3 MODEL  ******
+  **** VERSION DATED 13043 ****
+  
+ ENTER TITLE FOR THIS RUN (UP TO 79 CHARACTERS):
 
 ```
-POINT SOURCE EXAMPLE WITH BUILDING DOWNWASH
-P
-  100.0
-  100.0
-  2.000
-  15.00
-  450.0
-  293.0
-  .0000
-           1
-Y
-  80.00
-  80.00
-  100.0
-N
-N
-           1
-Y
-   100.00, 1000.00
-N
-N
-```
-este archivo contiene las respuestas a las preguntas del **SCREEN3** de forma secuencial. 
 
-Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``EXAMPLE.DAT``, y tipear:
+El programa funcina de forma interactiva, realizando una serie de preguntas que el usuario debe responder ingresando las respuestas desde el teclado y apretando enter.
 
-```shell
-screen3 < EXAMPLE.DAT
-``` 
-El programa se ejecutará y va a crear el archivo: ``SCREEN.OUT``
+Algunos datos que va a pedir son:
++ Titulo del proyecto.
++ Tipo de fuente: Punto (**P**), Flare/Antorcha (**F**), Area (**A**), Volumen (**V**).
++ Tasa de Emision en [g/s].
++ Altura de la Fuente emisora [m].
++ Diámetro interno del conducto [m]
++ Velocidad de salida [m/s] 
++ Temperatura de salida [ºK]
++ Temperatura Ambiente [ºK]
++ Altura sobre el nivel del suelo de los receptores (**flag pole**) [m]
++ Opción Urbana (**U**) ó Rural (**R**)
++ Opción para contemplar *downwash* producido por edificios.
++ Opción para contemplar terreno complejo.
++ Opción de meteorología:
+	1. FULL METEOROLOGY (ALL STABILITIES & WIND SPEEDS)
+	2. INPUT SINGLE STABILITY CLASS
+	3. INPUT SINGLE STABILITY CLASS AND WIND SPEED
++ Opciones para grilla de receptores (automática ó manual)
++ Altura de topográfia sobre la base del emisor.
++ Opción de calculo sobre un receptor discreto.
++ Opción para escribir archivo de salida. 
 
+Una vez que hayamos respondido a todas las preguntas se va a generar dos archivos: ``SCREEN.OUT`` y ``SCREEN.DAT``. El primero contiene los resultados obtenidos de la ejecución, y el segundo sirve para volver a ejecutar el programa sin tener que responder nuevamente todas las preguntas.
 
 ## Salidas
 
@@ -106,4 +97,47 @@ También al final del archivo encontraremos la siguiente tabla resumen que  indi
  BLDG. CAVITY-2       1691.          101.       --  (DIST = CAVITY LENGTH)
 ```
 
+
+#### Ejecución automática:
+**SCREEN3** puede ejecutarse también utilizando un *archivo de control* para evitar tener que responder todas las preguntas cada vez que lo ejecutamos. Para eso necesitamos el archivo ``SCREEN.DAT``, si lo abrimos veremos algo así:
+
+```
+CORRIDA DE EJEMPLO CON BUILDING DOWNWASH
+P
+  100.0
+  100.0
+  2.000
+  15.00
+  450.0
+  293.0
+  .0000
+           1
+Y
+  80.00
+  80.00
+  100.0
+N
+N
+           1
+Y
+   100.00, 1000.00
+N
+N
+```
+este archivo contiene las respuestas a las preguntas del **SCREEN3** de forma secuencial. 
+
+Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``SCREEN.DAT``, por ejemplo, si la carpeta se encuentra en ``C:/Users/CursoMCA/screen3`` hay que tipear:
+
+```shell 
+$> chdir C:/Users/CursoMCA/screen3
+```
+el comando ``chdir`` (de *change directory*) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener acceso a los archivos que se encuentran en la carpeta de interés.
+
+Luego para ejecutarlo:
+
+```shell
+$> SCREEN3.exe < SCREEN.DAT
+``` 
+
+El programa se ejecutará y va a crear un nuevo archivo ``SCREEN.OUT``.
 
