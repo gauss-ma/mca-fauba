@@ -17,17 +17,12 @@ th,tr{
    min-width: 40px !important;
 }
 
-//.language-console > code,
-//.language-console > *{
-//	background-color: #505050 !important;
-//	color: #ffffff !important;
-//	font-family: Consolas !important;
-//	font-size:0.85em !important;
-//}
 
-code[class*="language-console"], pre[class*="language-console"] {
-	background-color: #505050 !important;
+.language-bat > *{
+	background-color: #303030 !important;
 	color: #ffffff !important;
 	font-family: Consolas !important;
-	font-size:0.85em !important;     
+	font-size:0.85em!important;
+        border-radius:0px!important;
 }
+

@@ -25,19 +25,19 @@ Los pasos generales a seguir son:
 Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables.
 
 Esto se puede realizar abriendo una terminal ó consola (**cmd**), y por ejemplo si querémos que crear una carpeta de trabajo con nombre "aermod" dentro de la carpeta ubicada en: C:/Users/MCA_tutorial, debemos ejecutar:
-```console
+```bat
 mkdir C:/Users/MCA_tutorial/aermod
 ```
 
 el comando ``mkdir`` (*make directory*) crea una carpeta en la ubicación que especificamos en la ruta ó *path*.
 
 Luego, vamos al directorio de trabajo con el comando ``chdir`` (*change directory*):
-```console
+```bat
 chdir C:/Users/MCA_tutorial/aermod
 ```
 
 En principio esta carpeta va a estar vacía, para ver su contenido podemos usar el comando ``dir``:
-```console
+```bat
 dir
 ```
 se listarán todos los archivos presentes en la carpeta actual. Es una buena forma de verificar que tenemos todos los archivos necesarios antes de correr el programa.
@@ -45,7 +45,7 @@ se listarán todos los archivos presentes en la carpeta actual. Es una buena for
 ## Descarga de ejecutable
 
 Descargamos el ejecutable de la página de la EPA: [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
-```console
+```bat
 move C:/Users/TuUsuario/Downloads/aermet.exe C:/Users/MCA_tutorial/aermod/aermod.exe
 ```
 
@@ -63,8 +63,8 @@ Para descargar datos meteorológicos tienen que buscar la estación más cercana
 Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/)
 
 También se pueden descargar desde terminal con ``WGET``:
-```console
-$> wget ftp://ftp.ncdc.noaa.gov/pub/data/noaa/${year}/${id_sfc}0-99999-${year}.gz
+```bat
+wget ftp://ftp.ncdc.noaa.gov/pub/data/noaa/${year}/${id_sfc}0-99999-${year}.gz
 ```
 donde ``${year}`` es el año de interés, y ``${id_sfc} `` es el id de la estación de superficie.
 
@@ -85,8 +85,8 @@ Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noa
 
 Se puede descargar desde terminal con ``CURL``:
 
-```bash
-$> curl -L "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=${byr}${bmon}${bday}00&edate=${eyr}${emon}${eday}23&access=WMO+Station+Identifier&view=NO&StationIDs=${id_up}&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"
+```bat
+curl -L "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=${byr}${bmon}${bday}00&edate=${eyr}${emon}${eday}23&access=WMO+Station+Identifier&view=NO&StationIDs=${id_up}&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"
 ```
 donde ``${byr}``, ``${bmon}``, ``${bday}`` son el año, mes y dia del primer sondeo y ``${eyr}``, ``${emon}``, ``${eday}`` el año, mes y día del ultimo sondeo requerido.  ``${id_up}`` es el *id* de la estación meteorológica de interés.
 
@@ -171,8 +171,8 @@ Notar que todas las lineas que comienzan con ``**`` son interpretadas como *come
 En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
 
 Si estamos en una terminal, solo es necesario ejecutar la siguiente linea:
-```bash
-$> aermet.exe < ETAPA1.INP
+```bat
+aermet.exe < ETAPA1.INP
 ```
 
 Si todo sale bien se van a crear los siguientes archivos:
@@ -211,9 +211,9 @@ XDATES 2021/12/01 TO 21/12/31
 Guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click ó en la terminal:
 
 
-```bash
-$> copy  ETAPA2.INP aermet.inp
-$> AERMET.EXE
+```bat
+copy  ETAPA2.INP aermet.inp
+AERMET.EXE
 ```
 
 Se van a crear los siguientes archivos:
@@ -252,8 +252,8 @@ AERSURF2 AERSURFACE2.OUT
 ```
 
 Para ejecutar esta etapa se procede igual que en las anteriores:
-```console
-$> AERMET.EXE < ETAPA3.INP
+```bat
+AERMET.EXE < ETAPA3.INP
 ```
 
 Si todo sale bien se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
