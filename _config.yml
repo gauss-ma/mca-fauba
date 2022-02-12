@@ -1,5 +1,5 @@
 title: "Curso MCA"
-logo: "/assets/images/fauba-logo.jpg"
+logo: "/assets/images/fauba-logo.png"
 remote_theme: pmarsceill/just-the-docs
 color_scheme: fauba
 exclude : [readme, tut/archivos, tps/archivos]
