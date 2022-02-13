@@ -18,39 +18,48 @@ th,tr{
 }
 
 //Code Blocks que representan shell
-.language-shell,
-.language-shell>pre,
-.language-shell>pre>code,
-.language-shell>pre>code>*{
+//.language-shell,
+//.language-shell>pre,
+//.language-shell>pre code,
+//.language-shell>pre code>*{
+//	background-color: #303030 !important;
+//	color: #ffffff !important;
+//	//font-family: Consolas !important;
+//	font-size:0.85em!important;
+//        border-radius:0px!important;
+//}
+code[class*="language-shell"], pre[class*="language-shell"] {
 	background-color: #303030 !important;
 	color: #ffffff !important;
-	font-family: Consolas !important;
+	//font-family: Consolas !important;
 	font-size:0.85em!important;
         border-radius:0px!important;
 }
 
+code[class*="language-shell"] span.token.operator, pre[class*="language-shell"] span.token.operator {
+  background: none; 
+  overflow-x: auto;
+}
+code[class*="language-shell"] span.token.keyword, pre[class*="language-shell"] span.token.keyword {
+
+}
+
 //Code Blocks que representan editor de texto.
 .language-plain,
-.language-plain>*{
-	background-color:#fff !important;
-	color:red!important;
+{
+  background-color:#fff !important;
+  color:red!important;
+  padding: 0.5rem 0.7rem;
+  border: 1px dashed #444;
+
 }
 
 .language-plain>pre>code {
-  background-color: rgba(27,31,35,.05);
-  border-radius: 3px;
-  padding: 0 0.2rem;
-  /*font-size: 0.9em;*/
-  font-size: 12pt;
+  background-color: inherit;
 }
 
 .language-plain>pre {
-  color: #000;
-  margin: 1rem;
-  padding: 0.5rem 0.7rem;
-  border: 1px dashed #444;
-  /*font-size: .8rem;*/
-  font-size: 11pt;
+  color: inherit;
   overflow-x: auto;
 }
 
@@ -60,8 +69,4 @@ th,tr{
   font-size: 100%;
   padding: 0;
 }
-
-
-
-
 
