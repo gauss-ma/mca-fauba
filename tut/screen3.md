@@ -22,7 +22,7 @@ Debería descargarse un archivo comprimido ``screen3.zip``, al descomprimirlo ha
 Para ejecutar el **SCREEN3** simplemente vamos al directorio donde se encuentre el ejecutable ``SCREEN3.exe`` y lo ejecutamos haciendo doble click:
 
 Se va a abrir una terminal ó consola:
-```
+```shell
   ******  SCREEN3 MODEL  ******
   **** VERSION DATED 13043 ****
   
@@ -60,7 +60,7 @@ Una vez que hayamos respondido a todas las preguntas se va a generar dos archivo
 
 En el archivo ``SCREEN.OUT`` vamos a encontrar registros de la corrida, las opciones utilizadas, algunos valores intermedios de la ejecución, y entre otras cosas una tabla como la siguiente:
 
-```
+```plain
  *** TERRAIN HEIGHT OF    0. M ABOVE STACK BASE USED FOR FOLLOWING DISTANCES ***
 
    DIST     CONC             U10M   USTK  MIX HT   PLUME   SIGMA   SIGMA
@@ -82,7 +82,7 @@ esta tabla muestra el valor de disintas variables en función de la distancia, c
 
 También al final del archivo encontraremos la siguiente tabla resumen que  indica la máxima concentración encontrada, la distancia a la que ocurre y la altura:
 
-```
+```plain
       ***************************************
       *** SUMMARY OF SCREEN MODEL RESULTS ***
       ***************************************
@@ -101,7 +101,7 @@ También al final del archivo encontraremos la siguiente tabla resumen que  indi
 #### Ejecución automática:
 **SCREEN3** puede ejecutarse también utilizando un *archivo de control* para evitar tener que responder todas las preguntas cada vez que lo ejecutamos. Para eso necesitamos el archivo ``SCREEN.DAT``, si lo abrimos veremos algo así:
 
-```
+```plain
 CORRIDA DE EJEMPLO CON BUILDING DOWNWASH
 P
   100.0
