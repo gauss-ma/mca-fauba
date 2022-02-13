@@ -164,8 +164,8 @@ OU FINISHED
 
 Para ejecutar el **AERMOD** se coloca en una misma carpeta al ejecutable (``aermod.exe``), el archivo de control (``aermod.inp``) y todos los archivos de entrada especificados en ``aermod.inp`` (``PRUEBA.SFC``, ``PRUEBA.FSL``, ``PRUEBA.ROU``, etc.). Luego se ejecuta con *doble click* en el ejecutable, ó si estamos en la terminal:
 
-```console
-$> aermod.exe
+```shell
+aermod.exe
 ```
 
 

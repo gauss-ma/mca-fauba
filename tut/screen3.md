@@ -128,15 +128,15 @@ este archivo contiene las respuestas a las preguntas del **SCREEN3** de forma se
 
 Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``SCREEN.DAT``, por ejemplo, si la carpeta se encuentra en ``C:/Users/MCA_tutorial/screen3`` hay que tipear:
 
-```console 
-$> chdir C:/Users/MCA_tutorial/screen3
+```shell 
+chdir C:/Users/MCA_tutorial/screen3
 ```
 el comando ``chdir`` (de *change directory*) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener fácil acceso a los archivos que se encuentran en la carpeta de interés.
 
 Luego para ejecutarlo:
 
-```console
-$> SCREEN3.exe < SCREEN.DAT
+```shell
+SCREEN3.exe < SCREEN.DAT
 ``` 
 
 El programa se ejecutará y va a crear un nuevo archivo ``SCREEN.OUT``.
