@@ -18,55 +18,38 @@ th,tr{
 }
 
 //Code Blocks que representan shell
-//.language-shell,
-//.language-shell>pre,
-//.language-shell>pre code,
-//.language-shell>pre code>*{
-//	background-color: #303030 !important;
-//	color: #ffffff !important;
-//	//font-family: Consolas !important;
-//	font-size:0.85em!important;
-//        border-radius:0px!important;
-//}
-code[class*="language-shell"], pre[class*="language-shell"] {
+.language-shell div{
 	background-color: #303030 !important;
 	color: #ffffff !important;
 	//font-family: Consolas !important;
-	font-size:0.85em!important;
+	font-size:0.9em!important;
         border-radius:0px!important;
 }
 
-code[class*="language-shell"] span.token.operator, pre[class*="language-shell"] span.token.operator {
-  background: none; 
-  overflow-x: auto;
-}
-code[class*="language-shell"] span.token.keyword, pre[class*="language-shell"] span.token.keyword {
-
-}
-
 //Code Blocks que representan editor de texto.
-.language-plain,
+.language-plain div,
 {
   background-color:#fff !important;
-  color:red!important;
+  color:#303030!important;
   padding: 0.5rem 0.7rem;
   border: 1px dashed #444;
 
 }
 
-.language-plain>pre>code {
+//lo que está adentro de code blocks heredan props
+pre>code {
   background-color: inherit;
+  color: inherit;
 }
 
-.language-plain>pre {
+pre {
+  background-color: inherit;
   color: inherit;
   overflow-x: auto;
 }
 
-.language-plain > pre code {
-  color: inherit;
+pre code {
   background: none;
-  font-size: 100%;
-  padding: 0;
+  color: inherit;
 }
 
