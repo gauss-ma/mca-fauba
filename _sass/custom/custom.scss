@@ -24,29 +24,26 @@ th,tr{
 .language-shell div{
 	background-color: #333 !important;
 	color: #fff !important;
-	//font-family: Consolas !important;
 	font-size:0.9em!important;
         border-radius:0px!important;
 }
 
 //Code Blocks que representan editor de texto.
-.language-plain div{
+.language-plain pre{
   background-color:#fff !important;
   color:#333!important;
   border: 1px dashed #444;
 }
 
 //lo que está adentro de code blocks heredan props
-pre>code {
-  background-color: inherit;
-  color: inherit;
-}
-
 pre {
   background-color: inherit;
   color: inherit;
 }
-
+pre>code {
+  background-color: inherit;
+  color: inherit;
+}
 pre code {
   background: none;
   color: inherit;

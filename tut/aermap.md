@@ -11,26 +11,118 @@ El **AERMAP** es un preprocesador del **AERMOD** que permite generar una grilla 
 
 Para ejecutar el **AERMAP** necesitamos:
 1. Descargar el ejecutable [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip).
-2. Descargar un [modelo digital de elevación](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa) que contenga el domino que queremos modelar.
-3. Construir un archivo de control para el aermap: [``aermap.inp``](archivos/aermap/aermap.inp)
-4. Colocar todos los archivos mencionados en un directorio común.
-5. Ejecutar el aermap haciendo doble click sobre el ejecutable ó si están en la terminal: `` aermap.exe < aermap.inp``.
+2. Definir dominio de estudio, grilla de receptores en sistema de coordenadas *local*.
+3. Descargar un [modelo digital de elevación](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa) (DEM) que contenga el domino que queremos modelar.
+4. Reproyectar DEM a coordenadas planas.
+5. Construir un archivo de control para el aermap: [``aermap.inp``](archivos/aermod/aermap.inp)
+6. Colocar todos los archivos mencionados en un directorio común.
+7. Ejecutar el aermap haciendo doble click sobre el ejecutable ó si están en la terminal: `` aermap.exe < aermap.inp``.
+
+## Directorio de trabajo
+Al igual que en el [tutorial de AERMET](aermet.md) vamos a asumir que estamos en el directorio de trabajo: *C:/Users/MCA_tutorial/aermod*. En caso de no estar en ese directorio se pude ir ejecutando:
+
+```shell
+cd C:/Users/MCA_tutorial/aermod
+```
 
 ## Descarga de ejecutable:
 
-El link para descargar el ejecutable es: [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip), también podemos encontar el código fuente en: [aermap_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip).
+El AERMET se encuentra en la página web de USEPA, el ejecutable es: [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip).
+
+Para descargarlo desde la terminal:
+```shell
+wget https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip -outfile aermap_exe.zip
+```
+Lo descomprimimos:
+```shell
+tar -xvzf aermap_exe.zip
+```
+
+> :information_source: También podemos encontar el código fuente en: [aermap_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip).
+
+
+## Definición de dominio y grilla de receptores
+
+Para este tutorial vamos a considerar una fuente hipotética ubicada en la Ciudad de Buenos Aires.
+<!-- 
+epsg_latlon=4326
+epsg_local=32721
+clat=-34.577921
+clon=-58.461326
+read xc yc ellipsoidh <<<$( gdaltransform -s_srs epsg:${epsg_latlon} -t_srs epsg:${epsg_local} <<< $( echo "${clon} ${clat}" ) )
+-->
+
+| Longitud, Latitud (epsg:4326)  | XY UTM 21S (epsg:32721)|
+|-----------------------|----------------------|
+| -58.461326, -34.577921 | 365965.3, 6172792.0 |
+
+> :warning: Aermod no trabaja con coordenadas geográficas (lat,lon), necesita trabajar en un sistema de coordenadas plano (x,y). Usualmente utilizamos las fajas de la proyección UTM, para nuestro caso nos sirve la faja 21 sur.
+
+La grilla de receptores la vamos a hacer cada 50 metros, y en un dominio cuadrado de 4 kilometros de lado.
+
+Por lo tanto:
+<!--
+     dist=3162.0
+     dx=50.0; dy=50.0
+     read xini xfin yini yfin<<<$(getLimits.exe ${xc} ${yc} ${dist})
+     nx=$(bc -l <<< "($xfin-$xini)/$dx")
+     ny=$(bc -l <<< "($yfin-$yini)/$dy")
+-->
+
+| xc    | 365965.3   |
+| yc    | 6172792.0  |
+| xc    | 362803.250 |
+| xini  | 362803.250 |
+| xfin  | 369127.250 |
+| yini  | 6169630.00 |
+| yfin  | 6175954.00 |
+
+
+Esquema del dominio:
+```
+
+(xini,yfin)                       (xfin,yfin)
+    (+)-------------------------(+)         
+     |...........................|          
+     |...........................|          
+     |...........................|          
+     |...........................| ^        
+     |...........................| |        
+     |............(+)............| ny       
+     |..........(xc,yc)..........| |        
+     |...........................| v        
+     |...........................|          
+     |...........................|          
+     |..........<--nx-->.........|          
+    (+)-------------------------(+)         
+(xini,yini)                       (xfin,yini)
+
+
+```
+
+
+
+
 
 ## Descarga de modelo digital de elevación:
 
-Existen varios productos digitales de elevación con cobertura global, por ejemplo ASTER ó SRTM.
+Existen varios modelos digitales de elevación (DEM) con cobertura global, por ejemplo: *ASTER* ó *SRTM*.
 Una versión ajustada a nuestro país es el modelo digital de elevación adaptado por el Instituto Geográfico Nacional (IGN), que se puede descargar entrando [aquí](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa).
 
-Este DEM va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos a necesitar convertirlo a un sistema proyectado para trabajar. Generalmente para Argentina usamos algúna faja UTM (Universal Transverse Mercator). Por lo tanto necesitamos transformar el archivo a el nuevo sistema de coordenadas:
+Lamentablemente este servicio aún no cuenta con una API para descargar desde la terminal, asi que tendremos que hacerlo desde la página web, y luego descargarlo en nuestro directorio de trabajo.
+
+Vamos a descargar el producto *MDE 30m*, la grilla número: *3560-18*, ya que nuestro proyecto va a estar centrado al suroeste de la Ciudad Autónoma de Buenos Aires.
+
+El DEM que descargaremos va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos a necesitar convertirlo a un sistema proyectado para trabajar. Generalmente para Argentina usamos algúna faja UTM (Universal Transverse Mercator). Por lo tanto necesitamos transformar el archivo a el nuevo sistema de coordenadas:
 
 Una forma de hacerlo es utilizando ``gdal``:
 
 ```shell
-gdalwarp -tr ${dx} ${dx} -r cubicspline -t_srs epsg:${epsg_local} -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${inp_dem} ${dem_file}
+gdalwarp -tr ${dx} ${dx} -r cubicspline -t_srs epsg:${epsg_local} -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${IGN-MDE} PRUEBA.tif
+```
+donde ``${dx}`` y ``${dy}`` es al resolución espacial del nuevo DEM (vamos a ponerlo en 50m). ``${epsg_local}`` es el código de la proyección que necesitamos, en nuestro caso va a ser UTM sur, faja 21, y por lo tanto: ``${epsg_local}`` es 32721.  ``${xini2} ${yini2} ${xfin2} ${yfin2}`` son las coordenadas de los vertices del domino de interes (en coordenadas proyectadas). Por ultimo ``${IGN_MDE}`` es el nombre del archivo descargado de la web del IGN. Finalmente para nuestro caso:
+```shell
+gdalwarp -tr 50 50 -r cubicspline -t_srs epsg:32721 -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${IGN-MDE} PRUEBA.tif
 ```
 
 
