@@ -2,6 +2,8 @@
  /*color:red;*/
 }
 
+
+//TABLAS:
 tr > th{
    padding: 3px;
    min-width: 20px !important;
@@ -17,23 +19,21 @@ th,tr{
    min-width: 40px !important;
 }
 
+//CODE BLOCKS
 //Code Blocks que representan shell
 .language-shell div{
-	background-color: #303030 !important;
-	color: #ffffff !important;
+	background-color: #333 !important;
+	color: #fff !important;
 	//font-family: Consolas !important;
 	font-size:0.9em!important;
         border-radius:0px!important;
 }
 
 //Code Blocks que representan editor de texto.
-.language-plain div,
-{
+.language-plain div{
   background-color:#fff !important;
-  color:#303030!important;
-  padding: 0.5rem 0.7rem;
+  color:#333!important;
   border: 1px dashed #444;
-
 }
 
 //lo que está adentro de code blocks heredan props
@@ -45,11 +45,9 @@ pre>code {
 pre {
   background-color: inherit;
   color: inherit;
-  overflow-x: auto;
 }
 
 pre code {
   background: none;
   color: inherit;
 }
-
