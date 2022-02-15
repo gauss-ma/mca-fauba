@@ -1,6 +1,8 @@
 ---
 nav_order: 1
 ---
+<!--  Hacer en clase una intro a la definición de "programa", explicitando código fuente y compilador, lenguaje y contexto fortran, aclarar diferencia con GUI  -->
+
 # Screen3
 
 > Tutorial para uso de **SCREEN3**
@@ -10,7 +12,7 @@ En esta sección estan los pasos rápidos para la ejecución del **SCREEN3**:
 
 1. Descargar ejecutable ``SCREEN3.exe`` y código fuente: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
 2. Ejecutar ``SCREEN3.exe`` haciendo doble click sobre este.
-3. Ingresar los datos que pide el programa. los resultados se guardarán en el archivo ``SCREEN.OUT``.
+3. Ingresar los datos que pide el programa. Los resultados se guardarán en el archivo ``SCREEN.OUT``.
 
 En la siguientes secciones, se encuentran todos los pasos en detalle.
 
@@ -20,7 +22,7 @@ En la siguientes secciones, se encuentran todos los pasos en detalle.
 
 El **SCREEN3** está disponible en la página web de [USEPA](https://www.epa.gov/). Se puede descargar del siguiente link: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
 
-Debería descargarse un archivo comprimido ``screen3.zip``, al descomprimirlo habrá una carpeta con diversos archivos. Los archivos con extensión ``*.FOR`` son el código fuente (programado en FORTRAN), los ``*.DAT`` son ejemplos de archivos de entrada al modelo y los ``*.OUT`` son ejemplos de archivos de salida. El archivo ``SCREEN3.exe`` es el ejecutable compilado para windows que utilizaremos.
+Debería descargarse un archivo comprimido ``screen3.zip``, al descomprimirlo habrá una carpeta con varios archivos. Los archivos con extensión ``*.FOR`` son el código fuente (programado en [FORTRAN](https://es.wikipedia.org/wiki/Fortran)), los ``*.DAT`` son de archivos de entrada al modelo y los ``*.OUT`` salidas. El archivo ``SCREEN3.exe`` es el ejecutable compilado para windows que utilizaremos.
 
 ## Ejecución
 
@@ -35,7 +37,182 @@ Se va a abrir una terminal ó consola:
 
 ```
 
-El programa funciona de forma interactiva, realizando una serie de preguntas que el usuario debe responder ingresando las respuestas desde el teclado y luego apretando enter.
+El programa funciona de forma interactiva, realizando una serie de preguntas que el usuario debe responder desde el teclado confirmando cada entrada con <kbd>Enter</kbd>.
+
+Vamos a realizar una corrida de prueba con los siguientes parámetros, que podrían corresponder a una chimenea en un sitio urbano en una planicie:
+
+### Parámetros de emisión:
+
+| Tipo de fuente | Analito |tasa de emisión[g/s]   |   |   |
+|----------------|---------|---|---|---|
+|Puntual|         | NOx  |   |   |
+|                |         |   |   |   |
+|                |         |   |   |   |
+
+### Corrida de prueba
+
+1. Al ejecutar el programa solicita ingresar el título del proyecto. En este caso pondremos "CASO_PRUEBA"
+
+```shell
+  ******  SCREEN3 MODEL  ******
+  **** VERSION DATED 13043 ****
+  
+ ENTER TITLE FOR THIS RUN (UP TO 79 CHARACTERS):
+ CASO_PRUEBA
+
+```
+
+2. Nos solicita escribir una letra según el tipo de fuente, en este caso puntual (**P**).
+
+```shell
+ ENTER SOURCE TYPE: P    FOR POINT
+                    F    FOR FLARE
+                    A    FOR AREA
+                    V    FOR VOLUME
+    ALSO ENTER ANY OF THE FOLLOWING OPTIONS ON THE SAME LINE:
+
+      N    - TO USE THE NON-REGULATORY BUT CONSERVATIVE BRODE 2
+             MIXING HEIGHT OPTION,
+      nn.n - TO USE AN ANEMOMETER HEIGHT OTHER THAN THE REGULATORY
+             (DEFAULT) 10 METER HEIGHT.
+      SS   - TO USE A NON-REGULATORY CAVITY CALCULATION ALTERNATIVE
+   Example - PN 7.0 SS (entry for a point source)
+
+  ENTER SOURCE TYPE AND ANY OF THE ABOVE OPTIONS:
+P
+```
+
+3. Nos solicita el caudal másico de emisión expresado en g/s, el cual obtenemos de la tabla de datos de emisión.
+
+```shell
+ ENTER EMISSION RATE (G/S):
+10
+```
+
+Nos pide el diámetro interno del conducto emisor en metros:
+```shell
+ ENTER STACK INSIDE DIAMETER (M):
+6.2
+```
+
+Nos pide la velocidad de salida del gas en m/s, tambien nos brinda la posiblidad de ingresarlo como tasa volumetrica en unidas del sistema internacional ó unidades imperiales:
+```shell
+ ENTER STACK GAS EXIT VELOCITY OR FLOW RATE:
+ OPTION 1 : EXIT VELOCITY (M/S):
+  DEFAULT - ENTER NUMBER ONLY
+ OPTION 2 : VOLUME FLOW RATE (M**3/S):
+            EXAMPLE "VM=20.00"
+ OPTION 3 : VOLUME FLOW RATE (ACFM):
+            EXAMPLE "VF=1000.00"
+27
+```
+
+Nos pide la temperatura de salida del gas en grados kelvin:
+```shell
+ ENTER STACK GAS EXIT TEMPERATURE (K):
+470
+```
+
+Nos pide la temperatura ambiente en grados kelvin:
+```shell
+ ENTER AMBIENT AIR TEMPERATURE (USE 293 FOR DEFAULT) (K):
+290
+```
+
+Luego ingresamos la altura sobre el nivel del suelo del receptor de interés (por lo general se utiliza 1.5 metros que sería la altura promedio de inmisión de una persona):
+
+```shell
+ ENTER RECEPTOR HEIGHT ABOVE GROUND (FOR FLAGPOLE RECEPTOR) (M):
+1.5
+```
+
+Luego hay que especificar si se trata de un entorno rural (**R**) ó urbano (**U**):
+```shell
+ ENTER URBAN/RURAL OPTION (U=URBAN, R=RURAL):
+R
+```
+
+En el siguiente paso nos pregunta si queremos considerar el efecto de deflección de la pluma por influencia de edificios cercanos (*downwash*), en este caso no lo vamos a considerar:
+```shell
+ CONSIDER BUILDING DOWNWASH IN CALCS?  ENTER Y OR N:
+n
+```
+
+El programa nos va a preguntar si queremos considerar los efectos del terreno, en este caso vamos a asumir que estamos en una planicie y por lo tanto no lo tendremos en cuenta:
+```shell
+ USE COMPLEX TERRAIN SCREEN FOR TERRAIN ABOVE STACK HEIGHT?
+ ENTER Y OR N:
+n
+```
+
+Como pusismos que no vamos a considerar efecto del terreno nos pregunta si queremos usar terreno simple con una sola altura:
+```shell
+ USE SIMPLE TERRAIN SCREEN WITH TERRAIN ABOVE STACK BASE?
+ ENTER Y OR N:
+y
+```
+
+A continuación nos propone correr contemplando todas las combinaciones de estabilidad atmosférica y velocidades de viento (*FULL METEOROLOGY*) o valores definidos por el usuario. Vamos a utilizar FULL METEOROLOGY:
+```shell
+ ENTER CHOICE OF METEOROLOGY;
+ 1 - FULL METEOROLOGY (ALL STABILITIES & WIND SPEEDS)
+ 2 - INPUT SINGLE STABILITY CLASS
+ 3 - INPUT SINGLE STABILITY CLASS AND WIND SPEED
+1
+```
+
+Nos pregunta si queremos definir las distancias de los receptores de forma automática ó ingresar cada receptor de forma manual.
+```shell
+ USE AUTOMATED DISTANCE ARRAY? ENTER Y OR N:
+y
+```
+
+Nos pregunta la altura del terreno respecto de la base del conducto, al ser un terreno plano la altura es 0:
+```shell
+ ENTER TERRAIN HEIGHT ABOVE STACK BASE (M):
+0
+```
+
+En este paso nos pide la distancia mínima y máxima en la que ubicar de forma automática los receptores:
+```shell
+ ENTER MIN AND MAX DISTANCES TO USE (M):
+100 10000
+```
+
+```shell
+
+ **********************************
+ *** SCREEN AUTOMATED DISTANCES ***
+ **********************************
+
+ *** TERRAIN HEIGHT OF   10. M ABOVE STACK BASE USED FOR FOLLOWING DISTANCES ***
+
+   DIST     CONC             U10M   USTK  MIX HT   PLUME   SIGMA   SIGMA
+    (M)   (UG/M**3)   STAB  (M/S)  (M/S)    (M)   HT (M)   Y (M)   Z (M)  DWASH
+ -------  ----------  ----  -----  -----  ------  ------  ------  ------  -----
+  20000.    10.32        6     1.0    1.0 10000.0   11.62  500.96   60.40    NO
+  25000.    7.907        6     1.0    1.0 10000.0   11.62  609.76   64.96    NO
+  30000.    6.361        6     1.0    1.0 10000.0   11.62  715.60   68.93    NO
+  40000.    4.581        6     1.0    1.0 10000.0   11.62  920.23   74.58    NO
+  50000.    3.554        6     1.0    1.0 10000.0   11.62 1117.43   79.27    NO
+ ITERATING TO FIND MAXIMUM CONCENTRATION . . .
+
+ MAXIMUM 1-HR CONCENTRATION AT OR BEYOND 20000. M:
+  20000.    10.32        6     1.0    1.0 10000.0   11.62  500.96   60.40    NO
+```
+
+
+```shell
+USE DISCRETE DISTANCES?  ENTER Y OR N:
+```
+
+
+```shell
+```
+
+
+
+---
 
 Algunos datos que va a pedir son:
 + Titulo del proyecto.
