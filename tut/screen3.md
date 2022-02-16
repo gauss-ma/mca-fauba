@@ -2,9 +2,6 @@
 nav_order: 1
 ---
 
-
-<!--  Hacer en clase una intro a la definición de "programa", explicitando código fuente y compilador, lenguaje y contexto fortran, aclarar diferencia con GUI  -->
-
 # Screen3
 
 > Tutorial para uso de **SCREEN3**
