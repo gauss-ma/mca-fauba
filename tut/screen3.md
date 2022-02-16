@@ -28,7 +28,7 @@ Debería descargarse un archivo comprimido ``screen3.zip``, al descomprimirlo ha
 Para ejecutar el **SCREEN3** simplemente vamos al directorio donde se encuentre el ejecutable ``SCREEN3.exe`` y lo ejecutamos haciendo doble click:
 
 Se va a abrir una terminal ó consola:
-```shell
+```cmd
   ******  SCREEN3 MODEL  ******
   **** VERSION DATED 13043 ****
   
@@ -52,7 +52,7 @@ Vamos a realizar una corrida de prueba con los siguientes parámetros, que podr�
 
 1. Al ejecutar el programa solicita ingresar el título del proyecto. En este caso pondremos "CASO_PRUEBA"
 
-```shell
+```cmd
   ******  SCREEN3 MODEL  ******
   **** VERSION DATED 13043 ****
   
@@ -63,7 +63,7 @@ Vamos a realizar una corrida de prueba con los siguientes parámetros, que podr�
 
 2. Nos solicita escribir una letra según el tipo de fuente, en este caso puntual (**P**).
 
-```shell
+```cmd
  ENTER SOURCE TYPE: P    FOR POINT
                     F    FOR FLARE
                     A    FOR AREA
@@ -83,19 +83,19 @@ P
 
 3. Nos solicita el caudal másico de emisión expresado en g/s, el cual obtenemos de la tabla de datos de emisión.
 
-```shell
+```cmd
  ENTER EMISSION RATE (G/S):
 10
 ```
 
 Nos pide el diámetro interno del conducto emisor en metros:
-```shell
+```cmd
  ENTER STACK INSIDE DIAMETER (M):
 6.2
 ```
 
 Nos pide la velocidad de salida del gas en m/s, tambien nos brinda la posiblidad de ingresarlo como tasa volumetrica en unidas del sistema internacional ó unidades imperiales:
-```shell
+```cmd
  ENTER STACK GAS EXIT VELOCITY OR FLOW RATE:
  OPTION 1 : EXIT VELOCITY (M/S):
   DEFAULT - ENTER NUMBER ONLY
@@ -107,52 +107,52 @@ Nos pide la velocidad de salida del gas en m/s, tambien nos brinda la posiblidad
 ```
 
 Nos pide la temperatura de salida del gas en grados kelvin:
-```shell
+```cmd
  ENTER STACK GAS EXIT TEMPERATURE (K):
 470
 ```
 
 Nos pide la temperatura ambiente en grados kelvin:
-```shell
+```cmd
  ENTER AMBIENT AIR TEMPERATURE (USE 293 FOR DEFAULT) (K):
 290
 ```
 
 Luego ingresamos la altura sobre el nivel del suelo del receptor de interés (por lo general se utiliza 1.5 metros que sería la altura promedio de inmisión de una persona):
 
-```shell
+```cmd
  ENTER RECEPTOR HEIGHT ABOVE GROUND (FOR FLAGPOLE RECEPTOR) (M):
 1.5
 ```
 
 Luego hay que especificar si se trata de un entorno rural (**R**) ó urbano (**U**):
-```shell
+```cmd
  ENTER URBAN/RURAL OPTION (U=URBAN, R=RURAL):
 R
 ```
 
 En el siguiente paso nos pregunta si queremos considerar el efecto de deflección de la pluma por influencia de edificios cercanos (*downwash*), en este caso no lo vamos a considerar:
-```shell
+```cmd
  CONSIDER BUILDING DOWNWASH IN CALCS?  ENTER Y OR N:
 n
 ```
 
 El programa nos va a preguntar si queremos considerar los efectos del terreno, en este caso vamos a asumir que estamos en una planicie y por lo tanto no lo tendremos en cuenta:
-```shell
+```cmd
  USE COMPLEX TERRAIN SCREEN FOR TERRAIN ABOVE STACK HEIGHT?
  ENTER Y OR N:
 n
 ```
 
 Como pusismos que no vamos a considerar efecto del terreno nos pregunta si queremos usar terreno simple con una sola altura:
-```shell
+```cmd
  USE SIMPLE TERRAIN SCREEN WITH TERRAIN ABOVE STACK BASE?
  ENTER Y OR N:
 y
 ```
 
 A continuación nos propone correr contemplando todas las combinaciones de estabilidad atmosférica y velocidades de viento (*FULL METEOROLOGY*) o valores definidos por el usuario. Vamos a utilizar FULL METEOROLOGY:
-```shell
+```cmd
  ENTER CHOICE OF METEOROLOGY;
  1 - FULL METEOROLOGY (ALL STABILITIES & WIND SPEEDS)
  2 - INPUT SINGLE STABILITY CLASS
@@ -161,24 +161,24 @@ A continuación nos propone correr contemplando todas las combinaciones de estab
 ```
 
 Nos pregunta si queremos definir las distancias de los receptores de forma automática ó ingresar cada receptor de forma manual.
-```shell
+```cmd
  USE AUTOMATED DISTANCE ARRAY? ENTER Y OR N:
 y
 ```
 
 Nos pregunta la altura del terreno respecto de la base del conducto, al ser un terreno plano la altura es 0:
-```shell
+```cmd
  ENTER TERRAIN HEIGHT ABOVE STACK BASE (M):
 0
 ```
 
 En este paso nos pide la distancia mínima y máxima en la que ubicar de forma automática los receptores:
-```shell
+```cmd
  ENTER MIN AND MAX DISTANCES TO USE (M):
 100 10000
 ```
 
-```shell
+```cmd
 
  **********************************
  *** SCREEN AUTOMATED DISTANCES ***
@@ -200,40 +200,22 @@ En este paso nos pide la distancia mínima y máxima en la que ubicar de forma a
   20000.    10.32        6     1.0    1.0 10000.0   11.62  500.96   60.40    NO
 ```
 
-
-```shell
+Nos pregunta si queremos agregar receptores discretos:
+```cmd
 USE DISCRETE DISTANCES?  ENTER Y OR N:
+N
 ```
 
-
-```shell
+Por último nos pregunta si queremos guardar los resultados en un archivo, ponemos que si.
+```cmd
+ DO YOU WANT TO PRINT A HARDCOPY OF THE RESULTS?  ENTER Y OR N:
+Y
 ```
 
-
-
----
-
-Algunos datos que va a pedir son:
-+ Titulo del proyecto.
-+ Tipo de fuente: Punto (**P**), Flare/Antorcha (**F**), Area (**A**), Volumen (**V**).
-+ Tasa de Emision en [g/s].
-+ Altura de la Fuente emisora [m].
-+ Diámetro interno del conducto [m]
-+ Velocidad de salida [m/s] 
-+ Temperatura de salida [ºK]
-+ Temperatura Ambiente [ºK]
-+ Altura sobre el nivel del suelo de los receptores (**flag pole**) [m]
-+ Opción Urbana (**U**) ó Rural (**R**)
-+ Opción para contemplar *downwash* producido por edificios.
-+ Opción para contemplar terreno complejo.
-+ Opción de meteorología:
-	1. FULL METEOROLOGY (todas las estabilidades y velocidades de viento)
-	2. INPUT SINGLE STABILITY CLASS
-	3. INPUT SINGLE STABILITY CLASS AND WIND SPEED
-+ Opciones para grilla de receptores (automática ó manual)
-+ Altura de topográfia sobre la base del emisor.
-+ Opción de calculo sobre un receptor discreto.
-+ Opción para guardar archivo de salida. 
+Finalmente aparecerá este mensaje que nos dice que el archivo de salida se pudo generar:
+```cmd
+ THE OUTPUT FILE, "SCREEN.OUT  ", HAS BEEN PRINTED.
+```
 
 Una vez que hayamos respondido a todas las preguntas se va a generar dos archivos: ``SCREEN.OUT`` y ``SCREEN.DAT``. El primero contiene los resultados obtenidos de la ejecución, y el segundo sirve para volver a ejecutar el programa sin tener que responder nuevamente todas las preguntas.
 
@@ -263,7 +245,7 @@ esta tabla muestra el valor de disintas variables en función de la distancia, c
 
 También al final del archivo encontraremos la siguiente tabla resumen que  indica la máxima concentración encontrada, la distancia a la que ocurre y la altura:
 
-```plain
+```notepad
       ***************************************
       *** SUMMARY OF SCREEN MODEL RESULTS ***
       ***************************************
@@ -279,10 +261,12 @@ También al final del archivo encontraremos la siguiente tabla resumen que  indi
 ```
 
 
+
 #### Ejecución automática:
+
 **SCREEN3** puede ejecutarse también utilizando un *archivo de control* para evitar tener que responder todas las preguntas cada vez que lo ejecutamos. Para eso necesitamos el archivo ``SCREEN.DAT``, si lo abrimos veremos algo así:
 
-```plain
+```notepad
 CORRIDA DE EJEMPLO CON BUILDING DOWNWASH
 P
   100.0
@@ -309,14 +293,14 @@ este archivo contiene las respuestas a las preguntas del **SCREEN3** de forma se
 
 Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra ``SCREEN3.exe`` y ``SCREEN.DAT``, por ejemplo, si la carpeta se encuentra en ``C:/Users/MCA_tutorial/screen3`` hay que tipear:
 
-```shell 
+```cmd 
 chdir C:/Users/MCA_tutorial/screen3
 ```
 el comando ``chdir`` (de *change directory*) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener fácil acceso a los archivos que se encuentran en la carpeta de interés.
 
 Luego para ejecutarlo:
 
-```shell
+```cmd
 SCREEN3.exe < SCREEN.DAT
 ``` 
 

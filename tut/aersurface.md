@@ -1,16 +1,25 @@
 ---
-nav_order: 4
+nav_order: 1
 ---
 
-# Aermod (parte 3): AERMAP
+# Aermod (parte 1): AERSURFACE
 
-> Tutorial para ejecución de preprocesador de terreno del **AERMOD** (**AERMAP**)
+> Tutorial para ejecución de preprocesador de superficie del **AERMOD** (**AERSURFACE**)
 
-El **AERMAP** es un preprocesador del **AERMOD** que permite generar una grilla de receptores sobre un terreno complejo y calcular parámetros que permitan al **AERMOD** modelar la interacción de la pluma con el terreno.
+El **AERSURFACE** es una herramienta que permite procesar datos de cobertura del suelo para generar los parámetros de superficie requeridos por **AERMET** (el preprocesador meteorológico del AERMET).
+
+Los parámetros que determina el *AERSURFACE* son:
+- Albedo (a0)
+- Relación de Bowen (b0) 
+- Rugosidad (z0) 
+
+y los estima para cada dirección del viento y cada estación del año.
 
 
-Para ejecutar el **AERMAP** necesitamos:
-1. Descargar el ejecutable [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip).
+## Resumen
+Para ejecutar el **AERSURFACE** necesitamos:
+0. Crear *directorio de trabajo* donde colocaremos todos los archivos y ejecutables.
+1. Descargar el ejecutable [aersurface.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aersurface/aersurface_exe-64.zip).
 2. Definir dominio de estudio, grilla de receptores en sistema de coordenadas *local*.
 3. Descargar un [modelo digital de elevación](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa) (DEM) que contenga el domino que queremos modelar.
 4. Reproyectar DEM a coordenadas planas.
@@ -25,84 +34,37 @@ Al igual que en el [tutorial de AERMET](aermet.md) vamos a asumir que estamos en
 cd C:/Users/MCA_tutorial/aermod
 ```
 
+---
+
 ## Descarga de ejecutable:
 
-El AERMET se encuentra en la página web de USEPA, el ejecutable es: [aermap.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip).
+El AERSURFACE se encuentra en la página web de USEPA, el ejecutable es: [aersurface.exe](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aersurface/aersurface_exe-64.zip).
 
 Para descargarlo desde la terminal:
 ```shell
-wget https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_exe.zip -outfile aermap_exe.zip
+wget https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aersurface/aersurface_exe-64.zip).
 ```
+
 Lo descomprimimos:
 ```shell
-tar -xvzf aermap_exe.zip
+tar -xvzf aersurface_exe-64.zip
 ```
 
-> :information_source: También podemos encontar el código fuente en: [aermap_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip).
+> :information_source: También podemos encontar el código fuente en: [aersurface_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aersurface/aersurface_source.zip).
 
 
-## Definición de dominio y grilla de receptores
+## Descarga de mapa de usos de la tierra:
 
-Para este tutorial vamos a considerar una fuente hipotética ubicada en la Ciudad de Buenos Aires.
-<!-- 
-epsg_latlon=4326
-epsg_local=32721
-clat=-34.577921
-clon=-58.461326
-read xc yc ellipsoidh <<<$( gdaltransform -s_srs epsg:${epsg_latlon} -t_srs epsg:${epsg_local} <<< $( echo "${clon} ${clat}" ) )
--->
+Lamentablemente nuestro pais no cuenta con un mapa de buena resolución de cobertura de suelos. 
 
-| Longitud, Latitud (epsg:4326)  | XY UTM 21S (epsg:32721)|
-|-----------------------|----------------------|
-| -58.461326, -34.577921 | 365965.3, 6172792.0 |
+Algunas opciones que tenemos son mapas globales:
++ MODIS/Terra+Aqua Land Cover Type CMG Yearly L3 Global 0.05 Deg.
++ Copernicus (Sentinel-2)
 
-> :warning: Aermod no trabaja con coordenadas geográficas (lat,lon), necesita trabajar en un sistema de coordenadas plano (x,y). Usualmente utilizamos las fajas de la proyección UTM, para nuestro caso nos sirve la faja 21 sur.
+        ##LANDUSE: (copernicus)
+        #wget https://s3-eu-west-1.amazonaws.com/vito.landcover.global/v3.0.1/2019/W060S20/W060S20_PROBAV_LC100_global_v3.0.1_2019-nrt_Discrete-Classification-map_EPSG-4326.tif
+        #wget https://s3-eu-west-1.amazonaws.com/vito.landcover.global/v3.0.1/2019/W060S20/W080S20_PROBAV_LC100_global_v3.0.1_2019-nrt_Discrete-Classification-map_EPSG-4326.tif
 
-La grilla de receptores la vamos a hacer cada 50 metros, y en un dominio cuadrado de 4 kilometros de lado.
-
-Por lo tanto:
-<!--
-     dist=3162.0
-     dx=50.0; dy=50.0
-     read xini xfin yini yfin<<<$(getLimits.exe ${xc} ${yc} ${dist})
-     nx=$(bc -l <<< "($xfin-$xini)/$dx")
-     ny=$(bc -l <<< "($yfin-$yini)/$dy")
--->
-
-| xc    | 365965.3   |
-| yc    | 6172792.0  |
-| xc    | 362803.250 |
-| xini  | 362803.250 |
-| xfin  | 369127.250 |
-| yini  | 6169630.00 |
-| yfin  | 6175954.00 |
-
-
-Esquema del dominio:
-
-```
-(xini,yfin)                       (xfin,yfin)
-    (+)-------------------------(+)         
-     |...........................|          
-     |...........................| ^        
-     |...........................| |        
-     |............(+)............| ny       
-     |..........(xc,yc)..........| |        
-     |...........................| v        
-     |..........<--nx-->.........|          
-    (+)-------------------------(+)         
-(xini,yini)                       (xfin,yini)
-
-```
-
-
-
-
-
-## Descarga de modelo digital de elevación:
-
-Existen varios modelos digitales de elevación (DEM) con cobertura global, por ejemplo: *ASTER* ó *SRTM*.
-Una versión ajustada a nuestro país es el modelo digital de elevación adaptado por el Instituto Geográfico Nacional (IGN), que se puede descargar entrando [aquí](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa).
 
 Lamentablemente este servicio aún no cuenta con una API para descargar desde la terminal, asi que tendremos que hacerlo desde la página web, y luego descargarlo en nuestro directorio de trabajo.
 

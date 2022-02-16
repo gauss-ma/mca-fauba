@@ -24,27 +24,35 @@ th,tr{
 .language-shell div{
 	background-color: #333 !important;
 	color: #fff !important;
-	font-size:0.9em!important;
+	font-size:1.2em!important;
         border-radius:0px!important;
 }
 
 //Code Blocks que representan editor de texto.
-.language-plain pre{
-  background-color:#fff !important;
-  color:#333!important;
-  border: 1px dashed #444;
+.language-plain{
+  	background-color:#f0f0f0 !important;
+  	color:#333!important;
+	font-size:1.2em!important;
+  	//border: 1px dashed #444;
 }
 
+.language-cmd{
+	background-color: #222 !important;
+	color: #fff !important;
+	font-size:1.2em!important;
+}
 //lo que está adentro de code blocks heredan props
 pre {
+  padding: 10px;
   background-color: inherit;
   color: inherit;
 }
 pre>code {
   background-color: inherit;
   color: inherit;
+  border: 0px;
 }
 pre code {
-  background: none;
+  background-color: inherit;
   color: inherit;
 }

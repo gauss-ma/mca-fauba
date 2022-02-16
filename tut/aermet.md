@@ -1,11 +1,13 @@
 ---
-nav_order: 2
+nav_order: 3
 ---
-# Aermod (parte 1): AERMET
+# Aermod (parte 2): AERMET
 
 > Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
 
+## Resumen
 Los pasos generales a seguir son:
+
 0. Crear *directorio de trabajo* en donde colocaremos todos los archivos de corrida y ejecutables. En este tutorial vamos a asumir que este directorio es creado en: ``C:/Users/MCA_tutorial/aermod``.
 1. Descargar el ejecutable [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), descomprimirlo y colocar el ejecutable ``aermet.exe`` en el directorio de trabajo.
 2. Descargar datos meteorológicos: de [superficie](ftp://ftp.ncdc.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). Colocarlos en el directorio de trabajo con los nombres ``PRUEBA.ISH`` y ``PRUEBA.FSL`` respectivamente.
@@ -18,6 +20,9 @@ Los pasos generales a seguir son:
 	+ ``aermet.exe < ETAPA1.INP``
 	+ ``aermet.exe < ETAPA2.INP``
 	+ ``aermet.exe < ETAPA3.INP``
+
+en las siguientes secciones se presentan los pasos detallados.
+---
 
 ## Directorio de trabajo
 
@@ -99,7 +104,7 @@ Para nuestro caso usaremos la misma estación que antes (EZEIZA AERO, 87576), y 
 En este caso también se puede descargar desde la terminal utilizando el comando ``CURL``:
 
 ```shell
-curl -L "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=${byr}${bmon}${bday}00&edate=${eyr}${emon}${eday}23&access=WMO+Station+Identifier&view=NO&StationIDs=${id_up}&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"
+curl "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=${byr}${bmon}${bday}00&edate=${eyr}${emon}${eday}23&access=WMO+Station+Identifier&view=NO&StationIDs=${id_up}&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"
 ```
 donde ``${byr}``, ``${bmon}``, ``${bday}`` son el año, mes y dia del primer sondeo y ``${eyr}``, ``${emon}``, ``${eday}`` el año, mes y día del ultimo sondeo requerido.  ``${id_up}`` es el *id* de la estación meteorológica de interés.
 
