@@ -21,26 +21,25 @@ th,tr{
 
 //CODE BLOCKS
 //Code Blocks que representan shell
+.language-shell,
 .language-shell div{
 	background-color: #333 !important;
 	color: #fff !important;
-	font-size:1.2em!important;
-        border-radius:0px!important;
+	font-size:1.0em!important;
 }
-
+.language-shell > pre{
+}
 //Code Blocks que representan editor de texto.
-.language-plain{
-  	background-color:#f0f0f0 !important;
+.language-Text,
+.language-Text div{
+  	background-color:#fafafa !important;
   	color:#333!important;
-	font-size:1.2em!important;
-  	//border: 1px dashed #444;
+	font-size:1.1em!important;
+}
+.language-Text > pre{
+  	border: 1px dashed #444;
 }
 
-.language-cmd{
-	background-color: #222 !important;
-	color: #fff !important;
-	font-size:1.2em!important;
-}
 //lo que está adentro de code blocks heredan props
 pre {
   padding: 10px;
