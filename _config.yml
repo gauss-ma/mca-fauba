@@ -29,8 +29,8 @@ search:
   button: false
 plugins:
   - jemoji
-  - jquery
-  - mermaid
+    #  - jquery
+    #  - mermaid
 defaults:
   -
     scope:
