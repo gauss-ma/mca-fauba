@@ -1,5 +1,5 @@
 ---
-nav_order: 2
+nav_order: 3
 ---
 
 # Aermod: AERSURFACE
@@ -27,6 +27,10 @@ Para ejecutar el **AERSURFACE** necesitamos:
 6. Colocar todos los archivos mencionados en un directorio común.
 7. Ejecutar el aermap haciendo doble click sobre el ejecutable ó si están en la terminal: `` aermap.exe < aermap.inp``.
 
+
+---
+
+
 ## Directorio de trabajo
 Al igual que en el [tutorial de AERMET](aermet.md) vamos a asumir que estamos en el directorio de trabajo: *C:/Users/MCA_tutorial/aermod*. En caso de no estar en ese directorio se pude ir ejecutando:
 
@@ -34,7 +38,6 @@ Al igual que en el [tutorial de AERMET](aermet.md) vamos a asumir que estamos en
 cd C:/Users/MCA_tutorial/aermod
 ```
 
----
 
 ## Descarga de ejecutable:
 
@@ -66,20 +69,14 @@ Algunas opciones que tenemos son mapas globales:
         #wget https://s3-eu-west-1.amazonaws.com/vito.landcover.global/v3.0.1/2019/W060S20/W080S20_PROBAV_LC100_global_v3.0.1_2019-nrt_Discrete-Classification-map_EPSG-4326.tif
 
 
-Lamentablemente este servicio aún no cuenta con una API para descargar desde la terminal, asi que tendremos que hacerlo desde la página web, y luego descargarlo en nuestro directorio de trabajo.
-
-Vamos a descargar el producto *MDE 30m*, la grilla número: *3560-18*, ya que nuestro proyecto va a estar centrado al suroeste de la Ciudad Autónoma de Buenos Aires.
-
-El DEM que descargaremos va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos a necesitar convertirlo a un sistema proyectado para trabajar. Generalmente para Argentina usamos algúna faja UTM (Universal Transverse Mercator). Por lo tanto necesitamos transformar el archivo a el nuevo sistema de coordenadas:
-
-Una forma de hacerlo es utilizando ``gdal``:
+Conversión a mapa de coberturas de AERSURFACE:
 
 ```shell
 gdalwarp -tr ${dx} ${dx} -r cubicspline -t_srs epsg:${epsg_local} -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${IGN-MDE} PRUEBA.tif
 ```
-donde ``${dx}`` y ``${dy}`` es al resolución espacial del nuevo DEM (vamos a ponerlo en 50m). ``${epsg_local}`` es el código de la proyección que necesitamos, en nuestro caso va a ser UTM sur, faja 21, y por lo tanto: ``${epsg_local}`` es 32721.  ``${xini2} ${yini2} ${xfin2} ${yfin2}`` son las coordenadas de los vertices del domino de interes (en coordenadas proyectadas). Por ultimo ``${IGN_MDE}`` es el nombre del archivo descargado de la web del IGN. Finalmente para nuestro caso:
+
 ```shell
-gdalwarp -tr 50 50 -r cubicspline -t_srs epsg:32721 -te ${xini2} ${yini2} ${xfin2} ${yfin2} ${IGN-MDE} PRUEBA.tif
+python gdal_calc.py -A input.tif --outfile=output.file --calc="10*(A<=12)+20*(A==20)+30*(A==30)+40*(A==40)+50*(A==50)+60*((A>50)*(A<=62))" --NoDataValue=0
 ```
 
 

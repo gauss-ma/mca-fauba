@@ -5,24 +5,37 @@ nav_order: 6
 
 > Tutorial para uso de **AERMOD**
 
+## Resumen
+
 Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
 1. Descargar ejecutable [``aermod.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip).
-2. Ejecutar **AERMET** para obtener archivos meteorológicos: [``PRUEBA.SFC``](archivos/aermod/PRUEBA.SFC) y [``PRUEBA.FSL``](archivos/aermod/PRUEBA.PFL).
-3. Ejecutar **AERMAP** para obtener el archivo de receptores: [``PRUEBA.ROU``](archivos/aermod/PRUEBA.ROU).
+2. Ejecutar **AERMET** para obtener archivos meteorológicos: [``PRUEBA.SFC``](./archivos/aermod/PRUEBA.SFC) y [``PRUEBA.FSL``](./archivos/aermod/PRUEBA.PFL).
+3. Ejecutar **AERMAP** para obtener el archivo de receptores: [``PRUEBA.ROU``](./archivos/aermod/PRUEBA.ROU).
 4. Construir archivo de control: [``aermod.inp``](archivos/aermod/aermod.inp)
 5. Colocar todos los archivos mencionados en un directorio de trabajo común.
 6. Ejecutar **AERMOD**: ``aermod.exe < aermod.inp ``
 
+---
+
+
 ## Descarga
-Link de descarga de ejecutable: [``aermod.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), también es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip).
+El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), es necesario descomprimirlo y luego colocar el ejcutable ``aermod.exe`` en el directorio de trabajo.
+
+
+> :information_source: También es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip).
+
 
 ## Preparación de datos de entrada
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ Archivos meteorológicos: ``*.SFC`` y ``*.FSL`` generados por el **AERMET**.
-+ Información de Receptores: ``*.ROU`` generado por **AERMAP**.
-+ Información de Emisiones: Depende del tipo de fuente emisora, pero generalmente es caudal másico emitido [g/s], temperatura  del efluente, velocidad de salida, coordenadas y altura del emisor.
++ Archivos meteorológicos: ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el **AERMET**.
++ Información de Receptores: ``PRUEBA.ROU`` generado por **AERMAP**.
++ Información de Emisiones: Depende del tipo de fuente emisora, para una fuente puntual es:
+  - coordenadas, altura y diámetro del emisor.
+  - caudal másico emitido [g/s]
+  - temperatura  del efluente [ºK]
+  - velocidad de salida [m/s]
 + Información de Edificios: Si hubiera edificios que influencien el flujo en las vecindades del emisor también es necesario conocer las coordenadas de sus vértices y altura promedio.
 
 
@@ -61,7 +74,7 @@ Revisar la lista de KEYWORDS en: [Keywords](refs/KEYWORDSaermod.md), en esta tut
 
 En esta sección se definen opciones generales para la corrida.
 
-```
+```Text
 CO STARTING
    TITLEONE  PRUEBA
    MODELOPT  CONC  DEFAULT
@@ -82,7 +95,7 @@ Los parámetros más importantes son:
 
 En esta sección se enumeran las fuentes emisoras y sus parámetros de emisión.
 
-```
+```Text
 SO STARTING
    ELEVUNIT  METERS
    LOCATION  PUNTO1 POINT 350922 6177681 33.00
@@ -115,7 +128,7 @@ donde, Q: caudal emitido [g/s], H:altura del conducto [m], T: Temperatura de sal
 
 Si se ejecutó el **AERMAP** esta paso es muy sencillo, simplemente hay que linkear al archivo de salida ``*.ROU`` con la keyword: ``INCLUDED`` que toma como argumento el nombre del archivo de salida del aermap.
 
-```
+```Text
 RE STARTING
    INCLUDED  PRUEBA.ROU
 RE FINISHED 
@@ -128,7 +141,7 @@ Esta sección tambien tiene keywords para crear una grilla de receptores en caso
 
 En esta sección se indica la ubicación de los archivos meteorológicos de superficie y radiosondeos (con las keywords: ``SURFFILE`` y ``PROFFILE`` respectivamente), y luego algunos parámetros que no son de mayor relevancia:
 
-```
+```Text
 ME STARTING  
    SURFFILE  PRUEBA.SFC
    PROFFILE  PRUEBA.PFL
@@ -144,7 +157,7 @@ la keyword ``PROFBASE`` indica cual es la altura de base para definir el perfil 
 #### **OU**
 Esta sección incluye todas las opciones de escritura de los datos de salida.
 
-```
+```Text
 OU STARTING  
    RECTABLE  ALLAVE  FIRST-THIRD
    MAXTABLE  ALLAVE  50
