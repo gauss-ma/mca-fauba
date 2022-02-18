@@ -6,25 +6,28 @@ has_children: false
 
 > Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, UBA.
 
-### Docentes a cargo:
+### Docente responsable:
 + Bormioli, Marcelo G.
+
+### Docentes a cargo:
 + Espada, Ramiro A.
 + Medrano, Luciano M.
 
 ### Cronograma:
 
-| Semana | Tema                             |    Práctica    |
-|:-------|:---------------------------------|:---------------|
-|1 | [Introducción a MCA    ](./cla/c1.md)  |      -         |
-|2 | [Normativa e Historia  ](./cla/c2.md)  |      -         |
-|3 | [Repaso Meteorología   ](./cla/c3.md)  |      -         |
-|4 | [SCREEN3               ](./cla/c4.md)  |[TP 1](./tps/tp1.md) |
-|5 | [AERMOD I  (aermet)    ](./cla/c5.md)  |      -         |
-|6 | [AERMOD II (aermod)    ](./cla/c6.md)  |[TP 2](./tps/tp2.md) |
-|7 | [Postprocesamiento     ](./cla/c7.md)  |      -         |
-|8 | Evaluación integradora                 |      -         |
+| Semana | Teórica                          |    Práctica    |   TP  |
+|:-------|:---------------------------------|:---------------|:-----:|
+|1 | [Introducción](./teo/c1.md) y [Normativa](./teo/c2.md) | [Shell](./tut/shell.md) | - |
+|2 | [Repaso Meteorología](./teo/c3.md) | -                              | -                      |
+|3 | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
+|4 | -                                  |[Herramientas](./tut/tools.md)  | -                      |
+|5 | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
+|6 | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](.tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
+|7 | -                                  |[Posprocesamiento](./tut/pos.md)| -                      |
+|8 <td colspan=3> *Evaluación integradora* 
 
 ### Contenidos:
+
 - **Unidad 1:** Introducción físico-matemática: Repaso de análisis matemático (Derivadas parciales y ecuaciones diferenciales). Función Gaussiana y Función Error. Ecuaciones de difusión y de transporte. Unidades de concentración de contaminantes en aire y cuadales de emisión
 - **Unidad 2:** Introducción normativa: Requerimientos legales en Argentina sobre exigencias de modelados de la dispersión de contaminantes atmosféricos. Uso en la normativa Internacional y Normas IRAM/ISO
 - **Unidad 3:** Desarrollo Histórico de modelos de calidad de aire: Primeras aplicaciones de modelado de dispersión, evolución de modelos predecesores. Estudios científicos de base. Desarrollos locales. Casos de ejemplo de aplicación. Introducción al modelado de la dispersión de contaminantes en la atmósfera. Ecuación de transporte: advección, difusión, fuentes y sumideros. Formulación Euleriana y Lagrangiana. Soluciones analíticas de la ecuación de transporte para estado transitorio y estacionario. Modelos gaussianos, modelos lagrangianos y modelos mixtos.
@@ -44,17 +47,19 @@ DOS (2) créditos = TREINTA Y DOS (32) horas.
 
 ### Bibliografía:
 
-- "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
-- "SCREEN3 Model User’s Guide". U.S EPA. EPA-454/B-95-004. September 1995.
-- "AERMOD Model Formulation and Evaluation", U.S.EPA. EPA-454/ R-18-003. April, 2018.
-- "Guía metodológica para la evaluación del impacto ambiental atmosférico". Laura Dawidowski, Darío Gómez y Silvia Reich. Honorable Cámara de Diputados de La Nación.
-- "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
-- Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
++ "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
++ "SCREEN3 Model User’s Guide". U.S EPA. EPA-454/B-95-004. September 1995.
++ "AERMOD Model Formulation and Evaluation", U.S.EPA. EPA-454/ R-18-003. April, 2018.
++ "Guía metodológica para la evaluación del impacto ambiental atmosférico". Laura Dawidowski, Darío Gómez y Silvia Reich. Honorable Cámara de Diputados de La Nación.
++ "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
++ Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
 
 ### Bibliografía complementaria
-- "Introduction to Atmospheric Chemistry". Jacob D.J. Princeton University Press, 1999.
-- "Practical Meteorology: An Algebra-based Survey of Atmospheric Science". Stull Rolland. AVP International, University of British Columbia, 2016.
+
++ "Introduction to Atmospheric Chemistry". Jacob D.J. Princeton University Press, 1999.
++ "Practical Meteorology: An Algebra-based Survey of Atmospheric Science". Stull Rolland. AVP International, University of British Columbia, 2016.
 
 ### Bibliografía avanzada
-- “Modeling of Atmospheric Chemistry”. Brasseur G.P & Jacob D.J Cambridge University Press. May 2017.
-- “Fundamentals of Atmospheric Modeling” (2nd edition). Jacobson M.Z. Cambridge University Press. June 2012.
+
++ “Modeling of Atmospheric Chemistry”. Brasseur G.P & Jacob D.J Cambridge University Press. May 2017.
++ “Fundamentals of Atmospheric Modeling” (2nd edition). Jacobson M.Z. Cambridge University Press. June 2012.

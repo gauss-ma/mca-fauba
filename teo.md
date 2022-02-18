@@ -1,5 +1,5 @@
 ---
-title: Clases
+title: Teóricas
 description: Material y resumenes de clases teóricas.
 nav_order: 2
 ---

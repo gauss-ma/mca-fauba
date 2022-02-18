@@ -42,9 +42,9 @@ defaults:
       nav_order: 2
   - 
     scope:
-      path: "cla"
+      path: "teo"
     values:
-      parent: Clases
+      parent: Teóricas
       has_children: false
   -
     scope:
