@@ -5,7 +5,10 @@ nav_order: 3
 
 > **Objetivo**: Implementar modelo de detalle utilizando el sistema de modelado **AERMOD**.
 
-Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. [Informe de referencia](archivos/tp2_ref.pdf)
+Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. 
+
+[Informe de referencia](archivos/tp2_ref.pdf){: .btn .btn-outline }
+
 
 ### Presentaciòn de informe y resultados
 + **Resumen:** Un parrafo sintentizando las herramientas utilizados y los resultados del trabajo.

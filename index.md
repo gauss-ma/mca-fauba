@@ -2,6 +2,7 @@
 nav_exclude: true
 has_children: false
 ---
+
 # Modelado de la Calidad del Aire
 
 > Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, UBA.
@@ -15,16 +16,16 @@ has_children: false
 
 ### Cronograma:
 
-| Semana | Teórica                          |    Práctica    |   TP  |
-|:-------|:---------------------------------|:---------------|:-----:|
+| Semana | Teórica | Práctica |   TP  |
+|:-------|:--------|:---------|:-----:|
 |1 | [Introducción](./teo/c1.md) y [Normativa](./teo/c2.md) | [Shell](./tut/shell.md) | - |
-|2 | [Repaso Meteorología](./teo/c3.md) | -                              | -                      |
+|2 | [Repaso Meteorología](./teo/c3.md) |[Herramientas](./tut/tools.md)  | -                      |
 |3 | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
-|4 | -                                  |[Herramientas](./tut/tools.md)  | -                      |
+|4 | -   |[Aeersurface](./tut/aersurface.md) & [aermap](./tut/aermap.md) | -                      |
 |5 | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
 |6 | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](.tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
 |7 | -                                  |[Posprocesamiento](./tut/pos.md)| -                      |
-|8 <td colspan=3> *Evaluación integradora* 
+|8 | *Evaluación integradora* 
 
 ### Contenidos:
 
@@ -36,11 +37,11 @@ has_children: false
 - **Unidad 6:** Modelos de Sondeo: Fundamentos e implementación de modelo simple según normativa local. Fundamentos y uso de modelo SCREEN3. Modelos de detalle: Fundamentos e implementación del AERMOD y sus preprocesadores: AERMAP, AERSURFACE, BPIPPRM y AERMET. Parámetros micro-meteorológicos de Capa Límite Convectiva y Estable (calor sensible, velocidad de fricción, longitud de Monin-Obukhov). Temperatura potencial y estabilidad. Clases de estabilidad. Efectos de la superficie, topografía, edificios (downwash), fumigación costera y flotación en el desarrollo vertical de la pluma. Herramientas para el pre-procesamiento y post-procesamiento:
 Interpretación y visualización de resultados, isopletas de concentración, tablas de frecuencia de excedencias de concentración límite. Tiempos de promediado. 
 
-### Correlativas requeridas: 
-+ Física aplicada (LiCiA)
-+ Estadística General (LiCiA)
-+ Química de la contaminación y toxicología (LiCiA)
-+ Contaminación Atmosférica y Calidad del Aire (LiCiA)
+### Correlativas: 
++ Física aplicada
++ Estadística General
++ Química de la contaminación y toxicología
++ Contaminación Atmosférica y Calidad del Aire
 
 ### Creditos: 
 DOS (2) créditos = TREINTA Y DOS (32) horas.

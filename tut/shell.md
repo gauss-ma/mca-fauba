@@ -15,6 +15,34 @@ Para los fines de este curso vamos a asumir que un computadora puede almacenar 3
 
 Cada sistema operativo viene con una estructura de directorios particular, en el caso de Windows en general vamos a tener la siguiente estructura:
 
+
+```shell
+C:/
+├── Users/
+│   ├── Public
+│   ├── Usuario1
+│   ├── Usuario2
+│   ├── ...
+│   └── UsuarioN
+├── Program Files/
+│   ├── Common Files      
+│   ├── Git  
+│   ├── Internet Explorer
+│   ├── Microsoft Office  
+│   ├── ...  
+│   ├── WindowsPowerShell
+│   ├── WinRAR
+│   └── WinZip            
+└── Windows/
+   ├── Assembly/
+   ├── Boot/
+   ├── Containers/
+   ├── ...
+   ├── System/
+   ├── System32/
+   └── System64/
+```
+
 ```mermaid
 graph TD;
     C:/ --> Windows/;
@@ -34,13 +62,13 @@ graph TD;
     Windows/ --> System64/;
     Program Files/ --> AMD;
     Program Files/ --> Common Files;
-    Program Files/ --> Git
-    Program Files/ --> Internet Explorer
-    Program Files/ --> Microsoft Office
-    Program Files/ --> ...
-    Program Files/ --> WindowsPowerShell
-    Program Files/ --> WinRAR
-    Program Files/ --> WinZip
+    Program Files/ --> Git;
+    Program Files/ --> Internet Explorer;
+    Program Files/ --> Microsoft Office;
+    Program Files/ --> ...;
+    Program Files/ --> WindowsPowerShell;
+    Program Files/ --> WinRAR;
+    Program Files/ --> WinZip;
 ```
 
 ``C:/`` es el directorio *raiz* ó *madre*, representa el espacio del disco donde está instalado el sistema operativo.
@@ -111,12 +139,13 @@ notepad miArchivo.txt
 ```
 se va a abrir el documento con dicho programa, se puede utilizar y al cerrar volvemos al shell.
 
+### Ver contenido de un archivo:
 Una forma de ver el contenido del archivo es:
 ```shell
 cat miArchivo.txt
 ```
 
-otra forma es con el comando ``less``:
+si el archivo es muy largo, otra forma es con el comando ``less``:
 ```shell
 less miArchivo.txt
 ```
@@ -125,7 +154,6 @@ less miArchivo.txt
 ```shell
 cp miArchivo.txt C:/Users/miUsuario/miArchivo.txt
 ```
-
 
 ### Mover archivo (``mv``)
 la sintaxis de ``mv`` es igual que ``cp`` 
@@ -138,21 +166,28 @@ también puede usarse ``mv`` para renombrar un archivo:
 mv miArchivo.txt miArchivo_2.txt
 ```
 
-### Linkear archivos (``ln``)
+### Linkear archivo (``ln``)
 
+Link simbólico:
 ```shell
-ln
+ln -s
 ```
 
 ### Descomprimir (``tar``)
 
+Para descomprimir archivos .zip, .rar, etc.
 ```shell
 tar
 ```
 
-### Ejecutar programa
+### Ejecutar programas
+
+Para ejecutar un programa presente en el directorio actual:
 
 ```shell
 ./programa.exe
 ```
+
+Para ejecutar un programa que está presente en otro directorio hay que colocar la ruta completa:
+
 

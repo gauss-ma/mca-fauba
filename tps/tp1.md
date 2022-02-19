@@ -5,11 +5,16 @@ nav_order: 2
 
 > **Objetivo:** Implementar modelo de screening mediante el software *SCREEN3* para la situación problemática asignada por los docentes.
 
-Realizar dos escenarios de modelado:
+Considerar todas las velocidades del viento y clases de estabilidad (``FULL METEOROLOGY``)
+
+<!-- Realizar dos escenarios de modelado:
 1. Peor escenario: Considerar todas las velocidades del viento y clases de estabilidad (palabra clave = ``FULL METEOROLOGY``). 
 2. Escenario mas probable: A partir de información meteorológica provista, determinar la dirección y velocidad mas frecuente.
+-->
 
-Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. [Informe de referencia](archivos/tp1_ref.pdf)
+Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. 
+
+[Informe de referencia](archivos/tp1_ref.pdf){: .btn .btn-outline }
 
 ### Presentaciòn de informe y resultados
 
@@ -34,7 +39,7 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
 
 ### Links a material de descarga:
 
-+ [`grupo1.txt`](./datos_tp1/grupo1.txt)
-+ [`grupo2.txt`](./datos_tp1/grupo2.txt)
-+ [`grupo3.txt`](./datos_tp1/grupo3.txt)
++ [`grupo1.zip`](./datos_tp1/grupo1.zip)
++ [`grupo2.zip`](./datos_tp1/grupo2.zip)
++ [`grupo3.zip`](./datos_tp1/grupo3.zip)
 
