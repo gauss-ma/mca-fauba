@@ -183,29 +183,51 @@ los más relevantes son:
 + ``DATATYPE``: el tipo de archivo de entrada, por razones históricas debemos elegir ``NED``.
 + ``DATAFILE``: indica el nombre del DEM a procesar.
 + ``DOMAINXY``: indica el dominio a modelar y la faja UTM a usar (xmin ymin utmzn xmax ymax utmzn).
-+ ``ANCHORXY``: se requiere para relacionar el sistema de coordenadas de de nuestra grilla con la UTM elegida.
++ ``ANCHORXY``: Permite relacionar las coordenadas de la grilla de receptores definida por el usuario con el sistema de coordenadas de de nuestra grilla con la UTM elegida. Como las coordenadas de la ubicación de receptores ya fueron referenciadas al sistema utm, se deben utilizar las mismas. (xusr yusr xutm yutm utmzn datumid)
 + ``FLAGPOLE``: define la altura sobre el nivel del piso, en metros, donde ubicará a los receptores (default: 1.5)
+
+(poner tabla con lo que diga datumid=3 significa WGS84).
 
 #### **RE**
 En la sección de receptores **RE** hay que definir una grilla de receptores, lo podemos hacer con las keywords: 
 + ``GRIDCART``: define una grilla regular en coordenadas cartesianas.
 + ``GRIDPOLR``: define una grilla de circulos concentricos en coordenadas polares.
 
-```Text
-RE STARTING
-RE GRIDCART GRILLA1 STA
-                    XYINC -5000. 11 1000. -5000. 11 1000.
-RE GRIDCART GRILLA1 END
-RE FINISHED
-```
-
-Tambien existe la posiblidad de brinarle a ``aermap.exe`` una grilla propia customizada, solo necesitamos un archivo de texto con las coordendas x e y, y lo incluimos en nuestro archivo de control como:
+Por ejemplo para usar ``GRIDCART`` y hacer una grilla regular, se especifican las coordenadas XY iniciales [ver keyword XYINC](), pero es recomendable utilizar una grilla establecida por el usuario, para excluir receptores del polígono del predio, definir ubicaciones de receptores críticos o variar la densidad de receptores en función a la distancia a la fuente u otro criterio.
+Para utilizar una grilla definida por el usuario, solo necesitamos un archivo de texto con las coordendas x e y, e incluirlo en nuestro archivo de control de la siguiente manera:
 
 ```Text
 RE STARTING
 RE INCLUDED PRUEBA.REC
 RE FINISHED
 ```
+
+Donde ``PRUEBA.REC`` es un archivo de texto, donde en vez de dejar la extensión como _.txt_ la vamos a cambiar a .REC.
+La información del archivo debe estar definida de la sigiente manera:
+
+```Text
+
+RE DISCCART 339250.72 6166414.50
+RE DISCCART 339300.72 6166414.50
+RE DISCCART 339350.72 6166414.50
+RE DISCCART 339400.72 6166414.50
+(...continúa...)
+
+```
+Esta tabla no tiene encabezados y siempre esta definida la 
+
+Para realizar esto proponemos utilizar herramientas de SIG [ver guías sobre herramientas]().
+
+1. Crear un nuevo proyecto de QGIS y cargar las capas de predio y fuentes.
+2. Debemos definir el dominio de modelado, no puede exceder un radio de 50km (en ese caso debemos usar otro sistema de modelado, como CALPUFF) este siempre debe asegurar que incorpora las concentraciones máximas, es posible que luego de una corrida preliminar haya que redefinir la grilla. Como una dimensión inicial vamos a utilizar 3km de radio.
+Crear capa de DOMINIO  (MOSTRAR PASOS PASOS).
+3. Vamos a ubicar receptores separados por 50m. (MOSTRAR PASOS)
+4. La calidad de aire dentro de los límites del predio no se debe considerar en el análisis siempre que haya una barrera fìsica (cerco, pared, etc.) ya que no se la considera "calidad de aire ambiente". A tal fin vamos a eliminar los receptores que esten contenidos en el polígono del predio (mostrar los pasos).
+5. Vamos a facilitar la creación del formato de archivo que requiere AERMAP, agregando un campo inicial de texto que contenga "RE DISSCART" 
+6. El archivo será exportado como CSV donde coordenadas XY (mostrar y ver si no hay que poner antes las $x $y)
+7. Cambiamos la extensión del archivo.
+
+Al abrir el archivo con el block de notas deberíamos ver tantas filas como receptores con el formato (RE DISSCART X Y)
 
 #### **OU**
 
@@ -218,10 +240,35 @@ OU FINISHED
 ```
 en este caso el archivo de receptores lo nombramos ``PRUEBA.ROU`` (la extensión ``.ROU`` es una convención).
 
+Uniendo todas las secciones el archivo de texto aermap.inp debería tener un aspecto similar a este:
+
+```Text
+
+CO STARTING
+   TITLEONE  GRILLA DE RECEPTORES: PRUEBA
+   TERRHGTS  EXTRACT
+   DATATYPE  NED
+   DATAFILE  PRUEBA.tif
+   DOMAINXY  339249.72 6166414.50 -21 363249.72 6190414.50 -21
+   ANCHORXY  351249.728540755 6178414.49722093 351249.728540755 6178414.49722093 -21 3
+   FLAGPOLE  1.5
+   RUNORNOT  RUN
+CO FINISHED
+
+RE STARTING
+RE INCLUDED PRUEBA.REC
+RE FINISHED
+
+OU STARTING
+   RECEPTOR  PRUEBA.ROU
+OU FINISHED
+
+```
+
 
 ## Ejecución:
 
-Para ejecutar el aermap, ponemos el ejecutable ``aermap.exe``, el DEM ``PRUEBA.tif`` y el archivo de control en un mismo directorio, y hacemos ejecutamos el programa haciendo doble click, ó si estamos en una terminal:
+Para ejecutar el aermap, ponemos el ejecutable ``aermap.exe``, el DEM ``PRUEBA.tif`` y el archivo de control en un mismo directorio, y ejecutamos el programa haciendo doble click, ó si estamos en una terminal:
 
 ```shell
 aermap.exe < aermap.inp
