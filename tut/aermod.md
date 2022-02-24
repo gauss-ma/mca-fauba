@@ -42,10 +42,10 @@ Para poder ejecutar el **AERMOD** es necesario contar con:
 + **Información de Edificios.** Si hubiera edificios que influencien el flujo en las vecindades del emisor también es necesario conocer las coordenadas de sus vértices y altura promedio.
 
 
-### Escritura de archivo de control ``aermod.inp``.
+## Archivo de control ``aermod.inp``.
 
 **AERMOD** al ser ejecutado busca un archivo de control con nombre ``aermod.inp``. En este se especifica la ubicacion de los archivos de entrada, opciones y configuración de la corrida.
-Un ejemplo de archivo de control ``aermod.inp``:
+Un ejemplo de ``aermod.inp``:
 
 ```Text
 ** CONTROL
@@ -64,13 +64,15 @@ CO FINISHED
 SO STARTING
    ELEVUNIT  METERS
    LOCATION  FUENTE1 POINT 350930 6177751 30.00
-   SRCPARAM  FUENTE1 4.62E-04 0  11
+   SRCPARAM  FUENTE1 4.62E-04 20 397 10 1.4
    SRCGROUP  ALL 
 SO FINISHED
 
 ** GRILLA DE RECEPTORES
 RE STARTING
-   INCLUDED  PRUEBA.ROU
+   GRIDCART  CAR1 STA
+                XYINC 348342.21 100 50.0 6413521.12 100 50.0
+   GRIDCART  CAR1 END
 RE FINISHED 
 
 ** METEOROLOGIA
@@ -116,15 +118,16 @@ KEYWORD <arg1> <arg2> ... <argN>
 ```
 
 donde ``KEYWORD`` son palabras reservadas para definir parámetros de ejecución, y ``arg1``, ``arg2``, ... son "argumentos" ó los valores que toma la keyword. Por ejemplo:
+
 ```Text
 TITLEONE PRUEBA
 ```
+
 la keyword es ``TITLEONE`` que sirve para especificar el nombre del proyecto. y ``PRUEBA`` es el valor que toma, en este caso entonces el titulo del proyecto será *PRUEBA*.
 
 Revisar la lista de KEYWORDS en: [Keywords](refs/KEYWORDSaermod.md), en este tutorial solo se describen algunos de los más importantes.
 
-
-#### **CO**
+### CONTROL (CO)
 
 En esta sección se definen opciones generales para la corrida.
 
@@ -145,7 +148,7 @@ Los parámetros más importantes son:
 + ``POLLUTID``: es simplemente el nombre del contaminante, puede ser cualquiera, y no tiene mayor consecuencia salvo que se defina: como **NO2** ó **PM25**, en tal caso **AERMOD** interpreta que se debe a dichos contaminantes y reajusta algunos parámetros y rutinas para tratarlos.
 
 
-#### EMISORES: **SO**
+### EMISORES: (SO)
 
 En esta sección se enumeran las fuentes emisoras y sus parámetros de emisión.
 
@@ -178,7 +181,7 @@ donde, Q: caudal emitido [g/s], H:altura del conducto [m], T: Temperatura de sal
 > :warning: **Es importante destacar que las coordenadas de emisores (y también receptores) deben ser coordenadas planas cartesianas, ya que el aermod no puede hacer los cálculos con coordenadas de latitud y longitud.**
 
 
-#### RECEPTORES **RE**
+### RECEPTORES (RE)
 
 
 La forma más sencilla de definir un receptor es utilizando la keyword ``DISCCART``:
@@ -230,7 +233,7 @@ RE STARTING
 ```
 
 
-#### METEOROLOGÍA **ME**
+### METEOROLOGÍA (ME)
 
 En esta sección se indica la ubicación de los archivos meteorológicos de superficie y radiosondeos (con las keywords: ``SURFFILE`` y ``PROFFILE`` respectivamente), y luego algunos parámetros que no son de mayor relevancia:
 
@@ -247,7 +250,7 @@ ME FINISHED
 la keyword ``PROFBASE`` indica cual es la altura de base para definir el perfil de temperatura potencial y es obligatorio.
 
 
-#### OPCIONES DE SALIDA **OU**
+### OPCIONES DE SALIDA (OU)
 Esta sección incluye todas las opciones de escritura de los datos de salida.
 
 ```Text
