@@ -16,10 +16,10 @@ Los pasos generales a seguir son:
 	+ :page_facing_up: [``ETAPA2.INP``](./archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
 	+ :page_facing_up: [``ETAPA3.INP``](./archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
 4. Verificar que estén todos los archivos mencionados en los puntos anteriores y el ejecutable en el directorio de trabajo.
-5. Abrir una terminal, ir al directorio de trabajo y ejectuar: 
-	+ ``aermet.exe < ETAPA1.INP``
-	+ ``aermet.exe < ETAPA2.INP``
-	+ ``aermet.exe < ETAPA3.INP``
+5. Ejecutar cada etapa en el siguiente orden: 
+	1. Copiar ``ETAPA1.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
+	2. Copiar ``ETAPA2.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
+	3. Copiar ``ETAPA3.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
 
 en las siguientes secciones se presenta cada pasos detallado.
 
@@ -201,7 +201,7 @@ OUTPUT PRUEBA.MRG
 XDATES 2021/12/01 TO 21/12/31
 ```
 
-Guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
+Guardamos este archivo con el nombre ``ETAPA2.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el ``aermet.exe`` haciendo doble click.
 
 Se van a crear los siguientes archivos:
 + ``ETAPA2.MSG`` y ``ETAPA2.RPT`` nos brindan información de warnings y errores.
@@ -235,6 +235,7 @@ METHOD   UASELECT SUNRISE
 UAWINDOW -12 12
 AERSURF AERSURFACE.OUT
 ```
+
 
 Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**:
 
@@ -281,7 +282,20 @@ Con la keyword ``SECTOR`` se define para cada sector cual es el angulo de inicio
 
 Por último para cada sector y cada season hay que definir los valores de albedo, bowen y rugosidad usando la keyword: ``SITE_CHAR``.
 
+Este archivo lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención), e incorporamos al final del archivo ``ETAPA3.INP`` la linea:
+
+```Text
+AERSURF AERSURFACE.OUT
+```
+
 ---
+
+
+Para ejecutar la ultima etapa, verificamos que estén presente los archivos:
+- ``PRUEBA.MRG`` generado al correr la ETAPA 2.
+- ``AERSURFACE.OUT`` generado al correr el aersurface ó creado manualmente.
+
+Guardamos este archivo con el archivo de control de la tercer etapa con el nombre ``ETAPA3.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el ``aermet.exe`` haciendo doble click.
 
 Si todo sale bien se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
 
