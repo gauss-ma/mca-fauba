@@ -53,7 +53,7 @@ Para descargar datos meteorológicos tienen que buscar la estación más cercana
 
 Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](https://www.ncei.noaa.gov/pub/data/noaa/) y buscando por año y luego por id van a encontrar el archivo.
 
-Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: ``htps://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``
+Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: ``https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``
 
 Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo comprimido, hay que descomprimirlo, y dentro habrá un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), se lo vamos a cambiar a ``PRUEBA.ISH``. Si lo abren veran del siguiente contenido:
 
@@ -75,13 +75,17 @@ Nos va a pedir en una primer etapa la fecha de inicio y fin de datos que queremo
 
 Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY``), los niveles (seleccionar ``Mandatory``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``).
 
-![Raobs Pantalla II](imgs/ruc_raobs_i.png) 
+![Raobs Pantalla II](imgs/ruc_raobs_ii.png) 
 
 Por ultimo en para la seleccion de sitios poner ``WMO Station Identifier``.
 
-![Raobs Pantalla III](imgs/ruc_raobs_i.png) 
+![Raobs Pantalla III](imgs/ruc_raobs_iii.png) 
 
 Luego hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla donde hay un espacio para completar con el id de nuestra estación (87576, correspondiente a EZEIZA AERO).
+![Raobs Pantalla IV](imgs/ruc_raobs_iv.png)
+
+Dejamos los valores de orden como ``Time Series Sort`` y formato ``FSL`` por defecto. Finalizamos tocando ``Continue Data Access``
+![Raobs Pantalla IV](imgs/ruc_raobs_v.png)
 
 Se va a descargar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) cuyo contenido es:
 
