@@ -8,13 +8,13 @@ nav_order: 3
 ## Resumen
 Los pasos generales a seguir son:
 
-0. Crear *directorio de trabajo*  :open_file_folder:``tutorial`` en donde colocaremos todos los archivos de corrida y ejecutables. 
-1. Descargar [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip) y descomprimirlo, colocar el ejecutable ``aermet.exe`` en el directorio de trabajo.
-2. Descargar datos meteorológicos: de [superficie](https://www.ncei.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). Colocarlos en el directorio de trabajo.
+0. Crear *directorio de trabajo* en donde colocaremos todos los archivos de corrida y ejecutables. En este tutorial vamos a asumir que este directorio es creado en: ``C:/Users/MCA_tutorial/aermod``.
+1. Descargar [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip) y descomprimirlo.
+2. Descargar datos meteorológicos: de [superficie](https://www.ncei.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). 
 3. Construir *archivos de control* para cada etapa de ejecución:
-	+ :page_facing_up: [``ETAPA1.INP``](./archivos/aermod/ETAPA1.INP), extracción y control de calidad de datos.
-	+ :page_facing_up: [``ETAPA2.INP``](./archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
-	+ :page_facing_up: [``ETAPA3.INP``](./archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
+	+ [``ETAPA1.INP``](./archivos/aermod/ETAPA1.INP), extracción y control de calidad de datos.
+	+ [``ETAPA2.INP``](./archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
+	+ [``ETAPA3.INP``](./archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
 4. Verificar que estén todos los archivos mencionados en los puntos anteriores y el ejecutable en el directorio de trabajo.
 5. Abrir una terminal, ir al directorio de trabajo y ejectuar: 
 	+ ``aermet.exe < ETAPA1.INP``
@@ -28,15 +28,41 @@ en las siguientes secciones se presenta cada pasos detallado.
 
 ## Directorio de trabajo
 
-Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables. Es irrelevante el nombre del directorio y ubicación de esta.
+Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables.
 
+Es irrelevante el nombre del directorio y su ubicación, pero por el resto del tutorial vamos a asumir que se llama *aermod* y se encuentra en la carpeta *C:/Users/MCA_tutorial*.
 
+Para crear el directorio abrimos una terminal ó consola, en windows sugerimos que usen *PowerShell*, y ejecutamos la siguiente linea:
+```shell
+mkdir C:/Users/MCA_tutorial/aermod
+```
+el comando ``mkdir`` (*make directory*) crea una carpeta en la ubicación que especificamos en la ruta ó *path*.
+
+Luego, vamos al directorio de trabajo con el comando ``cd`` (*change directory*):
+```shell
+cd C:/Users/MCA_tutorial/aermod
+```
 
 ## Descarga de ejecutable
 
 Descargamos el ejecutable de la página de la EPA: [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
 
-Descomprimimos el ``aermet_exe.zip`` y colocamos el ejecutable ``aermet.exe`` en el directorio de trabajo.
+Usando la terminal, (y estando en el directorio de trabajo) podemos descargarlo automaticamente utilizando el comando ``WGET``:
+
+```shell
+wget https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip -outfile aermet_exe.zip
+```
+
+Y para descomprimirlo podemos ejecutar el camando ``tar``:
+```shell
+tar -xvzf aermet_exe.zip
+```
+deberia aparecer en el directorio el ejecutable ``aermod.exe``. Pueden verificarlo usando el comando ``ls``
+
+```shell
+ls
+aermod.exe aermod_exe.zip
+```
 
 > :information_source: También es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
 
@@ -53,9 +79,19 @@ Para descargar datos meteorológicos tienen que buscar la estación más cercana
 
 Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](https://www.ncei.noaa.gov/pub/data/noaa/) y buscando por año y luego por id van a encontrar el archivo.
 
-Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: ``htps://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``
+Otra forma de hacerlo desde la terminal es con ``WGET``:
+```shell
+wget hhtps://www.ncei.noaa.gov/pub/data/noaa/${year}/${id_sfc}0-99999-${year}.gz -outfile sfc_met.gz
+```
+donde ``${year}`` es el año de interés, y ``${id_sfc} `` es el id de la estación de superficie.
+En nuestro caso entonces sería:
+```shell
+wget hhtps://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz -outfile sfc_ezeiza_2022.gz
+```
 
-Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo comprimido, hay que descomprimirlo, y dentro habrá un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), se lo vamos a cambiar a ``PRUEBA.ISH``. Si lo abren veran del siguiente contenido:
+Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo comprimido, hay que descomprimirlo, y dentro habrá un archivo ascii, que para nuestro caso tendra el nombre [875760-99999-2021](archivos/aermod/875760-99999-2021) y si lo abren veran del siguiente contenido:
+
+> :warning: Nota para los docentes: **VER COMO DESCOMPRIMIR EN WINDOWS .gz DESDE LA SHELL**
 
 ```Text
 0159875530999992021010100004-34450-058583FM-12+000399999V0203401N003119999999N007000199+02431+00891101231ADDAY101021AY201021KA1120M+02901KA2120N+02001MA1999999101201MD1310071+9999MW1041REMSYN07087553 31957 03406 10243 20089 30120 40123 53007 70400 333 10290 20200=
@@ -68,22 +104,21 @@ Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo compri
 
 Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noaa.gov/raobs), hay que completar una serie de datos, elegir la fecha y estación, y se va a generar un archivo que puede descargarse.
 
+Para nuestro caso usaremos la misma estación que antes (EZEIZA AERO, 87576), y el año 2021 completo.
 
-Nos va a pedir en una primer etapa la fecha de inicio y fin de datos que queremos descargar.
+En este caso también se puede descargar desde la terminal utilizando el comando ``CURL``:
 
-![Raobs Pantalla I](imgs/ruc_raobs_i.png) 
+```shell
+curl "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=${byr}${bmon}${bday}00&edate=${eyr}${emon}${eday}23&access=WMO+Station+Identifier&view=NO&StationIDs=${id_up}&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29"
+```
+donde ``${byr}``, ``${bmon}``, ``${bday}`` son el año, mes y dia del primer sondeo y ``${eyr}``, ``${emon}``, ``${eday}`` el año, mes y día del ultimo sondeo requerido.  ``${id_up}`` es el *id* de la estación meteorológica de interés.
 
-Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY``), los niveles (seleccionar ``Mandatory``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``).
+Para nuestro ejemplo:
+```shell
+curl "https://ruc.noaa.gov/raobs/GetRaobs.cgi?shour=0z%2C+12z+ONLY&ltype=Mandatory&wunits=Tenths+of+Meters%2FSecond&bdate=2021010100&edate=2021123123&access=WMO+Station+Identifier&view=NO&StationIDs=87576&osort=Station+Series+Sort&oformat=FSL+format+%28ASCII+text%29" -o PRUEBA.FSL
+```
 
-![Raobs Pantalla II](imgs/ruc_raobs_i.png) 
-
-Por ultimo en para la seleccion de sitios poner ``WMO Station Identifier``.
-
-![Raobs Pantalla III](imgs/ruc_raobs_i.png) 
-
-Luego hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla donde hay un espacio para completar con el id de nuestra estación (87576, correspondiente a EZEIZA AERO).
-
-Se va a descargar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) cuyo contenido es:
+Se va a descargar un archivo ascii, para nuestro ejemplo de nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) cuyo contenido es:
 
 ```Text
    254     12      5      JAN    2021
@@ -117,10 +152,11 @@ En caso de disponer datos de una estación meteorológica privada también es po
 
 ## Ejecución
 
-Para ejectuar el **AERMET** primero verificamos que estén todos los archivos necesarios en el directorio de trabajo:
-+ ``PRUEBA.ISH``
-+ ``PRUEBA.FSL``
-+ ``aermet.exe``
+Para ejectuar el **AERMET** primero verificamos que estén todos los archivos necesarios en el directorio de trabajo, utlizando ``ls`` deberíamos ver que los siguientes archivos están presentes:
+```shell
+ls
+aermet.exe PRUEBA.ISH PRUEBA.FSL 
+```
 
 El **AERMET** se ejecuta en 3 etapas a las que llamaremos: **ETAPA1**, **ETAPA2** y **ETAPA3**. Cada una de estas necesita un *archivo de control*, que básicamente es un archivo de texto con definición de parámetros para configurar la corrida y permitirle al AERMET realizar cada etapa con los datos que disponemos.
 
@@ -169,11 +205,17 @@ Notar que todas las lineas que comienzan con ``**`` son interpretadas como *come
 
 En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
 
+Si estamos en una terminal, solo es necesario ejecutar la siguiente linea:
+```shell
+.\aermet.exe ETAPA1.INP
+```
+
 Si todo sale bien se van a crear los siguientes archivos:
 + ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
 + ``EXTRACT_SFC.OUT`` y ``EXTRACT_UA.OUT`` contienen los datos extraidos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
 + ``QA_SFC.OUT`` y ``QA_UA.OUT`` archivos con información de variables auditadas que serviran par el siguiente paso.
 + ``Discarded_ISHD_Records.dat`` si algun registro no cumple los parametros de calidad entonces se descartan y se guardan en este archivo para su revisión.
+
 
 ### Etapa 2: Fusión (merge) de archivos
 
@@ -201,7 +243,11 @@ OUTPUT PRUEBA.MRG
 XDATES 2021/12/01 TO 21/12/31
 ```
 
-Guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
+Guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click ó en la terminal:
+
+```shell
+.\aermet.exe ETAPA2.INP
+```
 
 Se van a crear los siguientes archivos:
 + ``ETAPA2.MSG`` y ``ETAPA2.RPT`` nos brindan información de warnings y errores.
@@ -236,52 +282,12 @@ UAWINDOW -12 12
 AERSURF AERSURFACE.OUT
 ```
 
-Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**:
+Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE** que veremos en la [próxima sección](./aersurface.html). Por ahora, para poder ejecutarlo pueden usar [este archivo](./archivos/aermod/AERSURFACE.OUT) (colóquenlo en el directorio de trabajo).
 
----
-
-#### AERSURFACE:
-
-El **AERSURFACE** es un preprocesador que nos permite estimar parámetros de superficie representativos para las cercanias de la estación meteorológica, usando datos de usos de suelo, canopeo e impermeabilidad del suelo.
-
-Este programa necesita datos que lamentablemente no tenemos con cobertura en todo el país. Y por lo tanto estamos imposibilitados a usarlo. 
-
-Sin embargo se puede generar el archivo ``AERSURFACE.OUT`` de forma manual, ya que este es simplemente un archivo de texto con algunas especificaciones, por ejemplo:
-
-```Text
- FREQ_SECT  SEASONAL  3
-   SECTOR   1  0   30
-   SECTOR   2  30  360
-**------------------------------------------------|
-**          | season | section | a0  | b0  | z0   |
-**----------|--------|---------|-----|-----|------|
-   SITE_CHAR    1        1      0.18  0.70  0.01
-   SITE_CHAR    2        1      0.15  0.30  0.015
-   SITE_CHAR    3        1      0.15  0.50  0.02
-   SITE_CHAR    4        1      0.15  0.70  0.015
-   SITE_CHAR    1        2      0.18  1.00  0.30
-   SITE_CHAR    2        2      0.16  0.80  0.40
-   SITE_CHAR    3        2      0.16  0.80  0.40
-   SITE_CHAR    4        2      0.16  0.80  0.40
-**----------|--------|---------|-----|-----|------|
+Para ejecutar esta etapa se procede igual que en las anteriores:
+```shell
+./aermet.exe ETAPA3.INP
 ```
-Recordar que ``**`` convierte la linea en un comentario, y por lo tanto no tiene ningun efecto.
-
-Antes de explicar que define cada *keyword* tenemos que saber que vamos a considerar un area circular de 1km de radio alrededor del la estación meteorológica y vamos a definir radialmente secciones con distintas propiedades de la superficie:
-
-![aersurface_radio](imgs/aersurface_radio.png)
-
-Cada seccion va a representar una cobertura distinta, con parámetros de albedo, bowen y rugosidad distintas. 
-
-A su vez estas propiedades pueden cambiar en el tiempo: mensual, estacional ó anualmente.
-
-La palabra clave ``FREQ_SECT`` permite definir como queremos que cambien los parámetros de superficie en el tiempo: (``ANNUAL``, ``SEASONAL`` ó ``MONTHLY``)  y el numero de sectores con superficies distintas alrededor de la estación meteorológica.
-
-Con la keyword ``SECTOR`` se define para cada sector cual es el angulo de inicio y fin que lo define. Siempre considerando que el 0 se encuentra en el norte, y que avanza de forma antioraria.
-
-Por último para cada sector y cada season hay que definir los valores de albedo, bowen y rugosidad usando la keyword: ``SITE_CHAR``.
-
----
 
 Si todo sale bien se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
 
