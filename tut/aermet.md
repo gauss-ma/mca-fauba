@@ -28,18 +28,14 @@ en las siguientes secciones se presenta cada pasos detallado.
 
 ## Directorio de trabajo
 
-Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables. Es irrelevante el nombre del directorio y ubicación de esta.
-
-
-
+Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables, sin importar que nombre y ubicación le asignamos.
 ## Descarga de ejecutable
 
-Descargamos el ejecutable de la página de la EPA: [``aermet.exe``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
+Descargamos el programa de la página de la EPA: [``aermet_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
 
-Descomprimimos el ``aermet_exe.zip`` y colocamos el ejecutable ``aermet.exe`` en el directorio de trabajo.
-
+<!-- 
 > :information_source: También es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
-
+ -->
 
 ## Descarga de datos meteorológicos:
 
@@ -47,15 +43,27 @@ Para poder ejecutar el **AERMET** vamos a necesitar disponer de datos meteoroló
 
 Para descargar datos meteorológicos tienen que buscar la estación más cercana al proyecto a modelar que cuente con buena disponibilidad de datos. Cada estación meteorológica tiene un *id* definido globalmente por la Organización Mundial de Meteorología (WMO), en este documento pueden ver los datos generales con id de las estaciones meteorológicas de la red Argentina: [estaciones_smn.csv](refs/estaciones_smn.csv).
 
-**En este tutorial vamos a seleccionar el año *2021*, y la estación *EZEIZA AERO* cuyo id es 87576.**
+Para el caso de la información del perfil de la atmósfera por radiosondeos, solamente contamos con 6 estaciones que hacen esta medición:
+
+|Nombre|NRO|NACI|
+|---|---|---|
+|EZEIZA AERO|87576|SAEZ
+|SANTA ROSA AERO|87623|SAZR
+MENDOZA AERO|87418|SAME
+RESISTENCIAAERO|87155|SARE
+COMODORO RIVADAVIA AERO|87860|SAVC
+CORDOBA AERO|87344|SACO
+
+
+**En este tutorial vamos a seleccionar el año *2021*, y la estación *EZEIZA AERO* que tiene información de superficie como de radiosondeo, cuyo id es 87576.**
 
 ### Meteorología de superficie: 
 
 Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](https://www.ncei.noaa.gov/pub/data/noaa/) y buscando por año y luego por id van a encontrar el archivo.
 
-Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: ``https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``
+Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: [``https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``](https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz)
 
-Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo comprimido, hay que descomprimirlo, y dentro habrá un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), se lo vamos a cambiar a ``PRUEBA.ISH``. Si lo abren veran del siguiente contenido:
+Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descomprimirlo encontraremos un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), lo vamos a renombrar ``PRUEBA.ISH``. Si lo abren verán el siguiente contenido:
 
 ```Text
 0159875530999992021010100004-34450-058583FM-12+000399999V0203401N003119999999N007000199+02431+00891101231ADDAY101021AY201021KA1120M+02901KA2120N+02001MA1999999101201MD1310071+9999MW1041REMSYN07087553 31957 03406 10243 20089 30120 40123 53007 70400 333 10290 20200=
@@ -66,28 +74,28 @@ Se va a descargar un archivo con extensión ``.gz`` (gzip), es un archivo compri
 
 ### Radiosondeos:
 
-Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noaa.gov/raobs), hay que completar una serie de datos, elegir la fecha y estación, y se va a generar un archivo que puede descargarse.
+Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noaa.gov/raobs), donde al completar un formulario se va a generar un archivo con la información requerida.
 
-
-Nos va a pedir en una primer etapa la fecha de inicio y fin de datos que queremos descargar.
+Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremos descargar.
 
 ![Raobs Pantalla I](imgs/ruc_raobs_i.png) 
 
-Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY``), los niveles (seleccionar ``Mandatory``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``).
+Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY`` que considerando que argentina es UTC-3 serían 21hs y 9hs), los niveles (seleccionar ``Mandatory``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
 
 ![Raobs Pantalla II](imgs/ruc_raobs_ii.png) 
 
-Por ultimo en para la seleccion de sitios poner ``WMO Station Identifier``.
+Por ultimo en para la selección de sitios poner ``WMO Station Identifier``.
 
 ![Raobs Pantalla III](imgs/ruc_raobs_iii.png) 
 
-Luego hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla donde hay un espacio para completar con el id de nuestra estación (87576, correspondiente a EZEIZA AERO).
+Hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla donde hay un cuadro para completar con el id de nuestra estación (87576, correspondiente a EZEIZA AERO).
+
 ![Raobs Pantalla IV](imgs/ruc_raobs_iv.png)
 
 Dejamos los valores de orden como ``Time Series Sort`` y formato ``FSL`` por defecto. Finalizamos tocando ``Continue Data Access``
 ![Raobs Pantalla IV](imgs/ruc_raobs_v.png)
 
-Se va a descargar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) cuyo contenido es:
+Se va a generar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) Su contenido es:
 
 ```Text
    254     12      5      JAN    2021
@@ -115,18 +123,18 @@ Se va a descargar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL]
 ... (continúa)
 ```
 
-### Datos sitio-especificas
-En caso de disponer datos de una estación meteorológica privada también es posible incorporar los datos al modelo, solo es necesario que estén en algun formato tipo tabla donde cada fila sea una observación y cada columna sea una variable distinta, como puede ser una planilla de excell. 
-
+<!-- ### Datos sitio-especificas 
+En caso de disponer datos de una estación meteorológica privada también es posible incorporar los datos al modelo, solo es necesario que estén en algún formato tipo tabla donde cada fila sea una observación y cada columna sea una variable distinta, como puede ser una planilla de excel.  
+-->
 
 ## Ejecución
 
-Para ejectuar el **AERMET** primero verificamos que estén todos los archivos necesarios en el directorio de trabajo:
+Para ejecutar el **AERMET** primero verificamos que estén todos los archivos necesarios en el directorio de trabajo:
 + ``PRUEBA.ISH``
 + ``PRUEBA.FSL``
 + ``aermet.exe``
 
-El **AERMET** se ejecuta en 3 etapas a las que llamaremos: **ETAPA1**, **ETAPA2** y **ETAPA3**. Cada una de estas necesita un *archivo de control*, que básicamente es un archivo de texto con definición de parámetros para configurar la corrida y permitirle al AERMET realizar cada etapa con los datos que disponemos.
+El **AERMET** se ejecuta en 3 etapas a las que llamaremos: **ETAPA1**, **ETAPA2** y **ETAPA3**. Cada una de estas necesita un *archivo de control*, que es un archivo de texto con definición de parámetros para configurar la corrida y permitirle a AERMET realizar cada etapa con los datos que disponemos.
 
 A los archivos de control los llamaremos ``ETAPA1.INP``, ``ETAPA2.INP`` y ``ETAPA3.INP``.
 
@@ -137,12 +145,12 @@ En esta etapa tenemos que proveer al **AERMET** con los archivos de entrada y pa
 
 Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas entre otros.
 
-Este archivo de control lo nombraremos: [ETAPA1.INP](./archivos/aermet/ETAPA1.INP) y se divide en las siguientes secciones:
+Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermet/ETAPA1.INP). Se divide en las siguientes secciones:
 
-+ ``JOB ``: en esta sección se especifican los nombres de archivos con información de la ejecución.
-+ ``SURFACE ``: se brinda la ruta al archivo de superficie, el formato, y las fechas de incio y fin de la corrida.
-+ ``UPPER ``: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de incio y fin de la corrida.
-+ ``ONSITE `` (opcional): se brinda la ruta al archivo de observaciones in-situ y formato.
++ ``JOB ``: Se especifican los nombres de archivos con información de la ejecución.
++ ``SURFACE ``: Se brinda la ruta al archivo de superficie, el formato, y las fechas de inicio y fin de la corrida.
++ ``UPPER ``: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de inicio y fin de la corrida.
+<!-- + ``ONSITE `` (opcional): se brinda la ruta al archivo de observaciones in-situ y formato. -->
 
 Para nuestro ejemplo:
 
@@ -169,9 +177,9 @@ AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
 QAOUT      QA_UA.OUT
 ```
 
-Notar que todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* (el programa las ignora).
+Todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* y el programa las ignora.
 
-En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
+En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, luego lo copiamos nombrando la copia ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
 
 Si todo sale bien se van a crear los siguientes archivos:
 + ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
