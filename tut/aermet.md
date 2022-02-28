@@ -80,7 +80,13 @@ Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremo
 
 ![Raobs Pantalla I](imgs/ruc_raobs_i.png) 
 
-Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY`` que considerando que argentina es UTC-3 serían 21hs y 9hs), los niveles (seleccionar ``Mandatory``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
+Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY`` que considerando que argentina es UTC-3 serían 21hs y 9hs), los niveles (seleccionar ``All levels``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
+<!-- 
+
+hice cambio de los "mandatory" a both, xq en el ppt de apti epa lo aclara:
+Why download both mandatory and significant levels? Too few levels leads to a less accurate estimate of the mixing height from the sounding; this leads to errors in the convective velocity scale (w*) and other calculations that use the mixing height.
+
+-->
 
 ![Raobs Pantalla II](imgs/ruc_raobs_ii.png) 
 
@@ -253,46 +259,6 @@ Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) 
 
 ---
 
-#### AERSURFACE:
-
-El **AERSURFACE** es un preprocesador que nos permite estimar parámetros de superficie representativos para las cercanias de la estación meteorológica, usando datos de usos de suelo, canopeo e impermeabilidad del suelo.
-
-Este programa necesita datos que lamentablemente no tenemos con cobertura en todo el país. Y por lo tanto estamos imposibilitados a usarlo. 
-
-Sin embargo se puede generar el archivo ``AERSURFACE.OUT`` de forma manual, ya que este es simplemente un archivo de texto con algunas especificaciones, por ejemplo:
-
-```Text
- FREQ_SECT  SEASONAL  3
-   SECTOR   1  0   30
-   SECTOR   2  30  360
-**------------------------------------------------|
-**          | season | section | a0  | b0  | z0   |
-**----------|--------|---------|-----|-----|------|
-   SITE_CHAR    1        1      0.18  0.70  0.01
-   SITE_CHAR    2        1      0.15  0.30  0.015
-   SITE_CHAR    3        1      0.15  0.50  0.02
-   SITE_CHAR    4        1      0.15  0.70  0.015
-   SITE_CHAR    1        2      0.18  1.00  0.30
-   SITE_CHAR    2        2      0.16  0.80  0.40
-   SITE_CHAR    3        2      0.16  0.80  0.40
-   SITE_CHAR    4        2      0.16  0.80  0.40
-**----------|--------|---------|-----|-----|------|
-```
-Recordar que ``**`` convierte la linea en un comentario, y por lo tanto no tiene ningun efecto.
-
-Antes de explicar que define cada *keyword* tenemos que saber que vamos a considerar un area circular de 1km de radio alrededor del la estación meteorológica y vamos a definir radialmente secciones con distintas propiedades de la superficie:
-
-![aersurface_radio](imgs/aersurface_radio.png)
-
-Cada seccion va a representar una cobertura distinta, con parámetros de albedo, bowen y rugosidad distintas. 
-
-A su vez estas propiedades pueden cambiar en el tiempo: mensual, estacional ó anualmente.
-
-La palabra clave ``FREQ_SECT`` permite definir como queremos que cambien los parámetros de superficie en el tiempo: (``ANNUAL``, ``SEASONAL`` ó ``MONTHLY``)  y el numero de sectores con superficies distintas alrededor de la estación meteorológica.
-
-Con la keyword ``SECTOR`` se define para cada sector cual es el angulo de inicio y fin que lo define. Siempre considerando que el 0 se encuentra en el norte, y que avanza de forma antioraria.
-
-Por último para cada sector y cada season hay que definir los valores de albedo, bowen y rugosidad usando la keyword: ``SITE_CHAR``.
 
 Este archivo lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención), e incorporamos al final del archivo ``ETAPA3.INP`` la linea:
 
