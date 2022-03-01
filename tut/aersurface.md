@@ -51,7 +51,7 @@ Para determinar la clase dominante se debe analizar la siguiente información.
    - Media *geométrica* de región de 10 km x 10 km centrada en la esración meeorológica.
  
 3. largo de rugosidad de superficie $z_{0}$
-   - asd
+   - Distancia Inversa Ponderada
 
 ![aersurface_radio](imgs/aersurface_radio.png)
 

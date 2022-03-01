@@ -47,12 +47,12 @@ Para el caso de la información del perfil de la atmósfera por radiosondeos, so
 
 |Nombre|NRO|NACI|
 |---|---|---|
-|EZEIZA AERO|87576|SAEZ
-|SANTA ROSA AERO|87623|SAZR
-MENDOZA AERO|87418|SAME
-RESISTENCIAAERO|87155|SARE
-COMODORO RIVADAVIA AERO|87860|SAVC
-CORDOBA AERO|87344|SACO
+|EZEIZA AERO|87576|SAEZ|
+|SANTA ROSA AERO|87623|SAZR|
+|MENDOZA AERO|87418|SAME|
+|RESISTENCIAAERO|87155|SARE|
+|COMODORO RIVADAVIA AERO|87860|SAVC|
+|CORDOBA AERO|87344|SACO|
 
 
 **En este tutorial vamos a seleccionar el año *2021*, y la estación *EZEIZA AERO* que tiene información de superficie como de radiosondeo, cuyo id es 87576.**
@@ -185,7 +185,7 @@ QAOUT      QA_UA.OUT
 
 Todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* y el programa las ignora.
 
-En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, luego lo copiamos nombrando la copia ``aermet.inp`` y ejecutamos el AERMET.EXE haciendo doble click.
+En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, luego lo copiamos nombrando la copia ``aermet.inp`` y ejecutamos el ``aermet.exe``.
 
 Si todo sale bien se van a crear los siguientes archivos:
 + ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
@@ -199,8 +199,7 @@ En esta etapa se fusionan los datos de superficie con los meteorológicos.
 También necesitamos crear un archivo de control: [ETAPA2.INP](./archivos/aermet/ETAPA2.INP) que tiene las siguientes secciones:
 + ``JOB ``
 + ``SURFACE ``
-+ ``UPPER ``
-+ ``ONSITE `` (opcional)
++ ``UPPER `` <!-- + ``ONSITE `` (opcional) -->
 + ``MERGE`` 
 
 Para nuestro ejemplo:
@@ -231,9 +230,9 @@ Este es el úlitmo paso, y es donde se relizan los cálculos que serviran como i
 
 Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermet/ETAPA3.INP) que tiene sólo dos secciones:
 + ``JOB``: lo mismo que en los pasos anteriores.
-+ ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de flags que hacen referencia a métodos a emplear para el cálculo de los parámetros y como utilizar la información. También se brindan archivos con información de parámetros de superficie del suelo cerca a las estaciones.
++ ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de **kewords** y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones.
 
-Por ejemplo:
+Ejemplo de ``ETAPA3.INP``:
 ```Text
 ** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
 JOB
@@ -255,12 +254,29 @@ AERSURF AERSURFACE.OUT
 ```
 
 
-Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**:
+Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.md) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
 
----
+```text
+ FREQ_SECT  SEASONAL  3
+   SECTOR   1  0   30
+   SECTOR   2  30  360
+**------------------------------------------------|
+**          | season | section | a0  | b0  | z0   |
+**----------|--------|---------|-----|-----|------|
+   SITE_CHAR    1        1      0.18  0.70  0.01
+   SITE_CHAR    2        1      0.15  0.30  0.015
+   SITE_CHAR    3        1      0.15  0.50  0.02
+   SITE_CHAR    4        1      0.15  0.70  0.015
+   SITE_CHAR    1        2      0.18  1.00  0.30
+   SITE_CHAR    2        2      0.16  0.80  0.40
+   SITE_CHAR    3        2      0.16  0.80  0.40
+   SITE_CHAR    4        2      0.16  0.80  0.40
+**----------|--------|---------|-----|-----|------|
+
+```
 
 
-Este archivo lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención), e incorporamos al final del archivo ``ETAPA3.INP`` la linea:
+Incorporamos al final del archivo ``ETAPA3.INP`` la línea:
 
 ```Text
 AERSURF AERSURFACE.OUT
@@ -268,12 +284,11 @@ AERSURF AERSURFACE.OUT
 
 ---
 
-
 Para ejecutar la ultima etapa, verificamos que estén presente los archivos:
 - ``PRUEBA.MRG`` generado al correr la ETAPA 2.
-- ``AERSURFACE.OUT`` generado al correr el aersurface ó creado manualmente.
+- ``AERSURFACE.OUT`` generado en el paso anterior.
 
-Guardamos este archivo con el archivo de control de la tercer etapa con el nombre ``ETAPA3.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el ``aermet.exe`` haciendo doble click.
+Guardamos este archivo con el nombre ``ETAPA3.INP``, y luego lo copiamos y renombramos como ``aermet.inp`` y ejecutamos el ``aermet.exe``.
 
 Si todo sale bien se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
 
