@@ -22,13 +22,13 @@ Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
 ## Descarga
 El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), es necesario descomprimirlo y luego colocar el ejcutable ``aermod.exe`` en el directorio de trabajo.
 
-> :information_source: También es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip).
+<!-- > :information_source: También es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip). -->
 
 ## Preparación de datos de entrada
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el **AERMET**.
++ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/tut/aermet.md).
 + **Información de Receptores.**
   - Punto central del predio donde se encuentran las fuentes (``xc`` ``yc``).
   - Dominio de modelado (limites: ``xmin`` ``xmax`` ``ymin`` ``ymax``).
@@ -184,6 +184,7 @@ donde, Q: caudal emitido [g/s], H:altura del conducto [m], T: Temperatura de sal
 ### RECEPTORES (RE)
 
 
+
 La forma más sencilla de definir un receptor es utilizando la keyword ``DISCCART``:
 
 ```Text
@@ -195,9 +196,10 @@ RE STARTING
 RE FINISHED
 ```
  
-``DISCCART`` toma como argumentos la posción *x* e *y* (en metros) del receptor a considerar. También acepta como arumentos opcionales, la altura del terreno en esa ubicación, y otros parámetros necesarios para contemplar la influencia de la topografía sobre la pluma.
+``DISCCART`` toma como argumentos la posción *x* e *y* (en metros) del receptor a considerar. 
+También acepta como argumentos opcionales, la altura del terreno en esa ubicación, y otros parámetros necesarios para contemplar la influencia de la topografía sobre la pluma.
 
-Comunmente nos encontramos en el caso de tener que definir muchos receptores, en forma de grillas regulares, ó concéntricas, que usando ``DISCCART`` involucraría muchas lineas para especificar. Para simplificar el trabajo exsten keywords que nos permiten definir grillas regulares de forma sencilla:
+Comúnmente nos encontramos en el caso de tener que definir muchos receptores, en forma de grillas regulares, ó concéntricas, que usando ``DISCCART`` involucraría muchas líneas para especificar. Para simplificar el trabajo existen keywords que nos permiten definir grillas regulares de forma sencilla:
 + ``GRIDCART``: define una grilla regular en coordenadas cartesianas.
 + ``GRIDPOLR``: define una grilla de circulos concentricos en coordenadas polares.
 
@@ -222,7 +224,7 @@ RE STARTING
 - el *paso* ó incremento en la dimensión Y: ``dy`` (generalmente 50 metros)
 
 
-En nuestro caso tenemos que definir una grilla con separación de 50 metros. En un dominio cuadrado de XXXxXXX metros. Por lo tanto vamos tendríamos que usar:
+En nuestro caso tenemos que definir una grilla con separación de 50 metros. En un dominio cuadrado de 5000 x 5000 metros. Por lo tanto vamos tendríamos que usar:
 
 ```Text
 RE STARTING
