@@ -254,27 +254,21 @@ AERSURF AERSURFACE.OUT
 ```
 
 
-Vamos a necesitar el archivo [AERSURFACE.OUT](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.md) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
+Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.md) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
 
 ```text
- FREQ_SECT  SEASONAL  3
-   SECTOR   1  0   30
-   SECTOR   2  30  360
+ FREQ_SECT  SEASONAL  1
+   SECTOR   1  0   360
 **------------------------------------------------|
 **          | season | section | a0  | b0  | z0   |
 **----------|--------|---------|-----|-----|------|
-   SITE_CHAR    1        1      0.18  0.70  0.01
-   SITE_CHAR    2        1      0.15  0.30  0.015
-   SITE_CHAR    3        1      0.15  0.50  0.02
-   SITE_CHAR    4        1      0.15  0.70  0.015
-   SITE_CHAR    1        2      0.18  1.00  0.30
-   SITE_CHAR    2        2      0.16  0.80  0.40
-   SITE_CHAR    3        2      0.16  0.80  0.40
-   SITE_CHAR    4        2      0.16  0.80  0.40
+   SITE_CHAR    1        1      0.16  0.80  0.54
+   SITE_CHAR    2        1      0.16  1.00  0.54
+   SITE_CHAR    3        1      0.18  1.00  0.50
+   SITE_CHAR    4        1      0.16  0.80  0.52
 **----------|--------|---------|-----|-----|------|
 
 ```
-
 
 Incorporamos al final del archivo ``ETAPA3.INP`` la línea:
 

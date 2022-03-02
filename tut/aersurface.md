@@ -10,84 +10,161 @@ nav_order: 0
 > Tutorial para el preprocesamiento de datos de superficie aermod (**AERSURFACE**)
 
 
-El **AERSURFACE** es un preprocesador que nos permite estimar parámetros de superficie representativos para las cercanías de la estación meteorológica, usando datos de usos de suelo, canopeo e impermeabilidad del suelo.
-Este programa relaciona una clasificación de cobertura del suelo (pastizal, urbano, agua), a una distancia de la estación meteorológica de superficie, para inferir los siguientes parámetos:
+El **AERSURFACE** es un preprocesador que nos permite estimar parámetros de superficie representativos para las cercanías de la estación meteorológica, usando datos de usos de suelo, canopeo e impermeabilidad del suelo. Es una herramienta "opcional" y no es requisito de EPA su utilización en modelado regulatorio.
+Este programa relaciona una clasificación de cobertura del suelo (pastizal, urbano, agua), a una distancia de la estación meteorológica de superficie, para inferir los siguientes parámetros:
 
 1. albedo &alpha;
 2. proporción (ratio) de bowen $B_{0}$
-3. largo de rugosidad de superficie $z_{0}$ 
+3. longitud de rugosidad de superficie $z_{0}$ 
 
 Este programa necesita datos que requieren un formato de clasificación particular del servicio geológico de estados unidos ([NLCD](https://www.mrlc.gov/)) y que en consecuencia no esta disponible en nuestro país. 
 
-Esta clasificación de cobertura del suelo el USGS define las sifuientes clases:
+Esta clasificación de cobertura del suelo el USGS define las siguientes clases:
 
 
 <!-- https://grasswiki.osgeo.org/wiki/File:NLCD_2016_Land_Cover_example.png -->
-|Clase|Descrpición|
+|Clase|Descripción|
 |---|---|
-11|Open Water
-12|Perennial Snow/Ice
-21|Developed, Open Space
-22|Developed, Low Intensity
-23|Developed, Medium Intensity
-24|Developed, High Intensity
-31|Barren Land
-41|Deciduous Forest
-42|Evergreen Forest
-43|Mixed Forest
-52|Shrub/Scrub
-71|Herbaceous
-81|Hay/Pasture
-82|Cultivated Crops
-90|Woody Wetlands
-95|Emergent Herbaceous Wetlands
+|11|Open Water|
+|12|Perennial Snow/Ice|
+|21|Developed, Open Space|
+|22|Developed, Low Intensity|
+|23|Developed, Medium Intensity|
+|24|Developed, High Intensity|
+|31|Barren Land|
+|41|Deciduous Forest|
+|42|Evergreen Forest|
+|43|Mixed Forest|
+|52|Shrub/Scrub|
+|71|Herbaceous|
+|81|Hay/Pasture|
+|82|Cultivated Crops|
+|90|Woody Wetlands|
+|95|Emergent Herbaceous Wetlands|
 
-Para determinar la clase dominante se debe analizar la siguiente información.
+Asi se visualiza la clasificación de cobertura para un aeropuerto de estados unidos.
+![](/tut/imgs/aersurf_pizza.png)
+
+![](/tut/imgs/aersurf_pizza_nlcd.png)
+
+Para determinar la clase dominante y sus parámetros asociados se debe analizar la siguiente información.
 
 1. albedo &alpha;:
-    - Media aritmética de región de 10 km x 10 km centrada en la esración meeorológica. 
+    - Media *aritmética* de región de 10 km x 10 km centrada en la estación meteorológica. 
 
 2. proporción (ratio) de bowen $B_{0}$
-   - Media *geométrica* de región de 10 km x 10 km centrada en la esración meeorológica.
+   - Media *geométrica* de región de 10 km x 10 km centrada en la estación meteorológica.
  
-3. largo de rugosidad de superficie $z_{0}$
-   - Distancia Inversa Ponderada
+3. longitud de rugosidad de superficie $z_{0}$
+   - En un radio de 1km a la estación meteorológica, se deben analizar 12 direcciones del viento o secciones de 30°. A cada sección se asigna como $z_{0}$ la media geométrica del valor de rugosidad ponderado de forma inversa a la distancia a la estación. 
 
+Entonces se podrían visualizar a continuación, las dos áreas analizadas.   
 ![aersurface_radio](imgs/aersurface_radio.png)
 
-Cada seccion va a representar una cobertura distinta, con parámetros de albedo, bowen y rugosidad distintas. 
+Cada sección va a representar una cobertura distinta, con parámetros de albedo, bowen y rugosidad distintas. En el anexo A de la guía de usuario de *AERSURFACE* se listan las tablas completas, a los fines de este tutorial, vamos a extraer y simplificar la información de algunas clases.
 
-Por estos motivos estamos imposibilitados a usarlo directamente.
-La alternativa de generación de esta información es a partir del procesamiento realizado por el usuario teniendo en cuenta las siguientes directivas. El objetivo es generar el archivo ``AERSURFACE.OUT`` de forma manual, ya que este es un archivo de texto con algunas especificaciones, por ejemplo este es el contenido de un ``AERSURFACE.OUT``:
+|Clase|Descripción|$B_{0}$ verano|$B_{0}$ otoño|$B_{0}$ invierno|$B_{0}$ primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.8 |1| 1 | 0.8|
+|22 |High Intensity Residential| 1.5| 1.5 1.5|1.5|
+|23|Commercial/Industrial/Transp (Site at Airport)| 1.5 |1.5 |1.5 |1.5|
+|85| Urban/Recreational Grasses |0.5 |0.7 |0.7 | 0.3|
+
+|Clase|Descripción|albedo &alpha; verano|albedo &alpha; otoño|albedo &alpha; invierno|albedo &alpha; primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.16 |0.16| 0.18 | 0.16|
+|22 |High Intensity Residential| 0.18| 0.18| 0.18|0.18|
+|23|Commercial/Industrial/Transp (Site at Airport)| 0.18| 0.18| 0.18|0.18|
+|85| Urban/Recreational Grasses |0.15 |0.15 |0.18 | 0.15|
+
+
+|Clase|Descripción|$z_{0}$ verano|$z_{0}$ otoño|$z_{0}$ invierno|$z_{0}$ primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.54 |0.54| 0.5 | 0.52|
+|22 |High Intensity Residential| 1| 1| 1|1|
+|23|Commercial/Industrial/Transp (Site at Airport)| 0.1 |0.1 |0.1 |0.1|
+|85| Urban/Recreational Grasses |0.02 |0.015 |0.01 | 0.015|
+
+
+Por ejemplo, para el caso de EZEIZA AERO, las áreas a analizar serían las siguientes:
+![](/tut/imgs/saez_al_bow_zo.png)
+
+En cuanto a cobertura, la mejor fuente de información disponible hasta el momento es la [clasificación de la agencia espacial europea](https://land.copernicus.eu/global/content/annual-100m-global-land-cover-maps-available) con resolución de 100mx100m y uso de clases de la FAO en vez del servicio geológico de estados unidos.
+
+![](imgs/saez_al_bow_zo_GLC.png)
+
+
+Ante la falta de capas de cobertura en el formato requerido, debemos
+generar esta información a partir del procesamiento realizado por el usuario.
+
+Vamos a crear un archivo de texto llamado ``AERSURFACE.OUT`` y completaremos la siguiente información.
+
+
+Como las propiedades de superficie pueden cambiar en el tiempo, se debe aclarar la resolución temporal: mensual, estacional ó anualmente.
+
+La palabra clave ``FREQ_SECT`` permite definir como queremos que cambien los parámetros de superficie en el tiempo: (``ANNUAL``, ``SEASONAL`` ó ``MONTHLY``)  y el numero de sectores con superficies distintas alrededor de la estación meteorológica. Para el ejemplo hemos elegido ``SEASONAL`` y escribimos la siguiente primera línea. 
 
 ```Text
- FREQ_SECT  SEASONAL  3
-   SECTOR   1  0   30
-   SECTOR   2  30  360
+ FREQ_SECT  SEASONAL  1
+```
+
+Con la keyword ``SECTOR`` se define para cada sector cual es el ángulo de inicio y fin que lo define. Siempre considerando que el 0 se encuentra en el norte, y que avanza de forma horaria. Para este ejemplo tomamos todas las direcciones del viento como un solo sector.
+```Text
+   SECTOR   1  0   360
+```
+
+Por último para cada sector y cada estación del año (*season*) hay que definir los valores de albedo, bowen y rugosidad usando la *keyword*: ``SITE_CHAR``.
+ Vamos a asumir que todos los parámetros corresponden a la clase *"21 - Low intensity residential"*.
+Los parámetros elegidos en este ejemplo se tomaron de las tablas anteriores según las estaciones del año y deben invertirse ya que están definidas para el hemisferio norte.
+
+|Nro estación #| Estación| Meses|
+|---|---|---|
+|1| Invierno HN| diciembre, enero, febrero|
+|2| Primavera HN| marzo, abril, mayo|
+|3 |Verano HN| junio, julio, agosto|
+|4| Otoño HN| septiembre, octubre, noviembre|
+
+Para esta entrada, vamos a agregar un formato de tabla, con un fin de organizar visualmente la información, ``**`` convierte la línea en un comentario, y por lo tanto no tiene ningún efecto. 
+Buscamos para cada "estación" los valores de superficie para la case 21.
+
+
+
+
+|Clase|Descripción|albedo &alpha; verano|albedo &alpha; otoño|albedo &alpha; invierno|albedo &alpha; primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.16 |0.16| 0.18 | 0.16|
+
+|Clase|Descripción|$B_{0}$ verano|$B_{0}$ otoño|$B_{0}$ invierno|$B_{0}$ primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.8 |1| 1 | 0.8|
+
+|Clase|Descripción|$z_{0}$ verano|$z_{0}$ otoño|$z_{0}$ invierno|$z_{0}$ primavera|
+|-|-|-|-|-|-|
+|21 |Low Intensity Residential |0.54 |0.54| 0.5 | 0.52|
+
+```Text
 **------------------------------------------------|
 **          | season | section | a0  | b0  | z0   |
 **----------|--------|---------|-----|-----|------|
-   SITE_CHAR    1        1      0.18  0.70  0.01
-   SITE_CHAR    2        1      0.15  0.30  0.015
-   SITE_CHAR    3        1      0.15  0.50  0.02
-   SITE_CHAR    4        1      0.15  0.70  0.015
-   SITE_CHAR    1        2      0.18  1.00  0.30
-   SITE_CHAR    2        2      0.16  0.80  0.40
-   SITE_CHAR    3        2      0.16  0.80  0.40
-   SITE_CHAR    4        2      0.16  0.80  0.40
+   SITE_CHAR    1        1      0.16  0.80  0.54
+   SITE_CHAR    2        1      0.16  1.00  0.54
+   SITE_CHAR    3        1      0.18  1.00  0.50
+   SITE_CHAR    4        1      0.16  0.80  0.52
 **----------|--------|---------|-----|-----|------|
 ```
 
-Vemos que se presentan *keywords* y un formato de tabla. Recordemos que ``**`` convierte la línea en un comentario, y por lo tanto no tiene ningún efecto.
 
-Antes de explicar que define cada *keyword* tenemos que saber que vamos a considerar un área circular de 1km de radio alrededor del la estación meteorológica y vamos a definir radialmente secciones con distintas propiedades de la superficie:
+El contenido final de  ``AERSURFACE.OUT`` debería ser el siguiente:
 
-
-
-A su vez estas propiedades pueden cambiar en el tiempo: mensual, estacional ó anualmente.
-
-La palabra clave ``FREQ_SECT`` permite definir como queremos que cambien los parámetros de superficie en el tiempo: (``ANNUAL``, ``SEASONAL`` ó ``MONTHLY``)  y el numero de sectores con superficies distintas alrededor de la estación meteorológica.
-
-Con la keyword ``SECTOR`` se define para cada sector cual es el angulo de inicio y fin que lo define. Siempre considerando que el 0 se encuentra en el norte, y que avanza de forma antioraria.
-
-Por último para cada sector y cada season hay que definir los valores de albedo, bowen y rugosidad usando la keyword: ``SITE_CHAR``.
+```Text
+ FREQ_SECT  SEASONAL  1
+   SECTOR   1  0   360
+**------------------------------------------------|
+**          | season | section | a0  | b0  | z0   |
+**----------|--------|---------|-----|-----|------|
+   SITE_CHAR    1        1      0.16  0.80  0.54
+   SITE_CHAR    2        1      0.16  1.00  0.54
+   SITE_CHAR    3        1      0.18  1.00  0.50
+   SITE_CHAR    4        1      0.16  0.80  0.52
+**----------|--------|---------|-----|-----|------|
+```
