@@ -102,15 +102,12 @@ Hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla d
 Dejamos los valores de orden como ``Time Series Sort`` y formato ``FSL`` por defecto. Finalizamos tocando ``Continue Data Access``
 ![Raobs Pantalla IV](imgs/ruc_raobs_v.png)
 
-Se va a generar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) Su contenido es:
-
-alt2
-
-Vamos a obtener como texto la infomación solicitada. Para guardarla, desde el block de notas, pegamos esta información y guardamos el archivo como [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) en el directorio de trabajo.
+Vamos a obtener como texto la infomación solicitada. Para guardarla, seleccionamos toda la información <kbd>Ctrl</kbd> + <kbd>A</kbd> y la copiamos <kbd>Ctrl</kbd> + <kbd>C</kbd>. Abrimos el block de notas, pegamos esta información y guardamos el archivo como [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) en el directorio de trabajo.
 
 El inicio del archivo debiera tener este contenido:
 
-```Text 254     12      1      JAN    2021
+```Text
+254     12      1      JAN    2021
       1  99999  87576  34.82S 58.53W    20   1134
       2    200   1820    933    112  99999      3
       3          SAEZ                99999     ms
@@ -266,7 +263,7 @@ AERSURF AERSURFACE.OUT
 ```
 
 
-Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.md) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
+Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
 
 ```text
  FREQ_SECT  SEASONAL  1
