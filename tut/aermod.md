@@ -143,10 +143,9 @@ CO STARTING
 CO FINISHED 
 ```
 Los parámetros más importantes son:
-+ ``MODELOPT`` define las opciones generales de la corrida, tiene muchos argumentos posibles. Los más importantes son DEFAULT que indica que se usan opciones regulatorias, y CONC que indica que se calcularán concentraciones. Para correr sin topografía se puede usar el argumento FLAT, caso contrario ELEV será utilizado que indica que si se considerará la topofrafía.
-+ ``AVERTIME``: es el periodo de promediado de las concentraciones se expresa en horas, opciones válidas son: 1,2,3,4,6,8,12 ó 24. También son argumentos válidos: MONTH y ANNUAL.
-+ ``POLLUTID``: es simplemente el nombre del contaminante, puede ser cualquiera, y no tiene mayor consecuencia salvo que se defina: como **NO2** ó **PM25**, en tal caso **AERMOD** interpreta que se debe a dichos contaminantes y reajusta algunos parámetros y rutinas para tratarlos.
-
++ ``MODELOPT`` define las opciones generales de la corrida, tiene muchos argumentos posibles. Los más importantes son *DEFAULT* que indica que se usan opciones regulatorias, y *CONC* que indica que se calcularán concentraciones. Para correr sin topografía se puede usar el argumento *FLAT*, caso contrario *ELEV* será utilizado que indica que si se considerará la topografía.
++ ``AVERTIME``: es el periodo de promediado de las concentraciones se expresa en horas, opciones válidas son: 1,2,3,4,6,8,12 ó 24. También son argumentos válidos: *MONTH* y *ANNUAL*.
++ ``POLLUTID``: es el nombre del contaminante, puede ser cualquier texto, salvo que se defina: como **NO2** ó **PM25**, en tal caso **AERMOD** interpreta que se debe a dichos contaminantes y reajusta algunos parámetros y rutinas para tratarlos.
 
 ### EMISORES: (SO)
 
@@ -277,8 +276,7 @@ Para ejecutar el **AERMOD** se colocan los siguientes archivos en el directorio 
 - Archivo de control ``aermod.inp``
 - Archivos meteorológicos: ``PRUEBA.SFC``, ``PRUEBA.FSL``
 
-Luego se ejecuta con *doble click* en el ejecutable.
-
+Luego se ejecuta ``aermod.exe``.
 
 Si todo sale bien, se van a crear los archivos especificados con las keywords ``SUMFILE`` y ``PLOTFILE`` de la sección **OUT**, en nuestro caso:
 + AERTEST_PRUEBA_NO2_MONTH.SUM
@@ -286,4 +284,3 @@ Si todo sale bien, se van a crear los archivos especificados con las keywords ``
 
 El primero contiene las tablas con los máximas concentraciones encontradas para todos los receptores para el periodo modelado.
 El segundo tiene una tabla con la máxima concentración encontrada para cada receptor.
-

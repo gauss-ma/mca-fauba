@@ -40,13 +40,25 @@ El programa funciona de forma interactiva, realizando una serie de preguntas que
 
 Vamos a realizar una corrida de prueba con los siguientes parámetros, que podrían corresponder a una chimenea en un sitio urbano en una planicie:
 
+### Características de la fuente:
+
+| Tipo de fuente|Analitos|ALTURA [m]|DIÁMETRO CONDUCTO[m]   | x UTM20S   | y UTM20S|
+|-|-|-|-|-|-|
+|Puntual|     NOx, MP, CO, SO2, TRS    | 130|  6,2 | 715072.02  |6365674.52|
+
+En general las ubicaciones se reportan en coordenadas geográficas de latitud y longitud. Podemos [convertirlas](https://www.latlong.net/lat-long-utm.html) a UTM y usar coordenadas planas en metros.
+
 ### Parámetros de emisión:
 
-| Tipo de fuente | Analito |tasa de emisión[g/s]   |   |   |
-|----------------|---------|---|---|---|
-|Puntual|         | NOx  |   |   |
-|                |         |   |   |   |
-|                |         |   |   |   |
+
+
+ANALITO|CAUDAL EMISIÓN [m3/s]|EMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
+|-|-|-|-|-|-|
+MP|	819|	453|	27,13|	43,73|	21,6|
+CO|	819|		453|	27,13|	981,87|	484,89|
+NOx|	819|	453	|27,13|	196|	96,7|
+SO2	|819|		453	|27,13|	2,71|	1,34|
+TRS	|819|		453	|27,13|	1,26|	0,62|
 
 ### Corrida de prueba
 
@@ -85,7 +97,7 @@ P
 
 ```shell
  ENTER EMISSION RATE (G/S):
-10
+21.6
 ```
 
 Nos pide el diámetro interno del conducto emisor en metros:
@@ -103,13 +115,13 @@ Nos pide la velocidad de salida del gas en m/s, tambien nos brinda la posiblidad
             EXAMPLE "VM=20.00"
  OPTION 3 : VOLUME FLOW RATE (ACFM):
             EXAMPLE "VF=1000.00"
-27
+27.13
 ```
 
 Nos pide la temperatura de salida del gas en grados kelvin:
 ```shell
  ENTER STACK GAS EXIT TEMPERATURE (K):
-470
+453
 ```
 
 Nos pide la temperatura ambiente en grados kelvin:

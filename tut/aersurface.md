@@ -43,6 +43,7 @@ Esta clasificación de cobertura del suelo el USGS define las siguientes clases:
 |95|Emergent Herbaceous Wetlands|
 
 Asi se visualiza la clasificación de cobertura para un aeropuerto de estados unidos.
+
 ![](/tut/imgs/aersurf_pizza.png)
 
 ![](/tut/imgs/aersurf_pizza_nlcd.png)
