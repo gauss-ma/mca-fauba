@@ -41,38 +41,45 @@ Descargamos el programa de la página de la EPA: [``aermet_exe.zip``](https://ga
 
 Para poder ejecutar el **AERMET** vamos a necesitar disponer de datos meteorológicos de superficie y radiosondeos. 
 
-Para descargar datos meteorológicos tienen que buscar la estación más cercana al proyecto a modelar que cuente con buena disponibilidad de datos. Cada estación meteorológica tiene un *id* definido globalmente por la Organización Mundial de Meteorología (WMO), en este documento pueden ver los datos generales con id de las estaciones meteorológicas de la red Argentina: [estaciones_smn.csv](refs/estaciones_smn.csv).
+Para descargar datos meteorológicos tienen que buscar la estación más cercana al proyecto a modelar que cuente con buena disponibilidad de datos. Del listado de [estaciones disponibles](refs/estaciones_smn.csv), se debe elegir la mas cercana y obtener su *id* definido globalmente por la Organización Mundial de Meteorología (WMO), que se encuentra en la columna ``NRO``.
 
-Para el caso de la información del perfil de la atmósfera por radiosondeos, solamente contamos con 6 estaciones que hacen esta medición:
+**En este tutorial vamos a seleccionar para el año *2021*, la siguiente estación:
 
-|Nombre|NRO|NACI|
-|---|---|---|
-|EZEIZA AERO|87576|SAEZ|
-|SANTA ROSA AERO|87623|SAZR|
-|MENDOZA AERO|87418|SAME|
-|RESISTENCIAAERO|87155|SARE|
-|COMODORO RIVADAVIA AERO|87860|SAVC|
-|CORDOBA AERO|87344|SACO|
+| Nombre	|Provincia	|Latitud	|Longitud	|Altura [m]	|NRO	   |NACI |
+|EZEIZA AERO	|BUENOS AIRES	|-58.53333	|-34.81667	|20.0	        |**87576** |SAEZ |
 
-
-**En este tutorial vamos a seleccionar el año *2021*, y la estación *EZEIZA AERO* que tiene información de superficie como de radiosondeo, cuyo id es 87576.**
 
 ### Meteorología de superficie: 
 
-Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](https://www.ncei.noaa.gov/pub/data/noaa/) y buscando por año y luego por id van a encontrar el archivo.
+Los datos de meteorología de superficie se pueden descargar del [Integrated Surface Database (ISD)](https://www.ncei.noaa.gov/pub/data/noaa/) y buscando por año (2021) y luego por id (87576) van a encontrar el archivo.
 
 Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: [``https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``](https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz)
 
 Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descomprimirlo encontraremos un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), lo vamos a renombrar ``PRUEBA.ISH``. Si lo abren verán el siguiente contenido:
 
 ```Text
-0159875530999992021010100004-34450-058583FM-12+000399999V0203401N003119999999N007000199+02431+00891101231ADDAY101021AY201021KA1120M+02901KA2120N+02001MA1999999101201MD1310071+9999MW1041REMSYN07087553 31957 03406 10243 20089 30120 40123 53007 70400 333 10290 20200=
-0101875530999992021010100004-34453-058590FM-15+000399999V0203401N003612200019N007000199+02401+00901999999ADDGF100991999999999999999999MA1101201999999REMMET048METAR SADF 010000Z 34007KT 7000 NSC 24/09 Q1012=
-0117875530999992021010101004-34450-058583FM-12+000399999V0203401N003619999999N009000199+02291+01141101281ADDAY101021AY201021MA1999999101241MD1210111+9999MW1041REMSYN05487553 41959 03407 10229 20114 30124 40128 52011 70400=
+0124875760999992021010100004-34467-058517FM-12+002099999V0203401N0015122000199010000199+02601+00621101151ADDAA101999999AZ101061AZ201061GF100991999999999999999999KA1120M+03031KA2120N+01751MA1999999100921MD1210051+9999REMSYN004BUFR
+0078875760999992021010100004-34822-058536FM-15+002099999V0203201N001519999999Y009900599+02601+00601999999ADDMA1101101999999REMMET051METAR SAEZ 010000Z 32003KT CAVOK 26/06 Q1011 NOSIG=
+0089875760999992021010101004-34817-058533FM-12+002099999V0203401N001519999999N010000199+02501+00741101201ADDMA1999999100971MD1210081+9999REMSYN04887576 42960 03403 10250 20074 30097 40120 52008=
 ... (continúa)
 ```
 
 ### Radiosondeos:
+
+Para el caso de la información del perfil de la atmósfera por radiosondeos, en Argentina solamente contamos con 6 estaciones que hacen esta medición:
+
+
+|Nombre				|Provincia	|Latitud	|Longitud	|Altura [m]	|NRO	|NACI|
+|---|---|---|---|---|---|---|
+|EZEIZA AERO			|BUENOS AIRES	|-58.53333	|-34.81667	|20.0		|87576	|SAEZ|
+|SANTA ROSA AERO		|LA PAMPA	|-64.26667	|-36.56667	|191.0		|87623	|SAZR|
+|MENDOZA AERO			|MENDOZA	|-68.78333	|-32.83333	|704.0		|87418	|SAME|
+|RESISTENCIA AERO		|CHACO		|-59.05000	|-27.45000	|52.0		|87155	|SARE|
+|COMODORO RIVADAVIA AERO	|CHUBUT		|-67.50000	|-45.78333	|46.0		|87860	|SAVC|
+|CORDOBA AERO			|CORDOBA	|-64.20000	|-31.30000	|495.0		|87344	|SACO|
+
+
+
 
 Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noaa.gov/raobs), donde al completar un formulario se va a generar un archivo con la información requerida.
 
@@ -80,13 +87,7 @@ Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremo
 
 ![Raobs Pantalla I](imgs/ruc_raobs_i.png) 
 
-Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY`` que considerando que argentina es UTC-3 serían 21hs y 9hs), los niveles (seleccionar ``All levels``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
-<!-- 
-
-hice cambio de los "mandatory" a both, xq en el ppt de apti epa lo aclara:
-Why download both mandatory and significant levels? Too few levels leads to a less accurate estimate of the mixing height from the sounding; this leads to errors in the convective velocity scale (w*) and other calculations that use the mixing height.
-
--->
+Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY``), los niveles verticales (seleccionar ``All levels``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
 
 ![Raobs Pantalla II](imgs/ruc_raobs_ii.png) 
 
@@ -103,29 +104,40 @@ Dejamos los valores de orden como ``Time Series Sort`` y formato ``FSL`` por def
 
 Se va a generar un archivo de texto, le vamos a colocar el nombre [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) Su contenido es:
 
-```Text
-   254     12      5      JAN    2021
-      1  99999  87576  34.82S 58.53W    20   1127
-      2    200   1230    741     20  99999      3
+alt2
+
+Vamos a obtener como texto la infomación solicitada. Para guardarla, desde el block de notas, pegamos esta información y guardamos el archivo como [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) en el directorio de trabajo.
+
+El inicio del archivo debiera tener este contenido:
+
+```Text 254     12      1      JAN    2021
+      1  99999  87576  34.82S 58.53W    20   1134
+      2    200   1820    933    112  99999      3
       3          SAEZ                99999     ms
-      9  10120     20    244    154      5     36
-      4  10000    124    232    132    360     82
-      4   9250    797    182    102    360    108
-      4   8500   1515    150    -50     20     62
-      4   7000   3136     78    -82    245    108
-      4   5000   5820    -91   -311    255    118
-      4   4000   7500   -221   -431    265    185
-      4   3000   9550   -363   -573    255    345
-      4   2500  10800   -445   -615    270    427
-      4   2000  12260   -517   -697    280    468
-      4   1500  14080   -625   -785    285    422
-      4   1000  16550   -671   -861    275    185
-      4    700  18680   -709   -939    230    103
-      4    500  20680   -631   -911    170     46
-      4    300  23870   -543   -853     90     72
-      4    200  26490   -481   -811     90    123
-    254     12      6      JAN    2021
-      1  99999  87576  34.82S 58.53W    20   1132
+      9  10130     20    208     98    290     41
+      4  10000    130    214     64    285     46
+      5   9880    234    204     64  99999  99999
+      6   9800    304  99999  99999    250     82
+      5   9690    401    218     38  99999  99999
+      6   9460    609  99999  99999    245    113
+      4   9250    804    200     30    250    113
+      5   9170    878    196     26  99999  99999
+      6   9131    914  99999  99999    245    103
+      6   8811   1219  99999  99999    235     93
+      6   8502   1524  99999  99999    255     72
+      4   8500   1526    146     26    245     67
+      6   8196   1828  99999  99999    230     62
+      6   7900   2133  99999  99999    205     72
+      5   7630   2421     68     -2  99999  99999
+      6   7614   2438  99999  99999    190     98
+      6   7334   2743  99999  99999    195     87
+      5   7270   2815     50    -80  99999  99999
+      5   7090   3019     52   -158  99999  99999
+      6   7066   3048  99999  99999    235    103
+      4   7000   3130     44    -76    230    103
+      5   6990   3142     44    -66  99999  99999
+      5   6570   3643     26   -174  99999  99999
+      6   6559   3657  99999  99999    210    118
 ... (continúa)
 ```
 
