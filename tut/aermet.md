@@ -29,13 +29,12 @@ en las siguientes secciones se presenta cada pasos detallado.
 ## Directorio de trabajo
 
 Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables, sin importar que nombre y ubicación le asignamos.
+
+<!-- ACLARAR SOBRE VISIBILIDAD DE EXTENSION DE ARCHIVOS DE TEXTO -->
+
 ## Descarga de ejecutable
 
 Descargamos el programa de la página de la EPA: [``aermet_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip), lo descomprimimos y colocamos el ejecutable ``aermet.exe`` en la carpeta de trabajo.
-
-<!-- 
-> :information_source: También es posible descargarse el código fuente: [aermet_soruce.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_source.zip)
- -->
 
 ## Descarga de datos meteorológicos:
 
@@ -158,16 +157,9 @@ A los archivos de control los llamaremos ``ETAPA1.INP``, ``ETAPA2.INP`` y ``ETAP
 
 En esta etapa tenemos que proveer al **AERMET** con los archivos de entrada y parámetros para extraerlos.
 
-Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas entre otros.
+Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas, entre otros.
 
-Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermet/ETAPA1.INP). Se divide en las siguientes secciones:
-
-+ ``JOB ``: Se especifican los nombres de archivos con información de la ejecución.
-+ ``SURFACE ``: Se brinda la ruta al archivo de superficie, el formato, y las fechas de inicio y fin de la corrida.
-+ ``UPPER ``: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de inicio y fin de la corrida.
-<!-- + ``ONSITE `` (opcional): se brinda la ruta al archivo de observaciones in-situ y formato. -->
-
-Para nuestro ejemplo:
+Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermet/ETAPA1.INP). Copiamos en él el siguiente contenido: 
 
 ```Text
 ** ETAPA 1: Lectura y procesamiento de datos de entrada.
@@ -192,26 +184,26 @@ AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
 QAOUT      QA_UA.OUT
 ```
 
-Todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* y el programa las ignora.
+Todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
+
+El archivo ``ETAPA1.INP`` se divide en las siguientes secciones:
++ ``JOB ``: Se especifican los nombres de los archivos donde el programa guardará los registros de la ejecución (mensajes de alerta y errores).
++ ``SURFACE ``: Se brinda la ruta al archivo de superficie, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.
++ ``UPPER ``: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.
+
 
 En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, luego lo copiamos nombrando la copia ``aermet.inp`` y ejecutamos el ``aermet.exe``.
 
 Si todo sale bien se van a crear los siguientes archivos:
 + ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
-+ ``EXTRACT_SFC.OUT`` y ``EXTRACT_UA.OUT`` contienen los datos extraidos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
++ ``EXTRACT_SFC.DSK`` y ``EXTRACT_UA.DSK`` contienen los datos extraidos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
 + ``QA_SFC.OUT`` y ``QA_UA.OUT`` archivos con información de variables auditadas que serviran par el siguiente paso.
 + ``Discarded_ISHD_Records.dat`` si algun registro no cumple los parametros de calidad entonces se descartan y se guardan en este archivo para su revisión.
 
 ### Etapa 2: Fusión (merge) de archivos
 
 En esta etapa se fusionan los datos de superficie con los meteorológicos.
-También necesitamos crear un archivo de control: [ETAPA2.INP](./archivos/aermet/ETAPA2.INP) que tiene las siguientes secciones:
-+ ``JOB ``
-+ ``SURFACE ``
-+ ``UPPER `` <!-- + ``ONSITE `` (opcional) -->
-+ ``MERGE`` 
-
-Para nuestro ejemplo:
+También necesitamos crear un archivo de control: [ETAPA2.INP](./archivos/aermet/ETAPA2.INP) con el siguiente contenido:
 
 ```Text
 ** Stage 2: Merge de datos.
@@ -227,7 +219,13 @@ OUTPUT PRUEBA.MRG
 XDATES 2021/12/01 TO 21/12/31
 ```
 
-Guardamos este archivo con el nombre ``ETAPA2.INP``, y luego lo copiamos como ``aermet.inp`` y ejecutamos el ``aermet.exe`` haciendo doble click.
+Este archivo contiene las siguientes secciones:
++ ``JOB ``: Cumple el mismo rol que en etapa 1.
++ ``SURFACE ``: Se especifica el archivo con los datos de superficie extraidos en la etapa 1.
++ ``UPPER ``: Se especifica el archivo con los datos de radiosondeo extraidos en la etapa 1.
++ ``MERGE``: en esta sección se especifica el archivo de salida con los datos de superficie y radiosondeo fusionados que será la entrada en la etapa 3.
+
+Guardamos este archivo con el nombre ``ETAPA2.INP``, y luego lo copiamos como ``aermet.inp`` (reemplazando el preexistente) y ejecutamos el ``aermet.exe``.
 
 Se van a crear los siguientes archivos:
 + ``ETAPA2.MSG`` y ``ETAPA2.RPT`` nos brindan información de warnings y errores.
@@ -237,11 +235,8 @@ Se van a crear los siguientes archivos:
 
 Este es el úlitmo paso, y es donde se relizan los cálculos que serviran como información de entrada al **AERMOD**.
 
-Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermet/ETAPA3.INP) que tiene sólo dos secciones:
-+ ``JOB``: lo mismo que en los pasos anteriores.
-+ ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de **kewords** y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones.
+Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermet/ETAPA3.INP) con el siguiente contenido:
 
-Ejemplo de ``ETAPA3.INP``:
 ```Text
 ** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
 JOB
@@ -262,10 +257,13 @@ UAWINDOW -12 12
 AERSURF AERSURFACE.OUT
 ```
 
+Este archivo sólo dos secciones:
++ ``JOB``: lo mismo que en los pasos anteriores.
++ ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de **keywords** y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones ``AERSURFACE.OUT``.
 
-Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` (el nombre es solo una convención) con el siguiente contenido:
+Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` con el siguiente contenido:
 
-```text
+```Text
  FREQ_SECT  SEASONAL  1
    SECTOR   1  0   360
 **------------------------------------------------|
@@ -279,23 +277,23 @@ Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERS
 
 ```
 
-Incorporamos al final del archivo ``ETAPA3.INP`` la línea:
-
-```Text
-AERSURF AERSURFACE.OUT
-```
-
----
-
 Para ejecutar la ultima etapa, verificamos que estén presente los archivos:
 - ``PRUEBA.MRG`` generado al correr la ETAPA 2.
 - ``AERSURFACE.OUT`` generado en el paso anterior.
 
-Guardamos este archivo con el nombre ``ETAPA3.INP``, y luego lo copiamos y renombramos como ``aermet.inp`` y ejecutamos el ``aermet.exe``.
+Guardamos este archivo con el nombre ``ETAPA3.INP``, y luego lo copiamos y renombramos la copia como ``aermet.inp`` y ejecutamos el ``aermet.exe``.
 
-Si todo sale bien se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
+Se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
 
 - ``PRUEBA.SFC``: contiene los datos de superficie procesados.
 - ``PRUEBA.PFL``: contiene los datos de perfiles vericales procesados.
+
+Verificamos que la corrida fue exitosa si en los archivos PRUEBA3.RPT no aparecen mensajes de ERROR.
+
+```Text
+        ****    ERROR MESSAGES    ****
+
+               ---  NONE  ---
+```
 
 
