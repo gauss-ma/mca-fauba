@@ -28,7 +28,7 @@ El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https:/
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/tut/aermet.md).
++ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/tut/aermet.html).
 + **Información de Receptores.**
   - Punto central del predio donde se encuentran las fuentes (``xc`` ``yc``).
   - Dominio de modelado (limites: ``xmin`` ``xmax`` ``ymin`` ``ymax``).
@@ -44,7 +44,7 @@ Para poder ejecutar el **AERMOD** es necesario contar con:
 
 ## Archivo de control ``aermod.inp``.
 
-**AERMOD** al ser ejecutado busca un archivo de control con nombre ``aermod.inp``. En este se especifica la ubicacion de los archivos de entrada, opciones y configuración de la corrida.
+**AERMOD** al ser ejecutado busca un archivo de control con nombre ``aermod.inp``. En este se especifica la ubicación de los archivos de entrada, opciones y configuración de la corrida.
 Un ejemplo de ``aermod.inp``:
 
 ```Text
@@ -53,7 +53,7 @@ CO STARTING
    TITLEONE  PRUEBA
    MODELOPT  CONC  DEFAULT
    AVERTIME  MONTH 
-   POLLUTID  NO2
+   POLLUTID  NOX
    RUNORNOT  RUN
    EVENTFIL  OUTPUT.LOG
    ERRORFIL  ERRORS.LOG
@@ -103,6 +103,7 @@ Este archivo se estructura en las siguientes secciones:
 
 hay que especificar siempre el inicio y finalización de cada seccion, por ejemplo:
 
+
 ```
 CO STARTING
 **      ....
@@ -136,12 +137,13 @@ CO STARTING
    TITLEONE  PRUEBA
    MODELOPT  CONC  DEFAULT
    AVERTIME  MONTH 
-   POLLUTID  NO2
+   POLLUTID  NOX
    RUNORNOT  RUN
    EVENTFIL  OUTPUT.LOG
    ERRORFIL  ERRORS.LOG
 CO FINISHED 
 ```
+
 Los parámetros más importantes son:
 + ``MODELOPT`` define las opciones generales de la corrida, tiene muchos argumentos posibles. Los más importantes son *DEFAULT* que indica que se usan opciones regulatorias, y *CONC* que indica que se calcularán concentraciones. Para correr sin topografía se puede usar el argumento *FLAT*, caso contrario *ELEV* será utilizado que indica que si se considerará la topografía.
 + ``AVERTIME``: es el periodo de promediado de las concentraciones se expresa en horas, opciones válidas son: 1,2,3,4,6,8,12 ó 24. También son argumentos válidos: *MONTH* y *ANNUAL*.
@@ -149,7 +151,7 @@ Los parámetros más importantes son:
 
 ### EMISORES: (SO)
 
-En esta sección se enumeran las fuentes emisoras y sus parámetros de emisión.
+En esta sección se enumeran las fuentes y sus parámetros de emisión.
 
 ```Text
 SO STARTING
@@ -162,6 +164,12 @@ SO STARTING
    SRCGROUP  ALL 
 SO FINISHED
 ```
+Para nuestra prueba, vamos a tomar un punto cercano a la estación meteorológica de Ezeiza como fuente sus coordenadas serán:
+
+|Nombre| Tipo de fuente|Analitos|ALTURA [m]|DIÁMETRO CONDUCTO[m]   | x UTM21S   | y UTM21S|z|
+|-|-|-|-|-|-|-|-|
+|Fuente1|Puntual|     NOx, MP    | 15|  5 | 361833.281|6139544.02|0
+
 
 la keyword ``LOCATION`` define una fuente, su tipo, su id (nombre) y su ubicación:
 ```
@@ -169,20 +177,42 @@ la keyword ``LOCATION`` define una fuente, su tipo, su id (nombre) y su ubicaci�
 ```
 los tipos de fuente más comunes son: ``POINT``, ``LINE`` y ``AERAPOLY``.
 
-la keyword ``SRCPARAM`` define los parámetros de emisión para cada fuente y sus argumentos dependen del tipo de fuente definida en ``LOCATION``, para un POINT sería:
+Para nuestro ejemplo vamos a completarla de la siguiente manera:
+
+```
+   LOCATION  FUENTE1  POINT  361833.281  6139544.02  0
+```
+> **Es importante destacar que las coordenadas de emisores (y también receptores) deben ser coordenadas planas cartesianas, ya que el aermod no puede hacer los cálculos con coordenadas de latitud y longitud.**
+
+
+La keyword ``SRCPARAM`` define los parámetros de emisión para cada fuente y sus argumentos dependen del tipo de fuente definida en ``LOCATION``, para un POINT sería:
 
 ```
    SRCPARAM <nombre> <Q> <H> <T> <U> <D>
 ```
 donde, Q: caudal emitido [g/s], H:altura del conducto [m], T: Temperatura de salida [ºK], U: velocidad de salida [m/s] y D: diámetro del conducto [m].
 
+Para nuestro ejemplo vamos a usar la siguiente información de emisión para la fuente1:
 
-> :warning: **Es importante destacar que las coordenadas de emisores (y también receptores) deben ser coordenadas planas cartesianas, ya que el aermod no puede hacer los cálculos con coordenadas de latitud y longitud.**
+
+ANALITO|CAUDAL EMISIÓN [m3/s]|EMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
+|-|-|-|-|-|-|
+NOx|	819|	453	|27,13|	196|	96,7|
+
+Entonces para el ejemplo quedaría así:
+
+```
+   SRCPARAM FUENTE1 96.7 15 453 27.13 5
+```
+
+
+
+
 
 
 ### RECEPTORES (RE)
 
-
+<!-- Esto no se si tiene sentido dejarlo, toda la del disscart -->
 
 La forma más sencilla de definir un receptor es utilizando la keyword ``DISCCART``:
 
@@ -194,13 +224,13 @@ RE STARTING
 (...continúa...)
 RE FINISHED
 ```
- 
-``DISCCART`` toma como argumentos la posción *x* e *y* (en metros) del receptor a considerar. 
+
+``DISCCART`` toma como argumentos la posición *x* e *y* (en metros) del receptor a considerar. 
 También acepta como argumentos opcionales, la altura del terreno en esa ubicación, y otros parámetros necesarios para contemplar la influencia de la topografía sobre la pluma.
 
 Comúnmente nos encontramos en el caso de tener que definir muchos receptores, en forma de grillas regulares, ó concéntricas, que usando ``DISCCART`` involucraría muchas líneas para especificar. Para simplificar el trabajo existen keywords que nos permiten definir grillas regulares de forma sencilla:
 + ``GRIDCART``: define una grilla regular en coordenadas cartesianas.
-+ ``GRIDPOLR``: define una grilla de circulos concentricos en coordenadas polares.
++ ``GRIDPOLR``: define una grilla de círculos concéntricos en coordenadas polares.
 
 
 
@@ -228,11 +258,10 @@ En nuestro caso tenemos que definir una grilla con separación de 50 metros. En 
 ```Text
 RE STARTING
    GRIDCART  CAR1 STA
-                  XYINC 348342.21 100 50.0 6413521.12 100 50.0
+                  XYINC 359333.281 100 50.0 6137044.02 100 50.0
    GRIDCART  CAR1 END
 RE STARTING
 ```
-
 
 ### METEOROLOGÍA (ME)
 
@@ -265,8 +294,8 @@ OU FINISHED
 
 + ``MAXTABLE`` sirve para definir la tabla de máximos valores totales encontrados.
 + ``RECTABLE`` sirve para definir la tabla de máximos valores por receptor.
-+ ``SUMMFILE`` define el nombre del archivo de salida que posee además de informamción sobre la corrida y fechas procesadas, la tabla con las máximas concentraciones encontradas.
-+ ``PLOTFILE`` sirven para definir el nombre del archivo de salida con la tabla de máximos valores encontrados por receptor (sirve para hacer los mapas de concentraciones máximas), requiere la definición del periodo temporal y el grupo de emisore a considerar, también da la posibilidad de  mostrar los máximos totales (FIRST) ó descartarlos y usar los segundos (SECOND) , terceros (THIRD), etc.
++ ``SUMMFILE`` define el nombre del archivo de salida que posee además de información sobre la corrida y fechas procesadas, la tabla con las máximas concentraciones encontradas.
++ ``PLOTFILE`` sirven para definir el nombre del archivo de salida con la tabla de máximos valores encontrados por receptor (sirve para hacer los mapas de concentraciones máximas), requiere la definición del periodo temporal y el grupo de emisores a considerar, también da la posibilidad de  mostrar los máximos totales (FIRST) ó descartarlos y usar los segundos (SECOND) , terceros (THIRD), etc.
 
 
 ## Ejecución

@@ -29,8 +29,11 @@ en las siguientes secciones se presenta cada pasos detallado.
 ## Directorio de trabajo
 
 Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó *directorio de trabajo* donde vamos a colocar todos los archivos y ejecutables, sin importar que nombre y ubicación le asignamos.
+Como vamos a estar modificando las extensiones de varios archivos, debemos asegurar que estas están visibles.
+En Windows 10, en el directorio de trabajo activamos esa opción desde la pestaña "Vista", tildando el casillero:"Extensiones de nombre de archivo".
 
-<!-- ACLARAR SOBRE VISIBILIDAD DE EXTENSION DE ARCHIVOS DE TEXTO -->
+![](/tut/imgs/extensiones_win10.png)
+
 
 ## Descarga de ejecutable
 
