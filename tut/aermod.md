@@ -287,8 +287,8 @@ Esta sección incluye todas las opciones de escritura de los datos de salida.
 OU STARTING  
    RECTABLE  ALLAVE  FIRST-THIRD
    MAXTABLE  ALLAVE  50
-   SUMMFILE  AERTEST_PRUEBA_NO2_MONTH.SUM
-   PLOTFILE  MONTH  ALL  FIRST  AERPLOT_PRUEBA_NO2_MONTH.OUT
+   SUMMFILE  AERTEST_PRUEBA_NOX_MONTH.SUM
+   PLOTFILE  MONTH  ALL  FIRST  AERPLOT_PRUEBA_NOX_MONTH.OUT
 OU FINISHED
 ```
 
@@ -308,8 +308,8 @@ Para ejecutar el **AERMOD** se colocan los siguientes archivos en el directorio 
 Luego se ejecuta ``aermod.exe``.
 
 Si todo sale bien, se van a crear los archivos especificados con las keywords ``SUMFILE`` y ``PLOTFILE`` de la sección **OUT**, en nuestro caso:
-+ AERTEST_PRUEBA_NO2_MONTH.SUM
-+ AERPLOT_PRUEBA_NO2_MONTH.SUM
++ AERTEST_PRUEBA_NOX_MONTH.SUM
++ AERPLOT_PRUEBA_NOX_MONTH.SUM
 
 El primero contiene las tablas con los máximas concentraciones encontradas para todos los receptores para el periodo modelado.
 El segundo tiene una tabla con la máxima concentración encontrada para cada receptor.
