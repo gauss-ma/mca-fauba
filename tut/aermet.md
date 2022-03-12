@@ -1,7 +1,7 @@
 ---
 nav_order: 3
 ---
-# Aermod: AERMET
+# AERMET
 
 > Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
 

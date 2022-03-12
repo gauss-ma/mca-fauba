@@ -35,11 +35,15 @@ th,tr{
   	background-color:#fff !important;
   	color:#333!important;
 	font-size:1em!important;
+   overflow-x: scroll
 }
 .language-Text > pre{
   	border: 1px dashed #444;
 }
-pre {  padding: 10px; }
+pre {  
+  padding: 10px;
+  overflow-x: auto;
+}
 //lo que está adentro de code blocks heredan props
 pre, code, pre code {
   background-color: inherit;

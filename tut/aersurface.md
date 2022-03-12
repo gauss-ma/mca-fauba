@@ -1,6 +1,7 @@
 ---
 title: AERSURFACE
 description: Tutorial de preprocesamiento de propiedades de superficie.
+nav_exclude: true
 nav_order: 0
 ---
 

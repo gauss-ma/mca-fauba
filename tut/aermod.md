@@ -1,7 +1,7 @@
 ---
 nav_order: 8
 ---
-# Aermod: AERMOD
+# AERMOD
 
 > Tutorial para uso de **AERMOD**
 
