@@ -16,16 +16,16 @@ has_children: false
 
 ### Cronograma:
 
-| Semana | Teórica | Práctica |   TP  |
-|:-------|:--------|:---------|:-----:|
-|1 | [Introducción](./teo/c1.md) y [Normativa](./teo/c2.md) | [Shell](./tut/shell.md) | - |
-|2 | [Repaso Meteorología](./teo/c3.md) |[Herramientas](./tut/tools.md)  | -                      |
-|3 | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
-|4 | -   |[Aeersurface](./tut/aersurface.md) & [aermap](./tut/aermap.md) | -                      |
-|5 | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
-|6 | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](.tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
-|7 | -                                  |[Posprocesamiento](./tut/pos.md)| -                      |
-|8 | *Evaluación integradora* 
+|Clase| Fecha | Teórica | Práctica |   TP  |
+|:---|:-----:|:--------|:---------|:-----:|
+| 1  | 13/5  | [Introducción](./teo/c1.md) & [Normativa](./teo/c2.md) | - | - |
+| 2  | 20/5  | [Repaso Meteorología](./teo/c3.md) | - | - |
+| 3  | 27/5  | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
+| 5  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
+| 6  | 17/6  | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](.tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
+| 4  | 03/6  | -   | [Aeersurface](./tut/aersurface.md) & [Aermap](./tut/aermap.md) | -                      |
+| 7  | 24/6  | -   | [Posprocesamiento](./tut/pos.md)  | - |
+| 8  | 01/7  | *Evaluación integradora*            | - | - |
 
 ### Contenidos:
 
