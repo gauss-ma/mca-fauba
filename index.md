@@ -22,7 +22,7 @@ has_children: false
 | 2  | 20/5  | [Repaso Meteorología-teoría](./teo/c3.md) | - | - |
 | 3  | 27/5  | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
 | 4  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
-| 5  | 17/6  | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](.tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
+| 5  | 17/6  | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](./tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
 | 6  | 03/6  | -   | [Posprocesamiento](./tut/pos.md)  | -                      |
 | 7  | 24/6  | -   |  [Aeersurface](./tut/aersurface.md) & [Aermap](./tut/aermap.md) & MISC  | - |
 | 8  | 01/7  | *Evaluación integradora*            | - | - |
