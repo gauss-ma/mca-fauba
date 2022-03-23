@@ -1,0 +1,42 @@
+I"�	<h1 id="tp-2-modelo-de-detalle">TP 2: Modelo de Detalle</h1>
+
+<blockquote>
+  <p><strong>Objetivo</strong>: Implementar modelo de detalle utilizando el sistema de modelado <strong>AERMOD</strong>.</p>
+</blockquote>
+
+<p>Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida.</p>
+
+<p><a href="archivos/tp2_ref.pdf" class="btn btn-outline">Informe de referencia</a></p>
+
+<h3 id="presentaciòn-de-informe-y-resultados">Presentaciòn de informe y resultados</h3>
+<ul>
+  <li><strong>Resumen:</strong> Un parrafo sintentizando las herramientas utilizados y los resultados del trabajo.</li>
+  <li><strong>Objetivo:</strong> Argumentar brevemente cual es la finalidad del estudio, explicitar sitio y localización, y normativa aplicable.</li>
+  <li><strong>Descripción y justificación del modelo:</strong> Resumir las caracteristicas del modelo a utilizar y argumentar cual fue la motivación de su elección.</li>
+  <li><strong>Ubicación del proyecto:</strong> Describir el sitio emisor y la ubicación.</li>
+  <li><strong>Características de las fuentes emisoras:</strong> Resumir en tablas la ubicación y parámetros de emision utilzados.</li>
+  <li><strong>Selección de receptores:</strong> Describir grilla de receptores utilizada.</li>
+  <li><strong>Caracteristicas del Terreno:</strong>
+    <ul>
+      <li>Topografía</li>
+      <li>Propiedades de la superficie</li>
+      <li>Condición urbana rural</li>
+      <li>Topografía</li>
+      <li>Edificios cercanos</li>
+    </ul>
+  </li>
+  <li><strong>Meterología:</strong> Describir los datos de meteorología utilizados.</li>
+  <li><strong>Niveles de fondo:</strong> Explicitar valores de fondo usados, el origen de los datos y argumentar en que se basa la elección.</li>
+  <li><strong>Resultados:</strong> Desglozar resultados obtenidos, comparados con normativa y explicitar si cumplen ó no con esta.</li>
+  <li><strong>Anexo:</strong> Incluir mapas y tablas.</li>
+</ul>
+
+<h3 id="links-a-material-de-descarga">Links a material de descarga:</h3>
+
+<ul>
+  <li><a href="./datos_tp2/grupo1.csv"><code class="language-plaintext highlighter-rouge">grupo1.csv</code></a></li>
+  <li><a href="./datos_tp2/grupo2.csv"><code class="language-plaintext highlighter-rouge">grupo2.csv</code></a></li>
+  <li><a href="./datos_tp2/grupo3.csv"><code class="language-plaintext highlighter-rouge">grupo3.csv</code></a></li>
+</ul>
+
+:ET

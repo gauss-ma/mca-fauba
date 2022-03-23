@@ -1,0 +1,382 @@
+I"U<h1 id="aermet">AERMET</h1>
+
+<blockquote>
+  <p>Tutorial para ejecución de preprocesador meteorológico del aermod (<strong>AERMET</strong>)</p>
+</blockquote>
+
+<!-- ## Resumen
+Los pasos generales a seguir son:
+
+0. Crear *directorio de trabajo*  :open_file_folder:``tutorial`` en donde colocaremos todos los archivos de corrida y ejecutables. 
+1. Descargar [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip) y descomprimirlo, colocar el ejecutable ``aermet.exe`` en el directorio de trabajo.
+2. Descargar datos meteorológicos: de [superficie](https://www.ncei.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). Colocarlos en el directorio de trabajo.
+3. Construir *archivos de control* para cada etapa de ejecución:
+	+ :page_facing_up: [``ETAPA1.INP``](./archivos/aermod/ETAPA1.INP), extracción y control de calidad de datos.
+	+ :page_facing_up: [``ETAPA2.INP``](./archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
+	+ :page_facing_up: [``ETAPA3.INP``](./archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
+4. Verificar que estén todos los archivos mencionados en los puntos anteriores y el ejecutable en el directorio de trabajo.
+5. Ejecutar cada etapa en el siguiente orden: 
+	1. Copiar ``ETAPA1.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
+	2. Copiar ``ETAPA2.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
+	3. Copiar ``ETAPA3.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
+
+en las siguientes secciones se presenta cada pasos detallado.
+-->
+<hr />
+
+<h2 id="directorio-de-trabajo">Directorio de trabajo</h2>
+
+<p>Durante la ejecución del <strong>AERMOD</strong> y todos sus programas asociados vamos a trabajar con muchos archivos. Para mantener el orden y evitar errores, sugerimos generar una carpeta ó <em>directorio de trabajo</em> donde vamos a colocar todos los archivos y ejecutables, sin importar que nombre y ubicación le asignamos.
+Como vamos a estar modificando las extensiones de varios archivos, debemos asegurar que estas están visibles.
+En Windows 10, en el directorio de trabajo activamos esa opción desde la pestaña “Vista”, tildando el casillero:”Extensiones de nombre de archivo”.</p>
+
+<p><img src="/tut/imgs/extensiones_win10.png" alt="" /></p>
+
+<h2 id="descarga-de-ejecutable">Descarga de ejecutable</h2>
+
+<p>Descargamos el programa de la página de la EPA: <a href="https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip"><code class="language-plaintext highlighter-rouge">aermet_exe.zip</code></a>, lo descomprimimos y colocamos el ejecutable <code class="language-plaintext highlighter-rouge">aermet.exe</code> en la carpeta de trabajo.</p>
+
+<h2 id="descarga-de-datos-meteorológicos">Descarga de datos meteorológicos:</h2>
+
+<p>Para poder ejecutar el <strong>AERMET</strong> vamos a necesitar disponer de datos meteorológicos de superficie y radiosondeos.</p>
+
+<p>Para descargar datos meteorológicos tienen que buscar la estación más cercana al proyecto a modelar que cuente con buena disponibilidad de datos. Del listado de <a href="refs/estaciones_smn.csv">estaciones disponibles</a>, se debe elegir la mas cercana y obtener su <em>id</em> definido globalmente por la Organización Mundial de Meteorología (WMO), que se encuentra en la columna <code class="language-plaintext highlighter-rouge">NRO</code>.</p>
+
+<p><em>*En este tutorial vamos a seleccionar para el año *2021</em>, la siguiente estación:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Nombre</td>
+      <td>Provincia</td>
+      <td>Latitud</td>
+      <td>Longitud</td>
+      <td>Altura [m]</td>
+      <td>NRO</td>
+      <td>NACI</td>
+    </tr>
+    <tr>
+      <td>EZEIZA AERO</td>
+      <td>BUENOS AIRES</td>
+      <td>-58.53333</td>
+      <td>-34.81667</td>
+      <td>20.0</td>
+      <td><strong>87576</strong></td>
+      <td>SAEZ</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="meteorología-de-superficie">Meteorología de superficie:</h3>
+
+<p>Los datos de meteorología de superficie se pueden descargar del <a href="https://www.ncei.noaa.gov/pub/data/noaa/">Integrated Surface Database (ISD)</a> y buscando por año (2021) y luego por id (87576) van a encontrar el archivo.</p>
+
+<p>Vamos a buscar nuestro archivo usando el año de interés y el <em>id</em> de la estación. Para nuestro caso tendríamos que descargar el archivo: <a href="https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz"><code class="language-plaintext highlighter-rouge">https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz</code></a></p>
+
+<p>Se va a descargar un archivo comprimido con extensión <code class="language-plaintext highlighter-rouge">.gz</code> (gzip), al descomprimirlo encontraremos un archivo de texto de nombre <a href="archivos/aermod/875760-99999-2021">875760-99999-2021</a>, lo vamos a renombrar <code class="language-plaintext highlighter-rouge">PRUEBA.ISH</code>. Si lo abren verán el siguiente contenido:</p>
+
+<pre><code class="language-Text">0124875760999992021010100004-34467-058517FM-12+002099999V0203401N0015122000199010000199+02601+00621101151ADDAA101999999AZ101061AZ201061GF100991999999999999999999KA1120M+03031KA2120N+01751MA1999999100921MD1210051+9999REMSYN004BUFR
+0078875760999992021010100004-34822-058536FM-15+002099999V0203201N001519999999Y009900599+02601+00601999999ADDMA1101101999999REMMET051METAR SAEZ 010000Z 32003KT CAVOK 26/06 Q1011 NOSIG=
+0089875760999992021010101004-34817-058533FM-12+002099999V0203401N001519999999N010000199+02501+00741101201ADDMA1999999100971MD1210081+9999REMSYN04887576 42960 03403 10250 20074 30097 40120 52008=
+... (continúa)
+</code></pre>
+
+<h3 id="radiosondeos">Radiosondeos:</h3>
+
+<p>Para el caso de la información del perfil de la atmósfera por radiosondeos, en Argentina solamente contamos con 6 estaciones que hacen esta medición:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Provincia</th>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>Altura [m]</th>
+      <th>NRO</th>
+      <th>NACI</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EZEIZA AERO</td>
+      <td>BUENOS AIRES</td>
+      <td>-58.53333</td>
+      <td>-34.81667</td>
+      <td>20.0</td>
+      <td>87576</td>
+      <td>SAEZ</td>
+    </tr>
+    <tr>
+      <td>SANTA ROSA AERO</td>
+      <td>LA PAMPA</td>
+      <td>-64.26667</td>
+      <td>-36.56667</td>
+      <td>191.0</td>
+      <td>87623</td>
+      <td>SAZR</td>
+    </tr>
+    <tr>
+      <td>MENDOZA AERO</td>
+      <td>MENDOZA</td>
+      <td>-68.78333</td>
+      <td>-32.83333</td>
+      <td>704.0</td>
+      <td>87418</td>
+      <td>SAME</td>
+    </tr>
+    <tr>
+      <td>RESISTENCIA AERO</td>
+      <td>CHACO</td>
+      <td>-59.05000</td>
+      <td>-27.45000</td>
+      <td>52.0</td>
+      <td>87155</td>
+      <td>SARE</td>
+    </tr>
+    <tr>
+      <td>COMODORO RIVADAVIA AERO</td>
+      <td>CHUBUT</td>
+      <td>-67.50000</td>
+      <td>-45.78333</td>
+      <td>46.0</td>
+      <td>87860</td>
+      <td>SAVC</td>
+    </tr>
+    <tr>
+      <td>CORDOBA AERO</td>
+      <td>CORDOBA</td>
+      <td>-64.20000</td>
+      <td>-31.30000</td>
+      <td>495.0</td>
+      <td>87344</td>
+      <td>SACO</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Los radiosondeos se descargan de <a href="https://ruc.noaa.gov/raobs">NOAA/ESRL Radiosonde Database</a>, donde al completar un formulario se va a generar un archivo con la información requerida.</p>
+
+<p>Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremos descargar.</p>
+
+<p><img src="imgs/ruc_raobs_i.png" alt="Raobs Pantalla I" /></p>
+
+<p>Luego vamos a tener que especificar horas de acceso (seleccionar <code class="language-plaintext highlighter-rouge">0z, 12z ONLY</code>), los niveles verticales (seleccionar <code class="language-plaintext highlighter-rouge">All levels</code>), y las unidades para la velocidad de viento (seleccionar <code class="language-plaintext highlighter-rouge">Tenths of Meters/Second</code>) en decenas de metros por segundo.</p>
+
+<p><img src="imgs/ruc_raobs_ii.png" alt="Raobs Pantalla II" /></p>
+
+<p>Por ultimo en para la selección de sitios poner <code class="language-plaintext highlighter-rouge">WMO Station Identifier</code>.</p>
+
+<p><img src="imgs/ruc_raobs_iii.png" alt="Raobs Pantalla III" /></p>
+
+<p>Hacemos click en <code class="language-plaintext highlighter-rouge">Continue Data Request</code> y nos lleva a la siguiente pantalla donde hay un cuadro para completar con el id de nuestra estación (87576, correspondiente a EZEIZA AERO).</p>
+
+<p><img src="imgs/ruc_raobs_iv.png" alt="Raobs Pantalla IV" /></p>
+
+<p>Dejamos los valores de orden como <code class="language-plaintext highlighter-rouge">Time Series Sort</code> y formato <code class="language-plaintext highlighter-rouge">FSL</code> por defecto. Finalizamos tocando <code class="language-plaintext highlighter-rouge">Continue Data Access</code>
+<img src="imgs/ruc_raobs_v.png" alt="Raobs Pantalla IV" /></p>
+
+<p>Vamos a obtener como texto la infomación solicitada. Para guardarla, seleccionamos toda la información <kbd>Ctrl</kbd> + <kbd>A</kbd> y la copiamos <kbd>Ctrl</kbd> + <kbd>C</kbd>. Abrimos el block de notas, pegamos esta información y guardamos el archivo como <a href="./archivos/aermod/PRUEBA.FSL">PRUEBA.FSL</a> en el directorio de trabajo.</p>
+
+<p>El inicio del archivo debiera tener este contenido:</p>
+
+<pre><code class="language-Text">254     12      1      JAN    2021
+      1  99999  87576  34.82S 58.53W    20   1134
+      2    200   1820    933    112  99999      3
+      3          SAEZ                99999     ms
+      9  10130     20    208     98    290     41
+      4  10000    130    214     64    285     46
+      5   9880    234    204     64  99999  99999
+      6   9800    304  99999  99999    250     82
+      5   9690    401    218     38  99999  99999
+      6   9460    609  99999  99999    245    113
+      4   9250    804    200     30    250    113
+      5   9170    878    196     26  99999  99999
+      6   9131    914  99999  99999    245    103
+      6   8811   1219  99999  99999    235     93
+      6   8502   1524  99999  99999    255     72
+      4   8500   1526    146     26    245     67
+      6   8196   1828  99999  99999    230     62
+      6   7900   2133  99999  99999    205     72
+      5   7630   2421     68     -2  99999  99999
+      6   7614   2438  99999  99999    190     98
+      6   7334   2743  99999  99999    195     87
+      5   7270   2815     50    -80  99999  99999
+      5   7090   3019     52   -158  99999  99999
+      6   7066   3048  99999  99999    235    103
+      4   7000   3130     44    -76    230    103
+      5   6990   3142     44    -66  99999  99999
+      5   6570   3643     26   -174  99999  99999
+      6   6559   3657  99999  99999    210    118
+... (continúa)
+</code></pre>
+
+<!-- ### Datos sitio-especificas 
+En caso de disponer datos de una estación meteorológica privada también es posible incorporar los datos al modelo, solo es necesario que estén en algún formato tipo tabla donde cada fila sea una observación y cada columna sea una variable distinta, como puede ser una planilla de excel.  
+-->
+
+<h2 id="ejecución">Ejecución</h2>
+
+<p>Para ejecutar el <strong>AERMET</strong> primero verificamos que estén todos los archivos necesarios en el directorio de trabajo:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.ISH</code></li>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.FSL</code></li>
+  <li><code class="language-plaintext highlighter-rouge">aermet.exe</code></li>
+</ul>
+
+<p>El <strong>AERMET</strong> se ejecuta en 3 etapas a las que llamaremos: <strong>ETAPA1</strong>, <strong>ETAPA2</strong> y <strong>ETAPA3</strong>. Cada una de estas necesita un <em>archivo de control</em>, que es un archivo de texto con definición de parámetros para configurar la corrida y permitirle a AERMET realizar cada etapa con los datos que disponemos.</p>
+
+<p>A los archivos de control los llamaremos <code class="language-plaintext highlighter-rouge">ETAPA1.INP</code>, <code class="language-plaintext highlighter-rouge">ETAPA2.INP</code> y <code class="language-plaintext highlighter-rouge">ETAPA3.INP</code>.</p>
+
+<h3 id="etapa-1--lectura-y-procesamiento-de-datos-de-entrada">Etapa 1:  Lectura y procesamiento de datos de entrada.</h3>
+
+<p>En esta etapa tenemos que proveer al <strong>AERMET</strong> con los archivos de entrada y parámetros para extraerlos.</p>
+
+<p>Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas, entre otros.</p>
+
+<p>Creamos un archivo de texto y lo nombramos: <a href="./archivos/aermet/ETAPA1.INP">ETAPA1.INP</a>. Copiamos en él el siguiente contenido:</p>
+
+<pre><code class="language-Text">** ETAPA 1: Lectura y procesamiento de datos de entrada.
+JOB
+MESSAGES ETAPA1.MSG
+REPORT   ETAPA1.RPT
+**    Datos horarios de superficie:
+SURFACE
+DATA       PRUEBA.ISH ISHD
+EXTRACT    EXTRACT_SFC.DSK
+XDATES     2021/12/01 TO 21/12/31
+LOCATION   87576  34.820S  058.583W  3  +0003
+AUDIT      WDIR WSPD CLHT RHUM
+QAOUT      QA_SFC.OUT
+**    Datos de sondeos verticales:
+UPPERAIR
+DATA       PRUEBA.FSL FSL
+EXTRACT    EXTRACT_UA.DSK
+XDATES     2021/12/01 TO 21/12/31
+LOCATION   87576  34.82S  58.53W  3
+AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
+QAOUT      QA_UA.OUT
+</code></pre>
+
+<p>Todas las lineas que comienzan con <code class="language-plaintext highlighter-rouge">**</code> son interpretadas como <em>comentarios</em> y por lo tanto, el programa las ignora.</p>
+
+<p>El archivo <code class="language-plaintext highlighter-rouge">ETAPA1.INP</code> se divide en las siguientes secciones:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JOB</code>: Se especifican los nombres de los archivos donde el programa guardará los registros de la ejecución (mensajes de alerta y errores).</li>
+  <li><code class="language-plaintext highlighter-rouge">SURFACE</code>: Se brinda la ruta al archivo de superficie, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.</li>
+  <li><code class="language-plaintext highlighter-rouge">UPPER</code>: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.</li>
+</ul>
+
+<p>En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre <code class="language-plaintext highlighter-rouge">ETAPA1.INP</code>, luego lo copiamos nombrando la copia <code class="language-plaintext highlighter-rouge">aermet.inp</code> y ejecutamos el <code class="language-plaintext highlighter-rouge">aermet.exe</code>.</p>
+
+<p>Si todo sale bien se van a crear los siguientes archivos:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ETAPA1.MSG</code> y <code class="language-plaintext highlighter-rouge">ETAPA1.RPT</code> nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.</li>
+  <li><code class="language-plaintext highlighter-rouge">EXTRACT_SFC.DSK</code> y <code class="language-plaintext highlighter-rouge">EXTRACT_UA.DSK</code> contienen los datos extraidos de los archivos meteorológicos de superficie y radiosondeos respectivamente.</li>
+  <li><code class="language-plaintext highlighter-rouge">QA_SFC.OUT</code> y <code class="language-plaintext highlighter-rouge">QA_UA.OUT</code> archivos con información de variables auditadas que serviran par el siguiente paso.</li>
+  <li><code class="language-plaintext highlighter-rouge">Discarded_ISHD_Records.dat</code> si algun registro no cumple los parametros de calidad entonces se descartan y se guardan en este archivo para su revisión.</li>
+</ul>
+
+<h3 id="etapa-2-fusión-merge-de-archivos">Etapa 2: Fusión (merge) de archivos</h3>
+
+<p>En esta etapa se fusionan los datos de superficie con los meteorológicos.
+También necesitamos crear un archivo de control: <a href="./archivos/aermet/ETAPA2.INP">ETAPA2.INP</a> con el siguiente contenido:</p>
+
+<pre><code class="language-Text">** Stage 2: Merge de datos.
+JOB
+MESSAGES ETAPA2.MSG
+REPORT   ETAPA2.RPT
+SURFACE
+QAOUT  QA_SFC.OUT
+UPPERAIR
+QAOUT  QA_UA.OUT
+MERGE
+OUTPUT PRUEBA.MRG
+XDATES 2021/12/01 TO 21/12/31
+</code></pre>
+
+<p>Este archivo contiene las siguientes secciones:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JOB</code>: Cumple el mismo rol que en etapa 1.</li>
+  <li><code class="language-plaintext highlighter-rouge">SURFACE</code>: Se especifica el archivo con los datos de superficie extraidos en la etapa 1.</li>
+  <li><code class="language-plaintext highlighter-rouge">UPPER</code>: Se especifica el archivo con los datos de radiosondeo extraidos en la etapa 1.</li>
+  <li><code class="language-plaintext highlighter-rouge">MERGE</code>: en esta sección se especifica el archivo de salida con los datos de superficie y radiosondeo fusionados que será la entrada en la etapa 3.</li>
+</ul>
+
+<p>Guardamos este archivo con el nombre <code class="language-plaintext highlighter-rouge">ETAPA2.INP</code>, y luego lo copiamos como <code class="language-plaintext highlighter-rouge">aermet.inp</code> (reemplazando el preexistente) y ejecutamos el <code class="language-plaintext highlighter-rouge">aermet.exe</code>.</p>
+
+<p>Se van a crear los siguientes archivos:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">ETAPA2.MSG</code> y <code class="language-plaintext highlighter-rouge">ETAPA2.RPT</code> nos brindan información de warnings y errores.</li>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.MRG</code> contienen los datos fusionados que serán utilizados en el siguiente paso.</li>
+</ul>
+
+<h3 id="etapa-3-cálculo-de-parametros-de-capa-límite">Etapa 3: Cálculo de parametros de capa límite</h3>
+
+<p>Este es el úlitmo paso, y es donde se relizan los cálculos que serviran como información de entrada al <strong>AERMOD</strong>.</p>
+
+<p>Vamos a crear nuestro archivo de control: <a href="./archivos/aermet/ETAPA3.INP">ETAPA3.INP</a> con el siguiente contenido:</p>
+
+<pre><code class="language-Text">** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
+JOB
+MESSAGES ETAPA3.MSG
+REPORT   ETAPA3.RPT
+METPREP
+DATA        PRUEBA.MRG
+LOCATION    A212 34.450S 058.583W  3
+XDATES      2021/01/01 TO 21/12/31
+OUTPUT      PRUEBA.SFC
+PROFILE     PRUEBA.PFL
+** Métodos para precesamiento de datos:
+METHOD   WIND_DIR  RANDOM
+METHOD   REFLEVEL  SUBNWS
+NWS_HGT  WIND      10.0
+METHOD   UASELECT SUNRISE
+UAWINDOW -12 12
+AERSURF AERSURFACE.OUT
+</code></pre>
+
+<p>Este archivo sólo dos secciones:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">JOB</code>: lo mismo que en los pasos anteriores.</li>
+  <li><code class="language-plaintext highlighter-rouge">METPREP</code>: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de <strong>keywords</strong> y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones <code class="language-plaintext highlighter-rouge">AERSURFACE.OUT</code>.</li>
+</ul>
+
+<p>Vamos a necesitar un archivo llamado <a href="./archivos/aermod/AERSURFACE.OUT"><code class="language-plaintext highlighter-rouge">AERSURFACE.OUT</code></a> con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta <strong>AERSURFACE</strong>. En el apartado <a href="/tut/aersurface.html">AERSURFACE</a> se explican los pasos y criterios para completar el archivo <code class="language-plaintext highlighter-rouge">AERSURFACE.OUT</code>. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de <code class="language-plaintext highlighter-rouge">AERSURFACE.OUT</code> con el siguiente contenido:</p>
+
+<pre><code class="language-Text"> FREQ_SECT  SEASONAL  1
+   SECTOR   1  0   360
+**------------------------------------------------|
+**          | season | section | a0  | b0  | z0   |
+**----------|--------|---------|-----|-----|------|
+   SITE_CHAR    1        1      0.16  0.80  0.54
+   SITE_CHAR    2        1      0.16  1.00  0.54
+   SITE_CHAR    3        1      0.18  1.00  0.50
+   SITE_CHAR    4        1      0.16  0.80  0.52
+**----------|--------|---------|-----|-----|------|
+
+</code></pre>
+
+<p>Para ejecutar la ultima etapa, verificamos que estén presente los archivos:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.MRG</code> generado al correr la ETAPA 2.</li>
+  <li><code class="language-plaintext highlighter-rouge">AERSURFACE.OUT</code> generado en el paso anterior.</li>
+</ul>
+
+<p>Guardamos este archivo con el nombre <code class="language-plaintext highlighter-rouge">ETAPA3.INP</code>, y luego lo copiamos y renombramos la copia como <code class="language-plaintext highlighter-rouge">aermet.inp</code> y ejecutamos el <code class="language-plaintext highlighter-rouge">aermet.exe</code>.</p>
+
+<p>Se van a crear dos archivos necesarios para la ejecución del <strong>AERMOD</strong>:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.SFC</code>: contiene los datos de superficie procesados.</li>
+  <li><code class="language-plaintext highlighter-rouge">PRUEBA.PFL</code>: contiene los datos de perfiles vericales procesados.</li>
+</ul>
+
+<p>Verificamos que la corrida fue exitosa si en los archivos PRUEBA3.RPT no aparecen mensajes de ERROR.</p>
+
+<pre><code class="language-Text">        ****    ERROR MESSAGES    ****
+
+               ---  NONE  ---
+</code></pre>
+
+:ET

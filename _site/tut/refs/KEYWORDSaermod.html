@@ -1,0 +1,615 @@
+<h1 id="keywords-aermod">KEYWORDS: Aermod</h1>
+
+<blockquote>
+  <p>Keywords de AERMOD organizadas por seccion.</p>
+</blockquote>
+
+<p>El <code class="language-plaintext highlighter-rouge">aermod.inp</code> se estructura en las siguientes secciones:</p>
+<ul>
+  <li><strong>CO</strong>: especificaciones generales de <strong>CO</strong>ntrol de la ejecución.</li>
+  <li><strong>SO</strong>: especificaciones de fuentes (<strong>SO</strong>urces).</li>
+  <li><strong>RE</strong>: especificaciones de <strong>RE</strong>ceptores.</li>
+  <li><strong>ME</strong>: especificaciones de información <strong>ME</strong>teorologica.</li>
+  <li><strong>EV</strong>: especificaciones de procesamiento de <strong>EV</strong>entos (opcional).</li>
+  <li><strong>OU</strong>: especifiaciones generales de archivos de salida (<strong>OU</strong>tput).</li>
+</ul>
+
+<p>hay que especificar siempre el inicio y finalización de cada seccion, por ejemplo:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CO STARTING
+**      (especificaciones de seccion de COntrol)
+CO FINISHED
+</code></pre></div></div>
+
+<p>Cada especificación sigue la siguiente estructura general:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>KEYWORD &lt;arg1&gt; &lt;arg2&gt; ... &lt;argN&gt;
+</code></pre></div></div>
+<p>donde <em>arg1</em>, <em>arg2</em>, etc. son los argumentos/valores del comando.</p>
+
+<p>A continuación se listan los keywords de aermod organizados por sección, en algunos casos se mencionan los posibles argumentos que pueden tomar.</p>
+
+<h2 id="co">CO</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>CO Keywords</th>
+      <th>Type</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TITLEONE</code></td>
+      <td>M-N</td>
+      <td>Titulo para archivo de salida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TITLETWO</code></td>
+      <td>O-N</td>
+      <td>Subtitulo de archivo de salida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MODELOPT</code></td>
+      <td>M-N</td>
+      <td>Opciones de corrida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AVERTIME</code></td>
+      <td>M-N</td>
+      <td>Tiempo de promediado de la corrida.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">URBANOPT</code></td>
+      <td>O-R</td>
+      <td>Especifica parámetros de dispersión urbana.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">POLLUTID</code></td>
+      <td>M-N</td>
+      <td>Identifica el tipo de contaminante modelado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HALFLIFE</code></td>
+      <td>O-N</td>
+      <td>Tiempo de vida media para decaimiento exponencial.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DCAYCOEF</code></td>
+      <td>O-N</td>
+      <td>Coeficiente de decaimiento.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GASDEPDF</code></td>
+      <td>O-N</td>
+      <td>Opción para redefinir parametros de deposición seca.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GASDEPVD</code></td>
+      <td>O-N</td>
+      <td>Opción para especificar velocidad de deposición seca.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GDLANUSE</code></td>
+      <td>O-N</td>
+      <td>Specify land use categories by sector for gas dry deposition</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GDSEASON</code></td>
+      <td>O-N</td>
+      <td>Specify seasonal definitions for gas dry deposition</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LOW_WIND</code></td>
+      <td>O-N</td>
+      <td>ALPHA option for low wind conditions that allows user to specify values for minimum sigma-v, minimum wind speed, and maximum meander factor</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AWMADWNW</code></td>
+      <td>O-N</td>
+      <td>Specifies downwash options developed by AWMA</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ORD_DWNW</code></td>
+      <td>O-N</td>
+      <td>Specifies downwash options developed by ORD</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NO2EQUIL</code></td>
+      <td>O-N</td>
+      <td>Option to override default NO 2 /NO x equilibrium ratio for PVMRM or OLM</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NO2STACK</code></td>
+      <td>O-N</td>
+      <td>Option to specify default in-stack NO 2 /NO x equilibrium ratio for OLM and PVMRM options; may be overridden by NO2RATIO option on SO pathway</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ARMRATIO</code></td>
+      <td>O-N</td>
+      <td>Option to override default minimum and maximum (equilibrium) ratios for the ARM2 option</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">O3SECTOR</code></td>
+      <td>O-N</td>
+      <td>Specifies optional wind sectors for use in varying background ozone (O3) concentrations by wind direction for use with OLM and PVMRM options; can be used with the OZONEFIL, OZONEVAL, and O3VALUES options.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OZONEFIL</code></td>
+      <td>O-R</td>
+      <td>Specifies filename for hourly ozone file for use with OLM and PVMRM options</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OZONEVAL</code></td>
+      <td>O-R</td>
+      <td>Specifies background value of ozone for use with OLM and PVMRM options</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">O3VALUES</code></td>
+      <td>O-R</td>
+      <td>Option to specify temporally varying ozone concentrations for use with OLM and PVMRM options for estimating NO 2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OZONUNIT</code></td>
+      <td>O-N</td>
+      <td>Option to specify units for temporally-varying ozone concentrations for the O3VALUES keyword</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FLAGPOLE</code></td>
+      <td>O-N</td>
+      <td>Specifies whether to accept receptor heights above local terrain (m) for use with flagpole receptors, and allows for default flagpole height to be specified</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RUNORNOT</code></td>
+      <td>M-N</td>
+      <td>Identifies whether to run model or process setup information only</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVENTFIL</code></td>
+      <td>O-N</td>
+      <td>Specifies whether to generate an input file for EVENT model</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SAVEFILE</code></td>
+      <td>O-N</td>
+      <td>Option to store intermediate results for restart of model after user or system interrupt</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INITFILE</code></td>
+      <td>O-N</td>
+      <td>Option to initialize model from intermediate results generated by SAVEFILE option</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MULTYEAR</code></td>
+      <td>O-N</td>
+      <td>Option to process multiple years of meteorological data (one year per run) and accumulate high short-term values across years</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DEBUGOPT</code></td>
+      <td>O-N</td>
+      <td>Option to generate detailed result and meteorology files for debugging purposes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ERRORFIL</code></td>
+      <td>O-N</td>
+      <td>Option to generate detailed error listing file</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="so">SO</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>SO Keywords</th>
+      <th>Type</th>
+      <th>Keyword Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ELEVUNIT</code></td>
+      <td>O-N</td>
+      <td>Defines input units for source elevations (defaults to meters), must be first keyword after SO STARTING if used.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">LOCATION</code></td>
+      <td>M-R</td>
+      <td>Identifies coordinates for particular source</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RLEMCONV</code></td>
+      <td>O-N</td>
+      <td>Optional emission units conversion that changes the input units for the RLINE and -NEXT sources to grams/hour/link</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SRCPARAM</code></td>
+      <td>M-R</td>
+      <td>Identifies source parameters for a particular source</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BUILDHGT</code></td>
+      <td>O-R</td>
+      <td>Building height values for each wind sector</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BUILDLEN</code></td>
+      <td>O-R</td>
+      <td>Building projected length values for each wind sector</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BUILDWID</code></td>
+      <td>O-R</td>
+      <td>Building projected width values for each wind sector</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">XBADJ</code></td>
+      <td>O-R</td>
+      <td>Along-flow distances from the stack to the center of the upwind face of the projected building</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">YBADJ</code></td>
+      <td>O-R</td>
+      <td>Across-flow distances from the stack to the center of the upwind face of the projected building</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AREAVERT</code></td>
+      <td>M-R</td>
+      <td>Specifies location of vertices for an AREAPOLY source type (mandatory if AREAPOLY s-ceis used)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RBARRIER</code></td>
+      <td>O-R</td>
+      <td>Specifies RLINEXT barrier source configuration The ALPHA option must be specified as a MODELOPT on the CO pathway to use the RBARRIER keyword.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RDEPRESS</code></td>
+      <td>O-R</td>
+      <td>Specifies RLINEXT depressed roadway source configuration The ALPHA option must be specified as a MODELOPT on the CO pathway to use the RDEPRESS keyword.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">URBANSRC</code></td>
+      <td>O-R</td>
+      <td>Identifies which sources to model with urban effects</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EMISFACT</code></td>
+      <td>O-R</td>
+      <td>Optional input for variable emission rate factors</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EMISUNIT</code></td>
+      <td>O-N</td>
+      <td>Optional unit conversion factors for emissions, concentrations</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CONCUNIT</code></td>
+      <td>O-N</td>
+      <td>Optional conversion factors for emissions and concentrations</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DEPOUNIT</code></td>
+      <td>O-N</td>
+      <td>Optional conversion factors for emissions and depositions</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PARTDIAM</code></td>
+      <td>O-R</td>
+      <td>Input variables for optional input of particle size (microns)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MASSFRAX</code></td>
+      <td>O-R</td>
+      <td>Optional input of mass fraction for each particle size category</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PARTDENS</code></td>
+      <td>O-R</td>
+      <td>Optional input of particle density (g/cm 3 ) for each size category</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">METHOD_2</code></td>
+      <td>O-R</td>
+      <td>Optional input of parameters for METHOD_2 particle deposition The ALPHA option must be specified as a MODELOPT on the CO pathway to use the METHOD_2 keyword.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GASDEPOS</code></td>
+      <td>O-R</td>
+      <td>Optional input of gas deposition parameters</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NO2RATIO</code></td>
+      <td>O-R</td>
+      <td>Option to specify in-stack NO2/NOx equilibrium ratio for OLM and PVMRM options by source</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">HOUREMIS</code></td>
+      <td>O-R</td>
+      <td>Option for specifying hourly emission rates in a separate file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BGSECTOR</code></td>
+      <td>O-N</td>
+      <td>Specifies optional wind sectors for use in varying background concentrations by wind direction for the pollutant being modeled, as specified on the BACKGRND keyword</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BACKGRND</code></td>
+      <td>O-R</td>
+      <td>Option to specify temporally varying background concentrations</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">BACKUNIT</code></td>
+      <td>O-N</td>
+      <td>Option to specify units for background concentrations</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INCLUDED</code></td>
+      <td>O-R</td>
+      <td>Option to include data from a separate file in the runstream</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">OLMGROUP</code></td>
+      <td>O-R</td>
+      <td>Specifies sources to combine for OLM option to account for merging plumes</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PSDGROUP</code></td>
+      <td>O-R</td>
+      <td>Specifies source groups for PSDCREDIT option with PVMRM</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SRCGROUP</code></td>
+      <td>M-R</td>
+      <td>Identification of source groups</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="re">RE</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>RE Keywords</th>
+      <th>Type</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ELEVUNIT</code></td>
+      <td>O-N</td>
+      <td>Unidades de las elvaciones de receptores (por default es metros, <code class="language-plaintext highlighter-rouge">M</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GRIDCART</code></td>
+      <td>O-R</td>
+      <td>Define una grilla cartesiana de receptores.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">GRIDPOLR</code></td>
+      <td>O-R</td>
+      <td>Define una grilla polar de receptores</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DISCCART</code></td>
+      <td>O-R</td>
+      <td>Define un receptor puntual en coordenadas cartesianas.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DISCPOLR</code></td>
+      <td>O-R</td>
+      <td>Define un receptor puntual en coordenadas polares.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVALCART</code></td>
+      <td>O-R</td>
+      <td>Define un receptor puntual en coordenadas cartesianas que usado para evaluar por separado.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INCLUDED</code></td>
+      <td>O-R</td>
+      <td>Identifica archivo externo que contiene grilla de receptores (producido por AERMAP)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="me">ME</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ME Keywords</th>
+      <th>Type</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SURFFILE</code></td>
+      <td>M–N</td>
+      <td>Indica ubicación de archivo meteorológico de superficie.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PROFFILE</code></td>
+      <td>M–N</td>
+      <td>Indica ubicación de archivo de radiosondeo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SURFDATA</code></td>
+      <td>M–N</td>
+      <td>Describe estacion meteorológica de superficie.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">UAIRDATA</code></td>
+      <td>M–N</td>
+      <td>Describe estacion meteorológica de radioisondeo.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SITEDATA</code></td>
+      <td>O–N</td>
+      <td>Describe estacion meteorológica sitio-especifica.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PROFBASE</code></td>
+      <td>M–N</td>
+      <td>Specifies the base elevation for the potential temperature profile</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">STARTEND</code></td>
+      <td>O–N</td>
+      <td>Specifies start and end dates to be read from input meteorological data file (default  is to read entire file)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DAYRANGE</code></td>
+      <td>O–R</td>
+      <td>Specifies days or ranges of days to process (default is to process all data)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SCIMBYHR</code></td>
+      <td>O–N</td>
+      <td>Specifies the parameters for the SCIM (Sampled Chronological Input Model) option (see CO MODELOPT)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">WDROTATE</code></td>
+      <td>O–N</td>
+      <td>May be used to correct for alignment problems of wind direction measurements, or to convert wind direction from to flow vector</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">WINDCATS</code></td>
+      <td>O–N</td>
+      <td>Input upper bounds of wind speed categories, five values input - sixth category is assumed to have no upper bound (used for WSPEED option on the EMISFACT keyword)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ev">EV</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>OU Keywords</th>
+      <th>Type</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVENTPER</code></td>
+      <td>M–R</td>
+      <td>Describes data and averaging period for an event</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVENTLOC</code></td>
+      <td>M–R</td>
+      <td>Describes receptor location for an event</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INCLUDED</code></td>
+      <td>O–R</td>
+      <td>Identifies an external file containing EVENT data to be included in the inputs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ou">OU</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>OU Keywords</th>
+      <th>Type</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RECTABLE</code></td>
+      <td>O–R</td>
+      <td>Option to specify value(s) by receptor for output</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAXTABLE</code></td>
+      <td>O–R</td>
+      <td>Option to summarize the overall maximum values</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DAYTABLE</code></td>
+      <td>O–N</td>
+      <td>Option to print summaries for each averaging period for each day processed.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAXIFILE</code></td>
+      <td>O–R</td>
+      <td>Option to list events exceeding a threshold value to file (if CO EVENTFIL oton is used, these events are included in the input file generated for the EVENT model).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">POSTFILE</code></td>
+      <td>O–R</td>
+      <td>Option to write results to a mass storage file for postprocessing.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">PLOTFILE</code></td>
+      <td>O–R</td>
+      <td>Option to write certain results to a storage file suitable for input to plotting routines</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TOXXFILE</code></td>
+      <td>O–R</td>
+      <td>Option to write results to a storage file suitable for input to the TOXX model component of TOXST or the RISK</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RANKFILE</code></td>
+      <td>O–R</td>
+      <td>Option to output file of ranked values for Q-Q plots (must be used with the MAXTABLE keyword)</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVALFILE</code></td>
+      <td>O–R</td>
+      <td>Option to output file of normalized arc maxima from EVALCART receptors for model evaluation studies</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SEASONHR</code></td>
+      <td>O–R</td>
+      <td>Option to output results by season and hour-of-day</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAXDAILY</code></td>
+      <td>O–R</td>
+      <td>Option to output file of daily maximum 1-hour values for each day processed; only applicable for 1-hour NO 2 and 1-hour SO 2 NAAQS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MXDYBYYR</code></td>
+      <td>O–R</td>
+      <td>Option to output file of daily maximum 1-hour values by year, for each year processed; only applicable for 1-hour NO 2 and 1-hour SO 2 NAAQS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">MAXDCONT</code></td>
+      <td>O–R</td>
+      <td>Option to output contributions of each source group to ranked values arss years for a reference source group, paired in time and space; only applicable for 24-hour PM2.5, 1-hour NO 2 , and 1-hour SO 2 NAAQS</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">SUMMFILE</code></td>
+      <td>O–N</td>
+      <td>Option to output summary of high ranked values to separate file</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">FILEFORM</code></td>
+      <td>O–N</td>
+      <td>Specify fixed or exponential format for output results files</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">NOHEADER</code></td>
+      <td>O–N</td>
+      <td>Option to suppress file headers for output file options, e.g., POSTFILE, PLOTFILE, MAXDCONT, etc.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">EVENTOUT</code></td>
+      <td>M–N</td>
+      <td>Specifies the level of output information provided for EVENT Processing [EVENT Only]</td>
+    </tr>
+  </tbody>
+</table>
+

@@ -1,0 +1,360 @@
+<h1 id="screen3">Screen3</h1>
+
+<blockquote>
+  <p>Tutorial para uso de <strong>SCREEN3</strong></p>
+</blockquote>
+
+<!-- ## Resumen
+En esta sección estan los pasos rápidos para la ejecución del **SCREEN3**:
+
+1. Descargar ejecutable ``SCREEN3.exe`` y código fuente: [``screen3.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip).
+2. Ejecutar ``SCREEN3.exe`` haciendo doble click sobre este.
+3. Ingresar los datos que pide el programa. Los resultados se guardarán en el archivo ``SCREEN.OUT``.
+
+En la siguientes secciones, se encuentran todos los pasos en detalle.
+-->
+<hr />
+
+<h2 id="descarga">Descarga</h2>
+
+<p>El <strong>SCREEN3</strong> está disponible en la página web de <a href="https://www.epa.gov/">USEPA</a>. Se puede descargar del siguiente link: <a href="https://gaftp.epa.gov/Air/aqmg/SCRAM/models/screening/screen3/screen3.zip"><code class="language-plaintext highlighter-rouge">screen3.zip</code></a>.</p>
+
+<p>Debería descargarse un archivo comprimido <code class="language-plaintext highlighter-rouge">screen3.zip</code>, al descomprimirlo habrá una carpeta con varios archivos. Los archivos con extensión <code class="language-plaintext highlighter-rouge">*.FOR</code> son el código fuente (programado en <a href="https://es.wikipedia.org/wiki/Fortran">FORTRAN</a>), los <code class="language-plaintext highlighter-rouge">*.DAT</code> son de archivos de entrada al modelo y los <code class="language-plaintext highlighter-rouge">*.OUT</code> salidas. El archivo <code class="language-plaintext highlighter-rouge">SCREEN3.exe</code> es el ejecutable compilado para windows que utilizaremos.</p>
+
+<h2 id="ejecución">Ejecución</h2>
+
+<p>Para ejecutar el <strong>SCREEN3</strong> simplemente vamos al directorio donde se encuentre el ejecutable <code class="language-plaintext highlighter-rouge">SCREEN3.exe</code> y lo ejecutamos haciendo doble click:</p>
+
+<p>Se va a abrir una terminal ó consola:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">******</span>  SCREEN3 MODEL  <span class="k">******</span>
+  <span class="k">****</span> VERSION DATED 13043 <span class="k">****</span>
+  
+ ENTER TITLE FOR THIS RUN <span class="o">(</span>UP TO 79 CHARACTERS<span class="o">)</span>:
+
+</code></pre></div></div>
+
+<p>El programa funciona de forma interactiva, realizando una serie de preguntas que el usuario debe responder desde el teclado confirmando cada entrada con <kbd>Enter</kbd>.</p>
+
+<p>Vamos a realizar una corrida de prueba con los siguientes parámetros, que podrían corresponder a una chimenea en un sitio urbano en una planicie:</p>
+
+<h3 id="características-de-la-fuente">Características de la fuente:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tipo de fuente</th>
+      <th>Analitos</th>
+      <th>ALTURA [m]</th>
+      <th>DIÁMETRO CONDUCTO[m]</th>
+      <th>x UTM20S</th>
+      <th>y UTM20S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Puntual</td>
+      <td>NOx, MP, CO, SO2, TRS</td>
+      <td>130</td>
+      <td>6,2</td>
+      <td>715072.02</td>
+      <td>6365674.52</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>En general las ubicaciones se reportan en coordenadas geográficas de latitud y longitud. Podemos <a href="https://www.latlong.net/lat-long-utm.html">convertirlas</a> a UTM y usar coordenadas planas en metros.</p>
+
+<h3 id="parámetros-de-emisión">Parámetros de emisión:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>ANALITO</th>
+      <th>CAUDAL EMISIÓN [m3/s]</th>
+      <th>EMPERATURA[K]</th>
+      <th>VELOCIDAD[m/s]</th>
+      <th>CONCENTRACIÓN[mg/Nm3]</th>
+      <th>TASA[g/s]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MP</td>
+      <td>819</td>
+      <td>453</td>
+      <td>27,13</td>
+      <td>43,73</td>
+      <td>21,6</td>
+    </tr>
+    <tr>
+      <td>CO</td>
+      <td>819</td>
+      <td>453</td>
+      <td>27,13</td>
+      <td>981,87</td>
+      <td>484,89</td>
+    </tr>
+    <tr>
+      <td>NOx</td>
+      <td>819</td>
+      <td>453</td>
+      <td>27,13</td>
+      <td>196</td>
+      <td>96,7</td>
+    </tr>
+    <tr>
+      <td>SO2</td>
+      <td>819</td>
+      <td>453</td>
+      <td>27,13</td>
+      <td>2,71</td>
+      <td>1,34</td>
+    </tr>
+    <tr>
+      <td>TRS</td>
+      <td>819</td>
+      <td>453</td>
+      <td>27,13</td>
+      <td>1,26</td>
+      <td>0,62</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="corrida-de-prueba">Corrida de prueba</h3>
+
+<ol>
+  <li>Al ejecutar el programa solicita ingresar el título del proyecto. En este caso pondremos “CASO_PRUEBA”</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="k">******</span>  SCREEN3 MODEL  <span class="k">******</span>
+  <span class="k">****</span> VERSION DATED 13043 <span class="k">****</span>
+  
+ ENTER TITLE FOR THIS RUN <span class="o">(</span>UP TO 79 CHARACTERS<span class="o">)</span>:
+ CASO_PRUEBA
+
+</code></pre></div></div>
+
+<ol>
+  <li>Nos solicita escribir una letra según el tipo de fuente, en este caso puntual (<strong>P</strong>).</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER SOURCE TYPE: P    FOR POINT
+                    F    FOR FLARE
+                    A    FOR AREA
+                    V    FOR VOLUME
+    ALSO ENTER ANY OF THE FOLLOWING OPTIONS ON THE SAME LINE:
+
+      N    - TO USE THE NON-REGULATORY BUT CONSERVATIVE BRODE 2
+             MIXING HEIGHT OPTION,
+      nn.n - TO USE AN ANEMOMETER HEIGHT OTHER THAN THE REGULATORY
+             <span class="o">(</span>DEFAULT<span class="o">)</span> 10 METER HEIGHT.
+      SS   - TO USE A NON-REGULATORY CAVITY CALCULATION ALTERNATIVE
+   Example - PN 7.0 SS <span class="o">(</span>entry <span class="k">for </span>a point <span class="nb">source</span><span class="o">)</span>
+
+  ENTER SOURCE TYPE AND ANY OF THE ABOVE OPTIONS:
+P
+</code></pre></div></div>
+
+<ol>
+  <li>Nos solicita el caudal másico de emisión expresado en g/s, el cual obtenemos de la tabla de datos de emisión.</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER EMISSION RATE <span class="o">(</span>G/S<span class="o">)</span>:
+21.6
+</code></pre></div></div>
+
+<p>Nos pide el diámetro interno del conducto emisor en metros:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER STACK INSIDE DIAMETER <span class="o">(</span>M<span class="o">)</span>:
+6.2
+</code></pre></div></div>
+
+<p>Nos pide la velocidad de salida del gas en m/s, tambien nos brinda la posiblidad de ingresarlo como tasa volumetrica en unidas del sistema internacional ó unidades imperiales:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER STACK GAS EXIT VELOCITY OR FLOW RATE:
+ OPTION 1 : EXIT VELOCITY <span class="o">(</span>M/S<span class="o">)</span>:
+  DEFAULT - ENTER NUMBER ONLY
+ OPTION 2 : VOLUME FLOW RATE <span class="o">(</span>M<span class="k">**</span>3/S<span class="o">)</span>:
+            EXAMPLE <span class="s2">"VM=20.00"</span>
+ OPTION 3 : VOLUME FLOW RATE <span class="o">(</span>ACFM<span class="o">)</span>:
+            EXAMPLE <span class="s2">"VF=1000.00"</span>
+27.13
+</code></pre></div></div>
+
+<p>Nos pide la temperatura de salida del gas en grados kelvin:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER STACK GAS EXIT TEMPERATURE <span class="o">(</span>K<span class="o">)</span>:
+453
+</code></pre></div></div>
+
+<p>Nos pide la temperatura ambiente en grados kelvin:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER AMBIENT AIR TEMPERATURE <span class="o">(</span>USE 293 FOR DEFAULT<span class="o">)</span> <span class="o">(</span>K<span class="o">)</span>:
+290
+</code></pre></div></div>
+
+<p>Luego ingresamos la altura sobre el nivel del suelo del receptor de interés (por lo general se utiliza 1.5 metros que sería la altura promedio de inmisión de una persona):</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER RECEPTOR HEIGHT ABOVE GROUND <span class="o">(</span>FOR FLAGPOLE RECEPTOR<span class="o">)</span> <span class="o">(</span>M<span class="o">)</span>:
+1.5
+</code></pre></div></div>
+
+<p>Luego hay que especificar si se trata de un entorno rural (<strong>R</strong>) ó urbano (<strong>U</strong>):</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER URBAN/RURAL OPTION <span class="o">(</span><span class="nv">U</span><span class="o">=</span>URBAN, <span class="nv">R</span><span class="o">=</span>RURAL<span class="o">)</span>:
+R
+</code></pre></div></div>
+
+<p>En el siguiente paso nos pregunta si queremos considerar el efecto de deflección de la pluma por influencia de edificios cercanos (<em>downwash</em>), en este caso no lo vamos a considerar:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> CONSIDER BUILDING DOWNWASH IN CALCS?  ENTER Y OR N:
+n
+</code></pre></div></div>
+
+<p>El programa nos va a preguntar si queremos considerar los efectos del terreno, en este caso vamos a asumir que estamos en una planicie y por lo tanto no lo tendremos en cuenta:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> USE COMPLEX TERRAIN SCREEN FOR TERRAIN ABOVE STACK HEIGHT?
+ ENTER Y OR N:
+n
+</code></pre></div></div>
+
+<p>Como pusismos que no vamos a considerar efecto del terreno nos pregunta si queremos usar terreno simple con una sola altura:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> USE SIMPLE TERRAIN SCREEN WITH TERRAIN ABOVE STACK BASE?
+ ENTER Y OR N:
+y
+</code></pre></div></div>
+
+<p>A continuación nos propone correr contemplando todas las combinaciones de estabilidad atmosférica y velocidades de viento (<em>FULL METEOROLOGY</em>) o valores definidos por el usuario. Vamos a utilizar FULL METEOROLOGY:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER CHOICE OF METEOROLOGY<span class="p">;</span>
+ 1 - FULL METEOROLOGY <span class="o">(</span>ALL STABILITIES &amp; WIND SPEEDS<span class="o">)</span>
+ 2 - INPUT SINGLE STABILITY CLASS
+ 3 - INPUT SINGLE STABILITY CLASS AND WIND SPEED
+1
+</code></pre></div></div>
+
+<p>Nos pregunta si queremos definir las distancias de los receptores de forma automática ó ingresar cada receptor de forma manual.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> USE AUTOMATED DISTANCE ARRAY? ENTER Y OR N:
+y
+</code></pre></div></div>
+
+<p>Nos pregunta la altura del terreno respecto de la base del conducto, al ser un terreno plano la altura es 0:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER TERRAIN HEIGHT ABOVE STACK BASE <span class="o">(</span>M<span class="o">)</span>:
+0
+</code></pre></div></div>
+
+<p>En este paso nos pide la distancia mínima y máxima en la que ubicar de forma automática los receptores:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ENTER MIN AND MAX DISTANCES TO USE <span class="o">(</span>M<span class="o">)</span>:
+100 10000
+</code></pre></div></div>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+ <span class="k">**********************************</span>
+ <span class="k">***</span> SCREEN AUTOMATED DISTANCES <span class="k">***</span>
+ <span class="k">**********************************</span>
+
+ <span class="k">***</span> TERRAIN HEIGHT OF   10. M ABOVE STACK BASE USED FOR FOLLOWING DISTANCES <span class="k">***</span>
+
+   DIST     CONC             U10M   USTK  MIX HT   PLUME   SIGMA   SIGMA
+    <span class="o">(</span>M<span class="o">)</span>   <span class="o">(</span>UG/M<span class="k">**</span>3<span class="o">)</span>   STAB  <span class="o">(</span>M/S<span class="o">)</span>  <span class="o">(</span>M/S<span class="o">)</span>    <span class="o">(</span>M<span class="o">)</span>   HT <span class="o">(</span>M<span class="o">)</span>   Y <span class="o">(</span>M<span class="o">)</span>   Z <span class="o">(</span>M<span class="o">)</span>  DWASH
+ <span class="nt">-------</span>  <span class="nt">----------</span>  <span class="nt">----</span>  <span class="nt">-----</span>  <span class="nt">-----</span>  <span class="nt">------</span>  <span class="nt">------</span>  <span class="nt">------</span>  <span class="nt">------</span>  <span class="nt">-----</span>
+  20000.    10.32        6     1.0    1.0 10000.0   11.62  500.96   60.40    NO
+  25000.    7.907        6     1.0    1.0 10000.0   11.62  609.76   64.96    NO
+  30000.    6.361        6     1.0    1.0 10000.0   11.62  715.60   68.93    NO
+  40000.    4.581        6     1.0    1.0 10000.0   11.62  920.23   74.58    NO
+  50000.    3.554        6     1.0    1.0 10000.0   11.62 1117.43   79.27    NO
+ ITERATING TO FIND MAXIMUM CONCENTRATION <span class="nb">.</span> <span class="nb">.</span> <span class="nb">.</span>
+
+ MAXIMUM 1-HR CONCENTRATION AT OR BEYOND 20000. M:
+  20000.    10.32        6     1.0    1.0 10000.0   11.62  500.96   60.40    NO
+</code></pre></div></div>
+
+<p>Nos pregunta si queremos agregar receptores discretos:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USE DISCRETE DISTANCES?  ENTER Y OR N:
+N
+</code></pre></div></div>
+
+<p>Por último nos pregunta si queremos guardar los resultados en un archivo, ponemos que si.</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> DO YOU WANT TO PRINT A HARDCOPY OF THE RESULTS?  ENTER Y OR N:
+Y
+</code></pre></div></div>
+
+<p>Finalmente aparecerá este mensaje que nos dice que el archivo de salida se pudo generar:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> THE OUTPUT FILE, <span class="s2">"SCREEN.OUT  "</span>, HAS BEEN PRINTED.
+</code></pre></div></div>
+
+<p>Una vez que hayamos respondido a todas las preguntas se va a generar dos archivos: <code class="language-plaintext highlighter-rouge">SCREEN.OUT</code> y <code class="language-plaintext highlighter-rouge">SCREEN.DAT</code>. El primero contiene los resultados obtenidos de la ejecución, y el segundo sirve para volver a ejecutar el programa sin tener que responder nuevamente todas las preguntas.</p>
+
+<h2 id="salidas">Salidas</h2>
+
+<p>En el archivo <code class="language-plaintext highlighter-rouge">SCREEN.OUT</code> vamos a encontrar registros de la corrida, las opciones utilizadas, algunos valores intermedios de la ejecución, y entre otras cosas una tabla como la siguiente:</p>
+
+<pre><code class="language-Text"> *** TERRAIN HEIGHT OF    0. M ABOVE STACK BASE USED FOR FOLLOWING DISTANCES ***
+
+   DIST     CONC             U10M   USTK  MIX HT   PLUME   SIGMA   SIGMA
+    (M)   (UG/M**3)   STAB  (M/S)  (M/S)    (M)   HT (M)   Y (M)   Z (M)  DWASH
+ -------  ----------  ----  -----  -----  ------  ------  ------  ------  -----
+    100.    0.000        0     0.0    0.0     0.0    0.00    0.00    0.00    NA
+    200.    0.000        0     0.0    0.0     0.0    0.00    0.00    0.00    NA
+    300.    631.6        1     1.5    2.1   480.0  125.11   90.71   82.09    SS
+    400.    517.4        1     1.5    2.1   480.0  140.59  118.85  113.59    SS
+    500.    494.6        6     1.0    2.0 10000.0  113.08   50.21   50.05    SS
+    600.    578.0        6     1.0    2.0 10000.0  113.08   59.27   54.62    SS
+    700.    638.4        6     1.0    2.0 10000.0  113.08   68.06   59.18    SS
+    800.    715.3        6     1.0    2.0 10000.0  113.08   76.59   65.44    SS
+    900.    699.4        6     1.0    2.0 10000.0  113.08   84.89   68.33    SS
+   1000.    681.9        6     1.0    2.0 10000.0  113.08   92.97   71.13    SS
+
+</code></pre>
+<p>esta tabla muestra el valor de disintas variables en función de la distancia, con lo que podrémos graficarlas para ver como se distiribuyen.</p>
+
+<p>También al final del archivo encontraremos la siguiente tabla resumen que  indica la máxima concentración encontrada, la distancia a la que ocurre y la altura:</p>
+
+<pre><code class="language-Text">      ***************************************
+      *** SUMMARY OF SCREEN MODEL RESULTS ***
+      ***************************************
+
+  CALCULATION        MAX CONC    DIST TO   TERRAIN
+   PROCEDURE        (UG/M**3)    MAX (M)    HT (M)
+ --------------    -----------   ---------   -------
+ SIMPLE TERRAIN       715.3          800.        0.
+
+ BLDG. CAVITY-1       3168.          142.       --  (DIST = CAVITY LENGTH)
+
+ BLDG. CAVITY-2       1691.          101.       --  (DIST = CAVITY LENGTH)
+</code></pre>
+
+<h4 id="ejecución-automática">Ejecución automática:</h4>
+
+<p><strong>SCREEN3</strong> puede ejecutarse también utilizando un <em>archivo de control</em> para evitar tener que responder todas las preguntas cada vez que lo ejecutamos. Para eso necesitamos el archivo <code class="language-plaintext highlighter-rouge">SCREEN.DAT</code>, si lo abrimos veremos algo así:</p>
+
+<pre><code class="language-Text">CORRIDA DE EJEMPLO CON BUILDING DOWNWASH
+P
+  100.0
+  100.0
+  2.000
+  15.00
+  450.0
+  293.0
+  .0000
+           1
+Y
+  80.00
+  80.00
+  100.0
+N
+N
+           1
+Y
+   100.00, 1000.00
+N
+N
+</code></pre>
+<p>este archivo contiene las respuestas a las preguntas del <strong>SCREEN3</strong> de forma secuencial.</p>
+
+<p>Para ejecutarlo con estas opciones tenemos que ingresar por terminal a la carpeta donde se encuentra <code class="language-plaintext highlighter-rouge">SCREEN3.exe</code> y <code class="language-plaintext highlighter-rouge">SCREEN.DAT</code>, por ejemplo, si la carpeta se encuentra en <code class="language-plaintext highlighter-rouge">C:/Users/MCA_tutorial/screen3</code> hay que tipear:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chdir C:/Users/MCA_tutorial/screen3
+</code></pre></div></div>
+<p>el comando <code class="language-plaintext highlighter-rouge">chdir</code> (de <em>change directory</em>) en windows sirve para cambiar el directorio de trabajo. Esto nos permite tener fácil acceso a los archivos que se encuentran en la carpeta de interés.</p>
+
+<p>Luego para ejecutarlo:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SCREEN3.exe &lt; SCREEN.DAT
+</code></pre></div></div>
+
+<p>El programa se ejecutará y va a crear un nuevo archivo <code class="language-plaintext highlighter-rouge">SCREEN.OUT</code>.</p>
+
