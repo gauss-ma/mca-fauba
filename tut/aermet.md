@@ -5,7 +5,7 @@ nav_order: 3
 
 > Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
 
-## Resumen
+<!-- ## Resumen
 Los pasos generales a seguir son:
 
 0. Crear *directorio de trabajo*  :open_file_folder:``tutorial`` en donde colocaremos todos los archivos de corrida y ejecutables. 
@@ -22,8 +22,7 @@ Los pasos generales a seguir son:
 	3. Copiar ``ETAPA3.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
 
 en las siguientes secciones se presenta cada pasos detallado.
-
-
+-->
 ---
 
 ## Directorio de trabajo

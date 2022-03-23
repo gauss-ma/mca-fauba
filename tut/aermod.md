@@ -5,6 +5,7 @@ nav_order: 8
 
 > Tutorial para uso de **AERMOD**
 
+<!--
 ## Resumen
 
 Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
@@ -15,7 +16,7 @@ Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
 4. Construir archivo de control: [``aermod.inp``](archivos/aermod/aermod.inp)
 5. Colocar todos los archivos mencionados en un directorio de trabajo común.
 6. Ejecutar **AERMOD** haciendo doble click sobre ``aermod.exe``
-
+-->
 ---
 
 
