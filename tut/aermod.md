@@ -3,7 +3,8 @@ nav_order: 8
 ---
 # AERMOD
 
-> Tutorial para uso de **AERMOD**
+Tutorial para uso de **AERMOD**
+{: .fs-6 .fw-300 }
 
 <!--
 ## Resumen

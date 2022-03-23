@@ -4,7 +4,8 @@ nav_order: 2
 
 # Screen3
 
-> Tutorial para uso de **SCREEN3**
+Tutorial para uso de **SCREEN3**
+{: .fs-6 .fw-300 }
 
 <!-- ## Resumen
 En esta sección estan los pasos rápidos para la ejecución del **SCREEN3**:

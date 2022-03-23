@@ -3,7 +3,8 @@ nav_order: 3
 ---
 # AERMET
 
-> Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
+Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
+{: .fs-6 .fw-300 }
 
 <!-- ## Resumen
 Los pasos generales a seguir son:
