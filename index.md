@@ -19,7 +19,7 @@ has_children: false
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:---------|:-----:|
 | 1  | 13/5  | [Introducción](./teo/c1.md) & [Normativa](./teo/c2.md) | - | - |
-| 2  | 20/5  | [Repaso Meteorología-teoría](./teo/c3.md) | - | - |
+| 2  | 20/5  | [Repaso Meteorología](./teo/c3.md) | - | - |
 | 3  | 27/5  | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
 | 4  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
 | 5  | 17/6  | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](./tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
@@ -41,7 +41,6 @@ Interpretación y visualización de resultados, isopletas de concentración, tab
 + Física aplicada
 + Estadística General
 + Química de la contaminación y toxicología
-+ Contaminación Atmosférica y Calidad del Aire
 
 ### Creditos: 
 DOS (2) créditos = TREINTA Y DOS (32) horas.
