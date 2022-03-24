@@ -18,14 +18,16 @@ has_children: false
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:---------|:-----:|
-| 1  | 13/5  | [Introducción](./teo/c1.md) & [Normativa](./teo/c2.md) | - | - |
-| 2  | 20/5  | [Repaso Meteorología](./teo/c3.md) | - | - |
-| 3  | 27/5  | [SCREEN3            ](./teo/c4.md) |[Screen3](./tut/screen3.md)     | [TP 1](./tps/tp1.md)   |
-| 4  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.md) |[aermet](./tut/aermet.md)       | -                      |
-| 5  | 17/6  | [AERMOD II (aermod) ](./teo/c6.md) |[aermod](./tut/aermod.md)        | [TP 2](./tps/tp2.md)   |
-| 6  | 03/6  | -   | [Posprocesamiento](./tut/pos.md)  | -                      |
-| 7  | 24/6  | -   |  [Aeersurface](./tut/aersurface.md) & [Aermap](./tut/aermap.md) & MISC  | - |
-| 8  | 01/7  | *Evaluación integradora*            | - | - |
+| 1  | 13/5  | [Introducción](./teo/c1.html) & [Normativa](./teo/c2.html) | - | - |
+| 2  | 20/5  | [Repaso Meteorología](./teo/c3.html) | - | - |
+| 3  | 27/5  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html)   |
+| 4  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | -                      |
+| 5  | 17/6  | [AERMOD II (aermod) ](./teo/c6.html) |[aermod](./tut/aermod.html)        | [TP 2](./tps/tp2.html)   |
+| 6  | 03/6  | -   | [Posprocesamiento](./tut/pos.html)  | -                      |
+| 7  | 24/6  | -   |  [Aeersurface](./tut/aersurface.html) & [Aermap](./tut/aermap.html) & MISC  | - |
+| 8  | 01/7  |            | - | - |
+| 9  | 08/7  |            | - | - |
+| 10 | 15/7  | *Evaluación integradora*            | - | - |
 
 ### Contenidos:
 

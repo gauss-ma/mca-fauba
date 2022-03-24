@@ -1,6 +1,8 @@
 title: "Curso MCA"
 logo: "/assets/images/fauba-logo.png"
-remote_theme: pmarsceill/just-the-docs
+#remote_theme: pmarsceill/just-the-docs
+#remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 color_scheme: fauba
 exclude : [readme, tut/futuro, tut/archivos, tps/archivos]
 search_enabled: true
@@ -27,8 +29,8 @@ search:
   # Enable or disable the search button that appears in the bottom right corner of every page
   # Supports true or false (default)
   button: false
-plugins:
-  - jemoji
+  #plugins:
+  #  - jemoji
 defaults:
   -
     scope:
