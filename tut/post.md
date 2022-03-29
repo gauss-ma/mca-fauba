@@ -53,7 +53,7 @@ A esta nueva fila 1 le colocaremos los encabezados del plotfile que tiene la fil
 La principal utilidad de la tabla sería permitir:
  
  - Graficar ubicación de concentraciones máximas.
- - Encontrar máximos, compararlos con estándares y reportar ubicación y fecha de ocurrencia.
+ - Encontrar máximos, sumar la concentración de fondo, compararlos con estándares y reportar ubicación y fecha de ocurrencia.
 -  Analizar frecuencia y distribución de concentraciones máximas.
 
 ## Rosa de vientos:
@@ -85,8 +85,143 @@ Al esperar unos segundos, la página genera la rosa de vientos solicitada. Esta 
 
 ## AERPLOT
 
+Para facilitar la visualización de los resultados y evaluar la dimensión espacial de la dispersión de contaminantes, se debe representar en mapas el resultado del modelado.
+La herramienta AERPLOT de EPA permite visualizar los resultados del aermod en un entorno espacializado. Vamos a utilizar la herramienta de google earth. A una baja densidad de receptores, la visualización puede realizarse desde la [aplicación web de google earth](https://earth.google.com/web/@-34.87672737,-58.5116322,25.13054835a,2580.54459079d,35y,57.93916891h,13.67659437t,360r), como se realizarán varias visualizaciones debemos [bajar e instalar](https://www.google.com/intl/es-419/earth/versions/) el programa de escritorio.
 
-## Ejerecicios:
+Vamos a descargar el programa AERPLOT del [repositorio de epa](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aerplot/aerplot_16216.zip) y descomprimimos el contenido de la carpeta en el mismo directorio de trabajo de aermet y aermod.
+Vemos que los nuevos archivos en la carpeta son:
+```
+aerplot.exe
+aerplot.inp
+aerplot_readme.txt
+```
+De forma similar a aermet y aermod, hay un ejecutable (``aerplot.exe``) y un archivo de control (``aerplot.inp``) donde especificaremos la información de entrada.
+Vamos a abrir ``aerplot.inp`` con block de notas. Vemos que es un archivo extenso de 319 líneas, donde la mayoría están comentadas con el caracter ";" y solo pocas líneas requieren una entrada del usuario.  
+El archivo esta separado en 13 secciones, pero nos enfocaremos en las principales.
 
+En la línea 10 (el número de línea se muestra en el cuadro del marco inferior, donde en esta imagen dice "Ln 10") encontramos la sección ``;- input parameters ``:
 
+![](/tut/imgs/aerplot_1.png)
+
+Vamos a dejar en la línea 32 como `` origin=UTM `` ya que viene por defecto pero debemos editar las líneas 55 a 57 para especificar zona UTM del hemisferio sur:
+```
+easting=0
+northing=0
+utmZone=21
+inNorthernHemisphere=false
+```
+En la siguiente sección, línea 96, vamos a especificar el nombre del archivo "PLOTFILE" que muestra la tabla de resultados y el archivo de entrada a aermod de donde el programa tomará las ubicaciones de las fuentes.
+
+```
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;- the source data file
+;  ====================
+;  (output from aermod, presumably)
+;
+; The input file name, that is, the plotfile.
+PlotFileName              =AERPLOT_PRUEBA_NOX_MONTH.OUT
+
+; If one wishes to plot the sources as well, set this to the aermod.inp file.
+; If not, leave it empty.
+SourceDisplayInputFileName=aermod.inp
+
+;
+
+```
+En la siguiente sección, línea 108, vamos a cambiar el nombre del archivo de salida:
+
+```
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;- output parameters
+;  =================
+;
+; The output file names.
+;
+; Pick a name for this run, and it will be applied to a number of files,
+; plus the objects that may be manipulated within Google Earth.
+;
+OutputFileNameBase        =PRUEBA_NOX_MONTH_AERPLOT_Run
+;
+; The name that will be displayed in Google Earth for the dataset.
+NameDisplayedInGoogleEarth=NOX_Mensual_Aerplot
+;
+;
+
+```
+
+La siguiente sección (`` ;- concentration binning``) en la línea 165, es la mas probable de ser modificada a medida que se hacen visualizaciones. En esta se definen las "clases" de concentración en las que se van a agrupar los resultados, en distintos tonos de color, con máximo de 11.
+Vamos a editar la línea 175 para que diga:
+
+```
+binningChoice = custom
+```
+De esta forma nos permite definir las clases. Como sabemos viendo los resultados que el máximo de la corrida fue "1.8" esta va a ser la máxima clase, las siguientes restantes las haremos en decrecimiento gradual. La línea 181 va a quedar comentada, agregando un ";" al inicio y se descomentará la línea 182, borrando el ";".
+Esta podría ser una posible definición de clases:
+
+```
+customBinningElevenLevels=.0007,.001, .004,.008,.01,.02,.03,.05,1,1.5,1.7
+```
+Entonces la sección completa queda así:
+
+```
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;- concentration binning  (for receptors and contours)
+;  =====================
+;
+; The user has the choice between a "Linear" or "Log" color scale. The user
+; also can provide one of their own.
+;
+; There must, however, be eleven "levels" or thresholds that will
+; define the ranges for the twelve bins.
+minbin=0.2e-7
+maxbin=data
+binningChoice = custom
+; or binningChoice = Linear
+; or binningChoice = custom
+; binningChoice = Log
+;
+; These examples could be realistic binning schemes.
+;customBinningElevenLevels=1,2,3,4,5,6,7,8,9,10,11
+customBinningElevenLevels=.0007,.001, .004,.008,.01,.02,.03,.05,1,1.5,1.7
+;
+; If custom binning is not used, one may prefer to supply this value, "na",
+; to help indicate that custom binning is not used.
+;customBinningElevenLevels=na
+;
+;
+
+```
+
+Hasta el momento, la representación de los resultados se visualizará como puntos, para agregar líneas de igual concentración o "isopletas", vamos a editar la línea 238 de la siguiente manera:
+
+```
+makeContours                        = true
+```
+Con estas ediciones finalizadas vamos a guardar este archivo de texto y ejecutar en el directorio de trabajo el programa ``aerplot.exe``.
+Durante la ejecución, vemos la ventana de la consola mostrando el progreso de las tareas. Al finalizar, se debió crear el archivo ``PRUEBA_NOX_MONTH_AERPLOT_Run.kmz`` y si ya tenían instalado google earth, por defecto lo abre mostrando el resultado.
+
+![](/tut/imgs/aerplot_2.png)
+
+Podemos ver las clases de concentración donde cada punto es un receptor e isopletas, con una cruz se muestran las fuentes del modelo.
+
+![](/tut/imgs/aerplot_3.png)
+ 
+ Con esta visualizacióon se pueden analizar numerosos aspectos del resultado:
+ 
+ + Verificar la geometría y distribución de la grilla de receptores.
+
+ + Medir distancias a la máxima concentración, desde el límite del predio o las fuentes
+
++ Concluir si la densidad y extensión de la grilla de receptores es adecuada.
+
++ Conocer el contexto de la ubicación de máximos.
+  
++ Evaluar concentraciones en sitios de interés o receptores críticos (establecimientos de salud o primera infancia).
+
++ Encontrar la mejor definición de clases que maximice la resolución cerca del máximo.
 
