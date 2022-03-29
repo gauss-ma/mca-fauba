@@ -61,7 +61,7 @@ Para determinar la clase dominante y sus parámetros asociados se debe analizar 
    - En un radio de 1km a la estación meteorológica, se deben analizar 12 direcciones del viento o secciones de 30°. A cada sección se asigna como $z_{0}$ la media geométrica del valor de rugosidad ponderado de forma inversa a la distancia a la estación. 
 
 Entonces se podrían visualizar a continuación, las dos áreas analizadas.   
-![aersurface_radio](imgs/aersurface_radio.png)
+![aersurface_radio](/mca-fauba/tut/imgs/aersurface_radio.png)
 
 Cada sección va a representar una cobertura distinta, con parámetros de albedo, bowen y rugosidad distintas. En el anexo A de la guía de usuario de *AERSURFACE* se listan las tablas completas, a los fines de este tutorial, vamos a extraer y simplificar la información de algunas clases.
 

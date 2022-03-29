@@ -35,20 +35,20 @@ En una hoja nueva, pegamos el contenido en la celda **A1**.
 Vemos que se generan líneas de texto que necesitamos se parar en campos.
 Dependiendo de la configuración regional la coma o el punto pueden ser separadores de miles o decimales, si el separador de decimales es la coma, debemos reemplazar los puntos por coma. Abrimos el menú de buscar y reemplazar con <kbd>Ctrl</kbd>+<kbd>b</kbd>, vamos a buscar el caracter ".", reemplazarlo por "," y <kbd>Reemplazar todos</kbd>.
 
-![](/tut/imgs/Excel_2.png)
+![](/mca-fauba/tut/imgs/Excel_2.png)
 
 Seleccionamos toda la columna **A** clickeando sobre ella y vamos a la pestaña de **Datos** y buscamos la herramienta texto en columnas. 
 
-![](/tut/imgs/Excel_3.png)
+![](/mca-fauba/tut/imgs/Excel_3.png)
 
 Aseguramos que este seleccionada la opción "ancho fijo" y clickeamos <kbd>Finalizar</kbd>.
 
-![](/tut/imgs/Excel_4.png)
+![](/mca-fauba/tut/imgs/Excel_4.png)
 
-Ya tenemos la información en tabla para ser procesada, pero es conveniente contar con una fila adicional de encabezado. Vamos a insertar una fila en "1", clickeando con el boton derecho y seleccionando "Insertar".
+Ya tenemos la información en tabla para ser procesada, pero es conveniente contar con una fila adicional de encabezado. Vamos a insertar una fila en "1", clickeando con el botón derecho y seleccionando "Insertar".
 A esta nueva fila 1 le colocaremos los encabezados del plotfile que tiene la fila 7. En esta instancia ya tenemos lista la tabla de resultados para procesar.
 
-![](/tut/imgs/Excel_5.png)
+![](/mca-fauba/tut/imgs/Excel_5.png)
 
 La principal utilidad de la tabla sería permitir:
  
@@ -65,23 +65,23 @@ Vamos a entrar al sitio de la universidad de Iowa siguiendo el link: [https://me
 
 Por defecto,  se encuentra seleccionada la red de estaciones de Iowa, vamos a desplegar de **Select By Network** el menú, buscar "Argentina", luego pulsamos el botón <kbd>Switch Netork</kbd>.
 
-![](/tut/imgs/WRose_1.png)
+![](/mca-fauba/tut/imgs/WRose_1.png)
 
 Al cargarse la red de "Argentina", se visualizan todas las estaciones del SMN. Buscamos en **Select by Station:** la fuente de información de superficie, que en este caso es "EZEIZA AERO" cuyo ID es "SAEZ" y tocamos <kbd>Select Station</kbd>.  
-![](/tut/imgs/WRose_2.png)
+![](/mca-fauba/tut/imgs/WRose_2.png)
 
 En esta página se muestra información histórica de la estación y hasta se permite bajar datos en series de tiempo limitadas. Para crear la rosa de vientos vamos a la pestaña <kbd>Custom Wind Roses</kbd>.
 
-![](/tut/imgs/WRose_3.png)
+![](/mca-fauba/tut/imgs/WRose_3.png)
 
 
 Vamos a elegir el mismo rango temporal que en el modelado (12/2021) y cambiamos las unidades a *"Meters per second (MPS)"* luego generamos la imagen tocando el botón <kbd>Enviar</kbd>.
 
-![](/tut/imgs/WRose_4.png)
+![](/mca-fauba/tut/imgs/WRose_4.png)
 
 Al esperar unos segundos, la página genera la rosa de vientos solicitada. Esta visualización representa la dirección de origen y frecuencia de velocidades del viento.   
 
-![](/tut/imgs/WRose_5.png)
+![](/mca-fauba/tut/imgs/WRose_5.png)
 
 ## AERPLOT
 
@@ -101,7 +101,7 @@ El archivo esta separado en 13 secciones, pero nos enfocaremos en las principale
 
 En la línea 10 (el número de línea se muestra en el cuadro del marco inferior, donde en esta imagen dice "Ln 10") encontramos la sección ``;- input parameters ``:
 
-![](/tut/imgs/aerplot_1.png)
+![](/mca-fauba/tut/imgs/aerplot_1.png)
 
 Vamos a dejar en la línea 32 como `` origin=UTM `` ya que viene por defecto pero debemos editar las líneas 55 a 57 para especificar zona UTM del hemisferio sur:
 ```
@@ -205,13 +205,13 @@ makeContours                        = true
 Con estas ediciones finalizadas vamos a guardar este archivo de texto y ejecutar en el directorio de trabajo el programa ``aerplot.exe``.
 Durante la ejecución, vemos la ventana de la consola mostrando el progreso de las tareas. Al finalizar, se debió crear el archivo ``PRUEBA_NOX_MONTH_AERPLOT_Run.kmz`` y si ya tenían instalado google earth, por defecto lo abre mostrando el resultado.
 
-![](/tut/imgs/aerplot_2.png)
+![](/mca-fauba/tut/imgs/aerplot_2.png)
 
 Podemos ver las clases de concentración donde cada punto es un receptor e isopletas, con una cruz se muestran las fuentes del modelo.
 
-![](/tut/imgs/aerplot_3.png)
+![](/mca-fauba/tut/imgs/aerplot_3.png)
  
- Con esta visualizacióon se pueden analizar numerosos aspectos del resultado:
+ Con esta visualización se pueden analizar numerosos aspectos del resultado:
  
  + Verificar la geometría y distribución de la grilla de receptores.
 

@@ -134,7 +134,7 @@ TITLEONE PRUEBA
 
 la keyword es ``TITLEONE`` que sirve para especificar el nombre del proyecto. y ``PRUEBA`` es el valor que toma, en este caso entonces el titulo del proyecto será *PRUEBA*.
 
-Revisar la lista de KEYWORDS en: [Keywords](refs/KEYWORDSaermod.md), en este tutorial solo se describen algunos de los más importantes.
+Revisar la lista de KEYWORDS en: [Keywords](/mca-fauba/refs/KEYWORDSaermod.md), en este tutorial solo se describen algunos de los más importantes.
 
 Vamos a preparar el archivo de entrada, por lo que debemos crear un nuevo archivo de texto y guardarlo con el nombre ``aemod.inp``.
 

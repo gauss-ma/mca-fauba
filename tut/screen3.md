@@ -157,7 +157,7 @@ El programa nos va a preguntar si queremos considerar los efectos del terreno, e
 n
 ```
 
-Como pusismos que no vamos a considerar efecto del terreno nos pregunta si queremos usar terreno simple con una sola altura:
+Como pusimos que no vamos a considerar efecto del terreno nos pregunta si queremos usar terreno simple con una sola altura:
 ```shell
  USE SIMPLE TERRAIN SCREEN WITH TERRAIN ABOVE STACK BASE?
  ENTER Y OR N:
