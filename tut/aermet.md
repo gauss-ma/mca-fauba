@@ -32,7 +32,7 @@ Durante la ejecución del **AERMOD** y todos sus programas asociados vamos a tra
 Como vamos a estar modificando las extensiones de varios archivos, debemos asegurar que estas están visibles.
 En Windows 10, en el directorio de trabajo activamos esa opción desde la pestaña "Vista", tildando el casillero:"Extensiones de nombre de archivo".
 
-![](/tut/imgs/extensiones_win10.png)
+![](/mca-fauba/tut/imgs/extensiones_win10.png)
 
 
 ## Descarga de ejecutable
@@ -264,7 +264,7 @@ Este archivo sólo dos secciones:
 + ``JOB``: lo mismo que en los pasos anteriores.
 + ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de **keywords** y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones ``AERSURFACE.OUT``.
 
-Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` con el siguiente contenido:
+Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/mca-fauba/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` con el siguiente contenido:
 
 ```Text
  FREQ_SECT  SEASONAL  1

@@ -45,9 +45,9 @@ Esta clasificación de cobertura del suelo el USGS define las siguientes clases:
 
 Asi se visualiza la clasificación de cobertura para un aeropuerto de estados unidos.
 
-![](/tut/imgs/aersurf_pizza.png)
+![](/mca-fauba/tut/imgs/aersurf_pizza.png)
 
-![](/tut/imgs/aersurf_pizza_nlcd.png)
+![](/mca-fauba/tut/imgs/aersurf_pizza_nlcd.png)
 
 Para determinar la clase dominante y sus parámetros asociados se debe analizar la siguiente información.
 
@@ -89,7 +89,7 @@ Cada sección va a representar una cobertura distinta, con parámetros de albedo
 
 
 Por ejemplo, para el caso de EZEIZA AERO, las áreas a analizar serían las siguientes:
-![](/tut/imgs/saez_al_bow_zo.png)
+![](/mca-fauba/tut/imgs/saez_al_bow_zo.png)
 
 En cuanto a cobertura, la mejor fuente de información disponible hasta el momento es la [clasificación de la agencia espacial europea](https://land.copernicus.eu/global/content/annual-100m-global-land-cover-maps-available) con resolución de 100mx100m y uso de clases de la FAO en vez del servicio geológico de estados unidos.
 

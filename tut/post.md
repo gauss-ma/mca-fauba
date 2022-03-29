@@ -30,7 +30,7 @@ El archivo de salida generado en la opción ``PLOTFILE``, que en el caso del tut
 En esta tabla, las primeras 8 filas corresponden al contexto de la tabla y sus encabezados. Vamos a seleccionar todas las filas desde la 9, nos paramos con el cursor en la primera columna de la fila 9 y presionamos <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>Fin</kbd>. Copiamos el contenido y abrimos una aplicación de hoja de cálculos como Excel.
 En una hoja nueva, pegamos el contenido en la celda **A1**.
 
-![](/tut/imgs/Excel_1.png)
+![](/mca-fauba/tut/imgs/Excel_1.png)
 
 Vemos que se generan líneas de texto que necesitamos se parar en campos.
 Dependiendo de la configuración regional la coma o el punto pueden ser separadores de miles o decimales, si el separador de decimales es la coma, debemos reemplazar los puntos por coma. Abrimos el menú de buscar y reemplazar con <kbd>Ctrl</kbd>+<kbd>b</kbd>, vamos a buscar el caracter ".", reemplazarlo por "," y <kbd>Reemplazar todos</kbd>.

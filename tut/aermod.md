@@ -23,7 +23,7 @@ Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
 
 ## Directorio de trabajo
 
-Aermod requiere como entradas los productos de precprocesador [``AERMET``](/tut/aermet.md), por lo que es conveniente trabajar en el mismo directorio donde se ejecutó el programa y se generaron los archivos de salida con extensiones .SFC y .PFL. 
+Aermod requiere como entradas los productos de precprocesador [``AERMET``](/mca-fauba/tut/aermet.md), por lo que es conveniente trabajar en el mismo directorio donde se ejecutó el programa y se generaron los archivos de salida con extensiones .SFC y .PFL. 
 ## Descarga
 El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), es necesario descomprimirlo y luego colocar el ejcutable ``aermod.exe`` en el directorio de trabajo.
 
@@ -33,7 +33,7 @@ El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https:/
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/tut/aermet.html).
++ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/mca-fauba/tut/aermet.html).
 + **Información de Receptores.**
   - Punto central del predio donde se encuentran las fuentes (``xc`` ``yc``).
   - Dominio de modelado (limites: ``xmin`` ``xmax`` ``ymin`` ``ymax``).
