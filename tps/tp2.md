@@ -23,7 +23,7 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
     - Condición urbana rural
     - Topografía
     - Edificios cercanos
-+ **Meterología:** Describir los datos de meteorología utilizados.
++ **Meterología:** Describir los datos de meteorología utilizados. Las fuentes de la información, la calidad y representatividad de la misma. Completitud del set de datos. Descripción de vientos.
 + **Niveles de fondo:** Explicitar valores de fondo usados, el origen de los datos y argumentar en que se basa la elección.
 + **Resultados:** Desglozar resultados obtenidos, comparados con normativa y explicitar si cumplen ó no con esta.
 + **Anexo:** Incluir mapas y tablas.

@@ -4,27 +4,39 @@ nav_order: 1
 
 # Casos de Estudio
 
-> Descripción de casos de estudios que serán utilizados para los trabajos prácticos.
-
+> Para poner en práctica el uso de las herramientas de modelado, se preparan casos de fuentes de emisión de contaminantes a la atmósfera, inspiradas en casos reales de actividades industriales. Se buscaron antecedentes en publicaciones de autoridades ambientales y se construyeron casos inspirados en los mismos. Las emisiones utilizadas no son un reflejo de los procesos industriales reales y fueron exageradas para enriquecer el aprendizaje.  
 
 ## Planta de Celulosa 
 
-Ubicación.
-Actividad.
-Emisores.
-Estacion meteorológica cercana.
-Entorno.
+El primer caso de estudio es una planta de fabricación de pulpa de celulosa a partir de eucaliptus cultivado. Se encuentra al norte de la ciudad de Rosario a orillas del Paraná. El proceso empleado en la fabricación de la pasta de celulosa es denominado "Kraft" donde se separan los componentes de la pared celular vegetal y se aisla la celulosa. Los compuestos rechazados y los insumos químicos se queman en un proceso de "recuperación" donde se regeneran sales y se aprovecha el calor para generar vapor y generar energía eléctrica mediante una turbina de vapor. Debido a la utilización de sales de azufre, se generan compuestos causantes de olores que son quemados a altas temperatura. 
+
+
+
+
+Fuentes:
+
+Se toman referencias de mediciones de la planta "Botnia" de Fray Bentos (Uruguay), utilizadas como parámetro de un estudio de impacto de una nueva planta de celulosa:
+
+[Estudio de emisiones atmosféricas](https://www.ambiente.gub.uy/oan/wp-content/uploads/2018/02/8.-Anexos-EsIA-Tomo-II.pdf)
 
 [Descargar datos](datos/tp2_g1_celulosa.zip){: .btn .btn-outline }
 
 
 ## Termoeléctrica
 
-Ubicación.
-Actividad.
-Emisores.
-Estacion meteorológica cercana.
-Entorno.
+Para el estudio de caso 2, vamos a estudiar una central térmica ubicada en las cercanías de Bahía Blanca que entró en servicio en 2015. Cuenta con dos turbinas de gas (con capacidad de combustionar gasoil) del fabricante *SIEMENS*, de una potencia de 270 MW cada una. La tecnología garantiza un bajo nivel de emisiones aún hasta un 30% de carga. En Bahía Blanca, esta sujeta al control del "Comite Técnico Ejecutivo", que realiza reportes con las emisiones de esta central inventariadas.
+
+Para el estudio de caso, se van a modelar distintos escenarios, uno con utilización de gas natural y otro de gasoil.
+
+Fuentes:
+
+Se adaptan datos de monitoreo publicados:
+[CTE-Bahía Blanca](https://bahia.gob.ar/subidos/cte/informes2017/2017/2.2%20-%20Subprograma%20Control%20de%20Emisiones%20Gaseosas%20Industriales.pdf)
+
+Se toman referencias de valores de emisión de diseño de NOx y CO.
+[SIEMENS](https://www.siemens-energy.com/global/en/offerings/power-generation/gas-turbines/sgt6-5000f.html) 
+
+
 
 
 [Descargar datos](datos/tp2_g2_termoelectrica.zip){: .btn .btn-outline }
@@ -32,11 +44,12 @@ Entorno.
 
 ## Relleno Sanitario
 
-Ubicación.
-Actividad.
-Emisores.
-Estacion meteorológica cercana.
-Entorno.
+El tercer caso corresponde a un proyecto de relleno sanitario al sur de Córdoba Capital. Recibe residuos domiciliaros de la capital y otras 20 localidades, en un promedio de . La descomposición de la materia orgánica generan emisiones de biogás y olores que son gestionadas desde el relleno mediante un sistema de pozos y cañerías que conducen el gas a antorchas de quemado con una eventual oportunidad de ser utilizado como combustible.
+
+
+Fuentes:
+
+[Estudio de impacto de relleno sanitario](https://secretariadeambiente.cba.gov.ar/proyectosingresados/estudio-impacto-ambiental-ampliacion-del-predio-tratamiento-disposicion-final-residuos-solidos-urbanos-piedras-blancas/)
 
 
 [Descargar datos](datos/tp2_g3_relleno.zip){: .btn .btn-outline }
