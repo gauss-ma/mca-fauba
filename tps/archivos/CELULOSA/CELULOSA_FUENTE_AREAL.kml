@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="CELULOSA_FUENTE_AREAL" id="CELULOSA_FUENTE_AREAL">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>CELULOSA_FUENTE_AREAL</name>
+  <Placemark>
+	<name>Acopio de lodos</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#CELULOSA_FUENTE_AREAL">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-60.7049649053869,-32.828517126475 -60.7049675006164,-32.8289236614224 -60.7058340050632,-32.8289299315269 -60.7058314098337,-32.8285233965794 -60.7049649053869,-32.828517126475</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

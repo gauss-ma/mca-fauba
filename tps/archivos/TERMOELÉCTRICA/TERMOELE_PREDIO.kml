@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="TERMOELE_PREDIO" id="TERMOELE_PREDIO">
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>TERMOELE_PREDIO</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#TERMOELE_PREDIO">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-62.4114794542648,-38.6847536078406 -62.4101776836722,-38.6858034228346 -62.4094722079962,-38.6864501088709 -62.4125544648186,-38.6871555845469 -62.4127896233773,-38.6874075401455 -62.4217928367659,-38.6896415464527 -62.4252026358664,-38.687138787507 -62.4208857966111,-38.6835778150473 -62.4188533547827,-38.6849551723195 -62.4154928969868,-38.6823064890896 -62.411962369162,-38.6850265597391 -62.4114794542648,-38.6847536078406</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

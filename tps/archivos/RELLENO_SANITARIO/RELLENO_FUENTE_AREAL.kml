@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="RELLENO_FUENTE_AREAL" id="RELLENO_FUENTE_AREAL">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>RELLENO_FUENTE_AREAL</name>
+  <Placemark>
+	<name>FRENTE DE DESCARGA</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#RELLENO_FUENTE_AREAL">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-64.2347928867829,-31.5223204736164 -64.2350784364612,-31.5225052410553 -64.235112030541,-31.5230091522524 -64.234776089743,-31.5232779048909 -64.2345745252641,-31.5234458752899 -64.2342889755857,-31.5232779048909 -64.2340202229473,-31.522908370013 -64.2339698318276,-31.5226228203346 -64.2341545992665,-31.5222868795366 -64.2347928867829,-31.5223204736164</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+  <Placemark>
+	<name>LAGUNA DE LIXIVIADOS</name>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#RELLENO_FUENTE_AREAL">
+		<SimpleData name="fid">2</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-64.2331383783523,-31.5204056110673 -64.2320633677984,-31.5204224081072 -64.2320674543374,-31.5206839466005 -64.2331424648912,-31.5206671495606 -64.2331383783523,-31.5204056110673</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

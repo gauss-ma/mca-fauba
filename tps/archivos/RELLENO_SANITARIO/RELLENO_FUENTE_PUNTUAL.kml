@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="RELLENO_FUENTE_PUNTUAL" id="RELLENO_FUENTE_PUNTUAL">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>RELLENO_FUENTE_PUNTUAL</name>
+  <Placemark>
+	<name>FLARE_1</name>
+	<ExtendedData><SchemaData schemaUrl="#RELLENO_FUENTE_PUNTUAL">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-64.2316476410608,-31.5205777807263</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>FLARE_2</name>
+	<ExtendedData><SchemaData schemaUrl="#RELLENO_FUENTE_PUNTUAL">
+		<SimpleData name="fid">2</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-64.2315783532712,-31.5205798803563</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

@@ -11,11 +11,11 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
 
 
 ### Presentaciòn de informe y resultados
-+ **Resumen:** Un parrafo sintentizando las herramientas utilizados y los resultados del trabajo.
++ **Resumen:** Un párrafo sintetizando las herramientas utilizados y los resultados del trabajo.
 + **Objetivo:** Argumentar brevemente cual es la finalidad del estudio, explicitar sitio y localización, y normativa aplicable.
-+ **Descripción y justificación del modelo:** Resumir las caracteristicas del modelo a utilizar y argumentar cual fue la motivación de su elección.
++ **Descripción y justificación del modelo:** Resumir las características del modelo a utilizar y argumentar cual fue la motivación de su elección.
 + **Ubicación del proyecto:** Describir el sitio emisor y la ubicación.
-+ **Características de las fuentes emisoras:** Resumir en tablas la ubicación y parámetros de emision utilzados.
++ **Características de las fuentes emisoras:** Resumir en tablas la ubicación y parámetros de emisión utilizados.
 + **Selección de receptores:** Describir grilla de receptores utilizada.
 + **Caracteristicas del Terreno:**
     - Topografía
@@ -25,8 +25,8 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
     - Edificios cercanos
 + **Meterología:** Describir los datos de meteorología utilizados. Las fuentes de la información, la calidad y representatividad de la misma. Completitud del set de datos. Descripción de vientos.
 + **Niveles de fondo:** Explicitar valores de fondo usados, el origen de los datos y argumentar en que se basa la elección.
-+ **Resultados:** Desglozar resultados obtenidos, comparados con normativa y explicitar si cumplen ó no con esta.
-+ **Anexo:** Incluir mapas y tablas.
++ **Resultados:** Resumir resultados obtenidos, comparados con normativa y explicitar si cumplen ó no con esta.
++ **Anexo:** Incluir mapas, tablas, hojas de cálculo editables y capas de resultados en formato _.KML_.
 
 
 ### Links a material de descarga:
