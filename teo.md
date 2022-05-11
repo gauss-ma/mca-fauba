@@ -8,12 +8,3 @@ nav_order: 2
 
 > Material de lectura con contenido teórico de la asignatura.
 
-<!--details open markdown="block">
-<summary>
-  Contenido:
-</summary>
-{: .text-delta }
-1. TOC
-{:toc}
-</details -->
-
