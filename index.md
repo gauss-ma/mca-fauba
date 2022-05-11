@@ -9,11 +9,13 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ---
 
-AVISOS IMPORTANTES! {: .label .label-red }
+AVISOS IMPORTANTES! 
+{: .label .label-red }
 + El viernes 13/5 NO HABRÁ CLASE. 
 + Empezamos el viernes 20/5 (18 a 21 hs) en el centro de computos del pabellón **Uballes**.
 
-LUGAR Y HORARIO DE CURSADA {: .label .label-green }
+LUGAR Y HORARIO DE CURSADA 
+{: .label .label-green }
 +  Pabellón **UBALLES** (Centro de Computos).
 +  Viernes de 18 a 21 horas.
 
