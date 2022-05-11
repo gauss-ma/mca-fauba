@@ -8,14 +8,17 @@ has_children: false
 Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictado en la Facultad de Agronomía, Universidad de Buenos Aires.
 
 ---
-AVISO IMPORTANTE!
-{: .label .label-red }
-el viernes 13/5 NO HABRÁ CLASE.
 
-COMIENZO DE CLASES Y LUGAR
-{: .label .label-green }
-Empezamos el viernes 20/5 (18 a 21 hs) en el centro de computos del pabellón **Uballes**.
+AVISOS IMPORTANTES! {: .label .label-red }
++ El viernes 13/5 NO HABRÁ CLASE. 
++ Empezamos el viernes 20/5 (18 a 21 hs) en el centro de computos del pabellón **Uballes**.
+
+LUGAR Y HORARIO DE CURSADA {: .label .label-green }
++  Pabellón **UBALLES** (Centro de Computos).
++  Viernes de 18 a 21 horas.
+
 ---
+
 
 ### Docente responsable:
 + Bormioli, Marcelo G.
