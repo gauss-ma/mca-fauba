@@ -1,0 +1,5 @@
+
+Command to build PDF using pandoc on Liz's mac
+
+pandoc -s -N --template=./buildpdf/mytemplate.tex --filter ./buildpdf/comments.py --variable mainfont="Times New Roman" --variable sansfont="Helvetica" --variable monofont="Menlo" --variable fontsize=12pt --variable version=5.3 -fmarkdown-implicit_figures --variable title="CMAQv5.3 User Manual" --variable subtitle="09/09/2019" --toc --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./PDF/tp1-ref.pdf tp1-ref.md
+

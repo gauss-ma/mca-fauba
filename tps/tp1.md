@@ -36,10 +36,3 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
    - Comparar concentración máxima calculada con  estándares de calidad de aire para el compuesto asignado y concluir el informe explicitando si cumple o no cumple con el estándar (de no cumplir aclarar la magnitud del desvío).
 
 
-
-### Links a material de descarga:
-
-+ [`grupo1.zip`](./datos_tp1/grupo1.zip)
-+ [`grupo2.zip`](./datos_tp1/grupo2.zip)
-+ [`grupo3.zip`](./datos_tp1/grupo3.zip)
-

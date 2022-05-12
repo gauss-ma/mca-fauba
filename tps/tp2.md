@@ -29,9 +29,3 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
 + **Anexo:** Incluir mapas, tablas, hojas de cálculo editables y capas de resultados en formato _.KML_.
 
 
-### Links a material de descarga:
-
-+ [`grupo1.csv`](./datos_tp2/grupo1.csv)
-+ [`grupo2.csv`](./datos_tp2/grupo2.csv)
-+ [`grupo3.csv`](./datos_tp2/grupo3.csv)
-
