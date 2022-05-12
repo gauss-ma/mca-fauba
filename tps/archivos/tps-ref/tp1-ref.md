@@ -1,5 +1,6 @@
-# Trabájo Práctico Nº1
-
+---
+nav_exclude: true
+---
 
 ## Resumen
 

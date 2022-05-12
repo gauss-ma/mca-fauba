@@ -14,7 +14,8 @@ $endif$
 \usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
+%  \usepackage[utf8]{inputenc}
+  \usepackage[utf8x]{inputenc}
 $if(euro)$
   \usepackage{eurosym}
 $endif$
@@ -72,18 +73,19 @@ $endif$
 \pagenumbering{arabic}
 \lhead{\itshape $title$}
 \chead{}
-\rhead{\itshape{\nouppercase{\leftmark}}}
+\rhead{\itshape{$subtitle$}}
 \lfoot{v $version$}
 \cfoot{}
 \rfoot{\thepage}
 $if(lang)$
-\ifxetex
-  \usepackage{polyglossia}
-  \setmainlanguage{$mainlang$}
-  \setotherlanguages{$for(otherlang)$$otherlang$$sep$,$endfor$}
-\else
-  \usepackage[shorthands=off,$lang$]{babel}
-\fi
+\usepackage[spanish]{babel}
+%\ifxetex
+%  \usepackage{polyglossia}
+%  \setmainlanguage{$mainlang$}
+%  \setotherlanguages{$for(otherlang)$$otherlang$$sep$,$endfor$}
+%\else
+%  \usepackage[shorthands=off,$lang$]{babel}
+%\fi
 $endif$
 $if(natbib)$
 \usepackage{natbib}
