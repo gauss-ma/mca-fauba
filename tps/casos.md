@@ -1,5 +1,6 @@
 ---
 nav_order: 1
+published: true
 ---
 
 # Casos de Estudio
