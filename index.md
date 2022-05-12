@@ -34,7 +34,7 @@ LUGAR Y HORARIO DE CURSADA
 |:---|:-----:|:--------|:---------|:-----:|
 | 1  | 13/5  | **NO HAY CLASE**            | - | - |
 | 2  | 20/5  | [Introducción](./teo/c1.html) & [Contexto Historico & Regulatorio](./teo/c2.html) | - | - |
-| 3  | 27/5  | [Repaso de Meteorología](./teo/c3.html) | - | - |
+| 3  | 27/5  | [Repaso de Meteorología](./teo/c3.html){:target="_blank"} | - | - |
 | 4  | 03/6  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html) |
 | 6  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | [TP 2](./tps/tp2.html) |
 | 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
