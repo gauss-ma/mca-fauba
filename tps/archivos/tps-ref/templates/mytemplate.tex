@@ -87,6 +87,7 @@ $if(lang)$
 %  \usepackage[shorthands=off,$lang$]{babel}
 %\fi
 $endif$
+
 $if(natbib)$
 \usepackage{natbib}
 \bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
@@ -148,12 +149,13 @@ $if(verbatim-in-note)$
 $endif$
 
 $if(title)$
-\title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
+\title{$title$$if(subtitle)$\\\vspace{0.5em}{\Large \textit{$subtitle$}}$endif$}
 $endif$
 $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 \date{$date$}
+
 $for(header-includes)$
 $header-includes$
 $endfor$
@@ -169,9 +171,11 @@ $endfor$
 \fi
 
 \begin{document}
+
 $if(title)$
 \maketitle
 $endif$
+
 $if(abstract)$
 \begin{abstract}
 $abstract$
@@ -196,6 +200,8 @@ $endif$
 $if(lof)$
 \listoffigures
 $endif$
+
+
 $body$
 
 $if(natbib)$

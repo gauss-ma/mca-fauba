@@ -1,12 +1,24 @@
+#!/bin/bash
+
 #Command to build PDF using pandoc on Liz's mac
 
 #pandoc -s -N --template=./buildpdf/mytemplate.tex --filter ./buildpdf/comments.py --variable mainfont="Times New Roman" --variable sansfont="Helvetica" --variable monofont="Menlo" --variable fontsize=12pt --variable version=5.3 -fmarkdown-implicit_figures --variable title="CMAQv5.3 User Manual" --variable subtitle="09/09/2019" --toc --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./PDF/tp1-ref.pdf tp1-ref.md
 
 
+#Armar TP1:
 titulo="Trabajo Práctico Nº1"
 subtitulo="Modelo de Sondeo"
 hoy=$(date "+%d/%m/%Y")
 autores="García, J.C; Fernandez, L.M; Gonzalez, R.T."
 
-pandoc -s -N --template=./buildpdf/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./tp1-ref.pdf tp1-ref.md
+pandoc -s -N --template=./templates/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./tp1-ref.pdf tp1-ref.md
 
+
+##Armar TP2:
+#titulo="Trabajo Práctico Nº2"
+#subtitulo="Modelo de Detalle"
+#hoy=$(date "+%d/%m/%Y")
+#autores="García, J.C; Fernandez, L.M; Gonzalez, R.T."
+#
+#pandoc -s -N --template=./templates/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./tp2-ref.pdf tp2-ref.md
+#
