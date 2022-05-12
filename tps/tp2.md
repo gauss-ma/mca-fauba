@@ -1,6 +1,6 @@
 ---
 nav_order: 3
-published: flase
+published: false
 ---
 # TP 2: Modelo de Detalle
 

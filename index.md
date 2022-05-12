@@ -9,36 +9,35 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ---
 
-AVISOS IMPORTANTES! 
+AVISOS! 
 {: .label .label-red }
-+ El viernes 13/5 NO HABRÁ CLASE. 
-+ Empezamos el viernes 20/5 (18 a 21 hs) en el centro de computos del pabellón **Uballes**.
-
-LUGAR Y HORARIO DE CURSADA 
-{: .label .label-green }
-+  Pabellón **UBALLES** (Centro de Computos).
-+  Viernes de 18 a 21 horas.
++ El viernes 13/5 **NO HABRÁ CLASE** (empezamos el viernes 20/5).
 
 ---
 
+LUGAR Y HORARIO DE CURSADA 
+{: .label .label-green }
++  Pabellón **UBALLES** (Centro de Computos), los viernes de 18 a 21 horas.
 
-### Docente responsable:
+---
+
+### Docente responsable
 + Bormioli, Marcelo G.
 
-### Docentes a cargo:
+### Docentes a cargo
 + Espada, Ramiro A.
 + Medrano, Luciano M.
 
-### Cronograma:
+### Cronograma
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:---------|:-----:|
-| 1  | 13/5  | *NO HAY CLASE*            | - | - |
+| 1  | 13/5  | **NO HAY CLASE**            | - | - |
 | 2  | 20/5  | [Introducción](./teo/c1.html) & [Contexto Historico & Regulatorio](./teo/c2.html) | - | - |
 | 3  | 27/5  | [Repaso de Meteorología](./teo/c3.html) | - | - |
 | 4  | 03/6  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html) |
 | 6  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | [TP 2](./tps/tp2.html) |
-| 5  | 17/6  | *FERIADO NACIONAL*        | - | - |
+| 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
 | 7  | 24/6  | [AERMOD II (aermod) ](./teo/c6.html) |[aermod](./tut/aermod.html)       | [TP 2](./tps/tp2.html) |
 | 8  | 01/7  | -   | [Posprocesamiento](./tut/pos.html)                                | [TP 2](./tps/tp2.html) |
 | 9  | 08/7  | Temas avanzados           |  [Aeersurface](./tut/aersurface.html) & [Aermap](./tut/aermap.html) & MISC  | - |               
@@ -54,15 +53,15 @@ LUGAR Y HORARIO DE CURSADA
 - **Unidad 6:** Modelos de Sondeo: Fundamentos e implementación de modelo simple según normativa local. Fundamentos y uso de modelo SCREEN3. Modelos de detalle: Fundamentos e implementación del AERMOD y sus preprocesadores: AERMAP, AERSURFACE, BPIPPRM y AERMET. Parámetros micro-meteorológicos de Capa Límite Convectiva y Estable (calor sensible, velocidad de fricción, longitud de Monin-Obukhov). Temperatura potencial y estabilidad. Clases de estabilidad. Efectos de la superficie, topografía, edificios (downwash), fumigación costera y flotación en el desarrollo vertical de la pluma. Herramientas para el pre-procesamiento y post-procesamiento:
 Interpretación y visualización de resultados, isopletas de concentración, tablas de frecuencia de excedencias de concentración límite. Tiempos de promediado. 
 
-### Correlativas: 
+### Correlativas
 + Física aplicada
 + Estadística General
 + Química de la contaminación y toxicología
 
-### Creditos: 
+### Creditos
 DOS (2) créditos = TREINTA Y DOS (32) horas.
 
-### Bibliografía:
+### Bibliografía
 
 + "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
 + "SCREEN3 Model User’s Guide". U.S EPA. EPA-454/B-95-004. September 1995.
