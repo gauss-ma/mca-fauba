@@ -33,14 +33,14 @@ LUGAR Y HORARIO DE CURSADA
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:---------|:-----:|
 | 1  | 13/5  | **NO HAY CLASE**            | - | - |
-| 2  | 20/5  | [Introducción](./teo/c1.html) & [Contexto Historico & Regulatorio](./teo/c2.html) | - | - |
-| 3  | 27/5  | [Repaso de Meteorología](./teo/c3.html){:target="_blank"} | - | - |
+| 2  | 20/5  | [Introducción](./teo/c1.html) & [Contexto](./teo/c2.html) | - | - |
+| 3  | 27/5  | [Repaso: Meteorología](./teo/c3.html) | - | - |
 | 4  | 03/6  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html) |
 | 6  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | [TP 2](./tps/tp2.html) |
 | 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
 | 7  | 24/6  | [AERMOD II (aermod) ](./teo/c6.html) |[aermod](./tut/aermod.html)       | [TP 2](./tps/tp2.html) |
 | 8  | 01/7  | -   | [Posprocesamiento](./tut/pos.html)                                | [TP 2](./tps/tp2.html) |
-| 9  | 08/7  | Temas avanzados           |  [Aeersurface](./tut/aersurface.html) & [Aermap](./tut/aermap.html) & MISC  | - |               
+| 9  | 08/7  | Temas avanzados           |  [Aersurface](./tut/aersurface.html) & [Aermap](./tut/aermap.html) & MISC  | - |               
 | 10 | 15/7  | *Evaluación integradora*  | - | - |
 
 ### Contenidos:
@@ -55,7 +55,7 @@ Interpretación y visualización de resultados, isopletas de concentración, tab
 
 ### Correlativas
 + Física aplicada
-+ Estadística General
++ Estadística general
 + Química de la contaminación y toxicología
 
 ### Creditos
