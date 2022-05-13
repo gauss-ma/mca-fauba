@@ -23,13 +23,7 @@ Para el presente estudio se selecciona el modelo SCREEN3 de la Agencia de Protec
 
 SCREEN3 es un modelo de pluma gaussiana para fuente simple, que estima la maxima concentración a nivel del suelo producida por fuentes puntuales, de area, antorhas, ó fuentes de volumen, asi como las concentración en cavidades producidas por  el flujo alrededor de edificios y en zonas de inversión por fumigación costera. 
 
-El SCREEN3 es la versión de sondeo del modelo de detalle ISC3.
-
-Al momento de la realización de este estudio, la US-EPA al SCREEN3 en su lista de modelos de sondeo recomendados.
-
-El SCREEN3 modela una función de dispersión bi-gaussiana vertical en la capa convectiva representando explícitamente movimientos verticales. 
-
-El SCREEN3 está disponible para acceso público en el repositorio web de la [US-EPA 3](https://www.epa.gov/scram/air-quality-dispersion-modeling-screening-models).
+El SCREEN3 es la versión de sondeo del modelo de detalle ISC3 y al momento de la realización de este estudio, la US-EPA lo tiene en su lista de modelos de sondeo recomendados. El programa así como el código fuente y casos de estudio están disponible para acceso público en el repositorio web de la [US-EPA 3](https://www.epa.gov/scram/air-quality-dispersion-modeling-screening-models).
 
 
 ### Sitio de estudio
@@ -50,7 +44,7 @@ A continuación se resumen los parámetros de emision.
 
 | Analito | id | tipo  | Temperatura [ºC] | Velocidad [m/s] | Caudal másico [g/s] |
 | ------- |----|---------|-------|------|---------|
-|  NOx    | C1 | POINT   | 320.0 |  1.0 | 0.10e-2 |
+|  NOx    | C1 | POINT   | 320.0 |  1.0 | 1.00e-3 |
 
 **Tabla 2.** Parámetro de emision para cada conducto y analíto.
 
@@ -99,9 +93,8 @@ Se considero una grilla de N receptores equiespaciados cada 50 metros desde los 
 Para representar las variables meteorológicas se utilizaron valores representativos de las siguientes variables:
 
 | Variable |  Valor representativo | Estadístico  | Periodo considerado |
-| -------- |  ---------------  | ------------ | ------------------------------------- |
+|:--------:|: --------------------:|:-------------|:-------------------:|
 | Temperatura ambiente |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
-| Velocidad del viento |  -      | -                                     | -         |
 | Dirección del viento |  XX.XX  | Moda de la serie temporal     | 20XX-20XY |
 | Presión atmosférica  |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
 | Humedad relativa     |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
@@ -137,16 +130,15 @@ MAXIMUM 1-HR CONCENTRATION AT OR BEYOND   100. M:
 Se compararon los valores obtenidos del modelado con los estándares de calidad de aire para los compuestos considerados, los resultados se muestran a continuación:
 
 | Analíto | Tiempo promedio | Concentración máxima [ug/m3] | Nivel regulatorio [ug/m3] | Observación |
-| ------- | --------------- | ---------------------------- | ------------------------- | ----------- |
-|  NOx    |   1 hora        |    1.162                     |  288                      |           - |
+|:-------:|:---------------:|:----------------------------:|:-------------------------:|:-----------:|
+|  NOx    |   1 hora        |    1.162                     |  288                      |  -          |
 
 **Tabla 5.** Comparación de resultados con normativa.
 
 
 ## 4. Conclusión
 
-Los resultados cumplen con los estándares vigentes al momento de realización del
-estudio, correspondiendo a la columna “Estándar E°X” evaluando la concentración máxima respecto del 80% de la concentración límite. 
+Los resultados cumplen con los estándares vigentes al momento de realización del estudio, correspondiendo a la columna “Estándar E°X” evaluando la concentración máxima respecto del 80% de la concentración límite. 
 
 
 ## Bibliografía
