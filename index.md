@@ -11,7 +11,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 AVISOS! 
 {: .label .label-red }
-+ El viernes 13/5 **NO HABRÁ CLASE** (empezamos el viernes 20/5).
++ Empezamos el viernes 20/5, 18hs en el pabellos **UBALLES** centro de computos.
 
 ---
 
@@ -40,7 +40,7 @@ LUGAR Y HORARIO DE CURSADA
 | 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
 | 7  | 24/6  | [AERMOD II (aermod) ](./teo/c6.html) |[aermod](./tut/aermod.html)       | [TP 2](./tps/tp2.html) |
 | 8  | 01/7  | -   | [Posprocesamiento](./tut/pos.html)                                | [TP 2](./tps/tp2.html) |
-| 9  | 08/7  | Temas avanzados           |  [Aersurface](./tut/aersurface.html) & [Aermap](./tut/aermap.html) & MISC  | - |               
+| 9  | 08/7  | *Exposición de TPs*  | - | - |               
 | 10 | 15/7  | *Evaluación integradora*  | - | - |
 
 ### Contenidos:
