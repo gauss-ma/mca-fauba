@@ -33,8 +33,8 @@ LUGAR Y HORARIO DE CURSADA
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:---------|:-----:|
 | 1  | 13/5  | **NO HAY CLASE**            | - | - |
-| 2  | 20/5  | [Introducción](./teo/c1.html) & [Contexto](./teo/c2.html) | - | - |
-| 3  | 27/5  | [Repaso: Meteorología](./teo/c3.html) | - | - |
+| 2  | 20/5  | [Ecuación de transporte](./teo/c1a.html) & [Contexto](./teo/c2.html) | - | - |
+| 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Meteorología](./teo/c3.html) | - | - |
 | 4  | 03/6  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html) |
 | 6  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | [TP 2](./tps/tp2.html) |
 | 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
