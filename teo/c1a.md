@@ -3,9 +3,9 @@ nav_order: 1
 published: true
 ---
 
-# Modelos de transporte
+# Ecuación de transporte
 
-En esta unidad vamos a repasar cuales son los fundamentos de los modelos de transporte, y las expresiones generales de algunos modelos que serán de utilizados en el curso.
+En esta unidad vamos a deducir la ecuación que describe el transporte de cualquier especie química en la atmósfera, y presentar una solución analítica que puede obtenerse a partir de algunas simplificaiciónes y supuestos.
 {: .fs-6 .fw-300 }
 
 <!-- center><iframe max-width="400" aspect-ratio="0.5625" src="https://www.youtube.com/embed/MUQfKFzIOeU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
@@ -14,7 +14,12 @@ allowfullscreen>
 
 
 ## Resumen
-Los modelos de transporte de contaminantes son funciones matemáticas que satisfacen la ecuación diferencial de *conservación de masa*, también conocida como **ecuación de transporte**:
+
+Modelar la calidad del aire consiste en representar la concentración de determinadas especies químicas en el aire, su variación en el espacio y en el tiempo. 
+
+Tal representación se puede describir haciendo uso de funciones matemáticas, que relacionen las coordenadas en el espacio y el tiempo *(x,y,z,y)* con valores de concentración de algún contaminante en particular *c*.
+
+La **ecuación de transporte** es una ecuación diferencial basada en el principio de conservación de masa que describe como debe ser la función que estamos buscando, y se puede deducir considerando todos los procesos que agregan ó sacan masa de un volúmen arbitrario en la atmósfera, su expresión general, en una dimensión es:
 
 <p>
 \[ \dfrac{\partial c}{\partial t} = E - \lambda\,c - u \dfrac{\partial c}{\partial x} + K \dfrac{\partial^2 c}{\partial x^2} \]
