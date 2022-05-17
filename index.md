@@ -31,17 +31,37 @@ LUGAR Y HORARIO DE CURSADA
 ### Cronograma
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
-|:---|:-----:|:--------|:---------|:-----:|
-| 1  | 13/5  | **NO HAY CLASE**            | - | - |
-| 2  | 20/5  | [Ecuación de transporte](./teo/c1a.html) & [Contexto](./teo/c2.html) | - | - |
-| 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Meteorología](./teo/c3.html) | - | - |
-| 4  | 03/6  | [SCREEN3            ](./teo/c4.html) |[Screen3](./tut/screen3.html)     | [TP 1](./tps/tp1.html) |
-| 6  | 10/6  | [AERMOD I  (aermet) ](./teo/c5.html) |[aermet](./tut/aermet.html)       | [TP 2](./tps/tp2.html) |
-| 5  | 17/6  | **FERIADO NACIONAL**        | - | - |
-| 7  | 24/6  | [AERMOD II (aermod) ](./teo/c6.html) |[aermod](./tut/aermod.html)       | [TP 2](./tps/tp2.html) |
-| 8  | 01/7  | -   | [Posprocesamiento](./tut/pos.html)                                | [TP 2](./tps/tp2.html) |
-| 9  | 08/7  | *Exposición de TPs*  | - | - |               
-| 10 | 15/7  | *Evaluación integradora*  | - | - |
+|:---|:-----:|:--------|:----------|:-----:|
+| 1  | 13/5  | **NO HAY CLASE**                                 | -                                  | - |
+| 2  | 20/5  | [Ecuación de transporte](./teo/c1a.html) & [Contexto](./teo/c2.html) | -              | - |
+| 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Meteorología](./teo/c3.html) | -              | - |
+| 4  | 03/6  | [Fundamentos SCREEN3            ](./teo/c4.html) |  [Screen3](./tut/screen3.html)     | Explicación [TP 1](./tps/tp1.html)   |
+| 6  | 10/6  | [Fundamentos AERMOD I  (aermet) ](./teo/c5.html) |  [aermet](./tut/aermet.html)       | Explicación [TP 2](./tps/tp2.html)   |
+| 5  | 17/6  | **FERIADO NACIONAL**                             | -                                  | Entrega TP1                          |
+| 7  | 24/6  | [Fundamentos AERMOD II (aermod) ](./teo/c6.html) | [aermod](./tut/aermod.html)        | Trabajo sobre [TP 2](./tps/tp2.html) |
+| 8  | 01/7  | Estimación de Emisiones                          | [Posprocesamiento](./tut/pos.html) | Trabajo sobre [TP 2](./tps/tp2.html) |
+| 9  | 08/7  | *Exposición de TP2*                              | -                                  | Trabajo sobre [TP 2](./tps/tp2.html) |               
+| 10 | 15/7  | *Evaluación integradora*                         | -                                  | Entrega TP2                          | 
+
+
+### Requisitos de aprobación:
+
+El  curso se aprueba con:
+- una asistencia mayor o igual al 75%,
+- y nota final promedio igual o mayor que 4 (cuatro).
+
+Dicha nota final es la resultante del promedio ponderado según se detalla a continuación
+(equivalente a haber alcanzado el 60% de los objetivos y conocimientos).
+
+| 25% | TP 1				|
+| 50% | TP 2 + Informe + exposición     |
+| 25% | Evaluación final integradora    |
+
+El TP2 (abarcador del núcleo del curso) consta en realizar una presentación oral grupal y luego el
+informe final. Durante la presentación oral se deberá defender (aprox. 15 min) con preguntas y/o comentarios, donde se evaluará a cada integrante del grupo con preguntas conceptuales sencillas sobre la realización del trabajo. Esto implica que cada integrante del grupo debe tener cabal conocimiento de lo realizado.
+
+La evaluación final integradora consta de preguntas conceptuales con poco desarrollo sin necesidad de cálculo. Con esto demuestran la atención en clase, la comprensión de los contenidos y participación en todos los pasos de los trabajos prácticos.
+
 
 ### Contenidos:
 
