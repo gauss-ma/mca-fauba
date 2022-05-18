@@ -32,16 +32,16 @@ LUGAR Y HORARIO DE CURSADA
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
 |:---|:-----:|:--------|:----------|:-----:|
-| 1  | 13/5  | **NO HAY CLASE**                                 | -                                  | - |
-| 2  | 20/5  | [Ecuación de transporte](./teo/c1a.html) & [Contexto](./teo/c2.html) | -              | - |
-| 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Meteorología](./teo/c3.html) | -              | - |
-| 4  | 03/6  | [Fundamentos SCREEN3            ](./teo/c4.html) |  [Screen3](./tut/screen3.html)     | Explicación [TP 1](./tps/tp1.html)   |
-| 6  | 10/6  | [Fundamentos AERMOD I  (aermet) ](./teo/c5.html) |  [aermet](./tut/aermet.html)       | Explicación [TP 2](./tps/tp2.html)   |
-| 5  | 17/6  | **FERIADO NACIONAL**                             | -                                  | Entrega TP1                          |
-| 7  | 24/6  | [Fundamentos AERMOD II (aermod) ](./teo/c6.html) | [aermod](./tut/aermod.html)        | Trabajo sobre [TP 2](./tps/tp2.html) |
+| 1  | 13/5  | **NO HAY CLASE**                                                         |     -      | - |
+| 2  | 20/5  | & [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)  |     -      | - |
+| 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Fundamentos SCREEN3            ](./teo/c2.html)| [Screen3](./tut/screen3.html) |Explicación [TP 1](./tps/tp1.html)   |
+| 4  | 03/6  | [Meteorología](./teo/c3.html)  |  |  Explicación [TP 2](./tps/tp2.html)   |
+| 6  | 10/6  | [AERMET](./teo/c4a.html) & [AERMOD](./teo/c6.html) |  [aermet](./tut/aermet.html) &  [aermod](./tut/aermod.html)  ||
+| 5  | 17/6  | **FERIADO NACIONAL**                             | -                                  | Entrega **TP1**                      |
+| 7  | 24/6  | **AERMAP** y **BPIP**                            |                                    | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 8  | 01/7  | Estimación de Emisiones                          | [Posprocesamiento](./tut/pos.html) | Trabajo sobre [TP 2](./tps/tp2.html) |
-| 9  | 08/7  | *Exposición de TP2*                              | -                                  | Trabajo sobre [TP 2](./tps/tp2.html) |               
-| 10 | 15/7  | *Evaluación integradora*                         | -                                  | Entrega TP2                          | 
+| 9  | 08/7  | *Exposición de TP2*                              | -                                  | Trabajo sobre [TP 2](./tps/tp2.html) |
+| 10 | 15/7  | *Evaluación integradora*                         | -                                  | Entrega **TP2**                      | 
 
 
 ### Requisitos de aprobación:
