@@ -11,15 +11,10 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 AVISOS! 
 {: .label .label-red }
-+ Empezamos el viernes 20/5, 18hs en el pabellos **UBALLES** centro de computos.
++ Empezamos el viernes 20/5, 18hs en el pabellon **UBALLES** centro de computos.
 
 ---
 
-LUGAR Y HORARIO DE CURSADA 
-{: .label .label-green }
-+  Pabellón **UBALLES** (Centro de Computos), los viernes de 18 a 21 horas.
-
----
 
 ### Docente responsable
 + Bormioli, Marcelo G.
@@ -31,9 +26,9 @@ LUGAR Y HORARIO DE CURSADA
 ### Cronograma
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
-|:---|:-----:|:--------|:----------|:-----:|
+|:---|:-----:|:--------|:---------:|:-----:|
 | 1  | 13/5  | **NO HAY CLASE**                                                         |     -      | - |
-| 2  | 20/5  | & [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)  |     -      | - |
+| 2  | 20/5  | [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)  |     -      | - |
 | 3  | 27/5  | [Modelos gaussianos](./teo/c1b.html) & [Fundamentos SCREEN3            ](./teo/c2.html)| [Screen3](./tut/screen3.html) |Explicación [TP 1](./tps/tp1.html)   |
 | 4  | 03/6  | [Meteorología](./teo/c3.html)  |  |  Explicación [TP 2](./tps/tp2.html)   |
 | 6  | 10/6  | [AERMET](./teo/c4a.html) & [AERMOD](./teo/c6.html) |  [aermet](./tut/aermet.html) &  [aermod](./tut/aermod.html)  ||
@@ -42,6 +37,10 @@ LUGAR Y HORARIO DE CURSADA
 | 8  | 01/7  | Estimación de Emisiones                          | [Posprocesamiento](./tut/pos.html) | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 9  | 08/7  | *Exposición de TP2*                              | -                                  | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 10 | 15/7  | *Evaluación integradora*                         | -                                  | Entrega **TP2**                      | 
+
+
+### Lugar y horario
+El curso se dicta en el Aula **UTI UBALLES** (pabellón Uballes), los viernes de 18 a 21 horas.
 
 
 ### Requisitos de aprobación:
