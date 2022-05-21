@@ -11,6 +11,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ### Presentaciones
 
+
 Clase 1:
 + [Introducción al curso](./files/MCA_1_Presentación.ppt)
 + [Contexto histórico y normativo](./files/MCA_1_Contexto.pdf)
@@ -36,10 +37,10 @@ Clase 1:
 | 0  | 13/5  | **NO HAY CLASE**                                                            |     -      | - |
 | 1  | 20/5  | [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)       |     -      | - |
 | 2  | 27/5  | [Modelos Gaussianos](./teo/c1b.html) & Fundamentos [Screen3](./teo/c2.html) | *Hands-on* [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)   |
-| 3  | 03/6  | [Meteorología](./teo/c3.html)       | Datos meteorológicos & *Hands-on* [AERMET](tut/aermet.html) |  Explicación [TP 2](./tps/tp2.html)   |
+| 3  | 03/6  | [Meteorología](./teo/c3.html)       | *Hands-on* [AERMET](tut/aermet.html) |  Explicación [TP 2](./tps/tp2.html)   |
 | 4  | 10/6  | Fundamentos [AERMOD](./teo/c6.html) | *Hands-on* [AERMOD](./tut/aermod.html)  | |
 | 5  | 17/6  | **FERIADO NACIONAL**                | -                                  | Entrega **TP1**                      |
-| 6  | 24/6  | **AERMAP** y **BPIP**               | **AERMAP** & **BPIP**              | Avances [TP 2](./tps/tp2.html) |
+| 6  | 24/6  | **AERMAP** y **BPIP**               | *Handos-on* **AERMAP** & **BPIP**  | Avances [TP 2](./tps/tp2.html) |
 | 7  | 01/7  | Estimación de Emisiones             | [Posprocesamiento](./tut/pos.html) | Avances [TP 2](./tps/tp2.html) |
 | 8  | 08/7  | *Exposición de TP2*                 | -                                  | Avances [TP 2](./tps/tp2.html) |
 | 9  | 15/7  | *Evaluación integradora*            | -                                  | Entrega **TP2**                      | 
