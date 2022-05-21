@@ -9,7 +9,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ---
 
-### Presentaciones:
+### Presentaciones
 
 Clase 1:
 + [Introducción al curso](./files/MCA_1_Presentación.ppt)
@@ -27,17 +27,19 @@ Clase 1:
 
 ### Cronograma
 
-[Versión detallada en PDF](.files/Cronograma.pdf){: .btn .btn-outline }
+
+[Cronográma detallado](./files/Cronograma.pdf){: .btn .btn-outline }
+
 
 |Clase| Fecha | Teórica | Práctica |   TP  |
-|:---|:-----:|:--------|:---------:|:-----:|
+|:---|:-----:|:--------|:----------|:-----:|
 | 0  | 13/5  | **NO HAY CLASE**                                                            |     -      | - |
 | 1  | 20/5  | [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)       |     -      | - |
 | 2  | 27/5  | [Modelos Gaussianos](./teo/c1b.html) & [Fundamentos Screen3](./teo/c2.html) | [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)   |
 | 3  | 03/6  | [Meteorología](./teo/c3.html)                    | Datos meteorológicos |  Explicación [TP 2](./tps/tp2.html)   |
-| 4  | 10/6  | [AERMET](./teo/c4a.html) & [AERMOD](./teo/c6.html) | Implementación de [AERMET](./tut/aermet.html) & [AERMOD](./tut/aermod.html)  | |
+| 4  | 10/6  | [AERMET](./teo/c4a.html) & [AERMOD](./teo/c6.html) |  [AERMET](./tut/aermet.html) & [AERMOD](./tut/aermod.html)  | |
 | 5  | 17/6  | **FERIADO NACIONAL**                             | -                                  | Entrega **TP1**                      |
-| 6  | 24/6  | **AERMAP** y **BPIP**                            |                                    | Trabajo sobre [TP 2](./tps/tp2.html) |
+| 6  | 24/6  | **AERMAP** y **BPIP**                            | **AERMAP** & **BPIP**              | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 7  | 01/7  | Estimación de Emisiones                          | [Posprocesamiento](./tut/pos.html) | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 8  | 08/7  | *Exposición de TP2*                              | -                                  | Trabajo sobre [TP 2](./tps/tp2.html) |
 | 9  | 15/7  | *Evaluación integradora*                         | -                                  | Entrega **TP2**                      | 
@@ -45,6 +47,7 @@ Clase 1:
 
 ### Lugar y horario
 El curso se dicta en el Aula **UTI UBALLES** (pabellón Uballes), los viernes de 18 a 21 horas.
+
 
 ### Requisitos de aprobación:
 
