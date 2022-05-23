@@ -15,7 +15,7 @@ Considerar todas las velocidades del viento y clases de estabilidad (``FULL METE
 
 Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. 
 
-[Informe de referencia](archivos/tps-ref/tp1-ref.pdf){: .btn .btn-outline }
+[Informe de referencia](archivos/tps-ref/TP1-ejemplo.pdf){: .btn .btn-outline }
 
 ### Presentaciòn de informe y resultados
 
