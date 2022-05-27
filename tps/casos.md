@@ -22,7 +22,7 @@ Se toman referencias de mediciones de la planta "Botnia" de Fray Bentos (Uruguay
 
 [Estudio de emisiones atmosféricas](https://www.ambiente.gub.uy/oan/wp-content/uploads/2018/02/8.-Anexos-EsIA-Tomo-II.pdf)
 
-[Descargar datos](/tps/archivos/CELULOSA/CELULOSA.zip){: .btn .btn-outline }
+[Descargar datos](mca-fauba/tps/archivos/CELULOSA/CELULOSA.zip){: .btn .btn-outline }
 
 
 ## Termoeléctrica
@@ -39,7 +39,7 @@ Se adaptan datos de monitoreo publicados:
 Se toman referencias de valores de emisión de diseño de NOx y CO.
 [SIEMENS](https://www.siemens-energy.com/global/en/offerings/power-generation/gas-turbines/sgt6-5000f.html) 
 
-[Descargar datos](/tps/archivos/TERMOELÉCTRICA/TERMOELE.zip){: .btn .btn-outline }
+[Descargar datos](./archivos/TERMOELÉCTRICA/TERMOELE.zip){: .btn .btn-outline }
 
 
 ## Relleno Sanitario
@@ -54,5 +54,5 @@ Fuentes:
 [Estudio de impacto de relleno sanitario](https://secretariadeambiente.cba.gov.ar/proyectosingresados/estudio-impacto-ambiental-ampliacion-del-predio-tratamiento-disposicion-final-residuos-solidos-urbanos-piedras-blancas/)
 
 
-[Descargar datos](/tps/archivos/RELLENO_SANITARIO/RELLENO.zip){: .btn .btn-outline }
+[Descargar datos](./archivos/RELLENO_SANITARIO/RELLENO.zip){: .btn .btn-outline }
 

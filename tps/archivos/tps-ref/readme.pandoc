@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Asegurarse de tener instalado:
+# - pandoc
+# - texlive-xetex
+# - texlive-lang-spanish
+
 case $1 in
 (-tp1)
 	#Armar TP1:

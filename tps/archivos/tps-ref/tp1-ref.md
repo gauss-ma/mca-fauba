@@ -99,11 +99,9 @@ Se considero una grilla de N receptores equiespaciados cada 50 metros desde los 
 Para representar las variables meteorológicas se utilizaron valores representativos de las siguientes variables:
 
 | Variable |  Valor representativo | Estadístico  | Periodo considerado |
-|:--------:|: --------------------:|:-------------|:-------------------:|
+|:---------|:---------------------:|:-------------|:-------------------:|
 | Temperatura ambiente |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
 | Dirección del viento |  XX.XX  | Moda de la serie temporal     | 20XX-20XY |
-| Presión atmosférica  |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
-| Humedad relativa     |  XX.XX  | Promedio de la serie temporal | 20XX-20XY |
 
 **Tabla 4.** Valores de variables meteorológicas utilizados especificando calculo usado, y periodo considerado.
 

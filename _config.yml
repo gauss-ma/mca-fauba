@@ -3,7 +3,6 @@ logo: "/assets/images/fauba-logo2.png"
 #remote_theme: pmarsceill/just-the-docs
 remote_theme: just-the-docs/just-the-docs
 #theme: just-the-docs
-show_downloads: true
 color_scheme: fauba
 exclude : [readme, tut/futuro, tut/archivos]
 search_enabled: true
