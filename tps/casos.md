@@ -22,7 +22,7 @@ Se toman referencias de mediciones de la planta "Botnia" de Fray Bentos (Uruguay
 
 [Estudio de emisiones atmosféricas](https://www.ambiente.gub.uy/oan/wp-content/uploads/2018/02/8.-Anexos-EsIA-Tomo-II.pdf)
 
-[Descargar datos](mca-fauba/tps/archivos/CELULOSA/CELULOSA.zip){: .btn .btn-outline }
+[Descargar datos](./archivos/CELULOSA/CELULOSA.zip){: .btn .btn-outline }
 
 
 ## Termoeléctrica
