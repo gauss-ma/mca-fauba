@@ -13,7 +13,7 @@ Tutorial para uso de **SCREEN3**
 
 Acá podran encontrar una guía para el uso del programa SCREEN3:
 
-[SCREEN3: Instrucciones Guía Uso](mca-fauba/files/S2_SCREEN3 Instrucciones Guía Uso.pdf) {: .btn .btn-outline }
+[SCREEN3: Instrucciones Guía Uso](./archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf){: .btn .btn-outline }
 
 
 <!-- ## Resumen
