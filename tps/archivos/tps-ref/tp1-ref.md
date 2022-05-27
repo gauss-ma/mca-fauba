@@ -6,16 +6,17 @@ published: false
 ## Resumen
 Se modela mediante el uso del SCREEN3 las oncentraciones de óxidos de nitrogeno [NOx] emitidas por la chimenea del emprendimiento XXXX.
 
-Los resultados del modelo se comparan con los estándares de calidad de aire fijados por el decreto XXXX correspondiente a la autoridad de aplicación ambiental de la jurisdicción del emprendimiento.
+Los resultados del modelo se comparan con los estándares de calidad de aire fijados por la norma XXX correspondiente a la autoridad de aplicación ambiental de la jurisdicción del establecimiento.
 
-Se verifica que para todos los contaminantes mencionados, en ninguno de los receptores analizados, se superan las concentraciones límites reguladas.
+Se verifica que en ninguno de los receptores analizados, se superan las concentraciones límites reguladas.
+(Se identifica que en X de los receptores analizados, se superan las concentraciones límites reguladas en un X% como máximo, detallando su ubicación en el punto de resultados.)
 
 
 ## 1. Introducción
 
 ### Objetivo
 A efectos de controlar las emisiones gaseosas y su impacto asociado, se realiza mediante modelación matemática la simulación del comportamiento de los contaminantes en la atmósfera para los efluentes gaseosos del emprendimiento XXXX ubicado en XXXXXX, provincia de XXXXX.
- El presente estudio tiene como objeto relacionar la emisión de una fuente gaseosa y la calidad del aire ambiente resultante conforme a los métodos planteados en el decreto XXXX y resolución XXXXX del organismo regulador XXXXX.
+ El presente estudio tiene como objeto relacionar la emisión de una fuente gaseosa y la calidad del aire ambiente resultante conforme a los métodos planteados en la norma XXXX del organismo regulador XXXXX.
 
 ### Descripción y justificación del modelo
 
@@ -27,7 +28,11 @@ El SCREEN3 es la versión de sondeo del modelo de detalle ISC3 y al momento de l
 
 
 ### Sitio de estudio
-La fuente de emisión corresponde al proceso de fabricación de neumáticos, cámaras y accesorios de vehículos del predio ubicado en el partido de XXXXX, en las coordenadas latitud -XX.XX longitud -XX.XX [Anexo 1 Dominio de estudio].
+La fuente de emisión corresponde al proceso de XXXXXX del predio ubicado en el partido de XXXXX, en las coordenadas latitud -XX.XX longitud -XX.XX .
+
+
+![./imgs/mapa_sitio.png](imgs/mapa_sitio.png)
+**Mapa de ubicación**
 
 
 ### Características de fuentes emisoras
@@ -138,7 +143,7 @@ Se compararon los valores obtenidos del modelado con los estándares de calidad 
 
 ## 4. Conclusión
 
-Los resultados cumplen con los estándares vigentes al momento de realización del estudio, correspondiendo a la columna “Estándar E°X” evaluando la concentración máxima respecto del 80% de la concentración límite. 
+Los resultados cumplen con los estándares vigentes al momento de realización del estudio, correspondiendo a la tabla X de la norma X evaluando la concentración máxima respecto de la concentración límite. 
 
 
 ## Bibliografía
