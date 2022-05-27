@@ -32,6 +32,7 @@ La fuente de emisión corresponde al proceso de XXXXXX del predio ubicado en el 
 
 
 ![./imgs/mapa_sitio.png](imgs/mapa_sitio.png)
+
 **Mapa de ubicación**
 
 
