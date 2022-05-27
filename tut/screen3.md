@@ -9,9 +9,9 @@ Tutorial para uso de **SCREEN3**
 {: .fs-6 .fw-300 }
 
 
-## Guia de Uso:
+## Guia de Uso
 
-Acá podran encontrar una guía para el uso del programa SCREEN3:
+Acá podran encontrar una guía con instrucciones para el uso del programa:
 
 [SCREEN3: Instrucciones Guía Uso](./archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf){: .btn .btn-outline }
 

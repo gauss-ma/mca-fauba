@@ -39,7 +39,7 @@ No se conoce una solución general a esta ecuación, pero si realizamos los sigu
 podemos llegar a una solución analítica, cuya fórmula general es:
 
   $$ 
-  c_{(x,t)} = \dfrac{M}{\sqrt{2\pi}\sigma} \exp\bigg[ \dfrac{- (x-\mu)^2}{2\sigma^2}  \bigg] \exp^{-\lambda t}
+  c_{(x,t)} = \dfrac{M}{\sqrt{2\pi}\sigma} \exp\bigg[ \dfrac{- (x-\mu)^2}{2\sigma^2}  \bigg] \exp\bigg[ -\lambda t \bigg] 
   $$
 
 los modelos basados en esta solución para describir como se dispersan los contaminantes se conocen como **modelos gaussianos**, y son el objeto de estudio de este curso.
