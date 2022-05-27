@@ -8,6 +8,14 @@ published: true
 Tutorial para uso de **SCREEN3**
 {: .fs-6 .fw-300 }
 
+
+## Guia de Uso:
+
+Acá podran encontrar una guía para el uso del programa SCREEN3:
+
+[SCREEN3: Instrucciones Guía Uso](mca-fauba/files/S2_SCREEN3 Instrucciones Guía Uso.pdf) {: .btn .btn-outline }
+
+
 <!-- ## Resumen
 En esta sección estan los pasos rápidos para la ejecución del **SCREEN3**:
 
