@@ -33,7 +33,7 @@ La fuente de emisión corresponde al proceso de XXXXXX del predio ubicado en el 
 
 ![./imgs/mapa_sitio.png](imgs/mapa_sitio.png)
 
-**Mapa de ubicación**
+**Figura 1.** Ubicación del proyecto de estudio.
 
 
 ### Características de fuentes emisoras
@@ -118,7 +118,7 @@ Representar en un gráfico la concentración calculada a nivel del receptor en f
 	
 ![./imgs/plot_screen3.png](imgs/plot_screen3.png)
 
-**Figura 1.** Gráfico concentración vs distancia.
+**Figura 2.** Gráfico concentración vs distancia.
 
 ### Receptor de máxima concentración
 

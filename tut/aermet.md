@@ -1,6 +1,6 @@
 ---
 nav_order: 3
-published: false
+published: true
 ---
 # AERMET
 

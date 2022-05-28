@@ -11,11 +11,15 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ### Presentaciones
 
-
 Clase 1:
 + [Introducción al curso](./files/MCA_1_Presentación.ppt)
 + [Contexto histórico y normativo](./files/MCA_1_Contexto.pdf)
 + [Ecuación de transporte](./files/MCA_1_EcTransporte.pdf)
+
+Clase 2:
++ [Modelos Gaussianos](./files/MCA_2_Gaussianos.pdf)
++ [Screen3 - Fundamentos](./files/MCA_2_Screen3.ppt)
+
 
 ---
 
