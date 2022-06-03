@@ -25,6 +25,7 @@ Esta clasificación de cobertura del suelo el USGS define las siguientes clases:
 
 
 <!-- https://grasswiki.osgeo.org/wiki/File:NLCD_2016_Land_Cover_example.png -->
+
 |Clase|Descripción|
 |---|---|
 |11|Open Water|
