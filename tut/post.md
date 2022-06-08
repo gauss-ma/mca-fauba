@@ -1,6 +1,6 @@
 ---
 nav_order: 7
-published: false
+published: true
 ---
 
 # Postprocesamiento
@@ -8,9 +8,9 @@ published: false
 Herramientas para el postprocesamiento e interpretación de los datos de salida de modelos.
 {: .fs-6 .fw-300 }
 
-## Tabla de concentraciones máximas:
-Aermod genera reportes y controles de calidad donde se puede analizar y validar la mayoría de la información, sin embargo es conveniente extraer los resultados a otros medios para poder visualizar, reportar y analizar la información.
-El archivo de salida generado en la opción ``PLOTFILE``, que en el caso del tutorial denominamos: "AERPLOT_PRUEBA_NOX_MONTH.OUT", tiene los resultados de concentraciones máximas de cada receptor en un formato de tabla que será fácil de exportar.
+## Tablas de datos desde AERMOD y AERMET:
+Tanto AERMOD como AERMET no generan salidas gráficas por lo que se deben usar otros programas para este fin, sin embargo los reportes y salidas que generan los modelos suelen presentarse en formato de tablas fáciles de interpretar en programas de hoja de cálculo. Aermod genera reportes y controles de calidad donde se puede analizar y validar la mayoría de la información, sin embargo es conveniente extraer los resultados a otros medios para poder visualizar, reportar y analizar la información.
+El archivo de salida generado en la opción ``PLOTFILE``, que en el caso del tutorial denominamos: "AERPLOT_PRUEBA_NOX_MONTH.OUT", tiene los resultados de concentraciones máximas de cada receptor en un formato de tabla que será fácil de exportar. Otra alternativa para procesar como tabla podría ser la salida de aermet ``.SFC``.
 
 
 ```
@@ -31,25 +31,25 @@ El archivo de salida generado en la opción ``PLOTFILE``, que en el caso del tut
 En esta tabla, las primeras 8 filas corresponden al contexto de la tabla y sus encabezados. Vamos a seleccionar todas las filas desde la 9, nos paramos con el cursor en la primera columna de la fila 9 y presionamos <kbd>Ctrl</kbd>+<kbd>shift</kbd>+<kbd>Fin</kbd>. Copiamos el contenido y abrimos una aplicación de hoja de cálculos como Excel.
 En una hoja nueva, pegamos el contenido en la celda **A1**.
 
-![](/mca-fauba/tut/imgs/Excel_1.png)
+![](./imgs/Excel_1.png)
 
 Vemos que se generan líneas de texto que necesitamos se parar en campos.
 Dependiendo de la configuración regional la coma o el punto pueden ser separadores de miles o decimales, si el separador de decimales es la coma, debemos reemplazar los puntos por coma. Abrimos el menú de buscar y reemplazar con <kbd>Ctrl</kbd>+<kbd>b</kbd>, vamos a buscar el caracter ".", reemplazarlo por "," y <kbd>Reemplazar todos</kbd>.
 
-![](/mca-fauba/tut/imgs/Excel_2.png)
+![](./imgs/Excel_2.png)
 
 Seleccionamos toda la columna **A** clickeando sobre ella y vamos a la pestaña de **Datos** y buscamos la herramienta texto en columnas. 
 
-![](/mca-fauba/tut/imgs/Excel_3.png)
+![](./imgs/Excel_3.png)
 
 Aseguramos que este seleccionada la opción "ancho fijo" y clickeamos <kbd>Finalizar</kbd>.
 
-![](/mca-fauba/tut/imgs/Excel_4.png)
+![](./imgs/Excel_4.png)
 
 Ya tenemos la información en tabla para ser procesada, pero es conveniente contar con una fila adicional de encabezado. Vamos a insertar una fila en "1", clickeando con el botón derecho y seleccionando "Insertar".
 A esta nueva fila 1 le colocaremos los encabezados del plotfile que tiene la fila 7. En esta instancia ya tenemos lista la tabla de resultados para procesar.
 
-![](/mca-fauba/tut/imgs/Excel_5.png)
+![](./imgs/Excel_5.png)
 
 La principal utilidad de la tabla sería permitir:
  
@@ -66,23 +66,23 @@ Vamos a entrar al sitio de la universidad de Iowa siguiendo el link: [https://me
 
 Por defecto,  se encuentra seleccionada la red de estaciones de Iowa, vamos a desplegar de **Select By Network** el menú, buscar "Argentina", luego pulsamos el botón <kbd>Switch Netork</kbd>.
 
-![](/mca-fauba/tut/imgs/WRose_1.png)
+![](./imgs/WRose_1.png)
 
 Al cargarse la red de "Argentina", se visualizan todas las estaciones del SMN. Buscamos en **Select by Station:** la fuente de información de superficie, que en este caso es "EZEIZA AERO" cuyo ID es "SAEZ" y tocamos <kbd>Select Station</kbd>.  
-![](/mca-fauba/tut/imgs/WRose_2.png)
+![](./imgs/WRose_2.png)
 
 En esta página se muestra información histórica de la estación y hasta se permite bajar datos en series de tiempo limitadas. Para crear la rosa de vientos vamos a la pestaña <kbd>Custom Wind Roses</kbd>.
 
-![](/mca-fauba/tut/imgs/WRose_3.png)
+![](./imgs/WRose_3.png)
 
 
 Vamos a elegir el mismo rango temporal que en el modelado (12/2021) y cambiamos las unidades a *"Meters per second (MPS)"* luego generamos la imagen tocando el botón <kbd>Enviar</kbd>.
 
-![](/mca-fauba/tut/imgs/WRose_4.png)
+![](./imgs/WRose_4.png)
 
 Al esperar unos segundos, la página genera la rosa de vientos solicitada. Esta visualización representa la dirección de origen y frecuencia de velocidades del viento.   
 
-![](/mca-fauba/tut/imgs/WRose_5.png)
+![](./imgs/WRose_5.png)
 
 ## AERPLOT
 
@@ -102,7 +102,7 @@ El archivo esta separado en 13 secciones, pero nos enfocaremos en las principale
 
 En la línea 10 (el número de línea se muestra en el cuadro del marco inferior, donde en esta imagen dice "Ln 10") encontramos la sección ``;- input parameters ``:
 
-![](/mca-fauba/tut/imgs/aerplot_1.png)
+![](./imgs/aerplot_1.png)
 
 Vamos a dejar en la línea 32 como `` origin=UTM `` ya que viene por defecto pero debemos editar las líneas 55 a 57 para especificar zona UTM del hemisferio sur:
 ```
@@ -206,11 +206,11 @@ makeContours                        = true
 Con estas ediciones finalizadas vamos a guardar este archivo de texto y ejecutar en el directorio de trabajo el programa ``aerplot.exe``.
 Durante la ejecución, vemos la ventana de la consola mostrando el progreso de las tareas. Al finalizar, se debió crear el archivo ``PRUEBA_NOX_MONTH_AERPLOT_Run.kmz`` y si ya tenían instalado google earth, por defecto lo abre mostrando el resultado.
 
-![](/mca-fauba/tut/imgs/aerplot_2.png)
+![](./imgs/aerplot_2.png)
 
 Podemos ver las clases de concentración donde cada punto es un receptor e isopletas, con una cruz se muestran las fuentes del modelo.
 
-![](/mca-fauba/tut/imgs/aerplot_3.png)
+![](./imgs/aerplot_3.png)
  
  Con esta visualización se pueden analizar numerosos aspectos del resultado:
  

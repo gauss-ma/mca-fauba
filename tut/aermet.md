@@ -58,7 +58,7 @@ Los datos de meteorología de superficie se pueden descargar del [Integrated Sur
 
 Vamos a buscar nuestro archivo usando el año de interés y el *id* de la estación. Para nuestro caso tendríamos que descargar el archivo: [``https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz``](https://www.ncei.noaa.gov/pub/data/noaa/2021/875760-99999-2021.gz)
 
-Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descomprimirlo encontraremos un archivo de texto de nombre [875760-99999-2021](archivos/aermod/875760-99999-2021), lo vamos a renombrar ``PRUEBA.ISH``. Si lo abren verán el siguiente contenido:
+Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descomprimirlo encontraremos un archivo de texto de nombre [875760-99999-2021](./archivos/aermod/875760-99999-2021), lo vamos a renombrar ``PRUEBA.ISH``. Si lo abren verán el siguiente contenido:
 
 ```Text
 0124875760999992021010100004-34467-058517FM-12+002099999V0203401N0015122000199010000199+02601+00621101151ADDAA101999999AZ101061AZ201061GF100991999999999999999999KA1120M+03031KA2120N+01751MA1999999100921MD1210051+9999REMSYN004BUFR
@@ -105,7 +105,7 @@ Hacemos click en ``Continue Data Request`` y nos lleva a la siguiente pantalla d
 Dejamos los valores de orden como ``Time Series Sort`` y formato ``FSL`` por defecto. Finalizamos tocando ``Continue Data Access``
 ![Raobs Pantalla IV](imgs/ruc_raobs_v.png)
 
-Vamos a obtener como texto la infomación solicitada. Para guardarla, seleccionamos toda la información <kbd>Ctrl</kbd> + <kbd>A</kbd> y la copiamos <kbd>Ctrl</kbd> + <kbd>C</kbd>. Abrimos el block de notas, pegamos esta información y guardamos el archivo como [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) en el directorio de trabajo.
+Vamos a obtener como texto la información solicitada. Para guardarla, seleccionamos toda la información <kbd>Ctrl</kbd> + <kbd>A</kbd> y la copiamos <kbd>Ctrl</kbd> + <kbd>C</kbd>. Abrimos el block de notas, pegamos esta información y guardamos el archivo como [PRUEBA.FSL](./archivos/aermod/PRUEBA.FSL) en el directorio de trabajo.
 
 El inicio del archivo debiera tener este contenido:
 
@@ -163,7 +163,7 @@ En esta etapa tenemos que proveer al **AERMET** con los archivos de entrada y pa
 
 Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas, entre otros.
 
-Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermet/ETAPA1.INP). Copiamos en él el siguiente contenido: 
+Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermod/ETAPA1.INP). Copiamos en él el siguiente contenido: 
 
 ```Text
 ** ETAPA 1: Lectura y procesamiento de datos de entrada.
@@ -188,7 +188,7 @@ AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
 QAOUT      QA_UA.OUT
 ```
 
-Todas las lineas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
+Todas las líneas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
 
 El archivo ``ETAPA1.INP`` se divide en las siguientes secciones:
 + ``JOB ``: Se especifican los nombres de los archivos donde el programa guardará los registros de la ejecución (mensajes de alerta y errores).
@@ -200,9 +200,9 @@ En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archiv
 
 Si todo sale bien se van a crear los siguientes archivos:
 + ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
-+ ``EXTRACT_SFC.DSK`` y ``EXTRACT_UA.DSK`` contienen los datos extraidos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
-+ ``QA_SFC.OUT`` y ``QA_UA.OUT`` archivos con información de variables auditadas que serviran par el siguiente paso.
-+ ``Discarded_ISHD_Records.dat`` si algun registro no cumple los parametros de calidad entonces se descartan y se guardan en este archivo para su revisión.
++ ``EXTRACT_SFC.DSK`` y ``EXTRACT_UA.DSK`` contienen los datos extraídos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
++ ``QA_SFC.OUT`` y ``QA_UA.OUT`` archivos con información de variables auditadas que servirán par el siguiente paso.
++ ``Discarded_ISHD_Records.dat`` si algún registro no cumple los parámetros de calidad entonces se descartan y se guardan en este archivo para su revisión.
 
 ### Etapa 2: Fusión (merge) de archivos
 
@@ -225,8 +225,8 @@ XDATES 2021/12/01 TO 21/12/31
 
 Este archivo contiene las siguientes secciones:
 + ``JOB ``: Cumple el mismo rol que en etapa 1.
-+ ``SURFACE ``: Se especifica el archivo con los datos de superficie extraidos en la etapa 1.
-+ ``UPPER ``: Se especifica el archivo con los datos de radiosondeo extraidos en la etapa 1.
++ ``SURFACE ``: Se especifica el archivo con los datos de superficie extraídos en la etapa 1.
++ ``UPPER ``: Se especifica el archivo con los datos de radiosondeo extraídos en la etapa 1.
 + ``MERGE``: en esta sección se especifica el archivo de salida con los datos de superficie y radiosondeo fusionados que será la entrada en la etapa 3.
 
 Guardamos este archivo con el nombre ``ETAPA2.INP``, y luego lo copiamos como ``aermet.inp`` (reemplazando el preexistente) y ejecutamos el ``aermet.exe``.
@@ -235,11 +235,11 @@ Se van a crear los siguientes archivos:
 + ``ETAPA2.MSG`` y ``ETAPA2.RPT`` nos brindan información de warnings y errores.
 + ``PRUEBA.MRG`` contienen los datos fusionados que serán utilizados en el siguiente paso.
 
-### Etapa 3: Cálculo de parametros de capa límite
+### Etapa 3: Cálculo de parámetros de capa límite
 
-Este es el úlitmo paso, y es donde se relizan los cálculos que serviran como información de entrada al **AERMOD**.
+Este es el último paso, y es donde se realizan los cálculos que servirán como información de entrada al **AERMOD**.
 
-Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermet/ETAPA3.INP) con el siguiente contenido:
+Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermod/ETAPA3.INP) con el siguiente contenido:
 
 ```Text
 ** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
@@ -290,7 +290,7 @@ Guardamos este archivo con el nombre ``ETAPA3.INP``, y luego lo copiamos y renom
 Se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
 
 - ``PRUEBA.SFC``: contiene los datos de superficie procesados.
-- ``PRUEBA.PFL``: contiene los datos de perfiles vericales procesados.
+- ``PRUEBA.PFL``: contiene los datos de perfiles verticales procesados.
 
 Verificamos que la corrida fue exitosa si en los archivos PRUEBA3.RPT no aparecen mensajes de ERROR.
 

@@ -6,51 +6,36 @@ published: true
 
 Tutorial para uso de **AERMOD**
 {: .fs-6 .fw-300 }
-
-<!--
-## Resumen
-
-Para ejecutar el **AERMOD** se deben seguir los siguientes pasos:
-1. Descargar ejecutable [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), descomprimir y colocar el ejecutable ``aermod.exe`` en el directorio de trabajo.
-2. Ejecutar **AERMET** para obtener archivos meteorológicos: [``PRUEBA.SFC``](./archivos/aermod/PRUEBA.SFC) y [``PRUEBA.FSL``](./archivos/aermod/PRUEBA.PFL).
-3. Obtener parámetros de emisión de las fuentes a considerar.
-3. Obtener parámetros para grilla de receptores.
-4. Construir archivo de control: [``aermod.inp``](archivos/aermod/aermod.inp)
-5. Colocar todos los archivos mencionados en un directorio de trabajo común.
-6. Ejecutar **AERMOD** haciendo doble click sobre ``aermod.exe``
--->
 ---
 
 
 ## Directorio de trabajo
 
-Aermod requiere como entradas los productos de precprocesador [``AERMET``](/mca-fauba/tut/aermet.md), por lo que es conveniente trabajar en el mismo directorio donde se ejecutó el programa y se generaron los archivos de salida con extensiones .SFC y .PFL. 
+Aermod requiere como entradas los productos de preprocesador [``AERMET``](./aermet.md), por lo que es conveniente trabajar en el mismo directorio donde se ejecuto el programa y se generaron los archivos de salida con extensiones .SFC y .PFL.
+Para esta prueba podemos usar las salidas generadas en el tutorial de [``AERMET``](./aermet.md) o descargar y descomprimir esta carpeta: [Descargar carpeta](./../files/CLASE_AERMET.zip){: .btn .btn-outline }   
 ## Descarga
 El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), es necesario descomprimirlo y luego colocar el ejcutable ``aermod.exe`` en el directorio de trabajo.
-
-<!-- > :information_source: También es posible descargar el código fuente: [aeremod_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_source.zip). -->
-
-## Preparación de datos de entrada
+## Preparacion de datos de entrada
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ **Archivos meteorológicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/mca-fauba/tut/aermet.html).
-+ **Información de Receptores.**
++ **Archivos meteorologicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/mca-fauba/tut/aermet.html).
++ **Informacion de Receptores.**
   - Punto central del predio donde se encuentran las fuentes (``xc`` ``yc``).
   - Dominio de modelado (limites: ``xmin`` ``xmax`` ``ymin`` ``ymax``).
   - Espacio entre receptores ``dx`` (generalmente usamos 50 metros).
-  <!-- - En caso de querer considerar receptores críticos, sus coordenadas. -->
-+ **Información de Emisiones.** depende del tipo de fuente emisora, para una fuente puntual es:
+
++ **Informacion de Emisiones.** depende del tipo de fuente emisora, para una fuente puntual es:
   - coordenadas, altura y diámetro del emisor.
   - caudal másico emitido [g/s]
   - temperatura  del efluente [ºK]
   - velocidad de salida [m/s]
-<!-- + **Información de Edificios.** Si hubiera edificios que influencien el flujo en las vecindades del emisor también es necesario conocer las coordenadas de sus vértices y altura promedio. -->
++ **Informacion de Edificios.** Si hubiera edificios que influencien el flujo en las vecindades del emisor también es necesario conocer las coordenadas de sus vértices y altura promedio.
 
 ## Archivo de control ``aermod.inp``.
 
-**AERMOD** al ser ejecutado busca un archivo de control con nombre ``aermod.inp``. En este se especifica la ubicación de los archivos de entrada, opciones y configuración de la corrida.
-Un ejemplo de ``aermod.inp``:
+**AERMOD** al ser ejecutado busca un archivo de control con nombre ``aermod.inp``. En este se especifica la ubicacion de los archivos de entrada, opciones y configuracion de la corrida.
+Un ejemplo de ``aermod.inp`` completo sería:
 
 ```Text
 **
@@ -69,7 +54,7 @@ CO STARTING
    FLAGPOLE  1.5
 CO FINISHED 
 
-**Información de fuentes
+**Informacion de fuentes
 SO STARTING
    ELEVUNIT  METERS
    LOCATION  FUENTE1  POINT  361833.281  6139544.02  0
@@ -84,7 +69,7 @@ RE STARTING
    GRIDCART  CAR1 END
 RE FINISHED
 
-**Información meteorológica
+**Informacion meteorologica
 ME STARTING  
    SURFFILE  PRUEBA.SFC
    PROFFILE  PRUEBA.PFL
@@ -103,14 +88,14 @@ OU FINISHED
 ```
 
 Este archivo se estructura en las siguientes secciones:
-+ **CO**: especificaciones generales de ejecución.
++ **CO**: especificaciones generales de ejecucion.
 + **SO**: especificaciones de fuentes (**SO**urces).
 + **RE**: especificaciones de **RE**ceptores.
-+ **ME**: especificaciones de información **ME**teorologica.
++ **ME**: especificaciones de informacion **ME**teorologica.
 + **EV**: especificaciones de procesamiento de **EV**entos (opcional).
-+ **OU**: especifiaciones generales de archivos de salida (**OU**tput).
++ **OU**: especificaciones generales de archivos de salida (**OU**tput).
 
-hay que especificar siempre el inicio y finalización de cada seccion, por ejemplo:
+hay que especificar siempre el inicio y finalizacion de cada seccion, por ejemplo:
 
 
 ```
@@ -121,13 +106,13 @@ CO STARTING
 CO FINISHED
 ```
 
-Cada especificación sigue la siguiente notación:
+Cada especificacion sigue la siguiente notacion:
 
 ```
 KEYWORD <arg1> <arg2> ... <argN>
 ```
 
-donde ``KEYWORD`` son palabras reservadas para definir parámetros de ejecución, y ``arg1``, ``arg2``, ... son "argumentos" o los valores que toma la keyword. Por ejemplo:
+donde ``KEYWORD`` son palabras reservadas para definir parámetros de ejecucion, y ``arg1``, ``arg2``, ... son "argumentos" o los valores que toma la keyword. Por ejemplo:
 
 ```Text
 TITLEONE PRUEBA
@@ -135,13 +120,13 @@ TITLEONE PRUEBA
 
 la keyword es ``TITLEONE`` que sirve para especificar el nombre del proyecto. y ``PRUEBA`` es el valor que toma, en este caso entonces el titulo del proyecto será *PRUEBA*.
 
-Revisar la lista de KEYWORDS en: [Keywords](/mca-fauba/refs/KEYWORDSaermod.md), en este tutorial solo se describen algunos de los más importantes.
+Revisar la lista de KEYWORDS en: [Keywords](./refs/KEYWORDSaermod.md), en este tutorial solo se describen algunos de los más importantes.
 
 Vamos a preparar el archivo de entrada, por lo que debemos crear un nuevo archivo de texto y guardarlo con el nombre ``aemod.inp``.
 
 ### CONTROL (CO)
 
-En esta sección se definen opciones generales para la corrida.
+En esta seccion se definen opciones generales para la corrida.
 
 ```Text
 CO STARTING
@@ -158,8 +143,8 @@ CO FINISHED
 
 Los parámetros más importantes son:
 + ``MODELOPT`` define las opciones generales de la corrida, tiene muchos argumentos posibles. *CONC* indica que se calcularán concentraciones. Para correr sin topografía se puede usar el argumento *FLAT*, caso contrario *ELEV* será utilizado que indica que si se considerará la topografía.
-+ ``AVERTIME``: es el periodo de promediado de las concentraciones se expresa en horas, opciones válidas son: 1,2,3,4,6,8,12 ó 24. También son argumentos válidos: *MONTH* y *ANNUAL*.
-+ ``POLLUTID``: es el nombre del contaminante, puede ser cualquier texto, salvo que se defina: como **NO2** ó **PM25**, en tal caso **AERMOD** interpreta que se debe a dichos contaminantes y reajusta algunos parámetros y rutinas para tratarlos.
++ ``AVERTIME``: es el periodo de promediado de las concentraciones se expresa en horas, opciones válidas son: 1,2,3,4,6,8,12 o 24. También son argumentos válidos: *MONTH* y *ANNUAL*.
++ ``POLLUTID``: es el nombre del contaminante, puede ser cualquier texto, salvo que se defina: como **NO2** o **PM25**, en tal caso **AERMOD** interpreta que se debe a dichos contaminantes y reajusta algunos parámetros y rutinas para tratarlos.
 + ``FLAGPOLE`` Se define la altura del receptor sobre el nivel del terreno, en general se usa 1.5 metros.
 
 ### EMISORES: (SO)
@@ -181,7 +166,7 @@ Para nuestra prueba, vamos a tomar la considerar una fuente puntual con la sigui
 |FUENTE1|Puntual|     NOx, MP    | 15|  5 | 361833.281|6139544.02|0
 
 
-la keyword ``LOCATION`` define una fuente, su tipo, su id (nombre) y su ubicación:
+la keyword ``LOCATION`` define una fuente, su tipo, su id (nombre) y su ubicacion:
 ```
    LOCATION  <nombre>  <tipo>  <x> <y> <z>
 ```
@@ -195,17 +180,17 @@ Para nuestro ejemplo vamos a completarla de la siguiente manera:
 > **Es importante destacar que las coordenadas de emisores (y también receptores) deben ser coordenadas planas cartesianas, ya que el aermod no puede hacer los cálculos con coordenadas de latitud y longitud.**
 
 
-La keyword ``SRCPARAM`` define los parámetros de emisión para cada fuente y sus argumentos dependen del tipo de fuente definida en ``LOCATION``, para una fuente puntual tipo  "POINT" sería:
+La keyword ``SRCPARAM`` define los parámetros de emision para cada fuente y sus argumentos dependen del tipo de fuente definida en ``LOCATION``, para una fuente puntual tipo  "POINT" sería:
 
 ```
    SRCPARAM <nombre> <Q> <H> <T> <U> <D>
 ```
 donde, Q: caudal másico emitido [g/s], H: altura del conducto [m], T: temperatura de salida [ºK], U: velocidad de salida [m/s] y D: diámetro del conducto [m].
 
-Los parámetros de emisión para la ``FUENTE1`` son los siguientes:
+Los parámetros de emision para la ``FUENTE1`` son los siguientes:
 
 
-ANALITO|CAUDAL EMISIÓN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
+ANALITO|CAUDAL EMISIoN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIoN[mg/Nm3]|TASA[g/s]|
 |-|-|-|-|-|-|
 NOx|	819|	453	|27,13|	196|	96,7|
 
@@ -235,12 +220,12 @@ RE STARTING
 RE FINISHED
 ```
 
-``DISCCART`` toma como argumentos la posición *x* e *y* (en metros) del receptor a considerar. 
-También acepta como argumentos opcionales, la altura del terreno en esa ubicación, y otros parámetros necesarios para contemplar la influencia de la topografía sobre la pluma. -->
+``DISCCART`` toma como argumentos la posicion *x* e *y* (en metros) del receptor a considerar. 
+También acepta como argumentos opcionales, la altura del terreno en esa ubicacion, y otros parámetros necesarios para contemplar la influencia de la topografía sobre la pluma. -->
 <!-- 
-Comúnmente nos encontramos en el caso de tener que definir muchos receptores, en forma de grillas regulares, ó concéntricas, que usando ``DISCCART`` involucraría muchas líneas para especificar.  -->
+Comúnmente nos encontramos en el caso de tener que definir muchos receptores, en forma de grillas regulares, o concéntricas, que usando ``DISCCART`` involucraría muchas líneas para especificar.  -->
 
-Se deben definir *receptores* que son los puntos en los que el aermod va a calcular las concetraciones de contaminante dispersado. 
+Se deben definir *receptores* que son los puntos en los que el aermod va a calcular las concentraciones de contaminante dispersado. 
 Existen keywords que nos permiten definir grillas:
 + ``GRIDCART``: define una grilla en coordenadas cartesianas.
 <!-- + ``GRIDPOLR``: define una grilla de círculos concéntricos en coordenadas polares. -->
@@ -269,11 +254,11 @@ GRIDCART  CAR1 END
 
 ``XYINC`` es una keyword que permite generar una grilla regular y toma como argumentos:
 - coordenada X del vértice sur-oeste del dominio: ``xmin``
-- el numero de receptores en la dimensión X: ``nx``
-- el espaciado de los receptores en la dimensión X: ``dx`` (generalmente 50 metros)
+- el numero de receptores en la dimension X: ``nx``
+- el espaciado de los receptores en la dimension X: ``dx`` (generalmente 50 metros)
 - coordenada Y del vértice sur-oeste del dominio :``ymin``
-- el numero de receptores en la dimensión Y: ``ny``
-- el espaciado de los receptores en la dimensión Y: ``dy`` (generalmente 50 metros)
+- el numero de receptores en la dimension Y: ``ny``
+- el espaciado de los receptores en la dimension Y: ``dy`` (generalmente 50 metros)
 
 Visto esquemáticamente este sería un domino rectangular generado mediante ``GRIDCART`` especificando la *keyword* ``XYINC``:
 
@@ -350,10 +335,10 @@ OU FINISHED
 
 + ``SUMMFILE`` define el nombre del archivo de salida que posee además de información sobre la corrida y fechas procesadas, la tabla con las máximas concentraciones encontradas.
 
-+ ``PLOTFILE`` sirven para definir el nombre del archivo de salida con la tabla de máximos valores encontrados por receptor (sirve para hacer los mapas de concentraciones máximas), requiere la definición del periodo temporal y el grupo de emisores a considerar (``SRCGROUP`` definido en fuentes:``SO``), también da la posibilidad de  mostrar los máximos totales (FIRST) o descartarlos y usar los segundos (SECOND), terceros (THIRD), etc.
++ ``PLOTFILE`` sirven para definir el nombre del archivo de salida con la tabla de máximos valores encontrados por receptor (sirve para hacer los mapas de concentraciones máximas), requiere la definicion del periodo temporal y el grupo de emisores a considerar (``SRCGROUP`` definido en fuentes:``SO``), también da la posibilidad de  mostrar los máximos totales (FIRST) o descartarlos y usar los segundos (SECOND), terceros (THIRD), etc.
 
 
-## Ejecución
+## Ejecucion
 
 Para ejecutar el **AERMOD** nos aseguramos tener los siguientes archivos en el directorio de trabajo:
 - Ejecutable: ``aermod.exe``
@@ -379,7 +364,7 @@ Si todo sale bien, se van a crear los archivos especificados con las keywords ``
 + ``AERPLOT_PRUEBA_NOX_MONTH.OUT`` representa la máxima concentración encontrada para cada receptor en forma de tabla, permitiendo interpretar gráficamente el resultado mediante posprocesamiento.
 
 + ``ERRORS.LOG`` Guarda registro de errores y advertencias durante la corrida.
-+ ``OUTPUT.LOG`` Guarda registro de la configuración de la corrida. 
++ ``OUTPUT.LOG`` Guarda registro de la configuración de la corrida.
 
 Verificamos rápidamente que fue una corrida exitosa si en el archivo ``AERTEST_PRUEBA_NOX_MONTH.SUM`` no presenta mensajes de error:
 
