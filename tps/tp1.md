@@ -17,6 +17,8 @@ Entregar un informe con la siguiente estructura y acompañarlo de una carpeta co
 
 [Informe de referencia](archivos/tps-ref/TP1-ejemplo.pdf){: .btn .btn-outline }
 
+[Informe de referencia (Copy-pasteable: .DOCX)](archivos/tps-ref/TP1-ejemplo.docx){: .btn .btn-outline }
+
 ### Presentación de informe y resultados
 
 + **Introducción:** Redactar una breve introducción al sitio de estudio y proceso.

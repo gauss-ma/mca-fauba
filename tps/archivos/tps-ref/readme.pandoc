@@ -16,6 +16,13 @@ case $1 in
 	
 	pandoc -s -N --template=./templates/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./TP1-ejemplo.pdf tp1-ref.md
 ;;
+(-tp1-doc)
+
+	#Armar TP1:
+	echo "Armando TP N°1.."
+	titulo="Trabajo Práctico Nº1"                                                                                                                                                                                                                                                                                                               	
+	pandoc -o TP1-ejemplo.docx -f markdown -t docx tp1-ref.md
+;;
 (-tp2)
 	##Armar TP2:
 	echo "armando TP N°2.."
