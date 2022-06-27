@@ -1,6 +1,6 @@
 ---
 nav_order: 3
-published: false
+published: true
 ---
 # TP 2: Modelo de Detalle
 
@@ -8,7 +8,7 @@ published: false
 
 Entregar un informe con la siguiente estructura y acompañarlo de una carpeta con todos los archivos de entrada y salida. 
 
-[Informe de referencia](archivos/tps-ref/tp2-ref.pdf){: .btn .btn-outline }
+<!-- [Informe de referencia](archivos/tps-ref/tp2-ref.pdf){: .btn .btn-outline } -->
 
 
 ### Presentaciòn de informe y resultados
