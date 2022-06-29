@@ -48,7 +48,7 @@ Para descargar datos meteorológicos tienen que buscar la estación más cercana
 
 **En este tutorial vamos a seleccionar para el año *2021*, la siguiente estación:
 
-| Nombre	|Provincia	|Latitud	|Longitud	|Altura [m]	|NRO	   |NACI |
+| Nombre	|Provincia	|Longitud|Latitud	|Altura [m]	|NRO	   |NACI |
 |EZEIZA AERO	|BUENOS AIRES	|-58.53333	|-34.81667	|20.0	        |**87576** |SAEZ |
 
 
@@ -72,7 +72,7 @@ Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descom
 Para el caso de la información del perfil de la atmósfera por radiosondeos, en Argentina solamente contamos con 6 estaciones que hacen esta medición:
 
 
-|Nombre				|Provincia	|Latitud	|Longitud	|Altura [m]	|NRO	|NACI|
+|Nombre				|Provincia	|Longitud	|Latitud	|Altura [m]	|NRO	|NACI|
 |---|---|---|---|---|---|---|
 |EZEIZA AERO			|BUENOS AIRES	|-58.53333	|-34.81667	|20.0		|87576	|SAEZ|
 |SANTA ROSA AERO		|LA PAMPA	|-64.26667	|-36.56667	|191.0		|87623	|SAZR|
