@@ -21,7 +21,7 @@ El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https:/
 
 Para poder ejecutar el **AERMOD** es necesario contar con:
 
-+ **Archivos meteorologicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/mca-fauba/tut/aermet.html).
++ **Archivos meteorologicos.** ``PRUEBA.SFC`` y ``PRUEBA.FSL`` generados por el [**AERMET**](/aermet.html).
 + **Informacion de Receptores.**
   - Punto central del predio donde se encuentran las fuentes (``xc`` ``yc``).
   - Dominio de modelado (limites: ``xmin`` ``xmax`` ``ymin`` ``ymax``).
@@ -300,6 +300,19 @@ RE STARTING
    GRIDCART  CAR1 END
 RE FINISHED
 ```
+
+
+En el caso de haber ejecutado previamente el [AERMAP](./aermap.html), esta sección se simplifica a:
+
+```Text
+RE STARTING
+   INCLUDED  PRUEBA.ROU
+RE FINISHED
+```                    
+
+donde ``PRUEBA.ROU`` es el archivo de salida del AERMAP.
+
+
 
 ### METEOROLOGÍA (ME)
 

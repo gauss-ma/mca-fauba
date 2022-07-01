@@ -33,7 +33,7 @@ Lo descomprimimos, entramos a la carpeta ``aermap_exe`` y deberiamos encontrar a
 
 ## Definición de dominio y grilla de receptores
 
-Vamos a definir el dominio y la grilla de receptores de misma forma que lo hicimos en el tutorial de [AERMOD](./tut/aermod.html#receptores-re):
+Vamos a definir el dominio y la grilla de receptores de misma forma que lo hicimos en el tutorial de [AERMOD](./aermod.html#receptores-re):
 
 
 | ``xc  ``  |  361833.2 | Punto central X                  |
@@ -158,7 +158,7 @@ En la sección de receptores **RE** hay que definir una grilla de receptores, lo
 + ``GRIDCART``: define una grilla regular en coordenadas cartesianas.
 + ``GRIDPOLR``: define una grilla de circulos concentricos en coordenadas polares.
 
-De la misma forma que lo hicimos en el tutorial de [AERMOD](./tut/aermod.html) con ``GRIDCART `` podriamos definir la grilla como:
+De la misma forma que lo hicimos en el tutorial de [AERMOD](./aermod.html) con ``GRIDCART `` podriamos definir la grilla como:
 
 ```Text
 RE STARTING
