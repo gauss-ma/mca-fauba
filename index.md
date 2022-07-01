@@ -58,7 +58,7 @@ Clase 5:
 | 4  | 10/6 | [Meteorología](./teo/c3.html)       | *Hands-on* [AERMOD](./tut/aermod.html)| Explicación [TP 2](./tps/tp2.html)  |
 | 5  | 17/6 | **FERIADO NACIONAL**                | -                                     | Entrega **TP1**                     |
 | 6  | 24/6 | -                                   | [Posprocesamiento](./tut/pos.html)    | Avances [TP 2](./tps/tp2.html) 	|
-| 7  | 01/7 |   | *Hands-on* **AERMAP** & **BPIP**      | Avances [TP 2](./tps/tp2.html) 	|
+| 7  | 01/7 |   | *Hands-on* [AERMAP](./tut/aermap.html) & **BPIP**      | Avances [TP 2](./tps/tp2.html) 	|
 | 8  | 08/7 | Fundamentos [AERMOD](./teo/c6.html) & Estimación de Emisiones             | -                                     | Exposición [TP 2](./tps/tp2.html) 	|
 | 9  | 15/7 | *Evaluación integradora*            | -                                     | Entrega **TP2**                     | 
 
