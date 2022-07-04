@@ -46,14 +46,13 @@ Existe una serie de modificaciones al modelo original de pluma gaussiana podemos
 + Tratamiento especial para vientos calmos.
 + Coeficientes difusivos en base a clases de estabilidad.
 
-
+<!--
 ## Ejercicios
-
 1. Indique en la ecuacción de tranporte cuál es el término que describe únicamente el fenómeno de advección. Haga lo mismo para la difusión y el decaimiento.
 2. Bajo un transporte puramente advectivo, cómo cambia la concentración en el tiempo para un punto si la velocdad del viento es cero? Cómo cambia si la velocidad es negativa y la concentración disminuye con la distancia?
 3. Bajo un transporte puramente difusivo ¿Cómo cambia la concentrción en el tiempo para un punto donde la concentración inicialmente tiene un máximo local? ¿Cómo cambia si la concentración en dicho punto es un mínimo local?
 4. ¿Cuál es la interpretación de &mu; y de &sigma; en la función gaussiana?
-
+-->
 
 ## Bibliografía
 - "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
