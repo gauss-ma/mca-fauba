@@ -31,6 +31,9 @@ Clase 4:
 Clase 5:
 + [Postprocesamiento](./tut/post.html)
 
+Clase 6:
++ Trabajo sobre [TP N°2.](./tps/tp2.html)
+
 ---
 
 ### Docente responsable
@@ -43,25 +46,21 @@ Clase 5:
 ### Docente invitada
 + Gómez Arismendi, Sabrina
 
-
 ### Cronograma
-
-[Cronográma detallado](./files/Cronograma.pdf){: .btn .btn-outline }
-
 
 |Clase|Fecha| Teórica | Práctica  |  TP   |
 |:---|:----:|:--------|:----------|:-----:|
-| 0  | 13/5 | **NO HAY CLASE**                                                            |     -      | - |
-| 1  | 20/5 | [Contexto](./teo/c0a.html) & [Ecuación de transporte](./teo/c0a.html)       |     -      | - |
-| 2  | 27/5 | [Modelos Gaussianos](./teo/c1b.html) & Fundamentos [Screen3](./teo/c2.html) | *Hands-on* [Screen3](./tut/screen3.html) | |
-| 3  | 03/6 | -                                   | *Hands-on* [AERMET](tut/aermet.html)  | Explicación [TP 1](./tps/tp1.html)  |
-| 4  | 10/6 | [Meteorología](./teo/c3.html)       | *Hands-on* [AERMOD](./tut/aermod.html)| Explicación [TP 2](./tps/tp2.html)  |
-| 5  | 17/6 | **FERIADO NACIONAL**                | -                                     | Entrega **TP1**                     |
-| 6  | 24/6 | -                                   | [Posprocesamiento](./tut/pos.html)    | Avances [TP 2](./tps/tp2.html) 	|
-| 7  | 01/7 |   | *Hands-on* [AERMAP](./tut/aermap.html) & **BPIP**      | Avances [TP 2](./tps/tp2.html) 	|
-| 8  | 08/7 | Fundamentos [AERMOD](./teo/c6.html) & Estimación de Emisiones             | -                                     | Exposición [TP 2](./tps/tp2.html) 	|
-| 9  | 15/7 | *Evaluación integradora*            | -                                     | Entrega **TP2**                     | 
+| 1  | 20/5 | [Contexto](./teo/contexto.html) & [Ecuación de transporte](./teo/ectransp.html) | - | - |
+| 2  | 27/5 | [Modelos Gaussianos](./teo/gaussianos.html) | *Hands-on* [Screen3](./tut/screen3.html) | |
+| 3  | 03/6 | - | *Hands-on* [AERMET](tut/aermet.html) | Explicación [TP 1](./tps/tp1.html)  |
+| 4  | 10/6 | [Meteorología](./teo/meteorologia.html) | *Hands-on* [AERMOD](./tut/aermod.html)| Explicación [TP 2](./tps/tp2.html) |
+| 5  | 17/6 | **FERIADO NACIONAL** | - | Entrega **TP1** |
+| 6  | 24/6 | - | [Posprocesamiento](./tut/pos.html) | Avances [TP 2](./tps/tp2.html) 	|
+| 7  | 01/7 | - | - | Avances [TP 2](./tps/tp2.html) |
+| 8  | 08/7 | Fundamentos [AERMOD](./teo/aermod.html) & Estimación de Emisiones | - | Exposición [TP 2](./tps/tp2.html) |
+| 9  | 15/7 | *Evaluación integradora* | - | Entrega **TP2** | 
 
+[Cronográma detallado](./files/Cronograma.pdf){: .btn .btn-outline }
 
 ### Lugar y horario
 El curso se dicta en el Aula **UTI UBALLES** (pabellón Uballes), los viernes de 18 a 21 horas.
@@ -70,9 +69,9 @@ El curso se dicta en el Aula **UTI UBALLES** (pabellón Uballes), los viernes de
 
 El  curso se aprueba con:
 - una asistencia mayor o igual al 75%,
-- y nota final promedio igual o mayor que 4 (cuatro).
+- nota final promedio igual o mayor que 4 (cuatro).
 
-Dicha nota final es la resultante del promedio ponderado según se detalla a continuación
+La nota final es la resultante del promedio ponderado según se detalla a continuación
 (equivalente a haber alcanzado el 60% de los objetivos y conocimientos).
 
 | Instancia | Porcentaje de nota final |
@@ -81,14 +80,12 @@ Dicha nota final es la resultante del promedio ponderado según se detalla a con
 | TP 2 + Informe + Exposición  | 50% |
 | Evaluación final integradora | 25% |
 
-El TP2 (abarcador del núcleo del curso) consta en realizar una presentación oral grupal y luego el
-informe final. Durante la presentación oral se deberá defender (aprox. 15 min) con preguntas y/o comentarios, donde se evaluará a cada integrante del grupo con preguntas conceptuales sencillas sobre la realización del trabajo. Esto implica que cada integrante del grupo debe tener cabal conocimiento de lo realizado.
+El TP2 (abarcador del núcleo del curso) consta en realizar una presentación oral grupal y luego el informe final. Durante la presentación oral se deberá defender (aprox. 15 min) con preguntas y/o comentarios, donde se evaluará a cada integrante del grupo con preguntas conceptuales sencillas sobre la realización del trabajo. Esto implica que cada integrante del grupo debe tener cabal conocimiento de lo realizado.
 
 La evaluación final integradora consta de preguntas conceptuales con poco desarrollo sin necesidad de cálculo. Con esto demuestran la atención en clase, la comprensión de los contenidos y participación en todos los pasos de los trabajos prácticos.
 
 
 ### Contenidos:
-
 - **Unidad 1:** Introducción físico-matemática: Repaso de análisis matemático (Derivadas parciales y ecuaciones diferenciales). Función Gaussiana y Función Error. Ecuaciones de difusión y de transporte. Unidades de concentración de contaminantes en aire y caudales de emisión
 - **Unidad 2:** Introducción normativa: Requerimientos legales en Argentina sobre exigencias de modelados de la dispersión de contaminantes atmosféricos. Uso en la normativa Internacional y Normas IRAM/ISO
 - **Unidad 3:** Desarrollo Histórico de modelos de calidad de aire: Primeras aplicaciones de modelado de dispersión, evolución de modelos predecesores. Estudios científicos de base. Desarrollos locales. Casos de ejemplo de aplicación. Introducción al modelado de la dispersión de contaminantes en la atmósfera. Ecuación de transporte: advección, difusión, fuentes y sumideros. Formulación Euleriana y Lagrangiana. Soluciones analíticas de la ecuación de transporte para estado transitorio y estacionario. Modelos gaussianos, modelos lagrangianos y modelos mixtos.
