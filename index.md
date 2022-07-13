@@ -35,7 +35,7 @@ Clase 6:
 + Trabajo sobre [TP N°2.](./tps/tp2.html)
 
 Clase 7:
-+ Exposición sobre [Estimación de Emisiones](./files/CHARLA EMISIONES.pdf) 
++ Exposición sobre [Estimación de Emisiones](./files/CHARLA_EMISIONES.pdf) 
 
 ---
 
@@ -60,7 +60,7 @@ Clase 7:
 | 5  | 17/6 | **FERIADO NACIONAL** | - | Entrega **TP1** |
 | 6  | 24/6 | - | [Posprocesamiento](./tut/pos.html) | Avances [TP 2](./tps/tp2.html) 	|
 | 7  | 01/7 | - | - | Avances [TP 2](./tps/tp2.html) |
-| 8  | 08/7 | Fundamentos [AERMOD](./teo/aermod.html) & [Estimación de Emisiones](./files/CHARLA EMISIONES.pdf) | - | Exposición [TP 2](./tps/tp2.html) |
+| 8  | 08/7 | Fundamentos [AERMOD](./teo/aermod.html) & [Estimación de Emisiones](./files/CHARLA_EMISIONES.pdf) | - | Exposición [TP 2](./tps/tp2.html) |
 | 9  | 15/7 | *Evaluación integradora* | - | Entrega **TP2** | 
 
 [Cronográma detallado](./files/Cronograma.pdf){: .btn .btn-outline }
