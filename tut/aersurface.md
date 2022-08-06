@@ -1,13 +1,13 @@
 ---
 title: Aersurface
 description: Tutorial de preprocesamiento de propiedades de superficie.
-nav_exclude: false
+nav_exclude: true
 nav_order: 3
 published: true
 ---
 
 
-# Aersurface
+# Aermod: AERSURFACE
 
 > Tutorial para el preprocesamiento de datos de superficie aermod (**AERSURFACE**)
 
@@ -45,7 +45,7 @@ Esta clasificación de cobertura del suelo el USGS define las siguientes clases:
 |90|Woody Wetlands|
 |95|Emergent Herbaceous Wetlands|
 
-Asi se visualiza la clasificación de cobertura para un aeropuerto de estados unidos.
+Así se visualiza la clasificación de cobertura para un aeropuerto de estados unidos.
 
 ![](/mca-fauba/tut/imgs/aersurf_pizza.png)
 
@@ -61,6 +61,9 @@ Para determinar la clase dominante y sus parámetros asociados se debe analizar 
  
 3. longitud de rugosidad de superficie $z_{0}$
    - En un radio de 1km a la estación meteorológica, se deben analizar 12 direcciones del viento o secciones de 30°. A cada sección se asigna como $z_{0}$ la media geométrica del valor de rugosidad ponderado de forma inversa a la distancia a la estación. 
+
+
+
 
 Entonces se podrían visualizar a continuación, las dos áreas analizadas.   
 ![aersurface_radio](/mca-fauba/tut/imgs/aersurface_radio.png)
@@ -89,7 +92,6 @@ Cada sección va a representar una cobertura distinta, con parámetros de albedo
 |23|Commercial/Industrial/Transp (Site at Airport)| 0.1 |0.1 |0.1 |0.1|
 |85| Urban/Recreational Grasses |0.02 |0.015 |0.01 | 0.015|
 
-
 Por ejemplo, para el caso de EZEIZA AERO, las áreas a analizar serían las siguientes:
 ![](/mca-fauba/tut/imgs/saez_al_bow_zo.png)
 
@@ -102,7 +104,6 @@ Ante la falta de capas de cobertura en el formato requerido, debemos
 generar esta información a partir del procesamiento realizado por el usuario.
 
 Vamos a crear un archivo de texto llamado ``AERSURFACE.OUT`` y completaremos la siguiente información.
-
 
 Como las propiedades de superficie pueden cambiar en el tiempo, se debe aclarar la resolución temporal: mensual, estacional ó anualmente.
 
@@ -170,5 +171,29 @@ El contenido final de  ``AERSURFACE.OUT`` debería ser el siguiente:
    SITE_CHAR    2        1      0.16  1.00  0.54
    SITE_CHAR    3        1      0.18  1.00  0.50
    SITE_CHAR    4        1      0.16  0.80  0.52
+**----------|--------|---------|-----|-----|------|
+```
+
+Podría darse un caso donde existan diferencias en las propiedades de superficie del radio de 1km a la fuente de información de velocidad del viento. 
+
+![](/mca-fauba/tut/imgs/ejemplo_dos_sectores.png)
+
+En ese caso agregamos la definición del nuevo sector y agregamos las líneas para cada estación en la sección "2", vamos a asumir que la clase correspondiente es "85 - Urban/Recreational Grasses" y tendrá valores distintos en z0 ya que se calculan para cada sección, sin embargo comparte los valores de b0 y a0 con el sector 1 porque estos son calculados para la región de 10km x 10km . 
+
+```Text
+ FREQ_SECT  SEASONAL  2
+   SECTOR   1  0   330
+   SECTOR   2  330   360
+**------------------------------------------------|
+**          | season | section | a0  | b0  | z0   |
+**----------|--------|---------|-----|-----|------|
+   SITE_CHAR    1        1      0.16  0.80  0.54
+   SITE_CHAR    2        1      0.16  1.00  0.54
+   SITE_CHAR    3        1      0.18  1.00  0.50
+   SITE_CHAR    4        1      0.16  0.80  0.52
+   SITE_CHAR    1        2      0.16  0.80  0.02
+   SITE_CHAR    2        2      0.16  1.00  0.015
+   SITE_CHAR    3        2      0.18  1.00  0.01
+   SITE_CHAR    4        2      0.16  0.80  0.015
 **----------|--------|---------|-----|-----|------|
 ```
