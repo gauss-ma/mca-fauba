@@ -17,7 +17,7 @@ Para ejecutar el **AERMAP** necesitamos:
 4. Reproyectar DEM a sistema de coordenadas definido en el punto 2.
 5. Construir un archivo de control para el aermap: [``aermap.inp``](archivos/aermod/aermap.inp)
 6. Colocar todos los archivos mencionados en un directorio común.
-7. Ejecutar el aermap haciendo doble click sobre el ejecutable ó si están en la shell: `` ./aermap.exe < aermap.inp``.
+7. Ejecutar el aermap haciendo doble click sobre el ejecutable o si están en la shell: `` ./aermap.exe < aermap.inp``.
 
 ---
 
@@ -27,7 +27,7 @@ El AERMAP se encuentra en la página web de US-EPA: [aermap.exe](https://gaftp.e
 
 Lo descomprimimos, entramos a la carpeta ``aermap_exe`` y deberiamos encontrar adentro el ejecutable ``aermap.exe``.
 
-> :information_source: También podemos encontar el código fuente en: [aermap_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip).
+<!-- > :information_source: También podemos encontar el código fuente en: [aermap_source.zip](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/related/aermap/aermap_source.zip). -->
 
 
 
@@ -64,22 +64,32 @@ Esquema del dominio:
 
 ## Descarga de modelo digital de elevación:
 
-Existen varios modelos digitales de elevación (DEM) con cobertura global, por ejemplo: *ASTER* ó *SRTM*.
+Existen varios modelos digitales de elevación (DEM) con cobertura global, por ejemplo: *ASTER* o *SRTM*.
 Una versión ajustada a nuestro país es el modelo digital de elevación adaptado por el Instituto Geográfico Nacional (IGN), que se puede descargar entrando [aquí](https://www.ign.gob.ar/NuestrasActividades/Geodesia/ModeloDigitalElevaciones/Mapa).
 
-Vamos a descargar el producto *MDE 30m*, las grillas número: *3560-18* y *3557-13*, ya que nuestro proyecto va a estar centrado al suroeste de la Ciudad Autónoma de Buenos Aires.
+Vamos a descargar el producto *MDE 30m*, la grilla número: *3560-18*, ya que nuestro proyecto va a estar centrado en Ezeiza.
 
+![](/tut/imgs/IGN_MAPA.png)
+
+<!-- 
 ### Combinar DEMs:
 En caso de necesitar combinar varios DEMs para cubrir el dominio a modelar se puede utilizar desde la consola, de la herramienta [GDAL](https://gdal.org/), el comando:
 
 ```shell
 gdal_merge.py 3557-13.img 3560-18.img -o merge.tif
-```
+``` -->
 
 ### Reproyección de DEM:
-El DEM que descargaremos va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos a necesitar convertirlo a un sistema proyectado para trabajar. Generalmente para Argentina usamos algúna faja UTM (Universal Transverse Mercator). Por lo tanto necesitamos transformar el archivo a el nuevo sistema de coordenadas:
+El DEM que descargaremos va a estar en sistema de coordenadas geográficas (lat,lon), pero vamos a necesitar convertirlo a un sistema proyectado para trabajar. Generalmente para Argentina usamos alguna faja UTM (Universal Transverse Mercator). Por lo tanto necesitamos transformar el archivo a el nuevo sistema de coordenadas:
 
-Una forma de hacerlo desde la terminal ó shell es utilizando el comando ``gdalwarp`` de la herramienta ``gdal`` (debe estar previamente instalado):
+Para hacer la reproyección, necesitamos una herramienta extrena, puede ser un programa _GIS_ como *Qgis* o *ArcGis*, o herramientas específicas como gdal (que se incluyen al instalar Qgis). Si no logran hacer la reporyección, en [este link](/tut/archivos/aremap/3560-18-utm21s.tif) pueden bajar la capa proyectada en UTM21S. 
+
+Una forma de hacerlo desde la terminal o shell es utilizando el comando ``gdalwarp`` de la herramienta ``gdal`` (debe estar previamente instalado):
+<!-- 
+
+no vi una manera directa de hacerlo andar, si vas a la web te baja el src para que vos lo complies... (creo), sino para bajar binarios en Windows, lo hace vía conda... así que falta tenerlo para poder bajarlo directo. 
+
+-->
 
 ```shell
 gdalwarp -tr ${dx} ${dx} -r cubicspline -t_srs epsg:${epsg_local} -te ${xmin2} ${ymin2} ${xmax2} ${ymax2} ${IGN-MDE} PRUEBA.tif
@@ -93,7 +103,6 @@ Para nuestro ejemplo:
 gdalwarp -tr 50 50 -r cubicspline -t_srs epsg:32721 -te 359233.2 6136944.0 364433.281 6142144.0 merge.tif PRUEBA.tif
 ```
 
-Otra forma de hacer esto es alguna interfaz como *QGIS* ó *ArcGIS*.
 
 ## Archivo de control ``aermap.inp``
 
@@ -125,7 +134,7 @@ Este archivo de texto cuenta con las siguiente secciones:
 
 + CO: Sección de **CO**ntrol de corrida.
 + RE: Sección de **RE**ceptores.
-+ OU: Sección de configuraciónde salidas (**OU**tputs).
++ OU: Sección de configuración de salidas (**OU**tputs).
 
 
 #### **CO**
@@ -138,7 +147,7 @@ CO STARTING
    TERRHGTS  EXTRACT
    DATATYPE  NED
    DATAFILE  PRUEBA.tif
-   DOMAINXY  359333.2 6137044.0 -21 364333.281 6142044.0 -21
+   DOMAINXY  359333.281 6137044.02 -21 364333.281 6142044.02 -21
    ANCHORXY  0 0 0 0 -21 3
    FLAGPOLE  1.5
    RUNORNOT  RUN
@@ -168,6 +177,8 @@ RE STARTING
 RE FINISHED
 ```
 
+
+
 <!--
 En general es recomendable utilizar una grilla establecida por el usuario, para excluir receptores del polígono del predio, definir ubicaciones de receptores críticos o variar la densidad de receptores en función a la distancia a la fuente u otro criterio.
 Para utilizar una grilla definida por el usuario, solo necesitamos un archivo de texto con las coordendas x e y, e incluirlo en nuestro archivo de control de la siguiente manera:
@@ -192,7 +203,7 @@ RE DISCCART 339400.72 6166414.50
 ```
 -->
 <!--
-Para realizar esto proponemos utilizar herramientas de SIG (por ejemplo: *QGIS* ó *ArcGIS*):
+Para realizar esto proponemos utilizar herramientas de SIG (por ejemplo: *QGIS* o *ArcGIS*):
 
 1. Crear un nuevo proyecto de QGIS y cargar las capas de predio y fuentes.
 2. Debemos definir el dominio de modelado, no puede exceder un radio de 50km (en ese caso debemos usar otro sistema de modelado, como CALPUFF) este siempre debe asegurar que incorpora las concentraciones máximas, es posible que luego de una corrida preliminar haya que redefinir la grilla. Como una dimensión inicial vamos a utilizar 3km de radio.
@@ -219,7 +230,7 @@ en este caso el archivo de receptores lo nombramos ``PRUEBA.ROU`` (la extensión
 
 ## Ejecución:
 
-Para ejecutar el aermap, ponemos el ejecutable ``aermap.exe``, el DEM ``PRUEBA.tif`` y el archivo de control en un mismo directorio, y ejecutamos el programa haciendo doble click, ó si estamos en una terminal:
+Para ejecutar el aermap, ponemos el ejecutable ``aermap.exe``, el DEM ``PRUEBA.tif`` y el archivo de control en un mismo directorio, y ejecutamos el programa haciendo doble click, o si estamos en una terminal:
 
 ```shell
 ./aermap.exe < aermap.inp
