@@ -128,7 +128,7 @@ Vamos a preparar el archivo de entrada, por lo que debemos crear un nuevo archiv
 
 ### CONTROL (CO)
 
-En esta seccion se definen opciones generales para la corrida.
+En esta sección se definen opciones generales para la corrida.
 
 ```Text
 CO STARTING
@@ -203,6 +203,21 @@ Entonces para el ejemplo quedaría así:
 ```
 
 
+#### Múltiples fuentes
+Para considerar varias fuentes, siempre que las mismas emitan el mismo contaminante, las podemos agregar en la sección de emisión. Primero agregamos líneas con la ubicación luego de la keyword ``LOCATION`` y usando el mismo "ID" o nombre de fuente, se agregan líneas con sus parámetros de emisión siguiendo la keyword ``SRCPARAM``:  
+
+```Text
+SO STARTING
+   ELEVUNIT  METERS
+   LOCATION  FUENTE1  POINT  361833.28  6139544.02  0
+   LOCATION  FUENTE2  POINT  361838.15  6139534.45  0
+   LOCATION  FUENTE3  POINT  361843.11  6139514.42  0
+   SRCPARAM  FUENTE1 96.7 15 453 27.13 5
+   SRCPARAM  FUENTE2 12 8 423 16 2
+   SRCPARAM  FUENTE3 114 25 483 34 6
+   SRCGROUP  ALL 
+SO FINISHED
+```
 
 
 
@@ -353,6 +368,37 @@ OU FINISHED
 + ``PLOTFILE`` sirven para definir el nombre del archivo de salida con la tabla de máximos valores encontrados por receptor (sirve para hacer los mapas de concentraciones máximas), requiere la definicion del periodo temporal y el grupo de emisores a considerar (``SRCGROUP`` definido en fuentes:``SO``), también da la posibilidad de  mostrar los máximos totales (FIRST) o descartarlos y usar los segundos (SECOND), terceros (THIRD), etc.
 
 
+
+### Múltiples tiempos de promediado
+
+Para considerar distintos tiempos de promediado en la misma corrida del modelo, debemos en primera instancia modificar las opciones de control (CO). En la línea de la keyword ``AVERTIME`` podemos agregar tiempos adicionales, en este caso 1 y 24 representando horas. 
+
+```Text
+CO STARTING
+   TITLEONE  PRUEBA
+   MODELOPT  CONC FLAT
+   AVERTIME  MONTH 1 24 
+   POLLUTID  NOX
+   RUNORNOT  RUN
+   EVENTFIL  OUTPUT.LOG
+   ERRORFIL  ERRORS.LOG
+   FLAGPOLE  1.5
+CO FINISHED 
+```
+Para visualizar los resultados de los distintos tiempos de promediado, vamos a agregar archivos de salida específicos para cada tiempo en la sección de opciones. Agregamos una nueva línea por cada nuevo tiempo de promediado con la keyword ``PLOTFILE``. 
+
+```Text
+OU STARTING  
+   RECTABLE  ALLAVE  FIRST
+   MAXTABLE  ALLAVE  50
+   SUMMFILE  AERTEST_PRUEBA_NOX_MONTH.SUM
+   PLOTFILE  MONTH  ALL  FIRST AERPLOT_PRUEBA_NOX_MONTH.OUT
+   PLOTFILE  1  ALL  FIRST AERPLOT_PRUEBA_NOX_1.OUT
+   PLOTFILE  24  ALL  FIRST AERPLOT_PRUEBA_NOX_24.OUT
+OU FINISHED
+```
+
+
 ## Ejecucion
 
 Para ejecutar el **AERMOD** nos aseguramos tener los siguientes archivos en el directorio de trabajo:
@@ -383,7 +429,9 @@ Si todo sale bien, se van a crear los archivos especificados con las keywords ``
 
 Verificamos rápidamente que fue una corrida exitosa si en el archivo ``AERTEST_PRUEBA_NOX_MONTH.SUM`` no presenta mensajes de error:
 
-``` 
+```
     ******** FATAL ERROR MESSAGES ******** 
                ***  NONE  ***         
 ```
+
+
