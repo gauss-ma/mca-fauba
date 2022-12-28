@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="RELLENO_PREDIO" id="RELLENO_PREDIO">
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>RELLENO_PREDIO</name>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#RELLENO_PREDIO">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Polygon><outerBoundaryIs><LinearRing><coordinates>-64.229736062053,-31.520349156487 -64.2330217391009,-31.5249593386253 -64.2414242093998,-31.5249293357938 -64.2389290556045,-31.5203134555412 -64.229736062053,-31.520349156487</coordinates></LinearRing></outerBoundaryIs></Polygon>
+  </Placemark>
+</Folder>
+</Document></kml>

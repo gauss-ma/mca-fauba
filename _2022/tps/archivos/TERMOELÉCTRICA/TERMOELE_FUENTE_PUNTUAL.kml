@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="TERMOELE_FUENTE_PUNTUAL" id="TERMOELE_FUENTE_PUNTUAL">
+	<SimpleField name="Name" type="string"></SimpleField>
+	<SimpleField name="fid" type="float"></SimpleField>
+</Schema>
+<Folder><name>TERMOELE_FUENTE_PUNTUAL</name>
+  <Placemark>
+	<name>TG1</name>
+	<ExtendedData><SchemaData schemaUrl="#TERMOELE_FUENTE_PUNTUAL">
+		<SimpleData name="fid">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-62.4137680509517,-38.6853499027572</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<name>TG2</name>
+	<ExtendedData><SchemaData schemaUrl="#TERMOELE_FUENTE_PUNTUAL">
+		<SimpleData name="fid">2</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-62.4142635636289,-38.6857278361551</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>

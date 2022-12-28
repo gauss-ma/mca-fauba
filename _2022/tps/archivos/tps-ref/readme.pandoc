@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#Asegurarse de tener instalado:
+# - pandoc
+# - texlive-xetex
+# - texlive-lang-spanish
+
+case $1 in
+(-tp1)
+	#Armar TP1:
+	echo "Armando TP N°1.."
+	titulo="Trabajo Práctico Nº1"
+	subtitulo="Modelo de Sondeo"
+	hoy=$(date "+%d/%m/%Y")
+	autores="García, J.; Fernandez, L.; Gonzalez, R."
+	
+	pandoc -s -N --template=./templates/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./TP1-ejemplo.pdf tp1-ref.md
+;;
+(-tp1-doc)
+
+	#Armar TP1:
+	echo "Armando TP N°1.."
+	titulo="Trabajo Práctico Nº1"                                                                                                                                                                                                                                                                                                               	
+	pandoc -o TP1-ejemplo.docx -f markdown -t docx tp1-ref.md
+;;
+(-tp2)
+	##Armar TP2:
+	echo "armando TP N°2.."
+	titulo="Trabajo Práctico Nº2"
+	subtitulo="Modelo de Detalle"
+	hoy=$(date "+%d/%m/%Y")
+	autores="García, J.C; Fernandez, L.M; Gonzalez, R.T."
+	 
+	pandoc -s -N --template=./templates/mytemplate.tex --variable fontsize=12pt --variable version=1.0 -fmarkdown-implicit_figures --variable title="${titulo}"  --variable subtitle="${subtitulo}" --variable date="${hoy}" --toc --variable author="${autores}" --variable geometry:margin=1in --pdf-engine=xelatex -s -o ./TP2-ejemplo.pdf tp2-ref.md
+;;
+esac
