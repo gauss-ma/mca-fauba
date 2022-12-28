@@ -30,17 +30,38 @@ Debería descargarse un archivo comprimido ``hysplit.v5.2.3_UbuntuOS20.04.4LTS.t
 
 Ir a la carpeta ``/working``, y ejecutar el archivo ``hysplit.tcl``. Se puede ver que se abre una ventana con una interfaz gráfica:
 
-![](./img/hysplit_main.png)
+![](./imgs/hysplit/main.png)
+
+Al clickiar en el botón **Menu** se va a abrir una nueva ventana:
+
+![](./imgs/hysplit/menu.png)
+
+En esta se puden ver las siguientes solapas:
++ *Meteorology:* Opciones para descargar datos meteorológicos ó transformar a formatos que Hysplit pueda leer.
++ *Trajectory:* Opciones para configurar, ejecutar y graficar simulaciones de trayectorias (directas e inversas).
++ *Concentration:* Opciones para configurar, ejecutar y graficar simulaciones de calculo de concentraciones.
++ *Advanced:* Opciones para modificar parámetros default de las corridas.
 
 
-### Simulación de trayectoria
+### Simulación de trayectorias
 
+Si vamos a ``Trayectory>Setup Run``, vamos a ver la siguiente ventana:
+![](./imgs/hysplit/trajSetup.png)
 
+Una vez configurado, guardamos (con el botón *Save*), y ejecutamos el programa haciendo click en la opción ``Trayectory>Run Model``
 
+Para graficar los resultados vamos a ``Trayectory>Display>Trayectory``
 
 ### Simulación de concentraciones
 
 
+Si vamos a ``Concentration>Setup Run``, vamos a ver la siguiente ventana:
+![](./imgs/hysplit/concSetup.png)
+
+Una vez configurado, guardamos (con el botón *Save*), y ejecutamos el programa haciendo click en la opción ``Concentration>Run Model``
+
+
+Para graficar los resultados vamos a ``Concentration>Display>Concentration``
 
 
 
