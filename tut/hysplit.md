@@ -43,6 +43,21 @@ En esta se puden ver las siguientes solapas:
 + *Advanced:* Opciones para modificar parámetros default de las corridas.
 
 
+### Caso de estudio
+
+Incendios en el paraná los días 18 y 19 de Agósto del 2022. Se puede ver la secuencia con los satelites MODIS (Terra y Aqua) y VIIRS en [worldview](https://worldview.earthdata.nasa.gov/).
+
+![](./imgs/hysplit/satelite-incendios-delta-agosto2022-696x398.png)
+
+
+### Descarga de datos meteorológicos
+
+Para bajar datos meteorológicos podemos ir a ``Meteorology>ARL FTP>Archive``
+
+![](./imgs/hysplit/arlFtpArchive.png)
+
+
+
 ### Simulación de trayectorias
 
 Si vamos a ``Trayectory>Setup Run``, vamos a ver la siguiente ventana:
