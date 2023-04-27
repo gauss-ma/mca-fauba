@@ -1,6 +1,7 @@
 ---
 nav_order: 2
-published: true
+published: false
+nav_exclude: true
 ---
 
 # Hysplit

@@ -11,7 +11,6 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ## Clases 2023
 
-A definir.
 
 ### Docente responsable
 + Bormioli, Marcelo G.
@@ -20,29 +19,22 @@ A definir.
 + Espada, Ramiro A.
 + Medrano, Luciano M.
 
-### Docente invitada
-+ Gómez Arismendi, Sabrina
-
 ### Cronograma
 
-A definir.
+|Clase|Fecha  | Teórica | Práctica  |  TP   |
+|:----|:-----:|:--------|:----------|:-----:|
+|  1  | 10/05 | Contexto & Ecuación de transporte | -                                        | -                                   |
+|  2  | 17/05 |                                   | *Hands-on* [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
+|  3  | 24/05 |                                   | *Hands-on* [AERMET](./tut/aermet.html)   | -                                   |
+|  4  | 31/05 |  Teoria Meteorología              |                                          | Explicación [TP 2](./tps/tp2.html)  |
+|  5  | 07/06 |                                   | *Hands-on* [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
+|  6  | 14/06 |  Teoría Modelos Gaussianos        |                                          | Avances [TP 2](./tps/tp2.html) 	   |
+|  7  | 21/06 |                                   | -                                        | Exposición [TP 2](./tps/tp2.html)   |
+|  8  | 28/06 | *Evaluación integradora*          | -                                        | Entrega **TP2**                     |
 
-<!--
-|Clase|Fecha| Teórica | Práctica  |  TP   |
-|:---|:----:|:--------|:----------|:-----:|
-| 1  | xx/xx | [Contexto](./teo/contexto.html) & [Ecuación de transporte](./teo/ectransp.html) | - | - |
-| 2  | xx/xx | [Modelos Gaussianos](./teo/gaussianos.html) | *Hands-on* [Screen3](./tut/screen3.html) | |
-| 3  | xx/xx | - | *Hands-on* [AERMET](tut/aermet.html) | Explicación [TP 1](./tps/tp1.html)  |
-| 4  | xx/xx | [Meteorología](./teo/meteorologia.html) | *Hands-on* [AERMOD](./tut/aermod.html)| Explicación [TP 2](./tps/tp2.html) |
-| 5  | xx/xx | **FERIADO NACIONAL** | - | Entrega **TP1** |
-| 6  | xx/xx | - | [Posprocesamiento](./tut/pos.html) | Avances [TP 2](./tps/tp2.html) 	|
-| 7  | xx/xx | - | - | Avances [TP 2](./tps/tp2.html) |
-| 8  | xx/xx | Fundamentos [AERMOD](./teo/aermod.html) & [Estimación de Emisiones](./files/CHARLA_EMISIONES.pdf) | - | Exposición [TP 2](./tps/tp2.html) |
-| 9  | xx/xx | *Evaluación integradora* | - | Entrega **TP2** | 
--->
 
 ### Lugar y horario
-A definir.
+Miercoles 18 a 21hs, aula UTI, Pabellón Uballes.
 
 
 ### Requisitos de aprobación:
@@ -65,14 +57,11 @@ La evaluación final integradora consta de preguntas conceptuales con poco desar
 
 
 ### Contenidos:
-- **Unidad 1:** Introducción físico-matemática: El significado de modelado y el rol de las ecuaciones diferenciales. Descripción Lagrangiana y Euleriana. La ecuación de transporte. Soluciónes analíticas a la ecuación de transporte. Modelos Gaussianos, Modelos Lagrangianos, Modelos mixtos.
-- **Unidad 2:** Introducción a la normativa: Requerimientos legales en Argentina sobre exigencias de modelados de la dispersión de contaminantes atmosféricos. Desarrollo Histórico de modelos de calidad de aire.
-- **Unidad 3:** Influencia de las condiciones meteorológicas en la dispersión de contaminantes en la atmósfera: Radiación y Balance de calor en la atmósfera. Turbulencia y Capa Límite Planetaria (PBL). Altura de capa de mezcla (Turbulenta y Convectiva). Estructura vertical de la PBL. Tratamiento de la información meteorológica. Calidad de los resultados. Factores de incertidumbre. 
+- **Unidad 1:** Introducción de la calidad del aire. Descripción Lagrangiana y Euleriana. La ecuación de transporte. Soluciónes analíticas a la ecuación de transporte. Modelos Gaussianos.
+- **Unidad 2:** Marco legal en Argentina y exigencias de modelados de la dispersión de contaminantes atmosféricos. Desarrollo Histórico de modelos de calidad de aire.
+- **Unidad 3:** Influencia de las condiciones meteorológicas en la dispersión de contaminantes en la atmósfera: Radiación y Balance de calor en la atmósfera. Turbulencia y Capa Límite Planetaria (PBL). Altura de capa de mezcla (Turbulenta y Convectiva). Estructura vertical de la PBL. Tratamiento de la información meteorológica.
 - **Unidad 4:** Modelos de sondeo: Fundamentos e implementación de modelo simple según normativa local. Fundamentos e implementación de modelo SCREEN3. 
 - **Unidad 5:** Modelos de detalle: Fundamentos e implementación del AERMOD y sus preprocesadores (AERMAP, AERSURFACE, BPIPPRM y AERMET). 
-- **Unidad 6:** Modelado para emergencias: Fundamentos e implementación del HYSPLIT.
-- **Unidad 7:** Nociones de cálculo de emisiones. Interpretación de protocolos de monitoreo de emisiones. Estimaciones mediante AP-42 metodología general.
-- **Unidad 8:** Nociones de modelado de mecanísmos químicos.?
 
 ### Correlativas
 + Física aplicada
@@ -87,10 +76,11 @@ DOS (2) créditos = TREINTA Y DOS (32) horas.
 + "Air Dispersion Modeling, Foundations and Applications". De Visscher A. Wiley. 2013.
 + "SCREEN3 Model User’s Guide". U.S EPA. EPA-454/B-95-004. September 1995.
 + "AERMOD Model Formulation and Evaluation", U.S.EPA. EPA-454/ R-18-003. April, 2018.
-+ "Description of the HYSPLIT 4 modeling system". Roland R. Draxler. Air Resources Laboratory (ARL). Silver Spring, Maryland. December 1997.
 + "Guía metodológica para la evaluación del impacto ambiental atmosférico". Laura Dawidowski, Darío Gómez y Silvia Reich. Honorable Cámara de Diputados de La Nación.
 + "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
 + Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
+
+<!-- + "Description of the HYSPLIT 4 modeling system". Roland R. Draxler. Air Resources Laboratory (ARL). Silver Spring, Maryland. December 1997.-->
 
 ### Bibliografía complementaria
 
