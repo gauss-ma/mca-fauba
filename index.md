@@ -11,6 +11,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 ## Clases 2023
 
+---
 
 ### Docente responsable
 + Bormioli, Marcelo G.
@@ -23,14 +24,14 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 |Clase|Fecha  | Teórica | Práctica  |  TP   |
 |:----|:-----:|:--------|:----------|:-----:|
-|  1  | 10/05 | Contexto & Ecuación de transporte | -                                        | -                                   |
-|  2  | 17/05 |                                   | *Hands-on* [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
-|  3  | 24/05 |                                   | *Hands-on* [AERMET](./tut/aermet.html)   | -                                   |
-|  4  | 31/05 |  Teoria Meteorología              |                                          | Explicación [TP 2](./tps/tp2.html)  |
-|  5  | 07/06 |                                   | *Hands-on* [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
-|  6  | 14/06 |  Teoría Modelos Gaussianos        |                                          | Avances [TP 2](./tps/tp2.html) 	   |
-|  7  | 21/06 |                                   | -                                        | Exposición [TP 2](./tps/tp2.html)   |
-|  8  | 28/06 | *Evaluación integradora*          | -                                        | Entrega **TP2**                     |
+|  1  | 10/05 | Contexto & Ecuación de transporte | -                                        | -               |
+|  2  | 17/05 | Modelos Gaussianos       | [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
+|  3  | 24/05 |                          | [AERMET](./tut/aermet.html)   | -                                   |
+|  4  | 31/05 | Meteorología             |                               | Explicación [TP 2](./tps/tp2.html)  |
+|  5  | 07/06 |                          | [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
+|  6  | 14/06 | Fundamentos de AERMOD    |                               | Avances [TP 2](./tps/tp2.html)      |
+|  7  | 21/06 |                          | -                             | Exposición [TP 2](./tps/tp2.html)   |
+|  8  | 28/06 | *Evaluación integradora* | -                             | Entrega **TP2**                     |
 
 
 ### Lugar y horario
@@ -79,7 +80,6 @@ DOS (2) créditos = TREINTA Y DOS (32) horas.
 + "Guía metodológica para la evaluación del impacto ambiental atmosférico". Laura Dawidowski, Darío Gómez y Silvia Reich. Honorable Cámara de Diputados de La Nación.
 + "Calidad del aire - Monitoreo y modelado de contaminantes atmosféricos. Efectos en la salud pública" Porta, Andrés; Yanina Sanchez; Esteban Colman Lerner. UNLP, 2018.
 + Resolución 559-19 OPDS-Anexo III Instructivo para la aplicación de modelos de difusión atmosférica a efluentes gaseosos. 
-
 <!-- + "Description of the HYSPLIT 4 modeling system". Roland R. Draxler. Air Resources Laboratory (ARL). Silver Spring, Maryland. December 1997.-->
 
 ### Bibliografía complementaria
