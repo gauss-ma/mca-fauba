@@ -10,6 +10,10 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 ---
 
 ## Clases 2023
+Clase 1:
++ [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf)
++ [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
+
 
 ---
 
