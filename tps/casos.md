@@ -9,7 +9,7 @@ published: true
 
 ## Planta de Celulosa 
 
-![](https://assets.iprofesional.com/cdn-cgi/image/w=880,f=webp/https://assets.iprofesional.com/assets/jpg/2021/06/517828.jpg)
+![](https://www.conclusion.com.ar/wp-content/uploads/2022/04/Celulosa.jpg)
 
 El primer caso de estudio es una planta de fabricación de pulpa de celulosa a partir de eucaliptus cultivado. Se encuentra al norte de la ciudad de Rosario a orillas del Paraná. El proceso empleado en la fabricación de la pasta de celulosa es denominado "Kraft" donde se separan los componentes de la pared celular vegetal y se aísla la celulosa. Los compuestos rechazados y los insumos químicos se queman en un proceso de "recuperación" donde se regeneran sales y se aprovecha el calor para generar vapor y generar energía eléctrica mediante una turbina de vapor. Debido a la utilización de sales de azufre, se generan compuestos causantes de olores que son quemados a altas temperatura.
 
