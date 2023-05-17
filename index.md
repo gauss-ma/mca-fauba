@@ -14,6 +14,10 @@ Clase 1:
 + [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf)
 + [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
 
+Clase 2:
++ [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf)
++ [Modelos gaussianos](./files/MCA_4_Presentando Modelo Gausiano.pdf)
+
 
 ---
 
