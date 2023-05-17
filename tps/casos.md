@@ -51,6 +51,8 @@ Fuentes:
 
 [Estudio de impacto de relleno sanitario](https://secretariadeambiente.cba.gov.ar/proyectosingresados/estudio-impacto-ambiental-ampliacion-del-predio-tratamiento-disposicion-final-residuos-solidos-urbanos-piedras-blancas/)
 
+[Estudio de Riesgo con modelado de dispersión pg(104-125)](https://ambiente.cba.gov.ar/wp-content/uploads/2021/08/Caracterizaci%C3%B3n-Riesgo-Ambiental-Piedras-Blancas.pdf)
+
 
 [Descargar datos](./archivos/RELLENO_SANITARIO/RELLENO.zip){: .btn .btn-outline }
 
