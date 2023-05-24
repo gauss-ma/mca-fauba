@@ -256,13 +256,7 @@ Este es el último paso, y es donde se realizan los cálculos que servirán como
 + ``PROFILE``: Nombre del archivo de salida de parámetros en varios niveles.
 
 #### Superficie
-Se requieren informar las siguentes características de superficie del entorno de la estación meteorológica.
-<!-- 
-1. albedo &alpha;
-2. proporción (ratio) de bowen $B_{0}$
-3. longitud de rugosidad de superficie $z_{0}$
-  -->
-Para determinar la clase de cobertura dominante y sus parámetros asociados se debe analizar la siguiente información.
+Se requieren informar las siguentes características de superficie del entorno de la estación meteorológica. Para determinar la clase de cobertura dominante y sus parámetros asociados se debe analizar la siguiente información.
 
 1. albedo &alpha;:
     - Media *aritmética* de región de 10 km x 10 km centrada en la estación meteorológica. 
@@ -273,8 +267,8 @@ Para determinar la clase de cobertura dominante y sus parámetros asociados se d
 3. longitud de rugosidad de superficie $z_{0}$
    - En un radio de 1km a la estación meteorológica, se deben analizar 12 direcciones del viento o secciones de 30°. A cada sección se asigna como $z_{0}$ la media geométrica del valor de rugosidad ponderado de forma inversa a la distancia a la estación. 
 
-En el apartado [AERSURFACE](/mca-fauba/tut/aersurface.html) se desarrollan métodos equivalentes al preprocesador **AERSURFACE**, donde a partir de capas de información geográfica de cobertura del suelo, se infieren las propiedades de superficie. 
-En este caso vamos a informar directamente las propiedades de superficie asumiendo que estas propiedades son homogéneas para todas las direcciones del viento y constantes durante todo el año.
+    En el apartado [AERSURFACE](/mca-fauba/tut/aersurface.html) se desarrollan métodos equivalentes al preprocesador **AERSURFACE**, donde a partir de capas de información geográfica de cobertura del suelo, se infieren las propiedades de superficie. 
+    En este caso vamos a informar directamente las propiedades de superficie asumiendo que estas propiedades son homogéneas para todas las direcciones del viento y constantes durante todo el año.
 
   Incluimos este texto al archivo de control:
   
