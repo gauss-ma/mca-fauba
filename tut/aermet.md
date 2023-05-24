@@ -246,7 +246,7 @@ Este es el último paso, y es donde se realizan los cálculos que servirán como
 
 + ``XDATES``: Rango de fechas a procesar.
 + ``METHOD``: Define métodos a ser utilizados en el cálculo.
-    + ``WIND_DIR RANDOM``: lo mismo que en los pasos anteriores.
+    + ``WIND_DIR RANDOM``: como la dirección del viento suele reportarse redondeada a 10, modofica este valor.
     + ``UASELECT SUNRISE``: Según la latitud selecciona el sondeo mas apropiado al amanecer.
     + ``REFLEVEL SUBNWS``: Permite hacer sustituciones de los datos de superficie.
 + ``NWS_HGT``: Altura del instrumento meteorológico utilizado.
