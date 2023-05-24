@@ -65,8 +65,6 @@ Para el caso de la información del perfil de la atmósfera por radiosondeos, en
 |CORDOBA AERO			|CORDOBA	|-64.20000	|-31.30000	|495.0		|87344	|SACO|
 
 
-
-
 Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noaa.gov/raobs), donde al completar un formulario se va a generar un archivo con la información requerida.
 
 Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremos descargar.
@@ -151,67 +149,67 @@ El archivo de control será estructurado de la siguiente manera:
 En esta etapa tenemos que proveer al **AERMET** con los archivos de entrada y parámetros para extraerlos.
 
 
-+ #### JOB
-    
-    Incluimos este texto al archivo de control:
-    ```Text
-    ** ETAPA 1: Lectura y procesamiento de datos de entrada.
-    JOB
-        MESSAGES MENSAJES.MSG
-        REPORT   REPORTE.RPT
-    ```
-    Todas las líneas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
-    En la ruta ``JOB`` Se introducen instrucciones generales para toda la corrida.
-    
-    + ``MESSAGES`` define el nombre del archivo de texto que se creará para guardar todos los avisos de información, alertas y errores. Si falla la corrida, este es el archivo que se debe abrir primero.
-    + ``REPORT`` define el nombre del archivo de texto que se creará para guardar un resumen de la corrida, cuantificando cantidad de observaciones aceptadas.
+#### JOB
+   
+   Incluimos este texto al archivo de control:
+   ```Text
+   ** ETAPA 1: Lectura y procesamiento de datos de entrada.
+   JOB
+       MESSAGES MENSAJES.MSG
+       REPORT   REPORTE.RPT
+   ```
+   Todas las líneas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
+   En la ruta ``JOB`` Se introducen instrucciones generales para toda la corrida.
+   
+   + ``MESSAGES`` define el nombre del archivo de texto que se creará para guardar todos los avisos de información, alertas y errores. Si falla la corrida, este es el archivo que se debe abrir primero.
+   + ``REPORT`` define el nombre del archivo de texto que se creará para guardar un resumen de la corrida, cuantificando cantidad de observaciones aceptadas.
 
-+ #### SURFACE
-    
-    Incluimos este texto al archivo de control:
-    ```Text
-    **    Datos horarios de superficie:
-    SURFACE
-        DATA       PRUEBA.ISH ISHD
-        XDATES     2021/12/01 TO 2021/12/31
-        LOCATION   87576  34.820S  058.583W  3  +0003
-        AUDIT      WDIR WSPD TSKC RHUM TMPD
-        QAOUT      QA_SFC.OUT
-    ```
-    + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
-    + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
-    + ``LOCATION`` ID, coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
-    + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
-        + ``WDIR`` Dirección del viento (_obligatorio_)[°/10].
-        + ``WSPD`` Velocidad del viento (_obligatorio_)[m/s*10]. 
-        + ``TSKC`` Cobertura nubosa (_obligatorio_)[10/10].
-        + ``RHUM`` Humedad relativa [%].
-        + ``TMPD`` Temperatura bulbo seco (_obligatorio_)[ºC*10].  
-    + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
+#### SURFACE
+   
+   Incluimos este texto al archivo de control:
+   ```Text
+   **    Datos horarios de superficie:
+   SURFACE
+       DATA       PRUEBA.ISH ISHD
+       XDATES     2021/12/01 TO 2021/12/31
+       LOCATION   87576  34.820S  058.583W  3  +0003
+       AUDIT      WDIR WSPD TSKC RHUM TMPD
+       QAOUT      QA_SFC.OUT
+   ```
+   + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
+   + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
+   + ``LOCATION`` ID, coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
+   + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
+       + ``WDIR`` Dirección del viento (_obligatorio_)[°/10].
+       + ``WSPD`` Velocidad del viento (_obligatorio_)[m/s*10]. 
+       + ``TSKC`` Cobertura nubosa (_obligatorio_)[10/10].
+       + ``RHUM`` Humedad relativa [%].
+       + ``TMPD`` Temperatura bulbo seco (_obligatorio_)[ºC*10].  
+   + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
 
-+ #### UPPERAIR
-    
-    Incluimos este texto al archivo de control:
-    ```Text
-    **    Datos de sondeos verticales:
-    UPPERAIR
-        DATA       PRUEBA.FSL FSL
-        XDATES     2021/12/01 TO 21/12/31
-        LOCATION   87576  34.82S  58.53W  3
-        AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
-        QAOUT      QA_UA.OUT
-    ```
-    + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
-    + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
-    + ``LOCATION`` Coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
-    + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
-        + ``UAPR`` Presión (_obligatorio_)[mbar*10].
-        + ``UAHT`` Altura (_obligatorio_)[m]. 
-        + ``UATT`` Temperatura (_obligatorio_)[ºC*10].
-        + ``UATD`` Punto de rocío [ºC*10].
-        + ``UAWD`` Dirección del viento [° desde N].
-        + ``UAWS`` Velocidad del viento [m/s*10] .  
-    + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
+#### UPPERAIR
+   
+   Incluimos este texto al archivo de control:
+   ```Text
+   **    Datos de sondeos verticales:
+   UPPERAIR
+       DATA       PRUEBA.FSL FSL
+       XDATES     2021/12/01 TO 21/12/31
+       LOCATION   87576  34.82S  58.53W  3
+       AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
+       QAOUT      QA_UA.OUT
+   ```
+   + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
+   + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
+   + ``LOCATION`` Coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
+   + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
+       + ``UAPR`` Presión (_obligatorio_)[mbar*10].
+       + ``UAHT`` Altura (_obligatorio_)[m]. 
+       + ``UATT`` Temperatura (_obligatorio_)[ºC*10].
+       + ``UATD`` Punto de rocío [ºC*10].
+       + ``UAWD`` Dirección del viento [° desde N].
+       + ``UAWS`` Velocidad del viento [m/s*10] .  
+   + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
 
 
 _La etapa 1 permitiría iterar sobre la información meteorológica hasta conseguir datos de [superficie](./archivos/aermet/SFC_MODIF.ISH) y [sondeos](./archivos/aermet/UA_FULL_DEC21.FSL) lo mas completos posible._
@@ -220,7 +218,7 @@ _La etapa 1 permitiría iterar sobre la información meteorológica hasta conseg
 
 Este es el último paso, y es donde se realizan los cálculos que servirán como información de entrada al **AERMOD**.
 
-+ #### METPREP
+#### METPREP
     
     Incluimos este texto al archivo de control:
 

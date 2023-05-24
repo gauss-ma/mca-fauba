@@ -41,14 +41,14 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 |Clase|Fecha  | Teórica | Práctica  |  TP   |
 |:----|:-----:|:--------|:----------|:-----:|
-|  1  | 10/05 | Contexto & Ecuación de transporte | -                                        | -               |
-|  2  | 17/05 | Modelos Gaussianos       | [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
-|  3  | 24/05 |                          | [AERMET](./tut/aermet.html)   | -                                   |
-|  4  | 31/05 | Meteorología             |                               | Explicación [TP 2](./tps/tp2.html)  |
-|  5  | 07/06 |                          | [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
-|  6  | 14/06 | Fundamentos de AERMOD    |                               | Avances [TP 2](./tps/tp2.html)      |
-|  7  | 21/06 |                          | -                             | Exposición [TP 2](./tps/tp2.html)   |
-|  8  | 28/06 | *Evaluación integradora* | -                             | Entrega **TP2**                     |
+|  1  | 10/05 | Contexto & Ecuación de transporte | -                             | -                                   |
+|  2  | 17/05 | Modelos Gaussianos                | [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
+|  3  | 24/05 |                                   | [AERMET](./tut/aermet.html)   | -                                   |
+|  4  | 31/05 |                                   | [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
+|  5  | 07/06 | Meteorología                      |                               | Explicación [TP 2](./tps/tp2.html)  |
+|  6  | 14/06 | Fundamentos de AERMOD             |                               | Avances [TP 2](./tps/tp2.html)      |
+|  7  | 21/06 |                                   | -                             | Exposición [TP 2](./tps/tp2.html)   |
+|  8  | 28/06 | *Evaluación integradora*          | -                             | Entrega **TP2**                     |
 
 
 ### Lugar y horario
