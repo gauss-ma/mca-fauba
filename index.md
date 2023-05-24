@@ -10,13 +10,22 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 ---
 
 ## Clases 2023
-Clase 1:
-+ [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf)
-+ [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
+### Clase 1:
++ #### Presentación
+    + [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf)
+    + [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
++ #### Lectura 
+    + [Cronología calidadde aire](./files/Heirdon_AirPollutionHistorical.pdf)
 
-Clase 2:
-+ [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf)
-+ [Modelos gaussianos](./files/MCA_4_Presentando Modelo Gausiano.pdf)
+
+### Clase 2:
+
++ #### Presentación
+    + [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf)
+    + [Modelos gaussianos](./files/MCA_4_Presentando_Modelo_Gausiano.pdf)
++ #### Lectura
+    + [Guia uso screen](./tut/archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf)
+    + [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
 
 
 ---

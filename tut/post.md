@@ -49,13 +49,29 @@ Aseguramos que este seleccionada la opción "ancho fijo" y clickeamos <kbd>Final
 Ya tenemos la información en tabla para ser procesada, pero es conveniente contar con una fila adicional de encabezado. Vamos a insertar una fila en "1", clickeando con el botón derecho y seleccionando "Insertar".
 A esta nueva fila 1 le colocaremos los encabezados del plotfile que tiene la fila 7. En esta instancia ya tenemos lista la tabla de resultados para procesar.
 
+Salida de **AERMOD**:
 ![](./imgs/Excel_5.png)
 
-La principal utilidad de la tabla sería permitir:
+Salida de **AERMET**:
+![](./imgs/Excel_6.png)
+
+La principal utilidad de la tabla en **AERMOD** sería permitir:
  
  - Graficar ubicación de concentraciones máximas.
  - Encontrar máximos, sumar la concentración de fondo, compararlos con estándares y reportar ubicación y fecha de ocurrencia.
 -  Analizar frecuencia y distribución de concentraciones máximas.
+
+La principal utilidad de la tabla en **AERMET** sería permitir:
+
+- Aplicar fórmulas para auditar los datos obtenidos.
+- Graficar evolución de parámetros y auditar continuidad.
+
+[Ejemplo de planilla de procesamiento del archivo SFC.](./archivos/post/sfc_procesamiento.xlsx)
+
+
+
+
+
 
 ## Rosa de vientos:
 

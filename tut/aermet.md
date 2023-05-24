@@ -4,27 +4,9 @@ published: true
 ---
 # AERMET
 
-Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**)
+Tutorial para ejecución de preprocesador meteorológico del aermod (**AERMET**). Para mayor información se recomienda consultar la [guía de usuario](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf).
 {: .fs-6 .fw-300 }
 
-<!-- ## Resumen
-Los pasos generales a seguir son:
-
-0. Crear *directorio de trabajo*  :open_file_folder:``tutorial`` en donde colocaremos todos los archivos de corrida y ejecutables. 
-1. Descargar [``aermet.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_exe.zip) y descomprimirlo, colocar el ejecutable ``aermet.exe`` en el directorio de trabajo.
-2. Descargar datos meteorológicos: de [superficie](https://www.ncei.noaa.gov/pub/data/noaa/) y [radiosondeos](https://ruc.noaa.gov/raobs). Colocarlos en el directorio de trabajo.
-3. Construir *archivos de control* para cada etapa de ejecución:
-	+ :page_facing_up: [``ETAPA1.INP``](./archivos/aermod/ETAPA1.INP), extracción y control de calidad de datos.
-	+ :page_facing_up: [``ETAPA2.INP``](./archivos/aermod/ETAPA2.INP), fusión de datos de superficie y radiosondeos.
-	+ :page_facing_up: [``ETAPA3.INP``](./archivos/aermod/ETAPA3.INP), cálculo de parámetros de capa límite.
-4. Verificar que estén todos los archivos mencionados en los puntos anteriores y el ejecutable en el directorio de trabajo.
-5. Ejecutar cada etapa en el siguiente orden: 
-	1. Copiar ``ETAPA1.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
-	2. Copiar ``ETAPA2.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
-	3. Copiar ``ETAPA3.INP`` como ``aermet.inp`` y hacer doble click en ``aermet.exe``
-
-en las siguientes secciones se presenta cada pasos detallado.
--->
 ---
 
 ## Directorio de trabajo
@@ -69,12 +51,13 @@ Se va a descargar un archivo comprimido con extensión ``.gz`` (gzip), al descom
 
 ### Radiosondeos:
 
-Para el caso de la información del perfil de la atmósfera por radiosondeos, en Argentina solamente contamos con 6 estaciones que hacen esta medición:
+Para el caso de la información del perfil de la atmósfera por radiosondeos, en Argentina solamente contamos con 6 estaciones que hacen esta medición, donde Ezeiza y Aeroparque alternan como sitio de lanzamiento para Buenos Aires:
 
 
 |Nombre				|Provincia	|Longitud	|Latitud	|Altura [m]	|NRO	|NACI|
 |---|---|---|---|---|---|---|
 |EZEIZA AERO			|BUENOS AIRES	|-58.53333	|-34.81667	|20.0		|87576	|SAEZ|
+|AEROPARQUE             |BUENOS AIRES   |-58.42     |-34.68     |6.0            |87582|SABE|
 |SANTA ROSA AERO		|LA PAMPA	|-64.26667	|-36.56667	|191.0		|87623	|SAZR|
 |MENDOZA AERO			|MENDOZA	|-68.78333	|-32.83333	|704.0		|87418	|SAME|
 |RESISTENCIA AERO		|CHACO		|-59.05000	|-27.45000	|52.0		|87155	|SARE|
@@ -88,7 +71,7 @@ Los radiosondeos se descargan de [NOAA/ESRL Radiosonde Database](https://ruc.noa
 
 Primero nos va a pedir la fecha de inicio y fin de la serie de datos que queremos descargar.
 
-![Raobs Pantalla I](imgs/ruc_raobs_i.png) 
+![Raobs Pantalla I](imgs/ruc_raobs_i_v2.png) 
 
 Luego vamos a tener que especificar horas de acceso (seleccionar ``0z, 12z ONLY``), los niveles verticales (seleccionar ``All levels``), y las unidades para la velocidad de viento (seleccionar ``Tenths of Meters/Second``) en decenas de metros por segundo.
 
@@ -110,34 +93,24 @@ Vamos a obtener como texto la información solicitada. Para guardarla, seleccion
 El inicio del archivo debiera tener este contenido:
 
 ```Text
-254     12      1      JAN    2021
-      1  99999  87576  34.82S 58.53W    20   1134
-      2    200   1820    933    112  99999      3
+   254     12      1      DEC    2021
+      1  99999  87576  34.82S 58.53W    20  99999
+      2  99999   1500   1010     56  99999      3
       3          SAEZ                99999     ms
-      9  10130     20    208     98    290     41
-      4  10000    130    214     64    285     46
-      5   9880    234    204     64  99999  99999
-      6   9800    304  99999  99999    250     82
-      5   9690    401    218     38  99999  99999
-      6   9460    609  99999  99999    245    113
-      4   9250    804    200     30    250    113
-      5   9170    878    196     26  99999  99999
-      6   9131    914  99999  99999    245    103
-      6   8811   1219  99999  99999    235     93
-      6   8502   1524  99999  99999    255     72
-      4   8500   1526    146     26    245     67
-      6   8196   1828  99999  99999    230     62
-      6   7900   2133  99999  99999    205     72
-      5   7630   2421     68     -2  99999  99999
-      6   7614   2438  99999  99999    190     98
-      6   7334   2743  99999  99999    195     87
-      5   7270   2815     50    -80  99999  99999
-      5   7090   3019     52   -158  99999  99999
-      6   7066   3048  99999  99999    235    103
-      4   7000   3130     44    -76    230    103
-      5   6990   3142     44    -66  99999  99999
-      5   6570   3643     26   -174  99999  99999
-      6   6559   3657  99999  99999    210    118
+      9  10140     20    184    149    120     21
+      6  99999  16764  99999  99999    260    252
+      6  99999  17678  99999  99999    230    185
+      6  99999  17983  99999  99999    220    108
+      6  99999  18288  99999  99999    105      5
+      6  99999  20421  99999  99999     85     72
+      6  99999  20726  99999  99999     70     77
+      6  99999  21031  99999  99999     75     77
+      6  99999  21336  99999  99999     95     77
+      6  99999  21945  99999  99999     55     72
+      6  99999  22555  99999  99999     80     98
+      6  99999  23164  99999  99999     50    123
+      6  99999  23774  99999  99999     75    118
+      6  99999  24079  99999  99999     65    123
 ... (continúa)
 ```
 
@@ -152,152 +125,277 @@ Para ejecutar el **AERMET** primero verificamos que estén todos los archivos ne
 + ``PRUEBA.FSL``
 + ``aermet.exe``
 
-El **AERMET** se ejecuta en 3 etapas a las que llamaremos: **ETAPA1**, **ETAPA2** y **ETAPA3**. Cada una de estas necesita un *archivo de control*, que es un archivo de texto con definición de parámetros para configurar la corrida y permitirle a AERMET realizar cada etapa con los datos que disponemos.
+El **AERMET** realiza dos tareas principales, extraer la información meteorológica, controlando su consistencia y luego realiza cálculos de parámetros de capa límite, requeridos para el uso de **AERMOD**. Estos dos pasos se denominan **ETAPA1** y **ETAPA2**. 
 
-A los archivos de control los llamaremos ``ETAPA1.INP``, ``ETAPA2.INP`` y ``ETAPA3.INP``.
+Pueden realizarse de forma separada, repitiendo la **ETAPA1** hasta asegurar que los datos meteorológicos no presentan problemas y luego avanzar a la **ETAPA2**.
+Para este tutorial realizaremos las dos etapas seguidas.
+
+El programa necesita un *archivo de control*, que es un archivo de texto con definición de parámetros para configurar la corrida y permitirle a **AERMET** realizar cada etapa con los datos que disponemos.
+
+Creamos un archivo de texto en el directorio de trabajo y lo nombramos: [``AERMET.INP``](./archivos/aermet/AERMET.INP), este será el archivo de control.  
+
+
+Dentro de cada etapa introduciremos instrucciones o ``keyowrds`` al archivo de texto dentro de rutas o ``pathways``. 
+El archivo de control será estructurado de la siguiente manera:
+
++ ``JOB``
++ ``SURFACE``
++ ``UPPERAIR``
++ ``METPREP``
+
 
 
 ### Etapa 1:  Lectura y procesamiento de datos de entrada.
 
+
 En esta etapa tenemos que proveer al **AERMET** con los archivos de entrada y parámetros para extraerlos.
 
-Vamos a tener que construir un archivo de control donde vamos a especificar las rutas a los archivos de entrada, las fechas de extracción, ubicación y parámetros de las estaciones meteorológicas, entre otros.
 
-Creamos un archivo de texto y lo nombramos: [ETAPA1.INP](./archivos/aermod/ETAPA1.INP). Copiamos en él el siguiente contenido: 
++ #### JOB
+    
+    Incluimos este texto al archivo de control:
+    ```Text
+    ** ETAPA 1: Lectura y procesamiento de datos de entrada.
+    JOB
+        MESSAGES MENSAJES.MSG
+        REPORT   REPORTE.RPT
+    ```
+    Todas las líneas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
+    En la ruta ``JOB`` Se introducen instrucciones generales para toda la corrida.
+    
+    + ``MESSAGES`` define el nombre del archivo de texto que se creará para guardar todos los avisos de información, alertas y errores. Si falla la corrida, este es el archivo que se debe abrir primero.
+    + ``REPORT`` define el nombre del archivo de texto que se creará para guardar un resumen de la corrida, cuantificando cantidad de observaciones aceptadas.
 
-```Text
-** ETAPA 1: Lectura y procesamiento de datos de entrada.
-JOB
-MESSAGES ETAPA1.MSG
-REPORT   ETAPA1.RPT
-**    Datos horarios de superficie:
-SURFACE
-DATA       PRUEBA.ISH ISHD
-EXTRACT    EXTRACT_SFC.DSK
-XDATES     2021/12/01 TO 21/12/31
-LOCATION   87576  34.820S  058.583W  3  +0003
-AUDIT      WDIR WSPD CLHT TSKC RHUM
-QAOUT      QA_SFC.OUT
-**    Datos de sondeos verticales:
-UPPERAIR
-DATA       PRUEBA.FSL FSL
-EXTRACT    EXTRACT_UA.DSK
-XDATES     2021/12/01 TO 21/12/31
-LOCATION   87576  34.82S  58.53W  3
-AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
-QAOUT      QA_UA.OUT
-```
++ #### SURFACE
+    
+    Incluimos este texto al archivo de control:
+    ```Text
+    **    Datos horarios de superficie:
+    SURFACE
+        DATA       PRUEBA.ISH ISHD
+        XDATES     2021/12/01 TO 2021/12/31
+        LOCATION   87576  34.820S  058.583W  3  +0003
+        AUDIT      WDIR WSPD TSKC RHUM TMPD
+        QAOUT      QA_SFC.OUT
+    ```
+    + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
+    + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
+    + ``LOCATION`` ID, coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
+    + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
+        + ``WDIR`` Dirección del viento (_obligatorio_)[°/10].
+        + ``WSPD`` Velocidad del viento (_obligatorio_)[m/s*10]. 
+        + ``TSKC`` Cobertura nubosa (_obligatorio_)[10/10].
+        + ``RHUM`` Humedad relativa [%].
+        + ``TMPD`` Temperatura bulbo seco (_obligatorio_)[ºC*10].  
+    + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
 
-Todas las líneas que comienzan con ``**`` son interpretadas como *comentarios* y por lo tanto, el programa las ignora.
++ #### UPPERAIR
+    
+    Incluimos este texto al archivo de control:
+    ```Text
+    **    Datos de sondeos verticales:
+    UPPERAIR
+        DATA       PRUEBA.FSL FSL
+        XDATES     2021/12/01 TO 21/12/31
+        LOCATION   87576  34.82S  58.53W  3
+        AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
+        QAOUT      QA_UA.OUT
+    ```
+    + ``DATA`` Indica nombre del archivo con datos meteorológicos de superficie y fomato, en este caso el formato es ISHD.
+    + ``XDATES`` Rango de fechas en los que extraer los datos meteorológicos _[yyyy/mm/dd]_.
+    + ``LOCATION`` Coordenadas de la estación de superficie y diferencia de horas con huso de Greenwich (3).
+    + ``AUDIT`` Definimos que variables deseamos reportar en el control de calidad:
+        + ``UAPR`` Presión (_obligatorio_)[mbar*10].
+        + ``UAHT`` Altura (_obligatorio_)[m]. 
+        + ``UATT`` Temperatura (_obligatorio_)[ºC*10].
+        + ``UATD`` Punto de rocío [ºC*10].
+        + ``UAWD`` Dirección del viento [° desde N].
+        + ``UAWS`` Velocidad del viento [m/s*10] .  
+    + ``QAOUT`` Definimos nombre de archivo con reporte de control de calidad. 
 
-El archivo ``ETAPA1.INP`` se divide en las siguientes secciones:
-+ ``JOB ``: Se especifican los nombres de los archivos donde el programa guardará los registros de la ejecución (mensajes de alerta y errores).
-+ ``SURFACE ``: Se brinda la ruta al archivo de superficie, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.
-+ ``UPPER ``: se brinda la ruta al archivo de radiosondeo, el formato, y las fechas de inicio y fin de la corrida, y ubicación de la estación.
 
+_La etapa 1 permitiría iterar sobre la información meteorológica hasta conseguir datos de [superficie](./archivos/aermet/SFC_MODIF.ISH) y [sondeos](./archivos/aermet/UA_FULL_DEC21.FSL) lo mas completos posible._
 
-En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo con el nombre ``ETAPA1.INP``, luego lo copiamos nombrando la copia ``aermet.inp`` y ejecutamos el ``aermet.exe``.
-
-Si todo sale bien se van a crear los siguientes archivos:
-+ ``ETAPA1.MSG`` y ``ETAPA1.RPT`` nos brindan información de como fue la ejecución, y en caso de haber un error ahi habrán mensajes de alerta ó error.
-+ ``EXTRACT_SFC.DSK`` y ``EXTRACT_UA.DSK`` contienen los datos extraídos de los archivos meteorológicos de superficie y radiosondeos respectivamente.
-+ ``QA_SFC.OUT`` y ``QA_UA.OUT`` archivos con información de variables auditadas que servirán par el siguiente paso.
-+ ``Discarded_ISHD_Records.dat`` si algún registro no cumple los parámetros de calidad entonces se descartan y se guardan en este archivo para su revisión.
-
-### Etapa 2: Fusión (merge) de archivos
-
-En esta etapa se fusionan los datos de superficie con los meteorológicos.
-También necesitamos crear un archivo de control: [ETAPA2.INP](./archivos/aermet/ETAPA2.INP) con el siguiente contenido:
-
-```Text
-** Stage 2: Merge de datos.
-JOB
-MESSAGES ETAPA2.MSG
-REPORT   ETAPA2.RPT
-SURFACE
-QAOUT  QA_SFC.OUT
-UPPERAIR
-QAOUT  QA_UA.OUT
-MERGE
-OUTPUT PRUEBA.MRG
-XDATES 2021/12/01 TO 21/12/31
-```
-
-Este archivo contiene las siguientes secciones:
-+ ``JOB ``: Cumple el mismo rol que en etapa 1.
-+ ``SURFACE ``: Se especifica el archivo con los datos de superficie extraídos en la etapa 1.
-+ ``UPPER ``: Se especifica el archivo con los datos de radiosondeo extraídos en la etapa 1.
-+ ``MERGE``: en esta sección se especifica el archivo de salida con los datos de superficie y radiosondeo fusionados que será la entrada en la etapa 3.
-
-Guardamos este archivo con el nombre ``ETAPA2.INP``, y luego lo copiamos como ``aermet.inp`` (reemplazando el preexistente) y ejecutamos el ``aermet.exe``.
-
-Se van a crear los siguientes archivos:
-+ ``ETAPA2.MSG`` y ``ETAPA2.RPT`` nos brindan información de warnings y errores.
-+ ``PRUEBA.MRG`` contienen los datos fusionados que serán utilizados en el siguiente paso.
-
-### Etapa 3: Cálculo de parámetros de capa límite
+### Etapa 2: Cálculo de parámetros de capa límite
 
 Este es el último paso, y es donde se realizan los cálculos que servirán como información de entrada al **AERMOD**.
 
-Vamos a crear nuestro archivo de control: [ETAPA3.INP](./archivos/aermod/ETAPA3.INP) con el siguiente contenido:
++ #### METPREP
+    
+    Incluimos este texto al archivo de control:
+
+    ```Text
+    ** ETAPA 2 - Estimación de parámetros de la capa límite y creación de .SFC y .PFL
+
+    METPREP
+        XDATES   2021/12/01 TO 2021/12/31
+
+    ** Métodos para procesamiento de datos:
+        METHOD   WIND_DIR RANDOM
+        METHOD   UASELECT SUNRISE
+        METHOD   REFLEVEL SUBNWS
+
+        NWS_HGT  WIND      10.0
+        
+    ** Nombres de archivos de salida
+
+        OUTPUT      PRUEBA.SFC
+        PROFILE     PRUEBA.PFL
+
+
+    ```
+
+
++ ``XDATES``: Rango de fechas a procesar.
++ ``METHOD``: Define métodos a ser utilizados en el cálculo.
+    + ``WIND_DIR RANDOM``: lo mismo que en los pasos anteriores.
+    + ``UASELECT SUNRISE``: Según la latitud selecciona el sondeo mas apropiado al amanecer.
+    + ``REFLEVEL SUBNWS``: Permite hacer sustituciones de los datos de superficie.
++ ``NWS_HGT``: Altura del instrumento meteorológico utilizado.
++ ``OUTPUT``: Nombre del archivo de salida de parámetros de capa límite.
++ ``PROFILE``: Nombre del archivo de salida de parámetros en varios niveles.
+
+#### Superficie
+Se requieren informar las siguentes características de superficie del entorno de la estación meteorológica.
+<!-- 
+1. albedo &alpha;
+2. proporción (ratio) de bowen $B_{0}$
+3. longitud de rugosidad de superficie $z_{0}$
+  -->
+Para determinar la clase de cobertura dominante y sus parámetros asociados se debe analizar la siguiente información.
+
+1. albedo &alpha;:
+    - Media *aritmética* de región de 10 km x 10 km centrada en la estación meteorológica. 
+
+2. proporción (ratio) de bowen $B_{0}$
+   - Media *geométrica* de región de 10 km x 10 km centrada en la estación meteorológica.
+ 
+3. longitud de rugosidad de superficie $z_{0}$
+   - En un radio de 1km a la estación meteorológica, se deben analizar 12 direcciones del viento o secciones de 30°. A cada sección se asigna como $z_{0}$ la media geométrica del valor de rugosidad ponderado de forma inversa a la distancia a la estación. 
+
+En el apartado [AERSURFACE](/mca-fauba/tut/aersurface.html) se desarrollan métodos equivalentes al preprocesador **AERSURFACE**, donde a partir de capas de información geográfica de cobertura del suelo, se infieren las propiedades de superficie. 
+En este caso vamos a informar directamente las propiedades de superficie asumiendo que estas propiedades son homogéneas para todas las direcciones del viento y constantes durante todo el año.
+
+  Incluimos este texto al archivo de control:
+  
+```Text
+** Parámetros de superficie
+
+    FREQ_SECT ANNUAL 1
+    SECTOR   1  0   360
+**-------------------------------------------------|
+**           | season | section | a0  | b0  | z0   |
+**-----------|--------|---------|-----|-----|------|
+    SITE_CHAR    1        1      0.16  0.80  0.54
+**-----------|--------|---------|-----|-----|------|
+
+```
+Recordamos que el uso de asteriscos ``**`` define que la línea siguiente es un "comentario" y es salteada por el programa, en este caso se usa para facilitar la lectura de los parámetros, haciendo de encabezados.
+
++ ``FREQ_SECT``: Con que frecuencia cambian los valores de superficie y cuantos sectores se deben considerar, para este ejemplo se mantuvieron constantes en un sector homogéneo.
++ ``SECTOR``: divisiones de a 30° desde el norte con propiedades de superficie.
++ ``SITE_CHAR``: &alpha;, $B_{0}$ y $z_{0}$ para cada sector y para cada invervalo de frecuencia (estación, mes o año).
+
+
+### AERMET.INP
+
+Si se siguieron  correctamente las instrucciones, el archivo de texto nombrado AERMET.INP debiera tener el siguiente contenido:
+
+
 
 ```Text
-** Stage 3 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
+**--------------------**
+** AERMET.INP-MCA2023 ** 
+**____________________**
+
+** ETAPA 1: Lectura y procesamiento de datos de entrada.
+
 JOB
-MESSAGES ETAPA3.MSG
-REPORT   ETAPA3.RPT
+    MESSAGES MENSAJE.MSG
+    REPORT   REPORTE.RPT
+
+**    Datos horarios de superficie:
+
+SURFACE
+
+    DATA       SFC_MODIF.ISH ISHD
+    XDATES     2021/12/01 TO 2021/12/31
+    LOCATION   87576  34.820S  058.583W  3  +0003
+    AUDIT      WDIR WSPD TSKC RHUM TMPD
+    QAOUT      QA_SFC.OUT
+
+**    Datos de sondeos verticales:
+
+UPPERAIR
+
+    DATA       UA_FULL_DEC21.FSL FSL
+    XDATES     2021/12/01 TO 2021/12/31
+    LOCATION   87576  34.82S  58.53W  3
+    AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
+    QAOUT      QA_UA.OUT
+
+** ETAPA 2 - Estimación de parametros de la capa límite y creación de .SFC y .PFL
+
 METPREP
-DATA        PRUEBA.MRG
-LOCATION    A212 34.450S 058.583W  3
-XDATES      2021/01/01 TO 21/12/31
-OUTPUT      PRUEBA.SFC
-PROFILE     PRUEBA.PFL
+
+    XDATES     2021/12/01 TO 2021/12/31
+    NWS_HGT  WIND      10.0
+
 ** Métodos para precesamiento de datos:
-METHOD   WIND_DIR  RANDOM
-METHOD   REFLEVEL  SUBNWS
-NWS_HGT  WIND      10.0
-METHOD   UASELECT SUNRISE
-UAWINDOW -12 12
-AERSURF AERSURFACE.OUT
-```
+    METHOD   WIND_DIR  RANDOM
+    METHOD   UASELECT SUNRISE
+    METHOD   REFLEVEL  SUBNWS
 
-Este archivo sólo dos secciones:
-+ ``JOB``: lo mismo que en los pasos anteriores.
-+ ``METPREP``: en esta secciones especificamos el archivo de salida del ETAPA2, y luego una serie de **keywords** y parámetros que hacen referencia a métodos a emplear para el cálculo y como utilizar la información. Finalmente se especifica el nombre de el archivo con información de parámetros de superficie del suelo cerca a las estaciones ``AERSURFACE.OUT``.
+** Nombres de archivos de salida
+        
+    OUTPUT      PRUEBA.SFC
+    PROFILE     PRUEBA.PFL
 
-Vamos a necesitar un archivo llamado [``AERSURFACE.OUT``](./archivos/aermod/AERSURFACE.OUT) con propiedades de la superficie, que se puede generar manualmente ó utilizando la herramienta **AERSURFACE**. En el apartado [AERSURFACE](/mca-fauba/tut/aersurface.html) se explican los pasos y criterios para completar el archivo ``AERSURFACE.OUT``. En este caso vamos a crear un nuevo archivo de texto, lo guardamos con el nombre de ``AERSURFACE.OUT`` con el siguiente contenido:
+    
 
-```Text
- FREQ_SECT  SEASONAL  1
-   SECTOR   1  0   360
-**------------------------------------------------|
-**          | season | section | a0  | b0  | z0   |
-**----------|--------|---------|-----|-----|------|
-   SITE_CHAR    1        1      0.16  0.80  0.54
-   SITE_CHAR    2        1      0.16  1.00  0.54
-   SITE_CHAR    3        1      0.18  1.00  0.50
-   SITE_CHAR    4        1      0.16  0.80  0.52
-**----------|--------|---------|-----|-----|------|
+** Parámetros de superficie
+
+    FREQ_SECT ANNUAL 1
+    SECTOR   1  0   360
+**-------------------------------------------------|
+**           | season | section | a0  | b0  | z0   |
+**-----------|--------|---------|-----|-----|------|
+    SITE_CHAR    1        1      0.16  0.80  0.54
+**-----------|--------|---------|-----|-----|------|
 
 ```
 
-Para ejecutar la ultima etapa, verificamos que estén presente los archivos:
-- ``PRUEBA.MRG`` generado al correr la ETAPA 2.
-- ``AERSURFACE.OUT`` generado en el paso anterior.
 
-Guardamos este archivo con el nombre ``ETAPA3.INP``, y luego lo copiamos y renombramos la copia como ``aermet.inp`` y ejecutamos el ``aermet.exe``.
+### Ejecución
 
-Se van a crear dos archivos necesarios para la ejecución del **AERMOD**:
+En la carpeta de trabajo (donde debe estar el ejecutable), guardamos este archivo llamado ``AERMET.INP``y ejecutamos el ``aermet.exe``.
 
-- ``PRUEBA.SFC``: contiene los datos de superficie procesados.
-- ``PRUEBA.PFL``: contiene los datos de perfiles verticales procesados.
+Se crearán los siguientes archivos (sus nombres fueron definidos en el archivo de control): 
+- ``PRUEBA.SFC``: contiene los parámetros de capa límite calculados, servirá de entrada al  **AERMOD** y permitirá realizar perfiles verticales.
+- ``PRUEBA.PFL``: Es un archivo con resultados a todos los niveles medidos, por ejemplo en el uso de torres, si los datos provienen de una estación de superficie solamente habrá una línea por hora, servirá de entrada al  **AERMOD**.
++ ``QA_SFC.OUT`` y ``QA_UA.OUT``: archivos con información de variables auditadas.
++ ``Discarded_ISHD_Records.txt``: si algún registro no cumple los parámetros de calidad entonces se descartan y se guardan en este archivo para su revisión.
++ ``ISHD_replace.txt``: se listan los registros que fueros reemplazados del archivo de meteorología de superficie.
++ ``MENSAJES.MSG``: Lista mensajes, alertas y errores. 
++ ``REPORTE.RPT``: Resume los pasos e información procesada en la corrida.
 
-Verificamos que la corrida fue exitosa si en los archivos PRUEBA3.RPT no aparecen mensajes de ERROR.
+Verificamos que la corrida fue exitosa si en los archivos REPORTE.RPT no aparecen mensajes de ERROR.
 
 ```Text
-        ****    ERROR MESSAGES    ****
+ ************  MESSAGE SUMMARY ***************** 
 
-               ---  NONE  ---
+
+
+ ERROR MESSAGES        0 MESSAGES
+
+
+(...)
+
+
+ AERMET FINISHED SUCCESSFULLY
+
+ END PROCESSING DATE/TIME: MAY 23, 2025  20:14:54 PM
+
 ```
 
 
