@@ -28,6 +28,15 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
     + [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
 
 
+### Clase 3:
+
++ #### Presentación
+    + [video tutorial](https://youtu.be/YP510pY2EiU)
++ #### Lectura
+    + [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
+    + [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
+
+
 ---
 
 ### Docente responsable
