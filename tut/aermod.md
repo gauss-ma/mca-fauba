@@ -4,17 +4,18 @@ published: true
 ---
 # AERMOD
 
-Tutorial para uso de **AERMOD**
+Tutorial para uso de **AERMOD**. Para mayor información se recomienda consultar la [guía de usuario](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf).
 {: .fs-6 .fw-300 }
 ---
-
 
 ## Directorio de trabajo
 
 Aermod requiere como entradas los productos de preprocesador [``AERMET``](./aermet.md), por lo que es conveniente trabajar en el mismo directorio donde se ejecuto el programa y se generaron los archivos de salida con extensiones .SFC y .PFL.
-Para esta prueba podemos usar las salidas generadas en el tutorial de [``AERMET``](./aermet.md) o descargar y descomprimir esta carpeta:
+Para esta prueba podemos usar las salidas generadas en el tutorial de [``AERMET``](./aermet.md) o descargar los siguientes archivos:
 
- [Descargar carpeta](./../files/CLASE_AERMET.zip){: .btn .btn-outline }   
++ [SURFACE_FILE: PRUEBA.SFC](./archivos/aermod/PRUEBA.SFC){: .btn .btn-outline }
++ [PROFILE_FILE: PRUEBA.PFL](./archivos/aermod/PRUEBA.PFL){: .btn .btn-outline }
+ 
 ## Descarga
 El aermod se puede descargar de la web de la USEPA: [``aermod_exe.zip``](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_exe.zip), es necesario descomprimirlo y luego colocar el ejcutable ``aermod.exe`` en el directorio de trabajo.
 ## Preparacion de datos de entrada
@@ -192,7 +193,7 @@ donde, Q: caudal másico emitido [g/s], H: altura del conducto [m], T: temperatu
 Los parámetros de emision para la ``FUENTE1`` son los siguientes:
 
 
-ANALITO|CAUDAL EMISIoN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIoN[mg/Nm3]|TASA[g/s]|
+ANALITO|CAUDAL EMISIoN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
 |-|-|-|-|-|-|
 NOx|	819|	453	|27,13|	196|	96,7|
 
@@ -354,14 +355,14 @@ Esta sección incluye todas las opciones de escritura de los datos de salida.
 ```Text
 OU STARTING  
    RECTABLE  ALLAVE  FIRST
-   MAXTABLE  ALLAVE  50
+   MAXTABLE  ALLAVE  15
    SUMMFILE  AERTEST_PRUEBA_NOX_MONTH.SUM
    PLOTFILE  MONTH  ALL  FIRST AERPLOT_PRUEBA_NOX_MONTH.OUT
 OU FINISHED
 ```
 + ``RECTABLE`` sirve para definir la tabla de máximos valores por receptor, ``ALLAVE`` reporta todos los tiempos de promediado utilizados en la corrida y ``FIRST-THIRD`` define que se deben mostrar los valores máximos calculados en cada receptor.
 
-+ ``MAXTABLE`` sirve para definir la tabla de máximos valores totales encontrados , ``ALLAVE`` reporta todos los tiempos de promediado utilizados en la corrida y se debe definir que cantidad de máximos se desea mostrar, en este caso 50.
++ ``MAXTABLE`` sirve para definir la tabla de máximos valores totales encontrados , ``ALLAVE`` reporta todos los tiempos de promediado utilizados en la corrida y se debe definir que cantidad de máximos se desea mostrar, en este caso 15.
 
 + ``SUMMFILE`` define el nombre del archivo de salida que posee además de información sobre la corrida y fechas procesadas, la tabla con las máximas concentraciones encontradas.
 
@@ -410,15 +411,7 @@ Luego se ejecuta ``aermod.exe``.
 
 Si todo sale bien, se van a crear los archivos especificados con las keywords ``SUMFILE`` y ``PLOTFILE`` de la sección **OUT**, en nuestro caso:
 
-+ ``aermod.out``
-+ ``AERTEST_PRUEBA_NOX_MONTH.SUM``
-+ ``AERPLOT_PRUEBA_NOX_MONTH.OUT``
-+ ``ERRORS.LOG``
-+ ``OUTPUT.LOG``
-
-
-
-``aermod.out`` contiene el registro de toda la información de la corrida, receptores, máximos y resultados para todos los receptores. Al ser el archivo de salida mas completo, suele ser requerido para ser auditado.
++ ``aermod.out`` contiene el registro de toda la información de la corrida, receptores, máximos y resultados para todos los receptores. Al ser el archivo de salida mas completo, suele ser requerido para ser auditado.
 
 + ``AERTEST_PRUEBA_NOX_MONTH.SUM``  muestra un resumen de la corrida con las tablas de máximas concentraciones encontradas para todos los receptores para el periodo modelado.
 

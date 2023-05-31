@@ -36,6 +36,13 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
     + [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
 
 
+### Clase 4:
+
++ #### Presentación
+    + [Video tutorial: pendiente]()
++ #### Lectura
+    + [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
+
 ---
 
 ### Docente responsable
@@ -60,7 +67,12 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 
 ### Lugar y horario
-Miercoles 18 a 21hs, aula UTI, Pabellón Uballes.
+~~Miercoles 18 a 21hs, aula UTI, Pabellón Uballes.~~
+
+Por cuestiones de fuerza mayor relacionadas a la integridad edilicia del aula asignada, se modificó el cronograma.
+
+Clases del 17/05 al 31/05: Remoto modalidad virtual.
+Desde el 07/06/2023 en aula 04 pabellón Parodi (Av. San Matín) 18 a 21hs.
 
 
 ### Requisitos de aprobación:

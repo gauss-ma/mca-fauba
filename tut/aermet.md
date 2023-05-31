@@ -220,9 +220,9 @@ Este es el último paso, y es donde se realizan los cálculos que servirán como
 
 #### METPREP
     
-    Incluimos este texto al archivo de control:
+Incluimos este texto al archivo de control:
 
-    ```Text
+```Text
     ** ETAPA 2 - Estimación de parámetros de la capa límite y creación de .SFC y .PFL
 
     METPREP
@@ -241,7 +241,7 @@ Este es el último paso, y es donde se realizan los cálculos que servirán como
         PROFILE     PRUEBA.PFL
 
 
-    ```
+```
 
 
 + ``XDATES``: Rango de fechas a procesar.
@@ -310,7 +310,7 @@ JOB
 
 SURFACE
 
-    DATA       SFC_MODIF.ISH ISHD
+    DATA       PRUEBA.ISH ISHD
     XDATES     2021/12/01 TO 2021/12/31
     LOCATION   87576  34.820S  058.583W  3  +0003
     AUDIT      WDIR WSPD TSKC RHUM TMPD
@@ -320,7 +320,7 @@ SURFACE
 
 UPPERAIR
 
-    DATA       UA_FULL_DEC21.FSL FSL
+    DATA       PRUEBA.FSL FSL
     XDATES     2021/12/01 TO 2021/12/31
     LOCATION   87576  34.82S  58.53W  3
     AUDIT      UAPR  UAHT  UATT  UATD  UAWD  UAWS
