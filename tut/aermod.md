@@ -193,7 +193,7 @@ donde, Q: caudal másico emitido [g/s], H: altura del conducto [m], T: temperatu
 Los parámetros de emision para la ``FUENTE1`` son los siguientes:
 
 
-ANALITO|CAUDAL EMISIoN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
+ANALITO|CAUDAL EMISIÓN [m3/s]|TEMPERATURA[K]|VELOCIDAD[m/s]|CONCENTRACIÓN[mg/Nm3]|TASA[g/s]|
 |-|-|-|-|-|-|
 NOx|	819|	453	|27,13|	196|	96,7|
 
