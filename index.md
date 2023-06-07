@@ -10,25 +10,25 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 ---
 
 ## Clases 2023
-### Clase 1: (10/05)
+#### Clase 1 (10/05):
 + Presentaciónes:  [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf) y  [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
 + Lectura:  [Cronología calidadde aire](./files/Heirdon_AirPollutionHistorical.pdf) y [Ecuación de Transporte](./files/MCA_Apunte_01_EcTransporte.pdf)
 
-### Clase 2: (17/05)
-
+#### Clase 2 (17/05):
 + Presentaciónes: [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf) y [Modelos gaussianos](./files/MCA_4_Presentando_Modelo_Gausiano.pdf)
 + Lectura: [Guia uso screen](./tut/archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf) y [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
 
-### Clase 3: (24/05)
+#### Clase 3 (24/05):
 + Presentación: [Video tutorial](https://youtu.be/YP510pY2EiU)
 + Lectura: [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
 
-### Clase 4: (31/05)
+#### Clase 4 (31/05):
 +  Presentación: [Video tutorial: pendiente]()
 +  Lectura: [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
 
-### Clase 5: (07/06)
-+ Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersión.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)
+#### Clase 5 (07/06):
++  Presentación: [Modelos Gaussianos](./files/MCA_Clases_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Clases_AERMOD_parte1.pdf)
++ Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)
 
 ---
 
