@@ -10,38 +10,25 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 ---
 
 ## Clases 2023
-### Clase 1:
-+ #### Presentación
-    + [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf)
-    + [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
-+ #### Lectura 
-    + [Cronología calidadde aire](./files/Heirdon_AirPollutionHistorical.pdf)
+### Clase 1: (10/05)
++ Presentaciónes:  [Contexto histórico y normativo](./files/MCA23_1_Contexto.pdf) y  [Ecuación de transporte](./files/MCA23_1_EcTransporte.pdf)
++ Lectura:  [Cronología calidadde aire](./files/Heirdon_AirPollutionHistorical.pdf) y [Ecuación de Transporte](./files/MCA_Apunte_01_EcTransporte.pdf)
 
+### Clase 2: (17/05)
 
-### Clase 2:
++ Presentaciónes: [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf) y [Modelos gaussianos](./files/MCA_4_Presentando_Modelo_Gausiano.pdf)
++ Lectura: [Guia uso screen](./tut/archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf) y [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
 
-+ #### Presentación
-    + [Presentación de modelos](./files/MCA_3_Introduccion_Modelado_Dispersión.pdf)
-    + [Modelos gaussianos](./files/MCA_4_Presentando_Modelo_Gausiano.pdf)
-+ #### Lectura
-    + [Guia uso screen](./tut/archivos/screen3/S2_SCREEN3 Instrucciones Guía Uso.pdf)
-    + [Introducción gaussianos - De Visscher](./files/CAP2-DE_VISSSCHER-PRIMER.pdf)
+### Clase 3: (24/05)
++ Presentación: [Video tutorial](https://youtu.be/YP510pY2EiU)
++ Lectura: [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
 
+### Clase 4: (31/05)
++  Presentación: [Video tutorial: pendiente]()
++  Lectura: [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
 
-### Clase 3:
-
-+ #### Presentación
-    + [Video tutorial](https://youtu.be/YP510pY2EiU)
-+ #### Lectura
-    + [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
-
-
-### Clase 4:
-
-+ #### Presentación
-    + [Video tutorial: pendiente]()
-+ #### Lectura
-    + [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
+### Clase 5: (07/06)
++ Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersión.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)
 
 ---
 
@@ -60,19 +47,14 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 |  2  | 17/05 | Modelos Gaussianos                | [Screen3](./tut/screen3.html) | Explicación [TP 1](./tps/tp1.html)  |
 |  3  | 24/05 |                                   | [AERMET](./tut/aermet.html)   | -                                   |
 |  4  | 31/05 |                                   | [AERMOD](./tut/aermod.html)   | Entrega **TP1**                     |
-|  5  | 07/06 | Meteorología                      |                               | Explicación [TP 2](./tps/tp2.html)  |
-|  6  | 14/06 | Fundamentos de AERMOD             |                               | Avances [TP 2](./tps/tp2.html)      |
+|  5  | 07/06 | Fundamentos de AERMOD             | -                             | Explicación [TP 2](./tps/tp2.html)  |
+|  6  | 14/06 | Meteorología                      | -                             | Avances [TP 2](./tps/tp2.html)      |
 |  7  | 21/06 |                                   | -                             | Exposición [TP 2](./tps/tp2.html)   |
 |  8  | 28/06 | *Evaluación integradora*          | -                             | Entrega **TP2**                     |
 
 
 ### Lugar y horario
-~~Miercoles 18 a 21hs, aula UTI, Pabellón Uballes.~~
-
-Por cuestiones de fuerza mayor relacionadas a la integridad edilicia del aula asignada, se modificó el cronograma.
-
-Clases del 17/05 al 31/05: Remoto modalidad virtual.
-Desde el 07/06/2023 en aula 04 pabellón Parodi (Av. San Matín) 18 a 21hs.
++ Miercoles 18 a 21hs, aula 4, Pabellón Lorenzo Parodi (Av. San Martín).
 
 
 ### Requisitos de aprobación:
