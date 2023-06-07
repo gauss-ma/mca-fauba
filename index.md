@@ -23,7 +23,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 + Lectura: [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
 
 #### Clase 4 (31/05):
-+  Presentación: [Video tutorial: pendiente]()
++  Presentación: [Video tutorial](https://www.youtube.com/watch?v=7gPrE61wqc4)
 +  Lectura: [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
 
 #### Clase 5 (07/06):
