@@ -28,7 +28,7 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 
 #### Clase 5 (07/06):
 +  Presentación: [Modelos Gaussianos](./files/MCA_Clases_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Clases_AERMOD_parte1.pdf)
-+ Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)
++ Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersion.pdf) <!--y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)-->
 
 ---
 
