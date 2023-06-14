@@ -30,9 +30,10 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 + Presentación: [Modelos Gaussianos](./files/MCA_Clases_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Clases_AERMOD_parte1.pdf)
 + Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersion.pdf) <!--y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)-->
 
-#### Clase 5 (07/06):
+#### Clase 6 (14/06):
 + Presentación: [Meteorología de Capa Límite](./files/MCA_Clases_Meteo.pdf) 
 + Lectura: [Cap. 18 - Práctical Meteorology (Stull)](./files/Stull_Practical_Meteorology-Chap18_PBL.pdf) 
+
 ---
 
 ### Docente responsable
