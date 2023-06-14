@@ -23,13 +23,16 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 + Lectura: [Guia uso aermet](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/met/aermet/aermet_userguide.pdf)
 
 #### Clase 4 (31/05):
-+  Presentación: [Video tutorial](https://www.youtube.com/watch?v=7gPrE61wqc4)
-+  Lectura: [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
++ Presentación: [Video tutorial](https://www.youtube.com/watch?v=7gPrE61wqc4)
++ Lectura: [Guia uso aermod](https://gaftp.epa.gov/Air/aqmg/SCRAM/models/preferred/aermod/aermod_userguide.pdf)
 
 #### Clase 5 (07/06):
-+  Presentación: [Modelos Gaussianos](./files/MCA_Clases_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Clases_AERMOD_parte1.pdf)
++ Presentación: [Modelos Gaussianos](./files/MCA_Clases_ModDispersion.pdf) y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Clases_AERMOD_parte1.pdf)
 + Lectura: [Modelos Gaussianos](./files/MCA_Apunte_02_ModDispersion.pdf) <!--y [Fundamentos de AERMOD (Parte 1)](./files/MCA_Apunte_02_AERMOD.pdf)-->
 
+#### Clase 5 (07/06):
++ Presentación: [Meteorología de Capa Límite](./files/MCA_Clases_Meteo.pdf) 
++ Lectura: [Cap. 18 - Práctical Meteorology (Stull)](./files/Stull_Practical_Meteorology-Chap18_PBL.pdf) 
 ---
 
 ### Docente responsable
