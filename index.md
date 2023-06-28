@@ -34,6 +34,9 @@ Material didáctico del curso de *Modelado de la Calidad del Aire* (MCA), dictad
 + Presentación: [Meteorología de Capa Límite](./files/MCA_Clases_Meteo.pdf) 
 + Lectura: [Cap. 18 - Práctical Meteorology (Stull)](./files/Stull_Practical_Meteorology-Chap18_PBL.pdf) 
 
+#### Examen:
++ [Link a examen](https://forms.gle/GNLY3qMWmNycnBjr8)
+
 ---
 
 ### Docente responsable
